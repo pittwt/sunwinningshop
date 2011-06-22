@@ -1,0 +1,39 @@
+#productGeneral ul#imagesbox {
+margin-left:0px;
+}
+.smallimages {
+padding:0px;
+margin-top:5px;
+}
+.smallimages li{
+border:1px solid #aaa;
+float:left;
+padding:0px;
+list-style:none;
+margin-right:3px;
+}
+.smallimages li.selected{
+border:1px solid #f00;
+}
+
+.smallimages ul{
+padding:0px;
+margin:0px;
+}
+
+.smallimages div{
+float:left;
+padding:0px;
+margin:0px;
+}
+.smallimages .product_info_next_l{
+cursor:pointer;
+width:20px;
+margin-right:3px;
+vertical-align:bottom;
+}
+.smallimages .product_info_next_r{
+cursor:pointer;
+width:20px;
+vertical-align:bottom;
+}
