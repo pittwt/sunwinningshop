@@ -231,12 +231,12 @@ if(!empty($fcontents)){
 	img{ border:0;}
 	</style>
 <?php
-$file_top_title=$url_string_connection.'cart.gif';
+/*$file_top_title=$url_string_connection.'cart.gif';
 if(@file_exists(DIR_WS_IMAGES .$file_top_title)){
 echo '<a target="_blank" href="http://www.'.$url_string_connection.'-cart.cn/"><img border="0" src="'.DIR_WS_IMAGES .$file_top_title.'"></a>';
 }else{
 echo $file_string[1];
-}
+}*/
 ?></div>
 <div style="width:19%; float:right;">
 	<?php echo $new_version; ?><br /><?php echo '(' . TEXT_CURRENT_VER_IS . ' v' . PROJECT_VERSION_MAJOR . '.' . PROJECT_VERSION_MINOR . (PROJECT_VERSION_PATCH1 != '' ? 'p' . PROJECT_VERSION_PATCH1 : '') . ')'; ?></td>

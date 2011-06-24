@@ -5,8 +5,19 @@
  * 商品批量导出 csv
  */
 
+require('includes/application_top.php');
 
-  require('includes/application_top.php');
+$filename = (isset($_POST['filename']) ? $_POST['filename'] : '');
+$chartset = (isset($_POST['chartset']) ? $_POST['chartset'] : '');
+if($filename && $chartset){
+	require('includes/classes/phpzip.php');
+	$zip = new PHPZip;
+	
+	$sql = "SELECT * FROM " . TABLE_CUSTOMERS . " WHERE customerS_id = ".$_SESSION['customer_id'];
+	//$user_query = $db->bindVars($user_query, ':customersID', $_SESSION['customer_id'], 'integer');
+	//echo $user_query;
+	$user_info = $db->Execute($user_query);
+}
 
 ?>
 <!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -18,6 +29,20 @@
 <link rel="stylesheet" type="text/css" href="includes/cssjsmenuhover.css" media="all" id="hoverJS">
 <script language="javascript" src="includes/menu.js"></script>
 <script language="javascript" src="includes/general.js"></script>
+<script type="text/javascript">
+  <!--
+  function init()
+  {
+    cssjsmenu('navbar');
+    if (document.getElementById)
+    {
+      var kill = document.getElementById('hoverJS');
+      kill.disabled = true;
+    }
+  if (typeof _editor_url == "string") HTMLArea.replaceAll();
+  }
+  // -->
+</script>
 <?php if ($editor_handler != '') include ($editor_handler); ?>
 </head>
 <body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" bgcolor="#FFFFFF" onLoad="init()">
@@ -34,18 +59,18 @@
         	<table>
             <form method="post" action="">
                 <tr>
-                	<td>导出文件名称：</td>
+                	<td class="txtright">导出文件名称：</td>
                     <td><input type="text" name="filename"></td>
                 </tr>
                 <tr>
-                	<td>编码格式：</td>
+                	<td class="txtright">编码格式：</td>
                     <td><select name="chartset">
                     <option value="utf-8">utf-8</option>
                     <option value="gb2312">gb2312</option>
                     <option value="gbk">gbk</option>
                 	</select></td>
                 </tr>
-                <tr><td colspan="2"><input type="submit" value="导出"></td></tr>
+                <tr><td colspan="2" class="txtcenter"><input type="submit" value="导出"></td></tr>
             </form>
             </table>
         </div>
