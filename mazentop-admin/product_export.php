@@ -13,10 +13,24 @@ if($filename && $chartset){
 	require('includes/classes/phpzip.php');
 	$zip = new PHPZip;
 	
-	$sql = "SELECT * FROM " . TABLE_CUSTOMERS . " WHERE customerS_id = ".$_SESSION['customer_id'];
+	$sql = "select p.* ,pd.*
+          from " . TABLE_PRODUCTS . " p, " .
+                   TABLE_PRODUCTS_DESCRIPTION . " pd
+          where    p.products_id = pd.products_id";
+	
+	//$sql = "SELECT * FROM " . TABLE_CUSTOMERS . " WHERE customerS_id = ".$_SESSION['customer_id'];
 	//$user_query = $db->bindVars($user_query, ':customersID', $_SESSION['customer_id'], 'integer');
-	//echo $user_query;
-	$user_info = $db->Execute($user_query);
+	//echo $sql."<br>";
+	$product_info = $db->Execute($sql);
+	/*foreach($product_info->fields as $item){
+		print_r($item);
+	}*/
+	while($product_info->EOF){
+		
+		print_r($product_info->fileds);
+		
+		$product_info->MoveNext();
+	}
 }
 
 ?>
