@@ -52,7 +52,7 @@ $docsPath = (file_exists('docs/index.html')) ? 'docs/index.html' : (file_exists(
 </li>
 <li>您的 <tt><strong>/includes/configure.php</strong></tt> 和 <tt><strong>/admin/includes/configure.php</strong></tt> 文件中的<em>路径设置</em>不正确，或者<em>数据库参数</em>不正确。<br />
 如果您修改过 configure.php 文件，或者移动了安装目录，那么请更新设置。<br />
-可访问 Zen Cart&trade; <a href="http://www.zen-cart.cn/forum/" target="_blank">中文论坛</a>获取更多信息。</li>
+可访问 Zen Cart&trade; <a href="/forum/" target="_blank">中文论坛</a>获取更多信息。</li>
 <?php if (isset($problemString) && $problemString != '') { ?>
 <li class="errorDetails">其他说明: <?php echo $problemString; ?></li>
 <?php } ?>
@@ -70,9 +70,9 @@ $docsPath = (file_exists('docs/index.html')) ? 'docs/index.html' : (file_exists(
 <?php } else { ?>
 <li>请先通过FTP上传 "zc_install" 目录，然后在浏览器中运行 <a href="<?php echo $instPath; ?>">zc_install/index.php</a> (或者刷新本页面查看链接)。</li>
 <?php } ?>
-<li>Zen Cart&trade; <a href="http://www.zen-cart.cn/forum/" target="_blank">中文论坛的新手上路栏目</a>有基本的入门资料。</li>
+<li>Zen Cart&trade; <a href="/forum/" target="_blank">中文论坛的新手上路栏目</a>有基本的入门资料。</li>
 </ol>
 
 </div>
-    <p style="text-align: center; font-size: small;">版权所有 &copy; 2003-<?php echo date('Y'); ?> <a href="http://www.zen-cart.cn" target="_blank">Zen Cart&trade; 中文版</a></p>
+    <p style="text-align: center; font-size: small;">版权所有 &copy; 2003-<?php echo date('Y'); ?> <a href="" target="_blank">Zen Cart&trade; 中文版</a></p>
 </body></html>

@@ -20,14 +20,14 @@
       	$db->Execute("TRUNCATE `dsf_account_info`;");
       	$db->Execute("TRUNCATE `dsf_shipping`;");
 	  	//get default account info
-	  	$dsf_account_info_data = file_get_contents("http://www.zen-cart.cn/4px/dsf_account_info_data.php");
+	  	$dsf_account_info_data = file_get_contents("/4px/dsf_account_info_data.php");
 	  	$dsf_account_info_data = unserialize($dsf_account_info_data);
 	  	$aiInfo = new objectInfo($dsf_account_info_data);
 	  	//var_dump($dsf_account_info_data);
 	  	zen_db_perform("dsf_account_info", $dsf_account_info_data, 'insert');
 	  	
 	  	//get dsf countries data
-	  	$dsf_countries_data = file_get_contents("http://www.zen-cart.cn/4px/dsf_countries_data.php");
+	  	$dsf_countries_data = file_get_contents("/4px/dsf_countries_data.php");
 	  	$dsf_countries_data = unserialize($dsf_countries_data);
 	  	//var_dump($dsf_countries_data);
 	  	foreach ($dsf_countries_data as $dsf_countries_tmp) {
@@ -36,7 +36,7 @@
 	  	
 	  	
 	  	//get dsf_countries_map_data.php
-	  	$dsf_countries_map_data = file_get_contents("http://www.zen-cart.cn/4px/dsf_countries_map_data.php");
+	  	$dsf_countries_map_data = file_get_contents("/4px/dsf_countries_map_data.php");
 	  	$dsf_countries_map_data = unserialize($dsf_countries_map_data);
 	  	//var_dump($dsf_countries_map_data);
 	  	foreach ($dsf_countries_map_data as $dsf_countries_map_tmp) {
@@ -44,7 +44,7 @@
 	  	}
 	  	
 	  	//get dsf_shipping.php
-	  	$dsf_shipping_data = file_get_contents("http://www.zen-cart.cn/4px/dsf_shipping_data.php");
+	  	$dsf_shipping_data = file_get_contents("/4px/dsf_shipping_data.php");
 	  	$dsf_shipping_data = unserialize($dsf_shipping_data);
 	  	//var_dump($dsf_shipping_list);
 	  	foreach ($dsf_shipping_data as $dsf_shipping_tmp) {

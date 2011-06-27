@@ -5,7 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: schinese.php 7440 2010-05-08 Jack $
- * Simplified Chinese version   http://www.zen-cart.cn
+ * Simplified Chinese version   
  */
 
 // FOLLOWING WERE moved to meta_tags.php
@@ -14,7 +14,7 @@
 //define('CUSTOM_KEYWORDS', 'ecommerce, open source, shop, online shopping');
 // END: moved to meta_tags.php
 
-  define('FOOTER_TEXT_BODY', '版权所有 &copy; ' . date('Y') . ' <a href="' . zen_href_link(FILENAME_DEFAULT) . '" target="_blank">' . STORE_NAME . '</a>. Powered by <a href="http://www.zen-cart.cn" target="_blank">Zen Cart</a><br/>Designed by <a href="http://www.12leaves.com">12leaves.com</a>');
+  define('FOOTER_TEXT_BODY', '版权所有 &copy; ' . date('Y') . ' <a href="' . zen_href_link(FILENAME_DEFAULT) . '" target="_blank">' . STORE_NAME . '</a>. Powered by <a href="" target="_blank">Zen Cart</a><br/>Designed by <a href="http://www.12leaves.com">12leaves.com</a>');
 
 // look in your $PATH_LOCALE/locale directory for available locales..
 // on RedHat try 'en_US'

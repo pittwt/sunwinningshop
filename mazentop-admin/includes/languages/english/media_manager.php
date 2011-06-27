@@ -17,7 +17,7 @@
 // | to obtain it through the world-wide-web, please send a note to       |
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
-// | Simplified Chinese version   http://www.zen-cart.cn                  |
+// | Simplified Chinese version                     |
 // +----------------------------------------------------------------------+
 //  $Id: media_manager.php 4873 2006-11-02 09:12:46Z drbyte $
 //

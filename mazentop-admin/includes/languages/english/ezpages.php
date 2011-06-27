@@ -17,7 +17,7 @@
 // | to obtain it through the world-wide-web, please send a note to       |
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
-// | Simplified Chinese version   http://www.zen-cart.cn                  |
+// | Simplified Chinese version                     |
 // +----------------------------------------------------------------------+
 //  $Id: ezpages.php 2827 2006-01-08 19:46:40Z ajeh $
 //
@@ -73,7 +73,7 @@ define('TEXT_ALT_URL', '内部链接地址:');
 define('TEXT_ALT_URL_EXPLAIN', '忽略HTML内容，采用内部链接地址<br />评论的链接示例: index.php?main_page=reviews<br />我的账号的链接示例: index.php?main_page=account 并设置为SSL');
 
 define('TEXT_ALT_URL_EXTERNAL', '外部链接地址:');
-define('TEXT_ALT_URL_EXTERNAL_EXPLAIN', '忽略HTML内容，采用外部链接地址<br />外部链接示例: http://www.zen-cart.cn');
+define('TEXT_ALT_URL_EXTERNAL_EXPLAIN', '忽略HTML内容，采用外部链接地址<br />外部链接示例: ');
 
 define('TEXT_SORT_CHAPTER_TOC_TITLE_INFO', '显示顺序: ');
 define('TEXT_SORT_CHAPTER_TOC_TITLE', '章节/TOC');

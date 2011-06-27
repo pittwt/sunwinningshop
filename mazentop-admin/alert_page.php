@@ -33,7 +33,7 @@ if (is_dir($check_path))
 	<li><?php echo ALERT_REMOVE_ZCINSTALL; ?><br /><br /></li>
 	<?php  } ?>
 	<?php if ($adminDirectoryExists) { ?>
-	<li><?php echo ALERT_RENAME_ADMIN; ?><br /><a href="http://www.zen-cart.cn/forum/zen-cart-security-t11094.html" target="_blank"><?php echo ADMIN_RENAME_FAQ_NOTE; ?></a></li>
+	<li><?php echo ALERT_RENAME_ADMIN; ?><br /><a href="/forum/zen-cart-security-t11094.html" target="_blank"><?php echo ADMIN_RENAME_FAQ_NOTE; ?></a></li>
 	<?php  } ?>
 	</ul>
 	<br />

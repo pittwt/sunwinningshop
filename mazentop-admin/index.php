@@ -178,7 +178,7 @@ following copyright announcement. //-->
 	}
 	?>
     <br />
-<br /><br />版权所有 &copy; 2003-<?php echo date('Y'); ?> <a href="http://www.zen-cart.cn" target="_blank">Zen Cart 中文版</a></div><div class="warrantyrow">Zen Cart 源于 osCommerce<br />本程序可免费使用，但不提供任何保修和服务<br />
+<br /><br />版权所有 &copy; 2003-<?php echo date('Y'); ?> <a href="" target="_blank">Zen Cart 中文版</a></div><div class="warrantyrow">Zen Cart 源于 osCommerce<br />本程序可免费使用，但不提供任何保修和服务<br />
 <div style="height:20px; width:100px; clear:both;"></div>
 </div>
 </body>

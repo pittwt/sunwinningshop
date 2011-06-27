@@ -1,7 +1,7 @@
 // I18N constants
 
 // LANG: "b5", ENCODING: UTF-8
-// by http://www.zen-cart.cn
+// by 
 HTMLArea.I18N = {
 
 	// the following should be the filename without .js extension

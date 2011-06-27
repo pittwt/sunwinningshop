@@ -32,6 +32,6 @@ if(!empty($file_string[2])){
 }
 	
 	*/?> <div style="height:20px; width:100px; clear:both;"></div>
-    <br /><br />版权所有 &copy; 2003-<?php echo date('Y'); ?> <a href="http://www.zen-cart.cn" target="_blank">Zen Cart中文版</a><br /><?php echo '<a href="' . zen_href_link(FILENAME_SERVER_INFO) . '">' . $current_sinfo . '</a>'; ?></td>
+    <br /><br />版权所有 &copy; 2003-<?php echo date('Y'); ?> <a href="" target="_blank">Zen Cart中文版</a><br /><?php echo '<a href="' . zen_href_link(FILENAME_SERVER_INFO) . '">' . $current_sinfo . '</a>'; ?></td>
   </tr>
 </table>

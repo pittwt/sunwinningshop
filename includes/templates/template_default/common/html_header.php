@@ -27,7 +27,7 @@ require(DIR_WS_MODULES . zen_get_module_directory('meta_tags.php'));
 <meta name="description" content="<?php echo META_TAG_DESCRIPTION; ?>" />
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="author" content="Zen Cart China" />
-<meta name="generator" content="Zen Cart, http://www.zen-cart.cn" />
+<meta name="generator" content="Zen Cart, " />
 <?php if (defined('ROBOTS_PAGES_TO_SKIP') && in_array($current_page_base,explode(",",constant('ROBOTS_PAGES_TO_SKIP'))) || $current_page_base=='down_for_maintenance' || $robotsNoIndex === true) { ?>
 <meta name="robots" content="noindex, nofollow" />
 <?php } ?>
