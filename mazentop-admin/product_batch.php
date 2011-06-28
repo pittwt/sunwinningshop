@@ -279,40 +279,18 @@ if($action == 'export'){
 <?php if ($editor_handler != '') include ($editor_handler); ?>
 <style type="text/css">
 <!--
-*{padding:0; margin:0}
-.dis {
-DISPLAY: block
-}
-.undis {
-DISPLAY: none
-}
-
-#NewsTop {
-CLEAR: both; MARGIN-BOTTOM: 16px
-}
-#NewsTop P {
-FLOAT: left; LINE-HEIGHT: 21px; CURSOR:pointer;
-}
-#NewsTop P.topTit {
-FONT-WEIGHT: bold; WIDTH: 117px
-}
-#NewsTop P.topC0 {
-BACKGROUND: #dcdcdc; BORDER-LEFT: #f2f2f2 1px solid; padding:0px 20px; CURSOR:pointer;}
-#NewsTop P.topC1 {
-BACKGROUND:#090; BORDER-LEFT: #f2f2f2 1px solid; padding:0px 20px; CURSOR:pointer; COLOR: #fff
-}
-#NewsTop #NewsTop_tit {
-BORDER-BOTTOM: #090 3px solid; HEIGHT: 21px
-}
-#NewsTop #NewsTop_cnt {
-PADDING-LEFT: 32px; BACKGROUND: url(http://www.popuni.com/attachments/month_0703/o2007320133249.gif) no-repeat 12px 13px; LINE-HEIGHT: 26px; PADDING-TOP: 7px; HEIGHT: 260px; TEXT-ALIGN: left
-}
-#NewsTop #NewsTop_cnt A {
-COLOR: #666; TEXT-DECORATION: none
-}
-#NewsTop #NewsTop_cnt A:hover {
-COLOR: #090; TEXT-DECORATION: underline
-}
+*{padding:0; margin:0;}
+.dis {DISPLAY: block;}
+.undis {DISPLAY: none;}
+#NewsTop {CLEAR: both; MARGIN-BOTTOM: 16px;}
+#NewsTop P {FLOAT: left; LINE-HEIGHT: 21px; CURSOR:pointer;}
+#NewsTop P.topTit {FONT-WEIGHT: bold; WIDTH: 117px;}
+#NewsTop P.topC0 {BACKGROUND: #dcdcdc; BORDER-LEFT: #f2f2f2 1px solid; padding:0px 20px; CURSOR:pointer;}
+#NewsTop P.topC1 {BACKGROUND:#090; BORDER-LEFT: #f2f2f2 1px solid; padding:0px 20px; CURSOR:pointer; COLOR: #fff;}
+#NewsTop #NewsTop_tit {BORDER-BOTTOM: #090 3px solid; HEIGHT: 21px;}
+#NewsTop #NewsTop_cnt {PADDING-LEFT: 32px; BACKGROUND: url(http://www.popuni.com/attachments/month_0703/o2007320133249.gif) no-repeat 12px 13px; LINE-HEIGHT: 26px; PADDING-TOP: 7px; HEIGHT: 260px; TEXT-ALIGN: left;}
+#NewsTop #NewsTop_cnt A {COLOR: #666; TEXT-DECORATION: none;}
+#NewsTop #NewsTop_cnt A:hover {COLOR: #090; TEXT-DECORATION: underline;}
 -->
 </style>
 </head>
@@ -337,7 +315,7 @@ COLOR: #090; TEXT-DECORATION: underline
             <SPAN>
             <div class="product_export">
                 <table>
-                <form method="post" action="product_batch.php?action=export" onSubmit="return chckexpform(this)">
+                <form method="post" action="product_batch.php?action=export" onSubmit="return checkexpform(this)">
                     <tr>
                         <td class="txtright">导出文件名称：</td>
                         <td><input type="text" name="filename"></td>
@@ -376,8 +354,8 @@ COLOR: #090; TEXT-DECORATION: underline
                 </table>
             </div>
             </span>
-            </DIV>
-            <SCRIPT>
+            </div>
+            <script>
             var Tags=document.getElementById('NewsTop_tit').getElementsByTagName('p'); 
             var TagsCnt=document.getElementById('NewsTop_cnt').getElementsByTagName('span'); 
             var len=Tags.length; 
@@ -396,9 +374,9 @@ COLOR: #090; TEXT-DECORATION: underline
 				Tags[v].className='topC1';
 				TagsCnt[v].className='dis';
             }
-            </SCRIPT>
-            </DIV>
-        </DIV>
+            </script>
+            </div>
+        </div>
     </div>
     
 </div>
@@ -410,12 +388,12 @@ function checkimpform(fm){
 	}
 	var filename = fm.filename.value;
 	if(filename.substring(filename.lastIndexOf('.'), filename.length) != '.csv'){
-		alert('文件格式不正确')
+		alert('文件格式不正确');
 		return false;
 	}
 	return true;
 }
-function chckexpform(fm){
+function checkexpform(fm){
 	if(fm.filename.value == ''){
 		alert('请输入导出的文件名');
 		return false;
