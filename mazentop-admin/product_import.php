@@ -72,7 +72,8 @@ if($_POST['import']){
 		echo $insert_id;
 		//exit;
 	}
-
+	$messageStack->add_session('导入成功', 'success');
+    zen_redirect(zen_href_link('product_import'));
 }
 
 class arrayiconv
@@ -164,13 +165,13 @@ class arrayiconv
 
 <!-- body //-->
 <div class="maincontent">
-	<div class="content_title">商品批量导出</div>
+	<div class="content_title">商品批量导入</div>
     <div class="content">
     	<div class="product_export">
         	<table>
-            <form method="post" action="" enctype="multipart/form-data">
+            <form method="post" action="" enctype="multipart/form-data" onSubmit="return checkform(this)">
                 <tr>
-                	<td class="txtright">导出文件名称：</td>
+                	<td class="txtright">导入文件名称：</td>
                     <td><input type="file" name="filename"></td>
                 </tr>
                 <tr>
@@ -187,6 +188,20 @@ class arrayiconv
         </div>
     </div>
 </div>
+<script type="text/javascript">
+function checkform(fm){
+	if(fm.filename.value==''){
+		alert('请选择导入的文件');
+		return false;
+	}
+	var filename = fm.filename.value;
+	if(filename.substring(filename.lastIndexOf('.'), filename.length) != '.csv'){
+		alert('文件格式不正确')
+		return false;
+	}
+	return true;
+}
+</script>
 <!-- body_eof //-->
 
 <!-- footer //-->

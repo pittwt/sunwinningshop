@@ -173,7 +173,7 @@ if($filename && $charset){
     <div class="content">
     	<div class="product_export">
         	<table>
-            <form method="post" action="">
+            <form method="post" action="" onSubmit="return chckform(this)">
                 <tr>
                 	<td class="txtright">导出文件名称：</td>
                     <td><input type="text" name="filename"></td>
@@ -197,6 +197,15 @@ if($filename && $charset){
 <!-- footer //-->
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
 <!-- footer_eof //-->
+<script type="text/javascript">
+function chckform(fm){
+	if(fm.filename.value == ''){
+		alert('请输入导出的文件名');
+		return false;
+	}
+	return true;
+}
+</script>
 </body>
 </html>
 <?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>
