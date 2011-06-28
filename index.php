@@ -23,8 +23,9 @@
 /**
  * Load common library stuff 
  */
-  require('includes/application_top.php');
 
+  require('includes/application_top.php');
+  //require('checkcountry/getclientip.php');
   $language_page_directory = DIR_WS_LANGUAGES . $_SESSION['language'] . '/';
   $directory_array = $template->get_template_part($code_page_directory, '/^header_php/');
   foreach ($directory_array as $value) { 

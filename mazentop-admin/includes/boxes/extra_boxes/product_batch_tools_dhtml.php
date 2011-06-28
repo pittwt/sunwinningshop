@@ -9,4 +9,4 @@
  * @version $Id: image_handler_tools_dhtml.php,v 1.1 2006/04/11 22:00:55 tim Exp $
  */
 
-  $za_contents[] = array('text' => '商品批量导出', 'link' => zen_href_link('product_export', '', 'NONSSL'));
+  $za_contents[] = array('text' => '商品批量导入导出', 'link' => zen_href_link('product_batch', '', 'NONSSL'));
