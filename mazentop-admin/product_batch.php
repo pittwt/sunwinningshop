@@ -3,6 +3,7 @@
  * @package product_export
  * Author Anton
  * 商品批量导入 csv
+ * 
  */
 
 require('includes/application_top.php');
@@ -260,6 +261,7 @@ if($action == 'export'){
 <title><?php echo TITLE; ?></title>
 <link rel="stylesheet" type="text/css" href="includes/stylesheet.css">
 <link rel="stylesheet" type="text/css" href="includes/cssjsmenuhover.css" media="all" id="hoverJS">
+<link rel="stylesheet" type="text/css" href="includes/product_batch.css">
 <script language="javascript" src="includes/menu.js"></script>
 <script language="javascript" src="includes/general.js"></script>
 <script type="text/javascript">
