@@ -184,8 +184,8 @@ em,var {font-style:normal;}
 .two_center .search {border:1px solid #c5c5c5;padding:3px 0;width:383px;overflow:hidden;zoom:1;}
 .search form,.fd_in form {overflow:hidden;zoom:1;}
 .search .text {float:left;border:0 none;width:265px;height:21px;padding:7px 0 5px 3px;}
-.search .sub {float:left;border:0 none;background:url("../images/abc.gif") -44px -82px no-repeat;width:112px;height:33px;margin-right:3px;overflow:hidden;}
-.search .sub_cheng {float:left;border:0 none;background:url("../images/abc.gif") -168px -248px no-repeat;width:112px;height:33px;margin-right:3px;overflow:hidden;}
+.search .sub {float:left;border:0 none;background:url("../images/abc.gif") -44px -82px no-repeat;width:112px;height:33px;margin-right:3px;overflow:hidden;cursor:pointer;}
+.search .sub_cheng {float:left;border:0 none;background:url("../images/abc.gif") -168px -248px no-repeat;width:112px;height:33px;margin-right:3px;overflow:hidden;cursor:pointer;}
 .two_center span,.two_center var,.two_center .a_color {-webkit-text-size-adjust:none; font-size:10px; }
 .a_color:hover {color:#cb0709; text-decoration:underline;}
 .hd_pic {margin-left:21px;}
