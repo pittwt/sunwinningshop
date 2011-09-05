@@ -50,139 +50,141 @@
   $right_column_file = 'column_right.php';
   $body_id = ($this_is_home_page) ? 'indexHome' : str_replace('_', '', $_GET['main_page']);
 ?>
-<body id="<?php echo $body_id . 'Body'; ?>"<?php if($zv_onload !='') echo ' onload="'.$zv_onload.'"'; ?>>
-<?php
-  if (SHOW_BANNERS_GROUP_SET1 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET1)) {
-    if ($banner->RecordCount() > 0) {
-?>
-<div id="bannerOne" class="banners"><?php echo zen_display_banner('static', $banner); ?></div>
-<?php
+<body>
+<div class="hd_long">
+		<div class="hd_one">
+			<div class="one_left">We offer <em class="hd_color">20$ off</em>,7*24h Service for you,free shipping</div>
+			<!-- AddThis Button BEGIN -->
+			<!-- <div class="addthis_toolbox addthis_default_style " style="float:right;width:138px;margin-top:8px;">
+				<a class="addthis_button_preferred_1"></a>
+				<a class="addthis_button_preferred_2"></a>
+				<a class="addthis_button_preferred_3"></a>
+				<a class="addthis_button_preferred_4"></a>
+				<a class="addthis_button_compact"></a>
+				<a class="addthis_counter addthis_bubble_style"></a>
+			</div>
+			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e40fdac6104affb"></script> -->
+			<!-- AddThis Button END -->
+			<div class="one_center">Welcome.
+ Please <a href="###" class="hd_create_color">create an account</a> or <a href="###" class="hd_color">Sign in</a>.<a class="account" href="###">My Account</a><a class="account" href="###">Track Your Order</a><a href="###" class="account">Blog</a> </div>
+		</div>
+	</div>
+    
+<div class="home">
+    
+    <div id="mainWrapper">
+    <?php
+     /**
+      * prepares and displays header output
+      *
+      */
+      if (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_HEADER_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == '')) {
+        $flag_disable_header = true;
+      }
+      require($template->get_template_dir('tpl_header.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_header.php');?>
+    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="contentMainWrapper">
+      <tr>
+    <?php
+    if (COLUMN_LEFT_STATUS == 0 || (CUSTOMERS_APPROVAL == '1' and $_SESSION['customer_id'] == '') || (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_COLUMN_LEFT_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == ''))) {
+      // global disable of column_left
+      $flag_disable_left = true;
     }
-  }
-?>
-
-<div id="mainWrapper">
-<?php
- /**
-  * prepares and displays header output
-  *
-  */
-  if (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_HEADER_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == '')) {
-    $flag_disable_header = true;
-  }
-  require($template->get_template_dir('tpl_header.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_header.php');?>
-
-<table width="100%" border="0" cellspacing="0" cellpadding="0" id="contentMainWrapper">
-  <tr>
-<?php
-if (COLUMN_LEFT_STATUS == 0 || (CUSTOMERS_APPROVAL == '1' and $_SESSION['customer_id'] == '') || (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_COLUMN_LEFT_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == ''))) {
-  // global disable of column_left
-  $flag_disable_left = true;
-}
-if (!isset($flag_disable_left) || !$flag_disable_left) {
-?>
-
- <td id="navColumnOne" class="columnLeft" style="width: <?php echo COLUMN_WIDTH_LEFT; ?>">
-<?php
- /**
-  * prepares and displays left column sideboxes
-  *
-  */
-?>
-<div id="navColumnOneWrapper" style="width: <?php echo BOX_WIDTH_LEFT; ?>"><?php require(DIR_WS_MODULES . zen_get_module_directory('column_left.php')); ?></div></td>
-<?php
-}
-?>
-    <td valign="top">
-<!-- bof  breadcrumb -->
-<?php if (DEFINE_BREADCRUMB_STATUS == '1' || (DEFINE_BREADCRUMB_STATUS == '2' && !$this_is_home_page) ) { ?>
-    <div id="navBreadCrumb"><?php echo $breadcrumb->trail(BREAD_CRUMBS_SEPARATOR); ?></div>
-<?php } ?>
-<!-- eof breadcrumb -->
-
-<?php
-  if (SHOW_BANNERS_GROUP_SET3 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET3)) {
-    if ($banner->RecordCount() > 0) {
-?>
-<div id="bannerThree" class="banners"><?php echo zen_display_banner('static', $banner); ?></div>
-<?php
+    if (!isset($flag_disable_left) || !$flag_disable_left) {
+    ?>
+    
+     <td id="navColumnOne" class="columnLeft" style="width: <?php echo COLUMN_WIDTH_LEFT; ?>">
+    <?php
+     /**
+      * prepares and displays left column sideboxes
+      *
+      */
+    ?>
+    <div id="navColumnOneWrapper" style="width: <?php echo BOX_WIDTH_LEFT; ?>"><?php require(DIR_WS_MODULES . zen_get_module_directory('column_left.php')); ?></div></td>
+    <?php
     }
-  }
-?>
-
-<!-- bof upload alerts -->
-<?php if ($messageStack->size('upload') > 0) echo $messageStack->output('upload'); ?>
-<!-- eof upload alerts -->
-
-<?php
- /**
-  * prepares and displays center column
-  *
-  */
- require($body_code); ?>
-
-<?php
-  if (SHOW_BANNERS_GROUP_SET4 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET4)) {
-    if ($banner->RecordCount() > 0) {
-?>
-<div id="bannerFour" class="banners"><?php echo zen_display_banner('static', $banner); ?></div>
-<?php
+    ?>
+        <td valign="top">
+    <!-- bof  breadcrumb -->
+    <?php if (DEFINE_BREADCRUMB_STATUS == '1' || (DEFINE_BREADCRUMB_STATUS == '2' && !$this_is_home_page) ) { ?>
+        <div id="navBreadCrumb"><?php echo $breadcrumb->trail(BREAD_CRUMBS_SEPARATOR); ?></div>
+    <?php } ?>
+    <!-- eof breadcrumb -->
+    
+    <?php
+      if (SHOW_BANNERS_GROUP_SET3 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET3)) {
+        if ($banner->RecordCount() > 0) {
+    ?>
+    <div id="bannerThree" class="banners"><?php echo zen_display_banner('static', $banner); ?></div>
+    <?php
+        }
+      }
+    ?>
+    
+    <!-- bof upload alerts -->
+    <?php if ($messageStack->size('upload') > 0) echo $messageStack->output('upload'); ?>
+    <!-- eof upload alerts -->
+    
+    <?php
+     /**
+      * prepares and displays center column
+      *
+      */
+     require($body_code); ?>
+    
+    <?php
+      if (SHOW_BANNERS_GROUP_SET4 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET4)) {
+        if ($banner->RecordCount() > 0) {
+    ?>
+    <div id="bannerFour" class="banners"><?php echo zen_display_banner('static', $banner); ?></div>
+    <?php
+        }
+      }
+    ?></td>
+    
+    <?php
+    //if (COLUMN_RIGHT_STATUS == 0 || (CUSTOMERS_APPROVAL == '1' and $_SESSION['customer_id'] == '') || (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_COLUMN_RIGHT_OFF == 'true' && $_SESSION['customers_authorization'] != 0)) {
+    if (COLUMN_RIGHT_STATUS == 0 || (CUSTOMERS_APPROVAL == '1' and $_SESSION['customer_id'] == '') || (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_COLUMN_RIGHT_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == ''))) {
+      // global disable of column_right
+      $flag_disable_right = true;
     }
-  }
-?></td>
-
-<?php
-//if (COLUMN_RIGHT_STATUS == 0 || (CUSTOMERS_APPROVAL == '1' and $_SESSION['customer_id'] == '') || (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_COLUMN_RIGHT_OFF == 'true' && $_SESSION['customers_authorization'] != 0)) {
-if (COLUMN_RIGHT_STATUS == 0 || (CUSTOMERS_APPROVAL == '1' and $_SESSION['customer_id'] == '') || (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_COLUMN_RIGHT_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == ''))) {
-  // global disable of column_right
-  $flag_disable_right = true;
-}
-if (!isset($flag_disable_right) || !$flag_disable_right) {
-?>
-<td id="navColumnTwo" class="columnRight" style="width: <?php echo COLUMN_WIDTH_RIGHT; ?>">
-<?php
- /**
-  * prepares and displays right column sideboxes
-  *
-  */
-?>
-<div id="navColumnTwoWrapper" style="width: <?php echo BOX_WIDTH_RIGHT; ?>"><?php require(DIR_WS_MODULES . zen_get_module_directory('column_right.php')); ?></div></td>
-<?php
-}
-?>
-  </tr>
-</table>
-
-<?php
- /**
-  * prepares and displays footer output
-  *
-  */
-  if (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_FOOTER_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == '')) {
-    $flag_disable_footer = true;
-  }
-  require($template->get_template_dir('tpl_footer.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_footer.php');
-?>
+    if (!isset($flag_disable_right) || !$flag_disable_right) {
+    ?>
+    <td id="navColumnTwo" class="columnRight" style="width: <?php echo COLUMN_WIDTH_RIGHT; ?>">
+    <?php
+     /**
+      * prepares and displays right column sideboxes
+      *
+      */
+    ?>
+    <div id="navColumnTwoWrapper" style="width: <?php echo BOX_WIDTH_RIGHT; ?>"><?php require(DIR_WS_MODULES . zen_get_module_directory('column_right.php')); ?></div></td>
+    <?php
+    }
+    ?>
+      </tr>
+    </table>
+    
+    <?php
+     /**
+      * prepares and displays footer output
+      *
+      */
+      if (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_FOOTER_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == '')) {
+        $flag_disable_footer = true;
+      }
+      require($template->get_template_dir('tpl_footer.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_footer.php');
+    ?>
+    
+    </div>
+    <!--bof- parse time display -->
+    <?php
+      if (DISPLAY_PAGE_PARSE_TIME == 'true') {
+    ?>
+    <div class="smallText center">Parse Time: <?php echo $parse_time; ?> - Number of Queries: <?php echo $db->queryCount(); ?> - Query Time: <?php echo $db->queryTime(); ?></div>
+    <?php
+      }
+    ?>
+    <!--eof- parse time display -->
 
 </div>
-<!--bof- parse time display -->
-<?php
-  if (DISPLAY_PAGE_PARSE_TIME == 'true') {
-?>
-<div class="smallText center">Parse Time: <?php echo $parse_time; ?> - Number of Queries: <?php echo $db->queryCount(); ?> - Query Time: <?php echo $db->queryTime(); ?></div>
-<?php
-  }
-?>
-<!--eof- parse time display -->
-<!--bof- banner #6 display -->
-<?php
-  if (SHOW_BANNERS_GROUP_SET6 != '' && $banner = zen_banner_exists('dynamic', SHOW_BANNERS_GROUP_SET6)) {
-    if ($banner->RecordCount() > 0) {
-?>
-<div id="bannerSix" class="banners"><?php echo zen_display_banner('static', $banner); ?></div>
-<?php
-    }
-  }
-?>
-<!--eof- banner #6 display -->
 </body>
