@@ -34,7 +34,7 @@
 ?>
 <div class="head">
     <div class="hd_two">
-        <div class="logo"><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/logo.jpg" alt="图片"/></a></div>
+        <div class="logo"><a href="<?php echo HTTP_SERVER . DIR_WS_CATALOG;?>"><img src="<?php echo DIR_WS_TEMPLATE;?>images/logo.jpg" alt="<?php echo HTTP_SERVER . DIR_WS_CATALOG;?>"/></a></div>
         <div class="two_center">
             <div class="search"><form><input class="text" type="text"/><input class="sub" type="submit" value="" id="search_sub"/></form></div>
             <span><var style="font-weight:bold;">Search by:</var><a class="a_color" href="###">Size,</a><a href="###" class="a_color">Narrow Shoes,</a><a href="###" class="a_color">Wide Shoes,</a><a href="###" class="a_color">Popular Searches</a></span>
