@@ -10,7 +10,6 @@ CODE {	font-family: arial, verdana, helvetica, sans-serif;	font-size: 1em;	}
 FORM, SELECT, INPUT {	display: inline;	font-size: 1em;	margin: 0.1em;	}
 TEXTAREA {/*	float: left;*/
 	margin: auto;	display: block;	width: 95%;	}
-input:focus, select:focus, textarea:focus {	background: #F0F8FF;	}
 FIELDSET {	padding: 0.5em;	margin: 0.5em 0em;	border: 1px solid #cccccc;	}
 LEGEND {	font-weight: bold;	padding: 0.3em;	}
 LABEL, h4.optionName {	line-height: 1.5em;	padding: 0.2em;	}
@@ -223,6 +222,7 @@ em,var {font-style:normal;}
 .hd_for .cart_left {float:left;}
 .hd_for .cart_left ,.hd_for .a_color {-webkit-text-size-adjust:none; font-size:11px;}
 .hd_for .cart {float:right;background:url("../images/abc.gif") -374px -198px  no-repeat;padding-left:34px;color:#0066b0;font-style:italic;font-weight:bold;}
+.hd_for .span_cart {float:right;}
  
 																/*conment*/
 .conment {width:980px;margin:0 auto;overflow:hidden;zoom:1;}

@@ -36,17 +36,24 @@
     <div class="hd_two">
         <div class="logo"><a href="<?php echo HTTP_SERVER . DIR_WS_CATALOG;?>"><img src="<?php echo DIR_WS_TEMPLATE;?>images/logo.jpg" alt="<?php echo HTTP_SERVER . DIR_WS_CATALOG;?>"/></a></div>
         <div class="two_center">
-            <div class="search"><form><input class="text" type="text"/><input class="sub" type="submit" value="" id="search_sub"/></form></div>
-            <span><var style="font-weight:bold;">Search by:</var><a class="a_color" href="###">Size,</a><a href="###" class="a_color">Narrow Shoes,</a><a href="###" class="a_color">Wide Shoes,</a><a href="###" class="a_color">Popular Searches</a></span>
+            <div class="search">
+                <form action="index.php?main_page=advanced_search_result" method="get" name="quick_find_header">
+                    <input type="hidden" value="advanced_search_result" name="main_page">
+                    <input type="hidden" value="1" name="search_in_description">
+                    <input class="text" name="keyword" type="text"  value="<?php //echo HEADER_SEARCH_DEFAULT_TEXT;?>" onFocus="if (this.value == '<?php //echo HEADER_SEARCH_DEFAULT_TEXT;?>') this.value ='';" onBlur="if (this.value == '') this.value = '<?php //echo HEADER_SEARCH_DEFAULT_TEXT;?>';" />
+                    <input id="search_sub" class="sub" type="submit" value="" />
+                </form>
+            </div>
+            <span><var style="font-weight:bold;">Hot Tags:</var><a class="a_color" href="###">Size,</a><a href="###" class="a_color">Narrow Shoes,</a><a href="###" class="a_color">Wide Shoes,</a><a href="###" class="a_color">Popular Searches</a></span>
         </div>
         <div class="hd_pic">
-        	<a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/days.jpg" alt="图片"/></a>
-            <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/free.jpg" alt="图片"/></a>
+        	<img src="<?php echo DIR_WS_TEMPLATE;?>images/days.jpg" alt=""/>&nbsp;&nbsp;
+            <img src="<?php echo DIR_WS_TEMPLATE;?>images/free.jpg" alt=""/>
         </div>
     </div>
                                                                     <!-- nav -->
     <div class="hd_nav">
-        <div class="nav_left"><a href="###">HOME</a></div>
+        <div class="nav_left"><a href="<?php echo HTTP_SERVER . DIR_WS_CATALOG;?>">HOME</a></div>
         <ul class="nav">
             <li class="nav_li">
                 <a href="###" class="nav_a">fenlei1</a>
@@ -120,7 +127,15 @@
 
 
     <div class="hd_for">
+    	
         <span class="cart_left">Search　Search by:<a class="a_color" href="###">Size,</a><a href="###" class="a_color">Narrow Shoes,</a><a href="###" class="a_color">Wide Shoes,</a><a href="###" class="a_color">Popular Searches</a></span>
-        <a href="###" class="cart">Shopping Cart</a>
+        <!--<a href="###" class="cart">Shopping Cart</a>-->
+        <span class="span_cart">
+    		<?php require($template->get_template_dir('tpl_shopping_cart_header.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_shopping_cart_header.php'); 
+				echo $content;?>
+			<?php if ($_SESSION['cart']->count_contents() != 0) { ?>
+				&nbsp;| <a href="<?php echo zen_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'); ?>"><?php echo HEADER_TITLE_CHECKOUT; ?></a>
+			<?php }?>
+         </span>
     </div>
 </div>
