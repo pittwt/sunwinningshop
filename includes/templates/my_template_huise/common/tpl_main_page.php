@@ -52,23 +52,23 @@
 ?>
 <body>
 <div class="hd_long">
-	<div class="hd_one">
-		<div class="one_left">We offer <em class="hd_color">20$ off</em>,7*24h Service for you,free shipping</div>
-			<!-- AddThis Button BEGIN -->
-			<!-- <div class="addthis_toolbox addthis_default_style " style="float:right;width:138px;margin-top:8px;">
-				<a class="addthis_button_preferred_1"></a>
-				<a class="addthis_button_preferred_2"></a>
-				<a class="addthis_button_preferred_3"></a>
-				<a class="addthis_button_preferred_4"></a>
-				<a class="addthis_button_compact"></a>
-				<a class="addthis_counter addthis_bubble_style"></a>
-			</div>
-			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e40fdac6104affb"></script> -->
-			<!-- AddThis Button END -->
-			<div class="one_center">Welcome.
- Please <a href="###" class="hd_create_color">create an account</a> or <a href="###" class="hd_color">Sign in</a>.<a class="account" href="###">My Account</a><a class="account" href="###">Track Your Order</a><a href="###" class="account">Blog</a> </div>
-		</div>
-	</div>
+    <div class="hd_one">
+    <div class="one_left">We offer <em class="hd_color">20$ off</em>,7*24h Service for you,free shipping</div>
+        <!-- AddThis Button BEGIN -->
+        <!-- <div class="addthis_toolbox addthis_default_style " style="float:right;width:138px;margin-top:8px;">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e40fdac6104affb"></script> -->
+        <!-- AddThis Button END -->
+        <div class="one_center">Welcome.
+    Please <a href="###" class="hd_create_color">create an account</a> or <a href="###" class="hd_color">Sign in</a>.<a class="account" href="###">My Account</a><a class="account" href="###">Track Your Order</a><a href="/blog" class="account">Blog</a> </div>
+    </div>
+</div>
     
 <div class="home">
     <?php
