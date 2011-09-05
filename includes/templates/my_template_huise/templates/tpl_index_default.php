@@ -17,10 +17,10 @@
     <div class="act_border">
         <table id="mm" cellspacing=0 cellpadding=0>
             <tr>
-                <td><a href="###"><img src="images/act_pic.jpg" alt="图片"/></a></td>
-                <td><a href="###"><img src="images/act_pic.jpg" alt="图片"/></a></td>
-                <td><a href="###"><img src="images/act_pic.jpg" alt="图片"/></a></td>
-                <td><a href="###"><img src="images/act_pic.jpg" alt="图片"/></a></td>
+                <td><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/1.jpg" alt=""/></a></td>
+                <td><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/2.jpg" alt=""/></a></td>
+                <td><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/3.jpg" alt=""/></a></td>
+                <td><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/4.jpg" alt=""/></a></td>
             </tr>
         </table>
         <div id="number" class="number">
