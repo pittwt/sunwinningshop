@@ -13,6 +13,24 @@
  * @version $Id: tpl_index_default.php 3464 2006-04-19 00:07:26Z ajeh $
  */
 ?>
+<div class="active" id="getout">
+    <div class="act_border">
+        <table id="mm" cellspacing=0 cellpadding=0>
+            <tr>
+                <td><a href="###"><img src="images/act_pic.jpg" alt="图片"/></a></td>
+                <td><a href="###"><img src="images/act_pic.jpg" alt="图片"/></a></td>
+                <td><a href="###"><img src="images/act_pic.jpg" alt="图片"/></a></td>
+                <td><a href="###"><img src="images/act_pic.jpg" alt="图片"/></a></td>
+            </tr>
+        </table>
+        <div id="number" class="number">
+            <a class="first"href="###">1</a>
+            <a href="###">2</a>
+            <a href="###">3</a>
+            <a href="###">4</a>
+        </div> 
+    </div>
+</div>
 <div class="centerColumn" id="indexDefault">
 <h1 id="indexDefaultHeading"><?php echo HEADING_TITLE; ?></h1>
 
