@@ -96,21 +96,17 @@
     </div>
     <div class="cate_list" id="memu">
         <ul>
-            <li><a href="###">Wholesale NHL Jerseys</a></li>
-            <li><a href="###">Wholesale NHL Jerseys</a></li>
-            <li><a href="###">Wholesale NHL Jerseys</a></li>
-            <li><a href="###">Wholesale NHL Jerseys</a></li>
-            <li><a href="###">Wholesale NHL Jerseys</a></li>
-            <li><a href="###">Wholesale NHL Jerseys</a></li>
-            <li><a href="###">Wholesale NHL Jerseys</a></li>
+        <?php if($category_parent){
+				foreach($category_parent as $item){?>
+            <li><a href="<?php echo zen_href_link(FILENAME_DEFAULT, "cPath=".$item['categories_id']."")?>" class="nav_a"> <?php echo $item['name'];?></a></li>
+        <?php }}?>
         </ul>
     </div>
 
 
     <div class="hd_for">
     	
-        <span class="cart_left">Search　Search by:<a class="a_color" href="###">Size,</a><a href="###" class="a_color">Narrow Shoes,</a><a href="###" class="a_color">Wide Shoes,</a><a href="###" class="a_color">Popular Searches</a></span>
-        <!--<a href="###" class="cart">Shopping Cart</a>-->
+        <!--<span class="cart_left">Search　Search by:<a class="a_color" href="###">Size,</a><a href="###" class="a_color">Narrow Shoes,</a><a href="###" class="a_color">Wide Shoes,</a><a href="###" class="a_color">Popular Searches</a></span>-->
         <span class="span_cart">
     		<?php require($template->get_template_dir('tpl_shopping_cart_header.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_shopping_cart_header.php'); 
 				echo $content;?>
