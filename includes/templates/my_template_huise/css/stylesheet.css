@@ -231,7 +231,7 @@ em,var {font-style:normal;}
 .feature {position:relative;z-index:2;}
 .title {line-height:37px;height:37px;font-size:14px;padding-left:14px;background-color:#b8d6ec;}
 .cate_con {border:1px solid #d3d3d3;border-top:none;padding:2px 0 2px 3px;}
-.cate_con .h3_tit {line-height:31px;width:219px;padding-left:10px;background:url("../images/h3_bg.gif") 212px  no-repeat;}
+.cate_con .h3_tit {line-height:31px;width:219px;padding-left:10px;background:url("../images/h3_bg.gif") 212px  no-repeat;position:relative;}
 .cate_con .cate_change {background:none;border:1px solid #ff6c00;line-height:29px;}
 .cate_con .h3_tit .h3_a {padding-left:11px;background:url("../images/sanjiao_hui.gif") left center no-repeat;font-weight:bold;}
 .cate_con .h3_tit .a_change {color:#ff6c00;background:url("../images/cheng.gif") left center no-repeat;}
