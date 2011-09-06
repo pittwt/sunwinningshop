@@ -23,7 +23,6 @@ function jq_tab(){
 				$(this).addClass("change");
 				$($(".nav .nav_a")[$(".nav .nav_li").index(this)]).css("color","#efefef");
 				$($(".nav .li_one")[$(".nav .nav_li").index(this)]).show();
-				$(".nav .li_one")[$(".nav .nav_li").index(this)].style.left="200px";
 			})
 			$(".nav .nav_li").mouseout(function(){
 				$(this).removeClass("change");
@@ -31,9 +30,7 @@ function jq_tab(){
 				$($(".nav .li_one")[$(".nav .nav_li").index(this)]).hide();
 			})
 		})
-	})(jQuery);
-	
-	//var hd_nav=document.getElementById("head_nav").getElementsByTagName("div");
+	})(jQuery);	
 }
 ///////////////////////////////////////
 function cate_tab(){
