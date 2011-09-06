@@ -34,16 +34,12 @@ em,var {font-style:normal;}
 .hd_pic {margin-left:21px;}
 .hd_pic a {margin-right:12px;}
 
-.hd_nav {overflow:hidden;zoom:1;background:url("../images/nav.gif") 0 -42px repeat-x;line-height:42px;width:1004px;margin:0 auto;}
+.hd_nav {float:left;background:url("../images/nav.gif") 0 -42px repeat-x;line-height:42px;width:1004px;margin:0 auto;}
 .cate_list {display:none;padding:9px 0 12px;width:214px;position:absolute;border:5px solid #e0e0e0; border-top:2px solid #e0e0e0; left:877px;top:128px;z-index:50;background-color:#fff;}
 .cate_list ul li {line-height:24px;text-align:left;width:200px;height:24px;overflow:hidden;margin-left:12px;;}
 .cate_list ul li a:hover {color:#fff; background-color:#ff6c00; font-weight:bold; font-size:14px;}
 
-.li_one {position:absolute;left:166px;top:127px;z-index:30;width:183px;border:1px solid #b4b4b4;padding:13px 0 5px;display:none;background-color:#ececec;}
-.li_2 {position:absolute;left:300px;top:127px;z-index:30;}
-.li_3 {position:absolute;left:476px;top:127px;z-index:30;}
-.li_4 {position:absolute;left:610px;top:127px;z-index:30;}
-.li_5 {position:absolute;left:731px;top:127px;z-index:30;}
+.li_one {position:absolute;left:0;top:40px;z-index:30;width:183px;border:1px solid #b4b4b4;padding:13px 0 5px;display:none;background-color:#ececec;}
 
 .nav_one {padding:7px 5px 0;}
 .nav_one li {line-height:30px;height:30px;overflow:hidden;zoom:1;margin:0 auto;width:171px;}
@@ -55,9 +51,9 @@ em,var {font-style:normal;}
 .nav_left {width:68px;background:url("../images/nav.gif") no-repeat;}
 .nav_left a {display:block;font-weight:bold;margin-left:4px;width:64px;text-align:center;background:url("../images/nav.gif") right -198px no-repeat;}
 .nav_left a:hover {background:url("../images/nav.gif") 0 -126px repeat-x;color:#efefef;}
-.nav {width:712px;overflow:hidden;height:42px;}
-.nav .nav_li {background:url("../images/nav.gif") right -198px no-repeat;}
-.nav .nav_li .nav_a {float:left;padding:0 48px;font-weight:bold;}
+.nav {width:712px;height:42px;}
+.nav .nav_li {background:url("../images/nav.gif") right -198px no-repeat;width:178px;position:relative;z-index:15;}
+.nav .nav_li .nav_a {float:left;font-weight:bold;width:178px;text-align:center;}
 .nav .change {background:url("../images/nav.gif") 0 -126px repeat-x;}
 .nav_right {background:url("../images/nav.gif") right -84px no-repeat;float:right;width:224px;}
 .nav_right a {display:block;font-weight:bold;width:142px;margin:0 auto;background:url("../images/nav_cate.gif") right center no-repeat; outline:none;}
