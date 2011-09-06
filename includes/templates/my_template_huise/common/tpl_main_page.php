@@ -45,13 +45,17 @@
         <?php require($template->get_template_dir('tpl_header.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_header.php');?>
         <div class="conment">
         	<div class="con_left">
-            	<?php require(DIR_WS_MODULES . zen_get_module_directory('column_left.php')); 
-				echo DIR_WS_MODULES . zen_get_module_directory('column_left.php');
-				?>
+            	<?php require(DIR_WS_MODULES . zen_get_module_directory('column_left.php'));?>
+                <!--left Ad start-->
+                <div class="ad_pic">
+					<a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pic_one.jpg" alt=""/></a>
+					<a class="pic_special" href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pic_two.jpg" alt=""/></a>
+					<a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pic_thr.jpg" alt=""/></a>
+				</div>
+                <!--left Ad end-->
             </div>
             <div class="con_center">
             	<?php require($body_code); ?>
-                
 			</div>
         </div>
         <?php require($template->get_template_dir('tpl_footer.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_footer.php'); ?>
