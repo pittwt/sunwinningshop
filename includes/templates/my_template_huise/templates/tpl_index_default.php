@@ -31,6 +31,7 @@
         </div> 
     </div>
 </div>
+<script src="<?php echo DIR_WS_TEMPLATE;?>jscript/active.js" type="text/javascript"></script>
 <div class="centerColumn" id="indexDefault">
 <h1 id="indexDefaultHeading"><?php echo HEADING_TITLE; ?></h1>
 
