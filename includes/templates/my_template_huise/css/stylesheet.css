@@ -192,7 +192,7 @@ em,var {font-style:normal;}
 
 .hd_nav {overflow:hidden;zoom:1;background:url("../images/nav.gif") 0 -42px repeat-x;line-height:42px;width:1004px;margin:0 auto;}
 .cate_list {display:none;padding:9px 0 12px;width:214px;position:absolute;border:5px solid #e0e0e0; border-top:2px solid #e0e0e0; left:877px;top:128px;z-index:50;background-color:#fff;}
-.cate_list ul li {line-height:24px;text-align:center;width:200px;height:24px;overflow:hidden;margin:0 7px;}
+.cate_list ul li {line-height:24px;text-align:left;width:200px;height:24px;overflow:hidden;margin-left:12px;}
 .cate_list ul li a:hover {color:#fff; background-color:#ff6c00; font-weight:bold; font-size:14px;}
 
 .li_one {position:absolute;left:166px;top:127px;z-index:30;width:183px;border:1px solid #b4b4b4;padding:13px 0 5px;display:none;background-color:#ececec;}
@@ -203,7 +203,7 @@ em,var {font-style:normal;}
 
 .nav_one {padding:7px 5px 0;}
 .nav_one li {line-height:30px;height:30px;overflow:hidden;zoom:1;margin:0 auto;width:171px;}
-.nav_one li a {float:left;width:171px;text-align:center;}
+.nav_one li a {float:left;width:161px;text-align:left;padding-left:10px;}
 .nav_one li a:hover {background:url("../images/nav.gif") 0 -168px repeat-x;color:white;}
 
 													/*nav_left*/
