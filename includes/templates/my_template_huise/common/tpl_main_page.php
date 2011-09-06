@@ -55,7 +55,7 @@
                 <!--left Ad end-->
             </div>
             <div class="con_center">
-            	<?php require($body_code); ?>
+            	<?php require($body_code);?>
 			</div>
         </div>
         <?php require($template->get_template_dir('tpl_footer.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_footer.php'); ?>
