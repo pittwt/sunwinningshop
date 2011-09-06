@@ -232,20 +232,17 @@ em,var {font-style:normal;}
 .title {line-height:37px;height:37px;font-size:14px;padding-left:14px;background-color:#b8d6ec;}
 .cate_con {border:1px solid #d3d3d3;border-top:none;padding:2px 0 2px 3px;}
 .cate_con .h3_tit {line-height:31px;width:219px;padding-left:10px;background:url("../images/h3_bg.gif") 212px  no-repeat;}
-.cate_con .cate_change {background:none;border:1px solid #ff6c00;border-right:none;line-height:29px;}
+.cate_con .cate_change {background:none;border:1px solid #ff6c00;line-height:29px;}
 .cate_con .h3_tit .h3_a {padding-left:11px;background:url("../images/sanjiao_hui.gif") left center no-repeat;font-weight:bold;}
 .cate_con .h3_tit .a_change {color:#ff6c00;background:url("../images/cheng.gif") left center no-repeat;}
 
-.cate_ol {position:absolute;left:234px;top:39px;z-index:50;width:207px;border:1px solid #fe6d00;border-left:none;background-color:white;display:none;}
-.cate_ol li {line-height:12px;padding-top:15px;border-left:1px solid #fe6d00;text-align:center;}
-.cate_ol .li_spe {border:0 none;padding-top:18px;}
-.cate_ol .li_last {padding-bottom:18px;}
+.cate_ol {position:absolute;left:228px;top:-1px;z-index:50;width:207px;background-color:white;display:none;}
+.cate_ol li {line-height:12px;padding:15px 0 0 10px;border-left:1px solid #fe6d00;border-right:1px solid #fe6d00;text-align:left;}
+.cate_ol .li_spe {border-left:0 none;padding-top:17px;border-top:1px solid #fe6d00;}
+.cate_ol .li_last {padding-bottom:18px;border-bottom:1px solid #fe6d00;}
 .cate_ol li a {background:url("../images/cate_hui.gif") left center no-repeat;padding-left:12px;font-weight:bold;}
 .cate_ol li a:hover {background:url("../images/cate_cheng.gif") left center no-repeat;color:#ff6c00;}
-.cate_one {position:absolute;left:234px;top:70px;z-index:50;}
-.cate_two {position:absolute;left:234px;top:101px;z-index:50;}
-.cate_thr {position:absolute;left:234px;top:132px;z-index:50;}
-.cate_for {position:absolute;left:234px;top:163px;z-index:50;}
+
 
 .fea_list {width:191px;margin:0 auto;padding:11px 0 9px;}
 .fea_list .a_pic {border:1px solid #c0c0c0;display:block;margin:0 auto 7px;}
