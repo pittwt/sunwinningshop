@@ -32,8 +32,8 @@ require(DIR_WS_MODULES . zen_get_module_directory('meta_tags.php'));
 <meta name="robots" content="noindex, nofollow" />
 
 <?php } ?>
-<script src="<?php echo DIR_WS_TEMPLATE;?>jscript/active.js" type="text/javascript"></script>
 <script src="<?php echo DIR_WS_TEMPLATE;?>jscript/jq.js" type="text/javascript"></script>
+<script src="<?php echo DIR_WS_TEMPLATE;?>jscript/active.js" type="text/javascript"></script>
 <?php if (defined('FAVICON')) { ?>
 <link rel="icon" href="<?php echo FAVICON; ?>" type="image/x-icon" />
 <link rel="shortcut icon" href="<?php echo FAVICON; ?>" type="image/x-icon" />
