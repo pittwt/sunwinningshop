@@ -3,16 +3,32 @@
  * meta_tags module
  *
  * @package modules
- * @copyright Copyright 2003-2008 Zen Cart Development Team
+ * @copyright Copyright 2003-2007 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: meta_tags.php 11202 2008-11-23 09:18:34Z drbyte $
+ * @version $Id: meta_tags.php 6863 2007-08-27 16:06:25Z drbyte $
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
 }
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_MODULE_START_META_TAGS');
+
+
+/////////////////////////////////////////////////////////
+// Moved to /includes/languages/english/meta_tags.php
+//
+// Define Primary Section Output
+//  define('PRIMARY_SECTION', ' : ');
+
+// Define Secondary Section Output
+//  define('SECONDARY_SECTION', ' - ');
+
+// Define Tertiary Section Output
+//  define('TERTIARY_SECTION', ', ');
+
+//
+/////////////////////////////////////////////////////////
 
 // Add tertiary section to site tagline
 if (strlen(SITE_TAGLINE) > 1) {
@@ -24,7 +40,7 @@ if (strlen(SITE_TAGLINE) > 1) {
 $review_on = "";
 $keywords_string_metatags = "";
 $meta_tags_over_ride = false;
-if (!defined('METATAGS_DIVIDER')) define('METATAGS_DIVIDER', ', ');
+if (!defined('METATAGS_DIVIDER')) define('METATAGS_DIVIDER', ' ');
 
 // Get all top category names for use with web site keywords
 $sql = "select cd.categories_name from " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd where c.parent_id = 0 and c.categories_id = cd.categories_id and cd.language_id='" . (int)$_SESSION['languages_id'] . "' and c.categories_status=1";
@@ -82,9 +98,9 @@ switch ($_GET['main_page']) {
   break;
 
   case ($this_is_home_page):
-  define('META_TAG_TITLE', (defined('HOME_PAGE_TITLE') && HOME_PAGE_TITLE != '' ? HOME_PAGE_TITLE : (defined('NAVBAR_TITLE') ? NAVBAR_TITLE . PRIMARY_SECTION : '') . TITLE . TAGLINE));
-  define('META_TAG_DESCRIPTION', (defined('HOME_PAGE_META_DESCRIPTION') && HOME_PAGE_META_DESCRIPTION != '') ? HOME_PAGE_META_DESCRIPTION : TITLE . PRIMARY_SECTION . (defined('NAVBAR_TITLE') ? NAVBAR_TITLE : '' ) . SECONDARY_SECTION . KEYWORDS);
-  define('META_TAG_KEYWORDS', (defined('HOME_PAGE_META_KEYWORDS') && HOME_PAGE_META_KEYWORDS != '') ? HOME_PAGE_META_KEYWORDS : KEYWORDS . METATAGS_DIVIDER . (defined('NAVBAR_TITLE') ? NAVBAR_TITLE : '' ) );
+  define('META_TAG_TITLE', (HOME_PAGE_TITLE != '' ? HOME_PAGE_TITLE : (defined('NAVBAR_TITLE') ? NAVBAR_TITLE . PRIMARY_SECTION : '') . TITLE . TAGLINE));
+  define('META_TAG_DESCRIPTION', (HOME_PAGE_META_DESCRIPTION != '') ? HOME_PAGE_META_DESCRIPTION : TITLE . PRIMARY_SECTION . (defined('NAVBAR_TITLE') ? NAVBAR_TITLE : '' ) . SECONDARY_SECTION . KEYWORDS);
+  define('META_TAG_KEYWORDS', (HOME_PAGE_META_KEYWORDS != '') ? HOME_PAGE_META_KEYWORDS : KEYWORDS . METATAGS_DIVIDER . (defined('NAVBAR_TITLE') ? NAVBAR_TITLE : '' ) );
   break;
 
   case 'index':
@@ -239,9 +255,9 @@ switch ($_GET['main_page']) {
         $metatags_keywords = KEYWORDS . METATAGS_DIVIDER . $meta_products_name . METATAGS_DIVIDER;
       }
 
-      define('META_TAG_TITLE', str_replace('"','',zen_clean_html($review_on . $meta_products_name)));
-      define('META_TAG_DESCRIPTION', str_replace('"','',zen_clean_html($metatags_description . ' ')));
-      define('META_TAG_KEYWORDS', str_replace('"','',zen_clean_html($metatags_keywords)));  // KEYWORDS and CUSTOM_KEYWORDS are added above
+      define('META_TAG_TITLE', str_replace('"','',$review_on . $meta_products_name));
+      define('META_TAG_DESCRIPTION', str_replace('"','',$metatags_description . ' '));
+      define('META_TAG_KEYWORDS', str_replace('"','',$metatags_keywords));  // KEYWORDS and CUSTOM_KEYWORDS are added above
 
     } else {
       // build un-customized meta tag
@@ -266,12 +282,12 @@ switch ($_GET['main_page']) {
       }
       $meta_products_name = zen_clean_html($meta_products_name);
 
-      $meta_products_description = zen_truncate_paragraph(strip_tags(stripslashes($product_info_metatags->fields['products_description'])), MAX_META_TAG_DESCRIPTION_LENGTH);
+      $products_description = zen_truncate_paragraph(strip_tags(stripslashes($product_info_metatags->fields['products_description'])), MAX_META_TAG_DESCRIPTION_LENGTH);
 
-      $meta_products_description = zen_clean_html($meta_products_description);
+      $products_description = zen_clean_html($products_description);
 
       define('META_TAG_TITLE', str_replace('"','',$review_on . $meta_products_name . $meta_products_price . PRIMARY_SECTION . TITLE . TAGLINE));
-      define('META_TAG_DESCRIPTION', str_replace('"','',TITLE . ' ' . $meta_products_name . SECONDARY_SECTION . $meta_products_description . ' '));
+      define('META_TAG_DESCRIPTION', str_replace('"','',TITLE . ' ' . $meta_products_name . SECONDARY_SECTION . $products_description . ' '));
       define('META_TAG_KEYWORDS', str_replace('"','',$meta_products_name . METATAGS_DIVIDER . KEYWORDS));
 
     } // CUSTOM META TAGS
@@ -310,6 +326,44 @@ switch ($_GET['main_page']) {
     define('META_TAG_KEYWORDS', str_replace('"','',KEYWORDS . METATAGS_DIVIDER . $meta_products_name . METATAGS_DIVIDER . $review_metatags->fields['customers_name'] . METATAGS_DIVIDER . $reviews_rating_metatags));
   } // EOF
   break;
+  /**
+   * Add since 2009-8-13 , by $d <http://www.ddmin.com/>
+   * Define producttags page title
+   */
+// Producttags
+  case 'producttags':
+  	 $p_letter = $_GET['letter'];
+  	 
+  	 if ($_GET['letter']=='0-9'){
+		$d_producttags_split_sql = "select p.`products_id`,pd.`products_name` from ".TABLE_PRODUCTS." p,".TABLE_PRODUCTS_DESCRIPTION." pd where p.`products_id` = pd.`products_id` AND LEFT(pd.`products_name`,1) REGEXP '^[0-9]'";
+	}else{
+		$d_producttags_split_sql = "select p.`products_id`,pd.`products_name` from ".TABLE_PRODUCTS." p,".TABLE_PRODUCTS_DESCRIPTION." pd where p.`products_id` = pd.`products_id` AND LEFT(pd.`products_name`,1) LIKE '".strtolower($_GET['letter'])."'";
+	}//print_r($producttags_split_sql);
+	$d_producttags_split = new splitPageResults($d_producttags_split_sql, 100, 'p.products_id', 'page');
+	$zco_notifier->notify('NOTIFY_MODULE_PRODUCT_LISTING_RESULTCOUNT', $d_producttags_split->number_of_rows);
+	$d_producttags = $db->Execute($d_producttags_split->sql_query);
+	
+	$dd_k = '';
+	$dd_d = '';
+	$i = 0;
+	$d_comma = '';
+	while ((! $d_producttags->EOF) && $i <= 10) {
+		if ($i <= 5) {
+			$dd_k .= $d_comma . $d_producttags->fields['products_name'];
+		}
+		$dd_d .= $d_comma . $d_producttags->fields['products_name'];
+		$i++;
+		$d_comma = ',';
+		$d_producttags->MoveNext();
+	}
+	 
+	 define('META_TAG_KEYWORDS', $dd_k);
+	 define('META_TAG_DESCRIPTION', $dd_d);
+ 	 define('META_TAG_TITLE', 'Producttags : ' . $p_letter);
+  	 break;
+  /**
+   * Add end
+   */
 // EZ-Pages:
   case 'page':
   $ezpage_id = (int)$_GET['id'];
