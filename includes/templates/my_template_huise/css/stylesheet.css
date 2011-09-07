@@ -76,8 +76,8 @@ em,var {font-style:normal;}
 .cate_con .li_tit .li_a {padding-left:11px;background:url("../images/sanjiao_hui.gif") left center no-repeat;font-weight:bold;}
 .cate_con .li_tit .a_change {color:#ff6c00;background:url("../images/cheng.gif") left center no-repeat;}
 
-.cate_ol {position:absolute;left:228px;top:-1px;z-index:50;width:207px;background-color:white;display:none;}
-.cate_ol li {line-height:12px;padding:15px 0 0 10px;border-left:1px solid #fe6d00;border-right:1px solid #fe6d00;text-align:left;}
+.cate_ol {position:absolute;left:228px;top:-1px;z-index:50;width:207px;display:none;}
+.cate_ol li {line-height:12px;padding:15px 0 0 10px;border-left:1px solid #fe6d00;border-right:1px solid #fe6d00;text-align:left;background-color:white;}
 .cate_ol .li_spe {border-left:0 none;padding-top:17px;border-top:1px solid #fe6d00;}
 .cate_ol .li_last {padding-bottom:18px;border-bottom:1px solid #fe6d00;}
 .cate_ol li a {background:url("../images/cate_hui.gif") left center no-repeat;padding-left:12px;font-weight:bold;}
