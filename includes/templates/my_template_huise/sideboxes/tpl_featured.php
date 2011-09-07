@@ -34,7 +34,7 @@
 	<span><var>$156.25</var><em>$50.00</em></span>
 	<span class="pro_inf">Save:68% off</span>
 	';
-	//$featured_box_price
+	//$content .= $featured_box_price;
     $content .= '</div>';
 	
     $random_featured_product->MoveNextRandom();
