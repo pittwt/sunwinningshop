@@ -13,7 +13,7 @@
 .new_pro {border:1px solid #dadada;margin-top:10px;padding-left:18px;*padding-bottom:17px;}
 .new_pro .h1_tit {line-height:37px;font-size:16px;color:#256fa5;}
 .pro_con {overflow:hidden;zoom:1;}
-.pro_list {width:220px;background-color:#fff4d1;float:left;padding-bottom:10px;margin:0 15px 17px 0;display:inline;position:relative;}
+.pro_list {width:220px;height:299px;background-color:#fff4d1;float:left;padding-bottom:10px;margin:0 15px 17px 0;display:inline;position:relative;}
 .pro_list dt,.pro_list dd {width:191px;margin:0 auto;line-height:20px;}
 .pro_list dt {margin:12px auto 7px;}
 .pro_list dt .a_pic {display:block;border:1px solid #c0c0c0;}
