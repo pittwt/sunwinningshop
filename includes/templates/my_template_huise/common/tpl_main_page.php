@@ -59,7 +59,8 @@
 				</div>
                 <!--left Ad end-->
             </div>
-            <div class="con_center">
+            <?php $_GET['main_page'] == 'index' && !isset($_GET['cPath']) ? $con_class = 'con_center' : $con_class = 'con_right';?>
+            <div class="<?php echo $con_class;?>">
             	<?php require($body_code);?>
 			</div>
         </div>
