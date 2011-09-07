@@ -30,7 +30,7 @@
 .mavericks .mav_tit {line-height:37px;overflow:hidden;zoom:1;background-color:#b8d6ec;}
 .mavericks strong {float:left;}
 .mavericks .mavericks_rg {float:right;}
-.mavericks .but_lf,.mavericks .but_rg,.mavericks .mav_num {float:right;}
+.mavericks .but_lf,.mavericks .but_rg,.mavericks .mav_num {float:left;}
 .mavericks .but_lf {background:url("../images/abc.gif") -375px 0 no-repeat;width:25px;height:25px;margin:6px 10px 0 0;overflow:hidden;}
 .mavericks .but_rg {background:url("../images/abc.gif") -375px -25px no-repeat;width:25px;height:25px;margin:6px 11px 0 10px;overflow:hidden;}
 .mavericks strong {font-size:16px;color:white;padding-left:10px;}
