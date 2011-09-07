@@ -58,7 +58,11 @@ require(DIR_WS_MODULES . zen_get_module_directory('footer.php'));
         </div>
         <div class="list_right">
             <span class="friend">Tall a friend</span>
-            <div class="fd_in"><form><input class="fd_text" type="text"/><input class="fd_sub" type="submit" value="" id="fd_submit"/></form></div>
+            <div class="fd_in">
+            	<?php echo zen_draw_form('email_friend', zen_href_link(FILENAME_TELL_A_FRIEND, 'action=process')); ?>
+                <input type="hidden" value="index" name="type">
+                <input class="fd_text" type="text" name="to_email_address" /><input class="fd_sub" type="submit" value="" id="fd_submit"/></form>
+            </div>
         </div>
     </div>
     <div class="pic_link">

@@ -44,6 +44,11 @@
     <div class="home">
         <?php require($template->get_template_dir('tpl_header.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_header.php');?>
         <div class="conment">
+        	<?php if ((DEFINE_BREADCRUMB_STATUS == '1' || DEFINE_BREADCRUMB_STATUS == '2') && !$this_is_home_page ) { ?>
+                <div class="con_nav">
+                    <?php echo $breadcrumb->trail(BREAD_CRUMBS_SEPARATOR); ?>
+                </div>
+            <?php } ?>
         	<div class="con_left">
             	<?php require(DIR_WS_MODULES . zen_get_module_directory('column_left.php'));?>
                 <!--left Ad start-->

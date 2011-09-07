@@ -37,9 +37,9 @@ if (isset($_GET['products_id'])) {
   }
 }
 
-if ($valid_product == false) {
+/*if ($valid_product == false) {
   zen_redirect(zen_href_link(zen_get_info_page($_GET['products_id']), 'products_id=' . $_GET['products_id']));
-}
+}*/
 
 require(DIR_WS_MODULES . zen_get_module_directory('require_languages.php'));
 
@@ -53,23 +53,25 @@ if (isset($_GET['action']) && ($_GET['action'] == 'process')) {
   $from_email_address = zen_db_prepare_input($_POST['from_email_address']);
   $from_name = zen_db_prepare_input($_POST['from_name']);
   $message = zen_db_prepare_input($_POST['message']);
-
-  if (empty($from_name)) {
-    $error = true;
-
-    $messageStack->add('friend', ERROR_FROM_NAME);
-  }
-
-  if (!zen_validate_email($from_email_address)) {
-    $error = true;
-
-    $messageStack->add('friend', ERROR_FROM_ADDRESS);
-  }
-
-  if (empty($to_name)) {
-    $error = true;
-
-    $messageStack->add('friend', ERROR_TO_NAME);
+  //首页 发送邮件
+  if(!isset($_POST['type']) && $_POST['type'] != 'index'){
+	  if (empty($from_name)) {
+		$error = true;
+	
+		$messageStack->add('friend', ERROR_FROM_NAME);
+	  }
+	
+	  if (!zen_validate_email($from_email_address)) {
+		$error = true;
+	
+		$messageStack->add('friend', ERROR_FROM_ADDRESS);
+	  }
+	
+	  if (empty($to_name)) {
+		$error = true;
+	
+		$messageStack->add('friend', ERROR_TO_NAME);
+	  }
   }
 
   if (!zen_validate_email($to_email_address)) {
@@ -135,7 +137,10 @@ if (isset($_GET['action']) && ($_GET['action'] == 'process')) {
       zen_session_destroy();
       zen_redirect(zen_href_link(FILENAME_LOGOFF));
     }
-
+	
+	
+	zen_redirect(zen_href_link('index' . ''));
+	echo HTTP_SERVER . DIR_WS_CATALOG;exit;
     zen_redirect(zen_href_link(zen_get_info_page($_GET['products_id']), 'products_id=' . $_GET['products_id']));
   }
 } elseif ($_SESSION['customer_id']) {
