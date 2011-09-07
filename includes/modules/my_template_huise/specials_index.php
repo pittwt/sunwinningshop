@@ -52,27 +52,51 @@ if ($specials_index_query != '') $specials_index = $db->ExecuteRandomMulti($spec
 
 $row = 0;
 $col = 0;
-$list_box_contents = array();
+$list_box_contents = '';
 $title = '';
 
 $num_products_count = ($specials_index_query == '') ? 0 : $specials_index->RecordCount();
 
 // show only when 1 or more
 if ($num_products_count > 0) {
+	
+	
   if ($num_products_count < SHOW_PRODUCT_INFO_COLUMNS_SPECIALS_PRODUCTS || SHOW_PRODUCT_INFO_COLUMNS_SPECIALS_PRODUCTS == 0 ) {
     $col_width = floor(100/$num_products_count);
   } else {
     $col_width = floor(100/SHOW_PRODUCT_INFO_COLUMNS_SPECIALS_PRODUCTS);
   }
 
-  $list_box_contents = array();
+  $list_box_contents = '';
   while (!$specials_index->EOF) {
+	  
+	  
+	  
+	  
     $products_price = zen_get_products_display_price($specials_index->fields['products_id']);
     if (!isset($productsInCategory[$specials_index->fields['products_id']])) $productsInCategory[$specials_index->fields['products_id']] = zen_get_generated_category_path_rev($specials_index->fields['master_categories_id']);
 
     $specials_index->fields['products_name'] = zen_get_products_name($specials_index->fields['products_id']);
-    $list_box_contents[$row][$col] = array('params' => 'class="centerBoxContentsSpecials centeredContent back"' . ' ' . 'style="width:' . $col_width . '%;"',
-     'text' => (($specials_index->fields['products_image'] == '' and PRODUCTS_IMAGE_NO_IMAGE_STATUS == 0) ? '' : '<div class="productlistingimage"><a href="' . zen_href_link(zen_get_info_page($specials_index->fields['products_id']), 'cPath=' . $productsInCategory[$specials_index->fields['products_id']] . '&products_id=' . $specials_index->fields['products_id']) . '">' . zen_image(DIR_WS_IMAGES . $specials_index->fields['products_image'], $specials_index->fields['products_name'], IMAGE_PRODUCT_NEW_WIDTH, IMAGE_PRODUCT_NEW_HEIGHT) . '</a></div>') . '<div class="productlistingdesc"><div><a href="' . zen_href_link(zen_get_info_page($specials_index->fields['products_id']), 'cPath=' . $productsInCategory[$specials_index->fields['products_id']] . '&products_id=' . $specials_index->fields['products_id']) . '">' . $specials_index->fields['products_name'] . '</a></div><div>' . $products_price.'</div>' . '<div><a href="' . zen_href_link(FILENAME_PRODUCT_INFO, zen_get_all_get_params(array('action')). 'products_id=' . $specials_index->fields['products_id']). '"><img src="'.DIR_WS_TEMPLATE.'buttons/english/button_in_addcart.gif"></a></div>');
+	
+	
+	
+    /*$list_box_contents[$row][$col] = array('params' => 'class="centerBoxContentsSpecials centeredContent back"' . ' ' . 'style="width:' . $col_width . '%;"',
+     'text' => (($specials_index->fields['products_image'] == '' and PRODUCTS_IMAGE_NO_IMAGE_STATUS == 0) ? '' : '<div class="productlistingimage"><a href="' . zen_href_link(zen_get_info_page($specials_index->fields['products_id']), 'cPath=' . $productsInCategory[$specials_index->fields['products_id']] . '&products_id=' . $specials_index->fields['products_id']) . '">' . zen_image(DIR_WS_IMAGES . $specials_index->fields['products_image'], $specials_index->fields['products_name'], IMAGE_PRODUCT_NEW_WIDTH, IMAGE_PRODUCT_NEW_HEIGHT) . '</a></div>') . '<div class="productlistingdesc"><div><a href="' . zen_href_link(zen_get_info_page($specials_index->fields['products_id']), 'cPath=' . $productsInCategory[$specials_index->fields['products_id']] . '&products_id=' . $specials_index->fields['products_id']) . '">' . $specials_index->fields['products_name'] . '</a></div><div>' . $products_price.'</div>' . '<div><a href="' . zen_href_link(FILENAME_PRODUCT_INFO, zen_get_all_get_params(array('action')). 'products_id=' . $specials_index->fields['products_id']). '"><img src="'.DIR_WS_TEMPLATE.'buttons/english/button_in_addcart.gif"></a></div>');*/
+	
+	
+	$list_box_contents .= '
+	<dl class="pro_list">
+	  <dt><a href="'.zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']).'" class="a_pic">'.zen_image(DIR_WS_IMAGES . $new_products->fields['products_image'], $new_products->fields['products_name'], IMAGE_PRODUCT_NEW_WIDTH, IMAGE_PRODUCT_NEW_HEIGHT).'</a></dt>
+	  <dd><a class="pro_inf" href="'.zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']).'">'.$new_products->fields['products_name'].'</a></dd>
+	  '.$products_price.'
+	  <dd><a class="cart_one" href="'.zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']).'">Add to cart</a></dd>
+	  <dd class="special">&nbsp;</dd>
+	</dl>	
+	';
+	
+	
+	
+	
     $col ++;
     if ($col > (SHOW_PRODUCT_INFO_COLUMNS_SPECIALS_PRODUCTS - 1)) {
       $col = 0;
@@ -82,7 +106,7 @@ if ($num_products_count > 0) {
   }
 
   if ($specials_index->RecordCount() > 0) {
-    $title = '<h2 class="centerBoxHeading">' . sprintf(TABLE_HEADING_SPECIALS_INDEX, strftime('%B')) . '</h2>';
+    $title = sprintf(TABLE_HEADING_SPECIALS_INDEX, strftime('%B'));
     $zc_show_specials = true;
   }
 }
