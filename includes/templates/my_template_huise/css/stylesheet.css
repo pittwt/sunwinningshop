@@ -26,7 +26,9 @@
 
 .con_nav {line-height:20px;}
 .con_nav a {font-size:12px;}
-.mavericks {width:735px;float:left;margin:10px 0 0 10px;display:inline;}
+
+												/*list*/
+.con_right {width:735px;float:left;margin:10px 0 0 10px;display:inline;}
 .mavericks .mav_tit {line-height:37px;overflow:hidden;zoom:1;background-color:#b8d6ec;}
 .mavericks strong {float:left;}
 .mavericks .mavericks_rg {float:right;}
@@ -35,7 +37,7 @@
 .mavericks .but_rg {background:url("../images/abc.gif") -375px -25px no-repeat;width:25px;height:25px;margin:6px 11px 0 10px;overflow:hidden;}
 .mavericks strong {font-size:16px;color:white;padding-left:10px;}
 .mavericks span a {text-decoration:underline;margin:1px;}
-															/*list*/
+															
 .mav_con {border:1px solid #dedede;border-top:none;border-bottom:none;padding-bottom:6px;}
 .mav_list {overflow:hidden;zoom:1;margin-top:16px;width:720px;margin:0 auto;border-top:1px solid #dedede;padding:26px 0;}
 .mav_con .mav_special {border:0 none;padding-top:16px;}
@@ -57,7 +59,7 @@
 .mav_list .mav_price .save_price em {color:#408fcc;}
 
 															/*conent*/
-.mav_jersey {float:left;margin:10px 0 0 10px;display:inline;width:735px;}
+
 .mav_jersey .jersey_pro {overflow:hidden;zoom:1;}
 .jersey_pic {float:left;width:281px;}
 .top_one {width:279px;height:246px;border:1px solid #c0c0c0;}
@@ -120,14 +122,14 @@
 .fea_pro_list dt .a_pic:hover {border:1px solid #ff6c00;}
 
 																	/*biaoqian*/
-.mark {float:left;margin:10px 0 0 10px;display:inline;width:735px;}	
+
 .mark_tit {line-height:40px;background-color:#e6e6e6;font-size:18px;color:#3884be;padding-left:18px;}
 .mark .mark_con {overflow:hidden;zoom:1;}
 .mark_con .mark_list {float:left;width:340px;padding-left:26px;padding-top:12px;}
 .mark_con .mark_list li {line-height:27px;font-weight:bold;}
 														/*denglu*/
 
-.register {float:left;margin:10px 0 0 10px;display:inline;width:735px;}
+
 
 
 
