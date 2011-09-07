@@ -13,6 +13,135 @@
  */
  //require(DIR_WS_MODULES . '/debug_blocks/product_info_prices.php');
 ?>
+<div class="mav_jersey">
+  <div class="jersey_pro">
+    <div class="jersey_pic">
+      <div class="div_one">
+        <div class="top_one"><img id="top_pic" src="<?php echo DIR_WS_TEMPLATE;?>images/b1.jpg" alt=""/></div>
+        <div class="bottom_one">
+          <input type="button" value="<" id="lf_one"/>
+          <div class="out_one" id="father_one">
+            <table class="main_one" id="two" cellspacing=5 cellpadding=0>
+              <tr>
+                <td><a href="javscript:;"><img class="special_img" src="<?php echo DIR_WS_TEMPLATE;?>images/b1.jpg" alt=""/></a></td>
+                <td><a href="javscript:;"><img src="<?php echo DIR_WS_TEMPLATE;?>images/b2.jpg" alt=""/></a></td>
+                <td><a href="javscript:;"><img src="<?php echo DIR_WS_TEMPLATE;?>images/b3.jpg" alt=""/></a></td>
+                <td><a href="javscript:;"><img src="<?php echo DIR_WS_TEMPLATE;?>images/b4.jpg" alt=""/></a></td>
+                <td><a href="javscript:;"><img src="<?php echo DIR_WS_TEMPLATE;?>images/b5.jpg" alt=""/></a></td>
+              </tr>
+            </table>
+          </div>
+          <input type="button" value=">" id="rig_one"/>
+        </div>
+        <div class="share"><span class="share_span">share:</span><a href="#" class="share_link"><img src="<?php echo DIR_WS_TEMPLATE;?>images/share1.gif" alt=""/></a><a href="#" class="share_link"><img src="<?php echo DIR_WS_TEMPLATE;?>images/share2.gif" alt=""/></a><a href="#" class="share_link"><img src="<?php echo DIR_WS_TEMPLATE;?>images/share3.gif" alt=""/></a><a href="#" class="share_link"><img src="<?php echo DIR_WS_TEMPLATE;?>images/share4.gif" alt=""/></a></div>
+      </div>
+    </div>
+    <div class="jersey_rg"> <span class="pro_num">NO.321923</span>
+      <p class="jer_pro_inf">NBA Denver Nuggets 15 Carmelo Anthony Blue<br/>
+        Basketball Jersey</p>
+      <span class="jer_price"><var>$156.25</var><em>$50.00</em></span> <span class="jer_save_price">Save:67% off</span> <span class="jer_size">
+      <label>Choose size:</label>
+      <select id="hidde">
+        <option>S</option>
+      </select>
+      </span> <a href="#" class="jer_cart">Add this to my cart</a>
+      <div class="jer_free">&nbsp;</div>
+    </div>
+  </div>
+  <div class="pro_information">
+    <ol class="pro_infor_tit">
+      <li class="li_change"><a href="javascript:;">Product Description</a></li>
+      <li><a href="javascript:;">Reviews</a></li>
+      <li><a href="javascript:;">Payment &amp; Shipping</a></li>
+      <li class="inf_last"><a href="javascript:;">After-sales srrvice</a></li>
+    </ol>
+    <div class="pro_inf_con">
+      <div class="pro_infor_con pro_infor_block">
+        <p class="infor_p">Wholesale Jerseys online,Wlecome For Wholesale,Retail and Dropship Orders,We are glad to provide high quality 100% stitched(not printed) authentic Jersey.This replica authentic jersey is craffed just like Authentic jerseys width oddical team color and logo.It feayures durabe,quick-drying fabric slightly heavier than other Washington Redskins Jerseys.All graphics are sewn-on.The jersey is designed width the team nam stitched on the chest and full-button front.The player's nam is stitched at the upper back in authentic-like font and the team specific jocktag is stitched on tail.</p>
+        <p class="infor_p">Model:JS5142</p>
+        <p class="infor_p">200 Units in Stock</p>
+      </div>
+      <div class="pro_infor_con">
+        <p class="infor_p">Wholesale Jerseys online,Wlecome For Wholesale,Retail and Dropship Orders,We are glad to provide high quality 100% stitched(not printed) authentic Jersey.This replica authentic jersey is craffed just like Authentic jerseys width oddical team color and logo.It feayures durabe,quick-drying fabric slightly heavier than other Washington Redskins Jerseys.All graphics are sewn-on.The jersey is designed width the team nam stitched on the chest and full-button front.The player's nam is stitched at the upper back in authentic-like font and the team specific jocktag is stitched on tail.</p>
+        <!-- <p class="infor_p">Model:JS5142</p> -->
+        <p class="infor_p">200 Units in Stock</p>
+      </div>
+      <div class="pro_infor_con">
+        <!-- <p class="infor_p">Wholesale Jerseys online,Wlecome For Wholesale,Retail and Dropship Orders,We are glad to provide high quality 100% stitched(not printed) authentic Jersey.This replica authentic jersey is craffed just like Authentic jerseys width oddical team color and logo.It feayures durabe,quick-drying fabric slightly heavier than other Washington Redskins Jerseys.All graphics are sewn-on.The jersey is designed width the team nam stitched on the chest and full-button front.The player's nam is stitched at the upper back in authentic-like font and the team specific jocktag is stitched on tail.</p> -->
+        <p class="infor_p">Model:JS5142</p>
+        <p class="infor_p">200 Units in Stock</p>
+      </div>
+      <div class="pro_infor_con">
+        <p class="infor_p">Wholesale Jerseys online,Wlecome For Wholesale,Retail and Dropship Orders,We are glad to provide high quality 100% stitched(not printed) authentic Jersey.This replica authentic jersey is craffed just like Authentic jerseys width oddical team color and logo.It feayures durabe,quick-drying fabric slightly heavier than other Washington Redskins Jerseys.All graphics are sewn-on.The jersey is designed width the team nam stitched on the chest and full-button front.The player's nam is stitched at the upper back in authentic-like font and the team specific jocktag is stitched on tail.</p>
+        <!-- <p class="infor_p">Model:JS5142</p>
+							<p class="infor_p">200 Units in Stock</p> -->
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+					(function($){
+						$(document).ready(function(){
+							$(".pro_infor_tit li").click(function(){
+								$(this).addClass("li_change").siblings().removeClass("li_change");;
+								$($(".pro_inf_con .pro_infor_con")[$(".pro_infor_tit li").index(this)]).show().siblings().hide();
+							})
+						})
+					})(jQuery);
+				</script>
+  <div class="fea_product">
+    <h1 class="fea_pro_tit">Featured Product</h1>
+    <div class="fea_pro_con">
+      <dl class="fea_pro_list">
+        <dt><a href="#" class="a_pic"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pro_pic.jpg" alt=""/></a></dt>
+        <dd><a class="pro_inf" href="#">NBA Denver Nuggets 15 Carmelo<br/>
+          Anthony Blue Basketball Jersey</a></dd>
+        <dd><var>$156.25</var><em>$50.00</em></dd>
+        <dd><span class="pro_inf">Save:68% off</span></dd>
+      </dl>
+      <dl class="fea_pro_list">
+        <dt><a href="#" class="a_pic"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pro_pic.jpg" alt=""/></a></dt>
+        <dd><a class="pro_inf" href="#">NBA Denver Nuggets 15 Carmelo<br/>
+          Anthony Blue Basketball Jersey</a></dd>
+        <dd><var>$156.25</var><em>$50.00</em></dd>
+        <dd><span class="pro_inf">Save:68% off</span></dd>
+      </dl>
+      <dl class="fea_pro_list">
+        <dt><a href="#" class="a_pic"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pro_pic.jpg" alt=""/></a></dt>
+        <dd><a class="pro_inf" href="#">NBA Denver Nuggets 15 Carmelo<br/>
+          Anthony Blue Basketball Jersey</a></dd>
+        <dd><var>$156.25</var><em>$50.00</em></dd>
+        <dd><span class="pro_inf">Save:68% off</span></dd>
+      </dl>
+    </div>
+  </div>
+  <div class="fea_product">
+    <h1 class="fea_pro_tit">What Other Items Do Customers Buy After Viewing This Item</h1>
+    <div class="fea_pro_con">
+      <dl class="fea_pro_list">
+        <dt><a href="#" class="a_pic"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pro_pic.jpg" alt=""/></a></dt>
+        <dd><a class="pro_inf" href="#">NBA Denver Nuggets 15 Carmelo<br/>
+          Anthony Blue Basketball Jersey</a></dd>
+        <dd><var>$156.25</var><em>$50.00</em></dd>
+        <dd><span class="pro_inf">Save:68% off</span></dd>
+      </dl>
+      <dl class="fea_pro_list">
+        <dt><a href="#" class="a_pic"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pro_pic.jpg" alt=""/></a></dt>
+        <dd><a class="pro_inf" href="#">NBA Denver Nuggets 15 Carmelo<br/>
+          Anthony Blue Basketball Jersey</a></dd>
+        <dd><var>$156.25</var><em>$50.00</em></dd>
+        <dd><span class="pro_inf">Save:68% off</span></dd>
+      </dl>
+      <dl class="fea_pro_list">
+        <dt><a href="#" class="a_pic"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pro_pic.jpg" alt=""/></a></dt>
+        <dd><a class="pro_inf" href="#">NBA Denver Nuggets 15 Carmelo<br/>
+          Anthony Blue Basketball Jersey</a></dd>
+        <dd><var>$156.25</var><em>$50.00</em></dd>
+        <dd><span class="pro_inf">Save:68% off</span></dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="<?php echo DIR_WS_TEMPLATE;?>jscript/xiangce.js"></script>
 <div class="centerColumn" id="productGeneral">
 
 <!--bof Form start-->
