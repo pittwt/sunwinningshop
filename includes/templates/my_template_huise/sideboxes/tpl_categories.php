@@ -1,6 +1,6 @@
 <?php
 $content = '';
-$content .= '<ul class="cate_con">';
+$content .= '<ul class="cate_con li_a">';
 
 $categories_query = "SELECT c.categories_id ,cd.categories_name as name  FROM categories as c,categories_description as cd where c.categories_id  = cd.categories_id and c.parent_id = 0 and c.categories_status=1 and cd.language_id=" . (int)$_SESSION['languages_id'] ." order by c.sort_order";
 $categories = $db->Execute($categories_query);
