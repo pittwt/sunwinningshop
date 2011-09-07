@@ -10,14 +10,10 @@ while (!$categories->EOF)  {
 	<a  href="' . zen_href_link(FILENAME_DEFAULT, "cPath=".$categories->fields['categories_id']."") . '">'.$categories->fields['name'].'</a>
 	<ol class="cate_ol">
 	';
-	
-	
+
 	$categories_query_path = "SELECT c.categories_id ,cd.categories_name as name  FROM categories as c,categories_description as cd where c.categories_id  = cd.categories_id and c.parent_id != 0 and c.categories_status=1 and cd.language_id=" . (int)$_SESSION['languages_id'] ." and c.parent_id = ".$categories->fields['categories_id']." order by c.sort_order";
 	$categories_path = $db->Execute($categories_query_path);
 	$categories_path_count = $categories_path->RecordCount();
-/*	if($categories_path_count > 0){
-		$content .= '<ol class="cate_ol">';	
-	}*/
 	$iclass = 1;
 	while (!$categories_path->EOF)  {
 		if($iclass == 1){
@@ -31,9 +27,6 @@ while (!$categories->EOF)  {
 		$iclass++;
 		$categories_path->MoveNext();
 	}
-/*	if($categories_path_count > 0){
-		$content .= '</ol>';	
-	}*/
 	$content .= '
 	</ol>
 	</li>';
