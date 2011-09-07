@@ -29,14 +29,14 @@
 
 												/*list*/
 .con_right {width:735px;float:left;margin:10px 0 0 10px;display:inline;}
-.mavericks .mav_tit {line-height:37px;overflow:hidden;zoom:1;background-color:#b8d6ec;}
-.mavericks strong {float:left;}
-.mavericks .mavericks_rg {float:right;}
-.mavericks .but_lf,.mavericks .but_rg,.mavericks .mav_num {float:left;font-weight:bold;color:white;font-size:14px;}
-.mavericks .but_lf {background:url("../images/abc.gif") -375px 0 no-repeat;width:25px;height:25px;margin:6px 10px 0 0;overflow:hidden;}
-.mavericks .but_rg {background:url("../images/abc.gif") -375px -25px no-repeat;width:25px;height:25px;margin:6px 11px 0 10px;overflow:hidden;}
-.mavericks strong {font-size:16px;color:white;padding-left:10px;}
-.mavericks span a {text-decoration:underline;margin:1px;}
+.con_right .mav_tit {line-height:37px;overflow:hidden;zoom:1;background-color:#b8d6ec;}
+.con_right strong {float:left;}
+.con_right .mavericks_rg {float:right;}
+.con_right .but_lf,.mavericks .but_rg,.mavericks .mav_num {float:left;font-weight:bold;color:white;font-size:14px;}
+.con_right .but_lf {background:url("../images/abc.gif") -375px 0 no-repeat;width:25px;height:25px;margin:6px 10px 0 0;overflow:hidden;}
+.con_right .but_rg {background:url("../images/abc.gif") -375px -25px no-repeat;width:25px;height:25px;margin:6px 11px 0 10px;overflow:hidden;}
+.con_right strong {font-size:16px;color:white;padding-left:10px;}
+.con_right span a {text-decoration:underline;margin:1px;}
 															
 .mav_con {border:1px solid #dedede;border-top:none;border-bottom:none;padding-bottom:6px;}
 .mav_list {overflow:hidden;zoom:1;margin-top:16px;width:720px;margin:0 auto;border-top:1px solid #dedede;padding:26px 0;}
@@ -60,7 +60,7 @@
 
 															/*conent*/
 
-.mav_jersey .jersey_pro {overflow:hidden;zoom:1;}
+.con_right .jersey_pro {overflow:hidden;zoom:1;}
 .jersey_pic {float:left;width:281px;}
 .top_one {width:279px;height:246px;border:1px solid #c0c0c0;}
 .top_one img {width:279px;height:246px;}
