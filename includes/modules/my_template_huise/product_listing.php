@@ -17,7 +17,7 @@ $listing_split = new splitPageResults($listing_sql, MAX_DISPLAY_PRODUCTS_LISTING
 $zco_notifier->notify('NOTIFY_MODULE_PRODUCT_LISTING_RESULTCOUNT', $listing_split->number_of_rows);
 $how_many = 0;
 
-$list_box_contents[0] = array('params' => 'class="productListing-rowheading"');
+//$list_box_contents[0] = array('params' => 'class="productListing-rowheading"');
 
 $zc_col_count_description = 0;
 $lc_align = '';
@@ -66,12 +66,54 @@ for ($col=0, $n=sizeof($column_list); $col<$n; $col++) {
 
 
 
-  $list_box_contents[0][$col] = array('align' => $lc_align,
+  /*$list_box_contents[0][$col] = array('align' => $lc_align,
                                       'params' => 'class="productListing-heading"',
-                                      'text' => $lc_text );
+                                      'text' => $lc_text );*/
 }
 
-if ($listing_split->number_of_rows > 0) {
+?>
+<div class="mav_con"> 
+<?php
+	if ($listing_split->number_of_rows > 0) {
+	  $rows = 0;
+	  $listing = $db->Execute($listing_split->sql_query);
+	  $extra_row = 0;
+	  while (!$listing->EOF) {
+		$rows++;
+		
+        $lc_text = '<div class="mav_list mav_special">
+        <a class="mav_list_pic" href="###"><img src="' . DIR_WS_IMAGES . $listing->fields['products_image'] . '" alt="图片"/></a>
+        <div class="mav_list_words">
+            <h3 class="mav_list_tit"><a href="###"> ' . $listing->fields['products_name'] . '</a></h3>
+            <p class="mav_inf">'. $listing->fields['products_description'] . '</p>
+            <a href="###" class="big_cart">Add this to Cart</a> 
+        </div>
+        <div class="mav_price">
+            <span class="list_price">List Price:<var>' . $listing->fields['products_price'] . '</var></span>
+            <span class="price">Price:<var>' . $listing->fields['products_price'] . '</var></span>
+            <span class="save_price">You Save:<em>68% off</em></span>
+        </div>
+    </div>';
+	
+		$listing->MoveNext();
+	  }
+	}else {
+  $list_box_contents = array();
+
+  /*$list_box_contents[0] = array('params' => 'class="productListing-odd"');
+  $list_box_contents[0][] = array('params' => 'class="productListing-data"',
+                                              'text' => TEXT_NO_PRODUCTS);*/
+
+  $error_categories = true;
+}
+
+?>
+</div>
+
+
+<?php
+
+/*if ($listing_split->number_of_rows > 0) {
   $rows = 0;
   $listing = $db->Execute($listing_split->sql_query);
   $extra_row = 0;
@@ -189,16 +231,16 @@ if ($listing_split->number_of_rows > 0) {
     $listing->MoveNext();
   }
   $error_categories = false;
-} else {
+}else {
   $list_box_contents = array();
 
-  $list_box_contents[0] = array('params' => 'class="productListing-odd"');
+  /*$list_box_contents[0] = array('params' => 'class="productListing-odd"');
   $list_box_contents[0][] = array('params' => 'class="productListing-data"',
-                                              'text' => TEXT_NO_PRODUCTS);
-
+                                              'text' => TEXT_NO_PRODUCTS);*/
+/*
   $error_categories = true;
 }
-
+ */
 if (($how_many > 0 and $show_submit == true and $listing_split->number_of_rows > 0) and (PRODUCT_LISTING_MULTIPLE_ADD_TO_CART == 1 or  PRODUCT_LISTING_MULTIPLE_ADD_TO_CART == 3) ) {
   $show_top_submit_button = true;
 } else {

@@ -127,7 +127,7 @@ class splitPageResults extends base {
 	$display_links_string .= '</span>';
 	
     // next button
-    if (($this->current_page_number < $this->number_of_pages) && ($this->number_of_pages != 1)) $display_links_string .= '<a href="' . zen_href_link($_GET['main_page'], $parameters . 'page=' . ($this->current_page_number + 1), $request_type) . '" title=" ' . PREVNEXT_TITLE_NEXT_PAGE . ' " class="but_rg">&nbsp;</a>';
+    if (($this->current_page_number < $this->number_of_pages) && ($this->number_of_pages != 1)) $display_links_string .= '<a href="' . zen_href_link($_GET['main_page'], $parameters . 'page=' . ($this->current_page_number + 1), $request_type) . '" title=" ' . PREVNEXT_TITLE_NEXT_PAGE . ' " class="but_rg"></a>';
 
     if ($display_links_string == '&nbsp;<strong class="current">1</strong>&nbsp;') {
       return '&nbsp;';
@@ -202,7 +202,7 @@ class splitPageResults extends base {
 
     // next button
     if (($this->current_page_number < $this->number_of_pages) && ($this->number_of_pages != 1)){
-    	$display_links_string .= '<li><a href="' . zen_href_link($_GET['main_page'], $parameters . 'page=' . ($this->current_page_number + 1), $request_type) . '" title=" ' . PREVNEXT_TITLE_NEXT_PAGE . ' " class="but_rg">&nbsp;</a></li>';
+    	$display_links_string .= '<li><a href="' . zen_href_link($_GET['main_page'], $parameters . 'page=' . ($this->current_page_number + 1), $request_type) . '" title=" ' . PREVNEXT_TITLE_NEXT_PAGE . ' " class="but_rg"></a></li>';
     	$display_links_string .= '<li><a href="' . zen_href_link($_GET['main_page'], $parameters . $this->page_name . '=' . $this->number_of_pages, $request_type) . '" title=" ' . sprintf(PREVNEXT_TITLE_PAGE_NO, $this->number_of_pages) . ' "><span class="last_page"></span></a></li>';
     }
     if ($display_links_string == '&nbsp;<strong class="current">1</strong>&nbsp;&nbsp;&nbsp;') {
@@ -246,7 +246,7 @@ class splitPageResults extends base {
     //if ($cur_window_num < $max_window_num) $display_links_string .= '<a href="' . zen_href_link($_GET['main_page'], $parameters . $this->page_name . '=' . (($cur_window_num) * $max_page_links + 1), $request_type) . '" title=" ' . sprintf(PREVNEXT_TITLE_NEXT_SET_OF_NO_PAGE, $max_page_links) . ' ">...</a>&nbsp;';
 
     // next button
-    if (($this->current_page_number < $this->number_of_pages) && ($this->number_of_pages != 1)) $display_links_string .= '&nbsp;&nbsp;<a href="' . zen_href_link($_GET['main_page'], $parameters . 'page=' . ($this->current_page_number + 1), $request_type) . '" title=" ' . PREVNEXT_TITLE_NEXT_PAGE . ' " class="but_rg">&nbsp;</a>';
+    if (($this->current_page_number < $this->number_of_pages) && ($this->number_of_pages != 1)) $display_links_string .= '&nbsp;&nbsp;<a href="' . zen_href_link($_GET['main_page'], $parameters . 'page=' . ($this->current_page_number + 1), $request_type) . '" title=" ' . PREVNEXT_TITLE_NEXT_PAGE . ' " class="but_rg"></a>';
 
     if ($display_links_string == '&nbsp;<a href="' . zen_href_link($_GET['main_page'], $parameters . $this->page_name . '=' . $jump_to_page, $request_type) . '" title=" ' . sprintf(PREVNEXT_TITLE_PAGE_NO, $jump_to_page) . ' "><span class="current">1</span></a>&nbsp;') {
       return '&nbsp;';

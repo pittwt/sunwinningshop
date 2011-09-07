@@ -13,7 +13,6 @@
  */
 ?>
 <?php include(DIR_WS_MODULES . zen_get_module_directory(FILENAME_PRODUCT_LISTING));?>
-<div class="mavericks" id="indexProductList">
 
 <h1 class="mav_tit">
 	<strong><?php echo $breadcrumb->last(); ?></strong>
@@ -25,34 +24,26 @@
     }
     ?>
     </div>
-    <!--<a href="###" class="but_rg">&nbsp;</a><span class="mav_num"><a href="###">1</a><a href="###">2</a><a href="###">3</a><a href="###">4</a><a href="###">.....</a><a href="###">243</a></span><a href="###" class="but_lf">&nbsp;</a>-->
 </h1>
 
 
-
 <div class="mav_con">
-    
-
-    
     <?php
-    /**
-     * load the list_box_content template to display the products
-     */
-      require($template->get_template_dir('tpl_tabular_display.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_tabular_display.php');
+	echo $lc_text;
+      //require($template->get_template_dir('tpl_tabular_display.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_tabular_display.php');
     ?>
-    
-    <?php if ( ($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '2') || (PREV_NEXT_BAR_LOCATION == '3')) ) {
+</div>  
+<h1 class="mav_tit">
+    <strong><?php echo $breadcrumb->last(); ?></strong>
+    <div class="mavericks_rg">
+    <?php if ( ($listing_split->number_of_rows > 0) && ( (PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3') ) ) {
     ?>
-    <div id="productsListingBottomNumber" class="navSplitPagesResult back"><?php echo $listing_split->display_count(TEXT_DISPLAY_NUMBER_OF_PRODUCTS); ?></div>
-    <div  id="productsListingListingBottomLinks" class="navSplitPagesLinks forward"><?php echo TEXT_RESULT_PAGE . ' ' . $listing_split->display_links(MAX_DISPLAY_PAGE_LINKS, zen_get_all_get_params(array('page', 'info', 'x', 'y'))); ?></div>
-    <br class="clearBoth" />
+       <?php echo TEXT_RESULT_PAGE . ' ' . $listing_split->display_links(MAX_DISPLAY_PAGE_LINKS, zen_get_all_get_params(array('page', 'info', 'x', 'y', 'main_page'))); ?>
     <?php
-      }
+    }
     ?>
-
-</div>
-
-
+    </div>
+</h1>
 
 <?php
 // if ($show_top_submit_button == true or $show_bottom_submit_button == true or (PRODUCT_LISTING_MULTIPLE_ADD_TO_CART != 0 and $show_submit == true and $listing_split->number_of_rows > 0)) {
