@@ -28,7 +28,7 @@ require(DIR_WS_MODULES . zen_get_module_directory('footer.php'));
             <?php
                 // display productTagList
                 foreach(range('a', 'z') as $letter) {
-                    echo '<a  href="' . HTTP_SERVER.DIR_WS_CATALOG.'tags/'.strtoupper($letter).'.html" >'.strtoupper($letter).'</a>';
+                    echo '<a  href="' . HTTP_SERVER.DIR_WS_CATALOG.'producttags/'.strtoupper($letter).'.html" >'.strtoupper($letter).'</a>';
                 }
                 echo '<a href="' . HTTP_SERVER.DIR_WS_CATALOG.'tags/0-9.html" >0-9</a>';
             ?>

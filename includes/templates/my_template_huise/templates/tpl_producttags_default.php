@@ -13,24 +13,15 @@
  */
  $breadcrumb->trail($_GET['letter']);
  ?>
-
 <div class="centerColumn" id="checkoutPayment">
-<div style="margin:10px 0;text-align:center">
-<?php
-// display productTagList
-foreach(range('a', 'z') as $letter) {
-    echo '<a href="' . HTTP_SERVER.DIR_WS_CATALOG.'tags/'.strtoupper($letter).'.html" >'.strtoupper($letter).'</a> | ';
-}
-echo '<a href="' . HTTP_SERVER.DIR_WS_CATALOG.'tags/0-9.html" >0-9</a> ';
-?> 
-</div>
+
 <?php
 	if ($_GET['letter']=='0-9'){
 		$producttags_split_sql = "select p.`products_id`,pd.`products_name` from ".TABLE_PRODUCTS." p,".TABLE_PRODUCTS_DESCRIPTION." pd where p.`products_id` = pd.`products_id` AND LEFT(pd.`products_name`,1) REGEXP '^[0-9]'";
 	}else{
 		$producttags_split_sql = "select p.`products_id`,pd.`products_name` from ".TABLE_PRODUCTS." p,".TABLE_PRODUCTS_DESCRIPTION." pd where p.`products_id` = pd.`products_id` AND LEFT(pd.`products_name`,1) LIKE '".strtolower($_GET['letter'])."'";
 	}//print_r($producttags_split_sql);
-	$producttags_split = new splitPageResults($producttags_split_sql, 100, 'p.products_id', 'page');
+	$producttags_split = new splitPageResults($producttags_split_sql, 2, 'p.products_id', 'page');
 	$zco_notifier->notify('NOTIFY_MODULE_PRODUCT_LISTING_RESULTCOUNT', $producttags_split->number_of_rows);
 	$producttags = $db->Execute($producttags_split->sql_query);
 	//echo $producttags->RecordCount();
@@ -51,7 +42,6 @@ echo '<a href="' . HTTP_SERVER.DIR_WS_CATALOG.'tags/0-9.html" >0-9</a> ';
 	}
 ?>
 </ul>
-<?php //print_r(zen_get_all_get_params(array('page', 'info', 'x', 'y'))); ?>
 <?php if (($producttags_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '2') || (PREV_NEXT_BAR_LOCATION == '3')) ) {
 ?>
 <div style="text-align:center"><?php echo TEXT_RESULT_PAGE . ' ' . $producttags_split->no_current_display_links(200, zen_get_all_get_params(array('page', 'info', 'x', 'y'))); ?></div>
@@ -59,13 +49,14 @@ echo '<a href="' . HTTP_SERVER.DIR_WS_CATALOG.'tags/0-9.html" >0-9</a> ';
   }
 ?>
 <div class="clear margine_t"> </div>
-<ul class="letter_1px g_t_c big line_30px">
+<!--<ul class="letter_1px g_t_c big line_30px">
 <?php
 // display productTagList
-foreach(range('a', 'z') as $letter) {
-    echo '<a href="' . HTTP_SERVER.DIR_WS_CATALOG.'tags/'.strtoupper($letter).'.html" >'.strtoupper($letter).'</a> | ';
+/*foreach(range('a', 'z') as $letter) {
+    echo '<a href="' . HTTP_SERVER.DIR_WS_CATALOG.'producttags/'.strtoupper($letter).'.html" >'.strtoupper($letter).'</a> | ';
 }
-echo '<a href="' . HTTP_SERVER.DIR_WS_CATALOG.'tags/0-9.html" >0-9</a> ';
+echo '<a href="' . HTTP_SERVER.DIR_WS_CATALOG.'producttags/0-9.html" >0-9</a> ';
+*/
 ?> 
-</ul>
+</ul>-->
 </div>

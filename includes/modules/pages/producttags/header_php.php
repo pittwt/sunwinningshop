@@ -1,13 +1,5 @@
 <?php
-/**
- * Producttags Page
- * 
- * @package page
- * @copyright Copyright 2003-2006 Zen Cart Development Team
- * @copyright Portions Copyright 2003 osCommerce
- * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: header_php.php 1.3 $
- */
+
 
   $_SESSION['navigation']->remove_current_page();
 
@@ -15,9 +7,8 @@
 
 // include template specific file name defines
   $define_page = zen_get_file_directory(DIR_WS_LANGUAGES . $_SESSION['language'] . '/html_includes/', FILENAME_DEFINE_PRODUCTTAGS, 'false');
-	
   if (isset($_GET['letter'])){
-  	$breadcrumb->add($_GET['letter']);
+  	$breadcrumb->add("Product tags " . $_GET['letter']);
   }else{
 	  $breadcrumb->add(NAVBAR_TITLE);
   }
