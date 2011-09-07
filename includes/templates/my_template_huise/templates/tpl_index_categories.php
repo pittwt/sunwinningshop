@@ -13,55 +13,13 @@
  * @version $Id: tpl_index_categories.php 4678 2006-10-05 21:02:50Z ajeh $
  */
 ?>
-<div class="centerColumn" id="indexCategories">
-<?php if ($show_welcome == true) { ?>
-<h1 id="indexCategoriesHeading"><?php echo HEADING_TITLE; ?></h1>
+<div class="mavericks">
 
-<?php if (SHOW_CUSTOMER_GREETING == 1) { ?>
-<h2 class="greeting"><?php echo zen_customer_greeting(); ?></h2>
-<?php } ?>
+<h1 class="mav_tit"><strong><?php echo $breadcrumb->last(); ?></strong><a href="###" class="but_rg">&nbsp;</a><span class="mav_num"><a href="###">1</a><a href="###">2</a><a href="###">3</a><a href="###">4</a><a href="###">.....</a><a href="###">243</a></span><a href="###" class="but_lf">&nbsp;</a></h1>
 
-<!-- deprecated - to use - uncomment
-<?php if (TEXT_MAIN) { ?>
-<div id="" class="content"><?php echo TEXT_MAIN; ?></div>
-<?php } ?>-->
 
-<!-- deprecated - to use - uncomment
-<?php if (TEXT_INFORMATION) { ?>
-<div id="" class="content"><?php echo TEXT_INFORMATION; ?></div>
-<?php } ?>-->
 
-<?php if (DEFINE_MAIN_PAGE_STATUS >= 1 and DEFINE_MAIN_PAGE_STATUS <= 2) { ?>
-<div id="indexCategoriesMainContent" class="content"><?php
-/**
- * require the html_define for the index/categories page
- */
-  include($define_page);
-?></div>
-<?php } ?>
 
-<?php } else { ?>
-<h1 id="indexCategoriesHeading"><?php echo $breadcrumb->last(); ?></h1>
-<?php } ?>
-
-<?php
-if (PRODUCT_LIST_CATEGORIES_IMAGE_STATUS_TOP == 'true') {
-// categories_image
-  if ($categories_image = zen_get_categories_image($current_category_id)) {
-?>
-<div id="categoryImgListing" class="categoryImg"><?php echo zen_image(DIR_WS_IMAGES . $categories_image, '', SUBCATEGORY_IMAGE_TOP_WIDTH, SUBCATEGORY_IMAGE_TOP_HEIGHT); ?></div>
-<?php
-  }
-} // categories_image
-?>
-
-<?php
-// categories_description
-    if ($current_categories_description != '') {
-?>
-<div id="categoryDescription" class="catDescContent"><?php echo $current_categories_description;  ?></div>
-<?php } // categories_description ?>
-<!-- BOF: Display grid of available sub-categories, if any -->
 <?php
   if (PRODUCT_LIST_CATEGORY_ROW_STATUS == 0) {
     // do nothing

@@ -12,87 +12,55 @@
  * @version $Id: tpl_index_product_list.php 15589 2010-02-27 15:03:49Z ajeh $
  */
 ?>
-<div class="centerColumn" id="indexProductList">
+<?php include(DIR_WS_MODULES . zen_get_module_directory(FILENAME_PRODUCT_LISTING));?>
+<div class="mavericks" id="indexProductList">
 
-<h1 id="productListHeading"><?php echo $breadcrumb->last(); ?></h1>
+<h1 class="mav_tit">
+	<strong><?php echo $breadcrumb->last(); ?></strong>
+    <div class="mavericks_rg">
+	<?php if ( ($listing_split->number_of_rows > 0) && ( (PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3') ) ) {
+    ?>
+       <?php echo TEXT_RESULT_PAGE . ' ' . $listing_split->display_links(MAX_DISPLAY_PAGE_LINKS, zen_get_all_get_params(array('page', 'info', 'x', 'y', 'main_page'))); ?>
+    <?php
+    }
+    ?>
+    </div>
+    <!--<a href="###" class="but_rg">&nbsp;</a><span class="mav_num"><a href="###">1</a><a href="###">2</a><a href="###">3</a><a href="###">4</a><a href="###">.....</a><a href="###">243</a></span><a href="###" class="but_lf">&nbsp;</a>-->
+</h1>
+
+
+
+<div class="mav_con">
+    
+
+    
+    <?php
+    /**
+     * load the list_box_content template to display the products
+     */
+      require($template->get_template_dir('tpl_tabular_display.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_tabular_display.php');
+    ?>
+    
+    <?php if ( ($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '2') || (PREV_NEXT_BAR_LOCATION == '3')) ) {
+    ?>
+    <div id="productsListingBottomNumber" class="navSplitPagesResult back"><?php echo $listing_split->display_count(TEXT_DISPLAY_NUMBER_OF_PRODUCTS); ?></div>
+    <div  id="productsListingListingBottomLinks" class="navSplitPagesLinks forward"><?php echo TEXT_RESULT_PAGE . ' ' . $listing_split->display_links(MAX_DISPLAY_PAGE_LINKS, zen_get_all_get_params(array('page', 'info', 'x', 'y'))); ?></div>
+    <br class="clearBoth" />
+    <?php
+      }
+    ?>
+
+</div>
+
+
 
 <?php
-if (PRODUCT_LIST_CATEGORIES_IMAGE_STATUS == 'true') {
-// categories_image
-  if ($categories_image = zen_get_categories_image($current_category_id)) {
-?>
-<div id="categoryImgListing" class="categoryImg"><?php echo zen_image(DIR_WS_IMAGES . $categories_image, '', CATEGORY_ICON_IMAGE_WIDTH, CATEGORY_ICON_IMAGE_HEIGHT); ?></div>
-<?php
-  }
-} // categories_image
-?>
-
-<?php
-// categories_description
-    if ($current_categories_description != '') {
-?>
-<div id="indexProductListCatDescription" class="content"><?php echo $current_categories_description;  ?></div>
-<?php } // categories_description ?>
-
-<?php
-  $check_for_alpha = $listing_sql;
-  $check_for_alpha = $db->Execute($check_for_alpha);
-
-  if ($do_filter_list || ($check_for_alpha->RecordCount() > 0 && PRODUCT_LIST_ALPHA_SORTER == 'true')) {
-  $form = zen_draw_form('filter', zen_href_link(FILENAME_DEFAULT), 'get') . '<label class="inputLabel">' .TEXT_SHOW . '</label>';
-?>
-
-<?php
-  echo $form;
-  echo zen_draw_hidden_field('main_page', FILENAME_DEFAULT);
-  echo zen_hide_session_id();
-?>
-<?php
-  // draw cPath if known
-  if (!$getoption_set) {
-    echo zen_draw_hidden_field('cPath', $cPath);
-  } else {
-    // draw manufacturers_id
-    echo zen_draw_hidden_field($get_option_variable, $_GET[$get_option_variable]);
-  }
-
-  // draw music_genre_id
-  if (isset($_GET['music_genre_id']) && $_GET['music_genre_id'] != '') echo zen_draw_hidden_field('music_genre_id', $_GET['music_genre_id']);
-
-  // draw record_company_id
-  if (isset($_GET['record_company_id']) && $_GET['record_company_id'] != '') echo zen_draw_hidden_field('record_company_id', $_GET['record_company_id']);
-
-  // draw typefilter
-  if (isset($_GET['typefilter']) && $_GET['typefilter'] != '') echo zen_draw_hidden_field('typefilter', $_GET['typefilter']);
-
-  // draw manufacturers_id if not already done earlier
-  if ($get_option_variable != 'manufacturers_id' && isset($_GET['manufacturers_id']) && $_GET['manufacturers_id'] > 0) {
-    echo zen_draw_hidden_field('manufacturers_id', $_GET['manufacturers_id']);
-  }
-
-  // draw sort
-  echo zen_draw_hidden_field('sort', $_GET['sort']);
-
-  // draw filter_id (ie: category/mfg depending on $options)
-  if ($do_filter_list) {
-    echo zen_draw_pull_down_menu('filter_id', $options, (isset($_GET['filter_id']) ? $_GET['filter_id'] : ''), 'onchange="this.form.submit()"');
-  }
-
-  // draw alpha sorter
-  require(DIR_WS_MODULES . zen_get_module_directory(FILENAME_PRODUCT_LISTING_ALPHA_SORTER));
+// if ($show_top_submit_button == true or $show_bottom_submit_button == true or (PRODUCT_LISTING_MULTIPLE_ADD_TO_CART != 0 and $show_submit == true and $listing_split->number_of_rows > 0)) {
+  if ($show_top_submit_button == true or $show_bottom_submit_button == true) {
 ?>
 </form>
-<?php
-  }
-?>
-<br class="clearBoth" />
+<?php } ?>
 
-<?php
-/**
- * require the code for listing products
- */
- require($template->get_template_dir('tpl_modules_product_listing.php', DIR_WS_TEMPLATE, $current_page_base,'templates'). '/' . 'tpl_modules_product_listing.php');
-?>
 
 
 <?php

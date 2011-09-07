@@ -12,10 +12,7 @@ if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
 }
 $show_submit = zen_run_normal();
-/* anton 去掉分类列表重复项 */
-$temp_sql = explode('order by', $listing_sql);
-//$listing_sql = $temp_sql[0].' group by p.products_id order by '.$temp_sql[1];
-/* anton */
+
 $listing_split = new splitPageResults($listing_sql, MAX_DISPLAY_PRODUCTS_LISTING, 'p.products_id', 'page');
 $zco_notifier->notify('NOTIFY_MODULE_PRODUCT_LISTING_RESULTCOUNT', $listing_split->number_of_rows);
 $how_many = 0;
