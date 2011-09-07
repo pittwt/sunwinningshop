@@ -32,7 +32,7 @@
 .con_right .mav_tit {line-height:37px;overflow:hidden;zoom:1;background-color:#b8d6ec;}
 .con_right strong {float:left;}
 .con_right .mavericks_rg {float:right;}
-.con_right .but_lf,.mavericks .but_rg,.mavericks .mav_num {float:left;font-weight:bold;color:white;font-size:14px;}
+.con_right .but_lf,.con_right .but_rg,.con_right .mav_num {float:left;font-weight:bold;color:white;font-size:14px;}
 .con_right .but_lf {background:url("../images/abc.gif") -375px 0 no-repeat;width:25px;height:25px;margin:6px 10px 0 0;overflow:hidden;}
 .con_right .but_rg {background:url("../images/abc.gif") -375px -25px no-repeat;width:25px;height:25px;margin:6px 11px 0 10px;overflow:hidden;}
 .con_right strong {font-size:16px;color:white;padding-left:10px;}
