@@ -27,7 +27,7 @@ while (!$categories->EOF)  {
 		}else{
 			$classstr = '';		
 		}
-		$content .= '<li '.$classstr.'><a  href="' . zen_href_link(FILENAME_DEFAULT, "cPath=".$categories->fields['categories_id']."_".$categories_query_path->fields['categories_id']."") . '">'.$categories_path->fields['name'].'</a></li>';
+		$content .= '<li '.$classstr.'><a  href="' . zen_href_link(FILENAME_DEFAULT, "&cPath=".$categories->fields['categories_id']."_".$categories_path->fields['categories_id']."") . '">'.$categories_path->fields['name'].'</a></li>';
 		$iclass++;
 		$categories_path->MoveNext();
 	}
