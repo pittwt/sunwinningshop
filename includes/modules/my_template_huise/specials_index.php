@@ -73,7 +73,7 @@ if ($num_products_count > 0) {
 	  
 	  
 	  
-    $products_price = zen_get_products_display_price($specials_index->fields['products_id']);
+    $products_price = zen_get_products_display_price_sam($specials_index->fields['products_id']);
     if (!isset($productsInCategory[$specials_index->fields['products_id']])) $productsInCategory[$specials_index->fields['products_id']] = zen_get_generated_category_path_rev($specials_index->fields['master_categories_id']);
 
     $specials_index->fields['products_name'] = zen_get_products_name($specials_index->fields['products_id']);
