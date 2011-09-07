@@ -28,13 +28,13 @@
 	
     $content .= '<a href="' . zen_href_link(zen_get_info_page($random_featured_product->fields["products_id"]), 'cPath=' . zen_get_generated_category_path_rev($random_featured_product->fields["master_categories_id"]) . '&products_id=' . $random_featured_product->fields["products_id"]) . '" class="a_pic">' . zen_image(DIR_WS_IMAGES . $random_featured_product->fields['products_image'], $random_featured_product->fields['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT).'</a>';
 	
-    $content .= '<a href="' . zen_href_link(zen_get_info_page($random_featured_product->fields["products_id"]), 'cPath=' . zen_get_generated_category_path_rev($random_featured_product->fields["master_categories_id"]) . '&products_id=' . $random_featured_product->fields["products_id"]) . '" class="pro_inf">'.$random_featured_product->fields['products_name'].'</a>';
+    $content .= '<a href="' . zen_href_link(zen_get_info_page($random_featured_product->fields["products_id"]), 'cPath=' . zen_get_generated_category_path_rev($random_featured_product->fields["master_categories_id"]) . '&products_id=' . $random_featured_product->fields["products_id"]) . '" class="pro_inf">'.$random_featured_product->fields['products_name'].'</a><br />';
 	
-    $content .= '
+   /* $content .= '
 	<span><var>$156.25</var><em>$50.00</em></span>
 	<span class="pro_inf">Save:68% off</span>
-	';
-	//$content .= $featured_box_price;
+	';*/
+	$content .= $featured_box_price;
     $content .= '</div>';
 	
     $random_featured_product->MoveNextRandom();
