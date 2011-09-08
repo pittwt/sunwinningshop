@@ -1,10 +1,11 @@
 <?php
+echo '<label>Please Choose</label>';
 for($i=0;$i<sizeof($options_name);$i++) {
 	if ($options_comment[$i] != '' and $options_comment_position[$i] == '0') {
 		echo $options_comment[$i]; 	
 	}
-	echo "<br>".$options_name[$i];
-	echo $options_menu[$i];
+	echo "<br>".$options_name[$i].":";
+	echo $options_menu[$i]."<br />";
     
 	if ($options_comment[$i] != '' and $options_comment_position[$i] == '1') { 
 		echo $options_comment[$i]; 
