@@ -11,7 +11,7 @@ function picture(){
 	var mask=document.getElementById("mask");
 	var hid=document.getElementById("hidde");
 	var b=0;
-	var imgwidth_one=55;
+	var imgwidth_one=60;
 
 	for(var j=0;j<pic_one.length;j++){
 		pic_one[j].onclick=function(){movee(this);}
