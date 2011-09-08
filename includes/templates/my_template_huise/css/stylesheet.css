@@ -125,8 +125,8 @@
 
 .mark_tit {line-height:40px;background-color:#e6e6e6;font-size:18px;color:#3884be;padding-left:18px;}
 .mark .mark_con {overflow:hidden;zoom:1;}
-.mark_con .mark_list {float:left;width:340px;padding-left:26px;padding-top:12px;}
-.mark_con .mark_list li {line-height:27px;font-weight:bold;}
+.mark_con .mark_list {float:left;padding-top:12px;}
+.mark_con .mark_list li {line-height:27px;font-weight:bold;width:340px;padding-left:26px;float:left;}
 														/*denglu*/
 
 
