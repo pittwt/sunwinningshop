@@ -4,7 +4,7 @@ for($i=0;$i<sizeof($options_name);$i++) {
 	if ($options_comment[$i] != '' and $options_comment_position[$i] == '0') {
 		echo $options_comment[$i]; 	
 	}
-	echo "<br>".$options_name[$i].":";
+	echo "<br /><br />".$options_name[$i].":";
 	echo $options_menu[$i]."<br />";
     
 	if ($options_comment[$i] != '' and $options_comment_position[$i] == '1') { 
@@ -12,7 +12,7 @@ for($i=0;$i<sizeof($options_name);$i++) {
 	}
 
 	if ($options_attributes_image[$i] != '') {
-		echo $options_attributes_image[$i];
+		echo "".$options_attributes_image[$i];
 	}
 }
 ?>
