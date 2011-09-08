@@ -16,8 +16,10 @@
 .pro_list {width:220px;height:299px;background-color:#fff4d1;float:left;padding-bottom:10px;margin:0 15px 17px 0;display:inline;position:relative;}
 .pro_list dt,.pro_list dd {width:191px;margin:0 auto;line-height:20px;}
 .pro_list dt {margin:12px auto 7px;}
-.pro_list dt .a_pic {display:block;border:1px solid #c0c0c0;}
+.pro_list dt .a_pic {display:block;border:1px solid #c0c0c0;width:189px;height:167px;}
+.pro_list dt .a_pic img {width:189px;height:167px;}
 .pro_list dt .a_pic:hover {border:1px solid #ff6c00;}
+.pro_list dd .pro_inf {height:40px;}
 .pro_list dd .cart_one {display:block;background:url("../images/abc.gif") -173px -82px no-repeat;text-align:center;width:72px;height:21px;margin-top:6px;}
 .pro_list dd .cart_one:hover {color:#ff6c00;background:url("../images/abc.gif") -261px -82px no-repeat;text-decoration:none;}
 .pro_list .new {width:51px;height:51px;background:url("../images/abc.gif") -44px -156px no-repeat;position:absolute;left:169px;top:254px;z-index:99;}
