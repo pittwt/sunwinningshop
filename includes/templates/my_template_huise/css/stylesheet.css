@@ -44,7 +44,7 @@
 .mav_list .mav_list_pic,.mav_list .mav_list_words,.mav_list .mav_price {float:left;}
 .mav_list .mav_list_pic {border:1px solid #bfbfbf;margin-left:10px;}
 .mav_list .mav_list_pic:hover {border:1px solid #ff6c00;}
-.mav_list .mav_list_words {margin-left:14px;display:inline;padding-top:4px;}
+.mav_list .mav_list_words {margin-left:14px;display:inline;padding-top:4px;width:319px;}
 .mav_list .mav_list_tit {line-height:22px;}
 .mav_list .mav_list_tit a {font-size:14px;color:#408fcc;}
 .mav_list .mav_list_tit a:hover {color:#ff7713;}
