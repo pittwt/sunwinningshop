@@ -29,27 +29,44 @@
             </tr>
             <tr>
                 <td class="td_lf"><label>Country:</label></td>
-                <td><select><option>Untited States</option></select><em>*</em></td>
-            </tr>
-            <tr>
-                <td class="td_lf"><label>State/Province:</label></td>
-                <td><select><option>Untited States</option></select><em>*</em></td>
+                    <td><?php echo zen_get_country_list('zone_country_id', $selected_country, 'id="country" ' . 'onchange="update_zone(this.form);"') . (zen_not_null(ENTRY_COUNTRY_TEXT) ? '<span class="alert"><em>' . ENTRY_COUNTRY_TEXT . '</em></span>': ''); ?></td>
+                </tr>
+                <tr>
+                    <td class="td_lf"><label>State/Province:</label></td>
+                    <td>
+                    <?php
+				  
+					//if ($flag_show_pulldown_states == true) {
+				?>
+				<?php
+					  echo zen_draw_pull_down_menu('zone_id', zen_prepare_country_zones_pull_down($selected_country), $zone_id, 'id="stateZone"');
+					  if (zen_not_null(ENTRY_STATE_TEXT)) echo '&nbsp;<span class="alert">' . ENTRY_STATE_TEXT . '</span>'; 
+					//}
+					?>
+				<?php
+					echo zen_draw_input_field('state', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_state', '40') . ' id="state"');
+					if (zen_not_null(ENTRY_STATE_TEXT)) echo '&nbsp;<span class="alert" id="stText">' . ENTRY_STATE_TEXT . '</span>';
+					if ($flag_show_pulldown_states == false) {
+					  echo zen_draw_hidden_field('zone_id', $zone_name, ' ');
+					}
+				?><em>*</em></td>
             </tr>
             <tr>
                 <td class="td_lf"><label>City:</label></td>
-                <td><input type="text" value=""/><em>*</em></td>
+                <td>
+                <?php echo zen_draw_input_field('city', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_city', '40') . ' id="city"') . (zen_not_null(ENTRY_CITY_TEXT) ? '<span class="alert"><em>' . ENTRY_CITY_TEXT . '</em></span>': ''); ?></td>
             </tr>
             <tr>
                 <td class="td_lf"><label>Street Address:</label></td>
-                <td><input type="text" value=""/><em>*</em></td>
+                <td><?php echo zen_draw_input_field('street_address', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_street_address', '40') . ' id="street-address"') . (zen_not_null(ENTRY_STREET_ADDRESS_TEXT) ? '<span class="alert"><em>' . ENTRY_STREET_ADDRESS_TEXT . '</em></span>': ''); ?></td>
             </tr>
             <tr>
                 <td class="td_lf"><label>Post/Zip Code:</label></td>
-                <td><input type="text" value=""/><em>*</em></td>
+                <td><?php echo zen_draw_input_field('postcode', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_postcode', '40') . ' id="postcode"') . (zen_not_null(ENTRY_POST_CODE_TEXT) ? '<span class="alert"><em>' . ENTRY_POST_CODE_TEXT . '</em></span>': ''); ?></td>
             </tr>
             <tr>
                 <td class="td_lf"><label>Telephone:</label></td>
-                <td><input type="text" value=""/><em>*</em></td>
+                <td><?php echo zen_draw_input_field('telephone', '', zen_set_field_length(TABLE_CUSTOMERS, 'customers_telephone', '40') . ' id="telephone"') . (zen_not_null(ENTRY_TELEPHONE_NUMBER_TEXT) ? '<span class="alert"><em>' . ENTRY_TELEPHONE_NUMBER_TEXT . '</em></span>': ''); ?></td>
             </tr>
         </table>
         <input class="zhuce_sub" type="submit" value=""/>
