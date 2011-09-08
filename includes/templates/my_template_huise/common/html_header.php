@@ -39,7 +39,7 @@ require(DIR_WS_MODULES . zen_get_module_directory('meta_tags.php'));
 <link rel="shortcut icon" href="<?php echo FAVICON; ?>" type="image/x-icon" />
 <?php } //endif FAVICON ?>
 
-<base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER . DIR_WS_HTTPS_CATALOG : HTTP_SERVER . DIR_WS_CATALOG ); ?>" />
+<!--<base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER . DIR_WS_HTTPS_CATALOG : HTTP_SERVER . DIR_WS_CATALOG ); ?>" />-->
 <?php if (isset($canonicalLink) && $canonicalLink != '') { ?>
 <link rel="canonical" href="<?php echo $canonicalLink; ?>" />
 <?php } ?>
