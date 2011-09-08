@@ -30,7 +30,7 @@ function picture(){
 	}//tab切换；
 	function reducee(){
 		if(b<=0){
-			alert("this is the first one");
+			
 		}
 		else{
 			pic_one[b-1].className="special_img";
@@ -96,7 +96,7 @@ function picture(){
 	}//tab切换；
 	function reduce(){
 		if(a<=0){
-			alert("this is the first one");
+			
 		}
 		else{
 			pic[a-1].className="special";
