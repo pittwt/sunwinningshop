@@ -351,7 +351,7 @@
 
 
 </head>
-<body onload="init()">
+<body onLoad="init()">
 <div id="spiffycalendar" class="text"></div>
 <!-- header //-->
 <?php require(DIR_WS_INCLUDES . 'header.php'); ?>
