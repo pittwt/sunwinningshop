@@ -31,7 +31,7 @@
 .con_right {width:735px;float:left;margin:10px 0 0 10px;display:inline;}
 .con_right .mav_tit {line-height:37px;overflow:hidden;zoom:1;background-color:#b8d6ec;}
 .con_right strong {float:left;}
-.con_right .mavericks_rg {float:right;}
+.con_right .mavericks_rg {float:right;line-height:37px;}
 .con_right .but_lf,.con_right .but_rg,.con_right .mav_num {float:left;font-weight:bold;color:white;font-size:14px;}
 .con_right .but_lf {background:url("../images/abc.gif") -375px 0 no-repeat;width:25px;height:25px;margin:6px 10px 0 0;overflow:hidden;}
 .con_right .but_rg {background:url("../images/abc.gif") -375px -25px no-repeat;width:25px;height:25px;margin:6px 11px 0 10px;overflow:hidden;}
@@ -124,8 +124,7 @@
 																	/*biaoqian*/
 
 .mark_tit {line-height:40px;background-color:#e6e6e6;font-size:18px;color:#3884be;padding-left:18px;}
-.mark .mark_con {overflow:hidden;zoom:1;}
-.mark_con .mark_list {float:left;padding-top:12px;}
+.mark_con .mark_list {padding-top:12px;overflow:hidden;zoom:1;}
 .mark_con .mark_list li {line-height:27px;font-weight:bold;width:340px;padding-left:26px;float:left;}
 														/*denglu*/
 
