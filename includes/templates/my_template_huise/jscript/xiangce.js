@@ -11,7 +11,7 @@ function picture(){
 	var mask=document.getElementById("mask");
 	var hid=document.getElementById("hidde");
 	var b=0;
-	var imgwidth_one=main_one.clientWidth/8;
+	var imgwidth_one=55;
 
 	for(var j=0;j<pic_one.length;j++){
 		pic_one[j].onclick=function(){movee(this);}
@@ -30,7 +30,7 @@ function picture(){
 	}//tab切换；
 	function reducee(){
 		if(b<=0){
-			alert("这已是第一张");
+			alert("this is the first one");
 		}
 		else{
 			pic_one[b-1].className="special_img";
@@ -46,7 +46,8 @@ function picture(){
 			pic_one[b].className="";
 			b=0;
 			fa_one.scrollLeft=0;
-			addd();
+			top_pic.src=pic_one[b+1].src;
+			pic_one[b].className="special_img";
 		}
 		else{
 			
@@ -77,7 +78,7 @@ function picture(){
 	var change=document.getElementById("change");
 	var close=document.getElementById("close");
 	var a=0;
-	var imgwidth=107;
+	var imgwidth=167;
 	for(var j=0;j<pic.length;j++){
 		pic[j].onclick=function(){move(this);}
 	}
@@ -95,7 +96,7 @@ function picture(){
 	}//tab切换；
 	function reduce(){
 		if(a<=0){
-			alert("这已是第一张");
+			alert("this is the first one");
 		}
 		else{
 			pic[a-1].className="special";
@@ -112,10 +113,10 @@ function picture(){
 			pic[a].className="";
 			a=0;
 			fa.scrollLeft=0;
-			add();
+			change.src=pic[a].src;
+			pic[a].className="special";
 		}
 		else{
-			
 			pic[a+1].className="special";
 			pic[a].className="";
 			change.src=pic[a+1].src;
