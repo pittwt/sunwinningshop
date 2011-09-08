@@ -22,7 +22,7 @@
 .pro_list dd .pro_inf {height:40px;}
 .pro_list dd .cart_one {display:block;background:url("../images/abc.gif") -173px -82px no-repeat;text-align:center;width:72px;height:21px;margin-top:6px;}
 .pro_list dd .cart_one:hover {color:#ff6c00;background:url("../images/abc.gif") -261px -82px no-repeat;text-decoration:none;}
-.pro_list .new {width:51px;height:51px;background:url("../images/abc.gif") -44px -156px no-repeat;position:absolute;left:169px;top:254px;z-index:99;}
+.pro_list .new {width:51px;height:51px;background:url("../images/abc.gif") -44px -156px no-repeat;position:absolute;left:169px;top:258px;z-index:99;}
 .pro_list .special {width:67px;height:67px;background:url("../images/abc.gif") -169px -149px no-repeat;position:absolute;left:153px;top:238px;z-index:99;}
 
 
