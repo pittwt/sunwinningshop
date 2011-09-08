@@ -126,7 +126,12 @@
 .mark_tit {line-height:40px;background-color:#e6e6e6;font-size:18px;color:#3884be;padding-left:18px;}
 .mark_con .mark_list {padding-top:12px;overflow:hidden;zoom:1;}
 .mark_con .mark_list li {line-height:27px;font-weight:bold;width:340px;padding-left:26px;float:left;}
-														/*denglu*/
+
+														/*list2*/
+
+.right_list {border:2px solid #e1e1e1;margin-bottom:10px;}
+.right_list .child_list {padding:10px 0;overflow:hidden;zoom:1;}
+.right_list .child_list li {line-height:26px;width:220px;padding-left:22px;float:left;}
 
 
 
