@@ -46,13 +46,13 @@
                 </div>
                 <div class="share">
                 	<span class="share_span">share:</span>                        
-                    <a class="addthis_button_preferred_1" class="share_link"></a>
+                    <!--<a class="addthis_button_preferred_1" class="share_link"></a>
                     <a class="addthis_button_preferred_2" class="share_link"></a>
                     <a class="addthis_button_preferred_3" class="share_link"></a>
                     <a class="addthis_button_preferred_4" class="share_link"></a>
                     <a class="addthis_button_compact" class="share_link"></a>
                     <a class="addthis_counter addthis_bubble_style" class="share_link"></a>
-                    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e40fdac6104affb"></script>                
+                    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e40fdac6104affb"></script>      -->          
                 </div>
             </div>
 		<?
@@ -65,34 +65,19 @@
         <div class="jersey_rg">
         	<span class="pro_num"><? if($flag_show_product_info_model == 1 and $products_model !=''){echo $products_model;}?></span>
             <p class="jer_pro_inf"><?php echo $products_name; ?></p>
-            
-            <span class="jer_price">
             <!--bof Product Price block -->
-			<?php
-			// base price
-			if ($show_onetime_charges_description == 'true') {
-				$one_time = '<span >' . TEXT_ONETIME_CHARGE_SYMBOL . TEXT_ONETIME_CHARGE_DESCRIPTION . '</span><br />';
-			} else {
-				$one_time = '';
-			}
-			echo $one_time . ((zen_has_product_attributes_values((int)$_GET['products_id']) and $flag_show_product_info_starting_at == 1) ? TEXT_BASE_PRICE : '') . zen_get_products_display_price((int)$_GET['products_id']);
-			?>
+			<?php $price_info_sam = zen_get_products_display_price_content((int)$_GET['products_id']);?>
+            <span class="jer_price"><var><?=$price_info_sam['normal_price']?></var><em><?=$price_info_sam['special_price']?></em></span> 
+            <span class="jer_save_price"><?=$price_info_sam['sale_discount']?></span>
             <!--eof Product Price block -->
-            <!--<var>$156.25</var><em>$50.00</em></span> <span class="jer_save_price">Save:67% off</span> <span class="jer_size">-->
             <!--bof Attributes Module -->
+            <span class="jer_size">
             <?php
-			if ($pr_attr->fields['total'] > 0) {
+			if ($pr_attr->fields['total'] > 0) {require($template->get_template_dir('/tpl_modules_attributes.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_attributes.php'); echo $template->get_template_dir('/tpl_modules_attributes.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_attributes.php'; }
             ?>
-            <?php
-            /**
-             * display the product atributes
-             */
-			require($template->get_template_dir('/tpl_modules_attributes.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_attributes.php'); ?>
-            <?php
-			}
-            ?>
-            <!--eof Attributes Module -->
             </span>
+            <!--eof Attributes Module -->
+            
             
             <!--bof Add to Cart Box -->
 			<?php
