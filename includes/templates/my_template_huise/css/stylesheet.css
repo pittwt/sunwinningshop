@@ -49,7 +49,7 @@
 .mav_list .mav_list_tit a {font-size:14px;color:#408fcc;}
 .mav_list .mav_list_tit a:hover {color:#ff7713;}
 .mav_list .mav_inf {line-height:20px;padding-top:6px;}
-.mav_list .big_cart {display:block;padding-left:54px;margin-top:14px;font-size:14px;background:url("../images/abc.gif") -201px -310px no-repeat;font-weight:bold;line-height:40px;}
+.mav_list .big_cart {display:block;padding-left:54px;width:145px;height:40px;margin-top:14px;font-size:14px;background:url("../images/abc.gif") -201px -310px no-repeat;font-weight:bold;line-height:40px;}
 .mav_list .big_cart:hover {background:url("../images/abc.gif") 0 0 no-repeat;color:#ff6c00;}
 .mav_list .mav_price {margin-left:40px;padding-top:4px;}
 .mav_list .mav_price span {display:block;line-height:20px;}
