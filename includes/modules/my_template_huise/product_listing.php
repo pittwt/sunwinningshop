@@ -21,55 +21,7 @@ $how_many = 0;
 
 $zc_col_count_description = 0;
 $lc_align = '';
-for ($col=0, $n=sizeof($column_list); $col<$n; $col++) {
-  switch ($column_list[$col]) {
-    case 'PRODUCT_LIST_MODEL':
-    $lc_text = TABLE_HEADING_MODEL;
-    $lc_align = '';
-    $zc_col_count_description++;
-    break;
-    case 'PRODUCT_LIST_NAME':
-    $lc_text = TABLE_HEADING_PRODUCTS;
-    $lc_align = '';
-    $zc_col_count_description++;
-    break;
-    case 'PRODUCT_LIST_MANUFACTURER':
-    $lc_text = TABLE_HEADING_MANUFACTURER;
-    $lc_align = '';
-    $zc_col_count_description++;
-    break;
-    case 'PRODUCT_LIST_PRICE':
-    $lc_text = TABLE_HEADING_PRICE;
-    $lc_align = 'right' . (PRODUCTS_LIST_PRICE_WIDTH > 0 ? '" width="' . PRODUCTS_LIST_PRICE_WIDTH : '');
-    $zc_col_count_description++;
-    break;
-    case 'PRODUCT_LIST_QUANTITY':
-    $lc_text = TABLE_HEADING_QUANTITY;
-    $lc_align = 'right';
-    $zc_col_count_description++;
-    break;
-    case 'PRODUCT_LIST_WEIGHT':
-    $lc_text = TABLE_HEADING_WEIGHT;
-    $lc_align = 'right';
-    $zc_col_count_description++;
-    break;
-    case 'PRODUCT_LIST_IMAGE':
-    $lc_text = TABLE_HEADING_IMAGE;
-    $lc_align = 'center';
-    $zc_col_count_description++;
-    break;
-  }
 
-  if ( ($column_list[$col] != 'PRODUCT_LIST_IMAGE') ) {
-    $lc_text = zen_create_sort_heading($_GET['sort'], $col+1, $lc_text);
-  }
-
-
-
-  /*$list_box_contents[0][$col] = array('align' => $lc_align,
-                                      'params' => 'class="productListing-heading"',
-                                      'text' => $lc_text );*/
-}
 
 ?>
 <div class="mav_con"> 
@@ -80,18 +32,18 @@ for ($col=0, $n=sizeof($column_list); $col<$n; $col++) {
 	  $extra_row = 0;
 	  while (!$listing->EOF) {
 		$rows++;
-		
-        $lc_text = '<div class="mav_list mav_special">
-        <a class="mav_list_pic" href="###"><img src="' . DIR_WS_IMAGES . $listing->fields['products_image'] . '" alt="图片"/></a>
+		$lc_price = zen_get_products_display_price($listing->fields['products_id']) . '<br />';
+		//echo "<pre>";print_r($listing->fields);echo "</pre>";exit;
+		$rows == 1 ? $mav_special = 'mav_special' : $mav_special = '' ;
+        $lc_text .= '<div class="mav_list ' . $mav_special . '">
+        <a class="mav_list_pic" href="' . zen_href_link(zen_get_info_page($listing->fields['products_id']), 'cPath=' . (($_GET['manufacturers_id'] > 0 and $_GET['filter_id'] > 0) ?  zen_get_generated_category_path_rev($_GET['filter_id']) : ($_GET['cPath'] > 0 ? zen_get_generated_category_path_rev($_GET['cPath']) : zen_get_generated_category_path_rev($listing->fields['master_categories_id']))) . '&products_id=' . $listing->fields['products_id']) . '">' .'<img src="' . DIR_WS_IMAGES . $listing->fields['products_image'] . '" alt="' . $listing->fields['products_name'] . '"/></a>
         <div class="mav_list_words">
-            <h3 class="mav_list_tit"><a href="###"> ' . $listing->fields['products_name'] . '</a></h3>
-            <p class="mav_inf">'. $listing->fields['products_description'] . '</p>
-            <a href="###" class="big_cart">Add this to Cart</a> 
+            <h3 class="mav_list_tit"><a href="' . zen_href_link(zen_get_info_page($listing->fields['products_id']), 'cPath=' . (($_GET['manufacturers_id'] > 0 and $_GET['filter_id'] > 0) ?  zen_get_generated_category_path_rev($_GET['filter_id']) : ($_GET['cPath'] > 0 ? zen_get_generated_category_path_rev($_GET['cPath']) : zen_get_generated_category_path_rev($listing->fields['master_categories_id']))) . '&products_id=' . $listing->fields['products_id']) . '">' . $listing->fields['products_name'] . '</a></h3>
+            <p class="mav_inf">'. zen_trunc_string(zen_clean_html(stripslashes(zen_get_products_description($listing->fields['products_id'], $_SESSION['languages_id']))), PRODUCT_LIST_DESCRIPTION) . '</p>
+            <a class="big_cart" href="' . zen_href_link(zen_get_info_page($listing->fields['products_id']), 'cPath=' . (($_GET['manufacturers_id'] > 0 and $_GET['filter_id'] > 0) ?  zen_get_generated_category_path_rev($_GET['filter_id']) : ($_GET['cPath'] > 0 ? zen_get_generated_category_path_rev($_GET['cPath']) : zen_get_generated_category_path_rev($listing->fields['master_categories_id']))) . '&products_id=' . $listing->fields['products_id']) . '">Add this to Cart</a> 
         </div>
         <div class="mav_price">
-            <span class="list_price">List Price:<var>' . $listing->fields['products_price'] . '</var></span>
-            <span class="price">Price:<var>' . $listing->fields['products_price'] . '</var></span>
-            <span class="save_price">You Save:<em>68% off</em></span>
+            Price: '. $lc_price .'
         </div>
     </div>';
 	
