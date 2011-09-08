@@ -24,7 +24,7 @@
         if(count($images_array_contain_all)>0){
         ?>
             <div class="div_one">
-                <div class="top_one" id="top_pic"><img src="/<?php echo $images_array_contain_all[0];?>" alt=""/></div>
+                <div class="top_one" ><img id="top_pic" src="/<?php echo $images_array_contain_all[0];?>" alt=""/></div>
                 <div class="bottom_one">
                     <input type="button" value="<" id="lf_one"/>
                     <div class="out_one" id="father_one">
@@ -72,8 +72,10 @@
             <!--eof Product Price block -->
             <!--bof Attributes Module -->
             <span class="jer_size">
+            <label>Please Choose:</label>
             <?php
-			if ($pr_attr->fields['total'] > 0) {require($template->get_template_dir('/tpl_modules_attributes.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_attributes.php'); echo $template->get_template_dir('/tpl_modules_attributes.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_attributes.php'; }
+			if ($pr_attr->fields['total'] > 0) {require($template->get_template_dir('/tpl_modules_attributes.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_attributes.php'); 
+			 }
             ?>
             </span>
             <!--eof Attributes Module -->
