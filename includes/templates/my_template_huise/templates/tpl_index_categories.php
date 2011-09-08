@@ -13,9 +13,6 @@
  * @version $Id: tpl_index_categories.php 4678 2006-10-05 21:02:50Z ajeh $
  */
 ?>
-<div class="mavericks">
-
-<h1 class="mav_tit"><strong><?php echo $breadcrumb->last(); ?></strong><a href="###" class="but_rg">&nbsp;</a><span class="mav_num"><a href="###">1</a><a href="###">2</a><a href="###">3</a><a href="###">4</a><a href="###">.....</a><a href="###">243</a></span><a href="###" class="but_lf">&nbsp;</a></h1>
 
 
 
@@ -29,8 +26,44 @@
  * require the code to display the sub-categories-grid, if any exist
  */
    require($template->get_template_dir('tpl_modules_category_row.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_category_row.php');
+   //echo $category_list;exit;
   }
 ?>
+
+
+<?php include(DIR_WS_MODULES . zen_get_module_directory(FILENAME_PRODUCT_LISTING));?>
+
+<h1 class="mav_tit">
+	<strong><?php echo $breadcrumb->last(); ?></strong>
+    <div class="mavericks_rg">
+	<?php if ( ($listing_split->number_of_rows > 0) && ( (PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3') ) ) {
+    ?>
+       <?php echo TEXT_RESULT_PAGE . ' ' . $listing_split->display_links(MAX_DISPLAY_PAGE_LINKS, zen_get_all_get_params(array('page', 'info', 'x', 'y', 'main_page'))); ?>
+    <?php
+    }
+    ?>
+    </div>
+</h1>
+
+
+<div class="mav_con">
+    <?php
+	echo $lc_text;
+    ?>
+</div>  
+<h1 class="mav_tit">
+    <strong><?php echo $breadcrumb->last(); ?></strong>
+    <div class="mavericks_rg">
+    <?php if ( ($listing_split->number_of_rows > 0) && ( (PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3') ) ) {
+    ?>
+       <?php echo TEXT_RESULT_PAGE . ' ' . $listing_split->display_links(MAX_DISPLAY_PAGE_LINKS, zen_get_all_get_params(array('page', 'info', 'x', 'y', 'main_page'))); ?>
+    <?php
+    }
+    ?>
+    </div>
+</h1>
+
+
 <!-- EOF: Display grid of available sub-categories -->
 <?php
 $show_display_category = $db->Execute(SQL_SHOW_PRODUCT_INFO_CATEGORY);
@@ -73,4 +106,4 @@ while (!$show_display_category->EOF) {
   $show_display_category->MoveNext();
 } // !EOF
 ?>
-</div>
+

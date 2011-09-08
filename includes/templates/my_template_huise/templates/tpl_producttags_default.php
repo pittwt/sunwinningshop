@@ -21,30 +21,37 @@
 	}else{
 		$producttags_split_sql = "select p.`products_id`,pd.`products_name` from ".TABLE_PRODUCTS." p,".TABLE_PRODUCTS_DESCRIPTION." pd where p.`products_id` = pd.`products_id` AND LEFT(pd.`products_name`,1) LIKE '".strtolower($_GET['letter'])."'";
 	}//print_r($producttags_split_sql);
-	$producttags_split = new splitPageResults($producttags_split_sql, 2, 'p.products_id', 'page');
+	$producttags_split = new splitPageResults($producttags_split_sql, 5, 'p.products_id', 'page');
 	$zco_notifier->notify('NOTIFY_MODULE_PRODUCT_LISTING_RESULTCOUNT', $producttags_split->number_of_rows);
 	$producttags = $db->Execute($producttags_split->sql_query);
 	//echo $producttags->RecordCount();
 ?>
-<ul style="line-height:150%">
-<?php
-	if($producttags->RecordCount() > 0){
-		while (!$producttags->EOF){
-			echo '<li><a href="'.zen_href_link(zen_get_info_page($producttags->fields['products_id']),'cPath=' .zen_get_generated_category_path_rev($_GET['cPath']). '&products_id=' .$producttags->fields['products_id']).'" >'.$producttags->fields['products_name'].'</a>'; 
-			$producttags->MoveNext();
-		}	
-	}else{
-		if(!in_array($_GET['letter'],range('a', 'z')) && $_GET['letter'] != '0-9'){
-			zen_redirect(zen_href_link(FILENAME_DEFINE_PAGE_NOT_FOUND));
-		}
-		//zen_redirect(zen_href_link(FILENAME_DEFINE_PAGE_NOT_FOUND));
-		echo '<div style="text-align:center"><div class="error_box" style="width:300px;text-align:center; margin:0 auto;">Sorry,This is Tags "'.$_GET['letter'].'" no Container Products</div></div>';
-	}
-?>
-</ul>
+<div class="mark">
+    <h1 class="mark_tit">All <?php echo $_GET['letter'] ;?> Products</h1>
+    <div class="mark_con">
+        
+		<?php
+            if($producttags->RecordCount() > 0){?>
+            <ul class="mark_list">
+                <?php while (!$producttags->EOF){
+                    echo '<li><a href="'.zen_href_link(zen_get_info_page($producttags->fields['products_id']),'cPath=' .zen_get_generated_category_path_rev($_GET['cPath']). '&products_id=' .$producttags->fields['products_id']).'" >'.$producttags->fields['products_name'].'</a>'; 
+                    $producttags->MoveNext();
+                }?>
+            </ul>
+            <?php }else{//exit;
+                //if(!in_array($_GET['letter'],range('a', 'z')) && $_GET['letter'] != '0-9'){
+                   // zen_redirect(zen_href_link(FILENAME_DEFINE_PAGE_NOT_FOUND));
+                //}
+                //zen_redirect(zen_href_link(FILENAME_DEFINE_PAGE_NOT_FOUND));
+                echo '<div style="text-align:center;"><div class="error_box" style="width:300px;text-align:center; margin:0 auto; padding-top:15px;">Sorry,This is Tags "'.$_GET['letter'].'" no Container Products</div></div>';
+            }
+        ?>
+    </div>
+</div>		
+
 <?php if (($producttags_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '2') || (PREV_NEXT_BAR_LOCATION == '3')) ) {
 ?>
-<div style="text-align:center"><?php echo TEXT_RESULT_PAGE . ' ' . $producttags_split->no_current_display_links(200, zen_get_all_get_params(array('page', 'info', 'x', 'y'))); ?></div>
+<div class="mavericks_rg"><?php echo TEXT_RESULT_PAGE . ' ' . $producttags_split->no_current_display_links(200, zen_get_all_get_params(array('page', 'info', 'x', 'y'))); ?></div>
 <?php
   }
 ?>

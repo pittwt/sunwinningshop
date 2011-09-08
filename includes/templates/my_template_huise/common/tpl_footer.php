@@ -1,23 +1,5 @@
 <?php
-/**
- * Common Template - tpl_footer.php
- *
- * this file can be copied to /templates/your_template_dir/pagename<br />
- * example: to override the privacy page<br />
- * make a directory /templates/my_template/privacy<br />
- * copy /templates/templates_defaults/common/tpl_footer.php to /templates/my_template/privacy/tpl_footer.php<br />
- * to override the global settings and turn off the footer un-comment the following line:<br />
- * <br />
- * $flag_disable_footer = true;<br />
- *
- * @package templateSystem
- * @copyright Copyright 2003-2010 Zen Cart Development Team
- * @copyright Portions Copyright 2003 osCommerce
- * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: tpl_footer.php 15511 2010-02-18 07:19:44Z drbyte $
- */
 require(DIR_WS_MODULES . zen_get_module_directory('footer.php'));
-
 ?>
 
 <div class="bottom">
@@ -38,26 +20,27 @@ require(DIR_WS_MODULES . zen_get_module_directory('footer.php'));
     <div class="ser_list">
         <div class="list_left">
             <dl class="list_one">
-                <dt>Customer Service</dt>
-                <dd><a href="###">Why buy form us</a></dd>
-                <dd><a href="###">Why buy form us</a></dd>
-                <dd><a href="###">Why buy form us</a></dd>
+                <dt>SERVICE</dt>
+                <dd><a href="<?php echo zen_href_link('contact_us', '' . '');?>">Contact Us</a></dd>
+                <dd><a href="<?php echo zen_href_link('shippinginfo', '' . '');?>">Shipping & Returns</a></dd>
+                <dd><a href="<?php echo zen_href_link('conditions', '' . '');?>">Conditions of Use</a></dd>
             </dl>
             <dl class="list_one">
-                <dt>Customer Service</dt>
-                <dd><a href="###">Why buy form us</a></dd>
-                <dd><a href="###">Why buy form us</a></dd>
-                <dd><a href="###">Why buy form us</a></dd>
+                <dt>&nbsp;</dt>
+                <dd><a href="<?php echo zen_href_link('page', '&id=8&chapter=0' . '');?>">about us</a></dd>
+                <dd><a href="<?php echo zen_href_link('privacy', '' . '');?>">Privacy</a></dd>
+                <dd><a href="<?php echo zen_href_link('gv_faq', '' . '');?>">Gift Certificate FAQ</a></dd>
             </dl>
             <dl class="list_one">
-                <dt>Customer Service</dt>
-                <dd><a href="###">Why buy form us</a></dd>
-                <dd><a href="###">Why buy form us</a></dd>
-                <dd><a href="###">Why buy form us</a></dd>
+                <dt>FOLLOW</dt>
+                <dd><a href="###">MSN</a></dd>
+                <dd><a href="###">Facebook</a></dd>
+                <dd><a href="###">Twitter</a></dd>
+                <dd><a href="###">YouTube </a></dd>
             </dl>
         </div>
         <div class="list_right">
-            <span class="friend">Tall a friend</span>
+            <span class="friend">Tell a friend</span>
             <div class="fd_in">
             	<?php echo zen_draw_form('email_friend', zen_href_link(FILENAME_TELL_A_FRIEND, 'action=process')); ?>
                 <input type="hidden" value="index" name="type">

@@ -27,7 +27,7 @@ if ($num_categories > 0) {
     $col_width = floor(100/MAX_DISPLAY_CATEGORIES_PER_ROW);
   }
 
-  while (!$categories->EOF) {
+  /*while (!$categories->EOF) {
     if (!$categories->fields['categories_image']) !$categories->fields['categories_image'] = 'pixel_trans.gif';
     $cPath_new = zen_get_path($categories->fields['categories_id']);
 
@@ -45,6 +45,6 @@ if ($num_categories > 0) {
       $row ++;
     }
     $categories->MoveNext();
-  }
+  }*/
 }
 ?>

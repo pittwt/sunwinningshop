@@ -57,7 +57,7 @@ if (isset($_GET['alpha_filter_id']) && $_GET['alpha_filter_id'] <= 0) {
 
 // hook to notifier so that additional product-type-specific vars can be released too
 $zco_notifier->notify('NOTIFY_HEADER_INDEX_MAIN_TEMPLATE_VARS_RELEASE_PRODUCT_TYPE_VARS');
-
+//echo $category_depth . "****<br>";
 
 if ($category_depth == 'nested')
 {
@@ -71,7 +71,15 @@ if ($category_depth == 'nested')
   $sql = $db->bindVars($sql, ':categoriesID', $current_category_id, 'integer');
   $sql = $db->bindVars($sql, ':languagesID', $_SESSION['languages_id'], 'integer');
   $category = $db->Execute($sql);
-
+  $subcategory = array();
+  zen_get_subcategories($subcategory, $current_category_id);
+  $all_cate_list = $current_category_id;
+  foreach($subcategory as $value){
+	  $all_cate_list .= ',' . $value; 	
+  }
+//echo $all_cate_list; 
+   $listing_sql = "SELECT p.products_image, pd.products_name, p.products_quantity, p.products_id, p.products_type, p.master_categories_id, p.manufacturers_id, p.products_price, p.products_tax_class_id, pd.products_description, IF( s.status =1, s.specials_new_products_price, NULL ) AS specials_new_products_price, IF( s.status =1, s.specials_new_products_price, p.products_price ) AS final_price, p.products_sort_order, p.product_is_call, p.product_is_always_free_shipping, p.products_qty_box_status FROM products_description pd, products p LEFT JOIN manufacturers m ON p.manufacturers_id = m.manufacturers_id, products_to_categories p2c LEFT JOIN specials s ON p2c.products_id = s.products_id WHERE p.products_status =1 AND p.products_id = p2c.products_id AND pd.products_id = p2c.products_id AND pd.language_id = '" . $_SESSION['languages_id'] . "' AND p2c.categories_id in (" . $all_cate_list . ")";
+//echo $current_category_id;print_r($subcategory);
   if (isset($cPath) && strpos($cPath, '_'))
   {
     // check to see if there are deeper categories within the current category
@@ -80,7 +88,7 @@ if ($category_depth == 'nested')
     {
       $sql = "SELECT count(*) AS total
               FROM   " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd
-              WHERE      c.parent_id = :parentID
+              WHERE      c.parent_id in = :parentID 
               AND        c.categories_id = cd.categories_id
               AND        cd.language_id = :languagesID
               AND        c.categories_status= '1'";
@@ -95,7 +103,7 @@ if ($category_depth == 'nested')
       } else {
         $categories_query = "SELECT c.categories_id, cd.categories_name, c.categories_image, c.parent_id
                              FROM   " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd
-                             WHERE      c.parent_id = :parentID
+                             WHERE      c.parent_id in ( :parentID )
                              AND        c.categories_id = cd.categories_id
                              AND        cd.language_id = :languagesID
                              AND        c.categories_status= '1'
@@ -109,7 +117,7 @@ if ($category_depth == 'nested')
   } else {
     $categories_query = "SELECT c.categories_id, cd.categories_name, c.categories_image, c.parent_id
                          FROM   " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd
-                         WHERE      c.parent_id = :parentID
+                         WHERE      c.parent_id in ( :parentID )
                          AND        c.categories_id = cd.categories_id
                          AND        cd.language_id = :languagesID
                          AND        c.categories_status= '1'
@@ -118,7 +126,7 @@ if ($category_depth == 'nested')
     $categories_query = $db->bindVars($categories_query, ':parentID', $current_category_id, 'integer');
     $categories_query = $db->bindVars($categories_query, ':languagesID', $_SESSION['languages_id'], 'integer');
   }
-  $categories = $db->Execute($categories_query);
+  $categories = $db->Execute($categories_query);//echo "<pre>";print_r($categories);echo "</pre>";exit;
   $number_of_categories = $categories->RecordCount();
   $new_products_category_id = $current_category_id;
 

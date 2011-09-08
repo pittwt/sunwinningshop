@@ -30,7 +30,6 @@
 <div class="mav_con">
     <?php
 	echo $lc_text;
-      //require($template->get_template_dir('tpl_tabular_display.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_tabular_display.php');
     ?>
 </div>  
 <h1 class="mav_tit">

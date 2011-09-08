@@ -35,63 +35,6 @@
     <div class="hd_nav">
         <div class="nav_left"><a href="<?php echo HTTP_SERVER . DIR_WS_CATALOG;?>">HOME</a></div>
         <?php require($template->get_template_dir('tpl_modules_category_dropdown.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_category_dropdown.php'); ?>
-        <!--<ul class="nav">
-            <li class="nav_li">
-                <a href="###" class="nav_a">fenlei1</a>
-                <div class="li_one">
-                    <ol class="nav_one">
-                        <li><a href="###">Wholesale NHL Jerseys</a></li>
-                        <li><a href="###">Wholesale NHL Jerseys</a></li>
-                    </ol>
-                </div>
-            </li>
-            <li class="nav_li">
-                <a href="###" class="nav_a">New Products</a>
-                <div class="li_one li_two">
-                    <div class="li_bot">
-                        <ol class="nav_one">
-                            <li><a href="###">Wholesale NHL Jerseys</a></li>
-                            <li><a href="###">Wholesale NHL Jerseys</a></li>
-                        </ol>
-                    </div>
-                </div>
-            </li>
-            <li class="nav_li">
-                <a href="###" class="nav_a">fenlei1</a>
-                <div class="li_one li_thr">
-                    <div class="li_bot">
-                        <ol class="nav_one">
-                            <li><a href="###">Wholesale NHL Jerseys</a></li>
-                            <li><a href="###">Wholesale NHL Jerseys</a></li>
-                        </ol>
-                    </div>
-                </div>
-            </li>
-            <li class="nav_li">
-                <a href="###" class="nav_a">Blog</a>
-                <div class="li_one li_for">
-                    <div class="li_bot">
-                        <ol class="nav_one">
-                            <li><a href="###">Wholesale NHL Jerseys</a></li>
-                            <li><a href="###">Wholesale NHL Jerseys</a></li>
-                        </ol>
-                    </div>
-                </div>
-            </li>
-            <li class="nav_li">
-                <a href="###" class="nav_a">fenlei4</a>
-                <div class="li_one li_fiv">
-                    <div class="li_bot">
-                        <ol class="nav_one">
-                            <li><a href="###">Wholesale NHL Jerseys</a></li>
-                            <li><a href="###">Wholesale NHL Jerseys</a></li>
-                        </ol>
-                    </div>
-                </div>
-            </li>
-            <li class="nav_li"><a href="###" class="nav_a">fenlei4</a></li>
-            <li class="nav_li"><a href="###" class="nav_a">fenlei4</a></li>
-        </ul>-->
         <div class="nav_right"><a href="javascript:;" id="strike">ALL CATEGORIES</a></div>
     </div>
     <div class="cate_list" id="memu">
