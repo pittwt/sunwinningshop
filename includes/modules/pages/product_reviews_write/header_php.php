@@ -107,8 +107,7 @@ if (isset($_GET['action']) && ($_GET['action'] == 'process')) {
       $email_text . $extra_info['TEXT'], STORE_NAME, EMAIL_FROM, $html_msg, 'reviews_extra');
     }
     // end send email
-
-    zen_redirect(zen_href_link(FILENAME_PRODUCT_REVIEWS, zen_get_all_get_params(array('action'))));
+    zen_redirect(zen_href_link(FILENAME_PRODUCT_INFO, zen_get_all_get_params(array('action'))));
   }
 }
 
