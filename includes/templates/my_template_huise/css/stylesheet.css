@@ -143,7 +143,7 @@
 .enter_box .reg_span {font-weight:bold;margin-bottom:20px;}
 .enter_box .reg_forget {font-weight:bold;}
 .enter_box .reg_forget a {color:#c00000;text-decoration:underline;}
-.enter_box .reg_sub {width:126px;height:33px;margin:4px auto 0;border:0 none;background:url("../images/abc.gif") -132px -488px no-repeat;}
+.enter_box .reg_sub {width:126px;height:33px;cursor:pointer;margin:4px auto 0;border:0 none;background:url("../images/abc.gif") -132px -488px no-repeat;}
 .reg_tit_two {margin-top:40px;}
 .prompt_p {font-size:14px;font-weight:bold;color:#494949;padding-left:46px;margin-top:15px;line-height:22px;}
 .prompt .prompt_sub {display:block;border:0 none;background:url("../images/abc.gif") 0 -488px no-repeat;width:123px;height:33px;margin:0 auto;margin-top:18px;}
@@ -159,7 +159,7 @@
 .zhuce_form table .td_lf {text-align:right;font-weight:bold;}
 .zhuce_form table em {color:#e13332;padding-left:5px;}
 .zhuce_form table select {width:216px;}
-.zhuce_form .zhuce_sub {display:block;margin:15px auto 0;background:url("../images/abc.gif") -268px -488px no-repeat;width:126px;height:33px;border:0 none;}
+.zhuce_form .zhuce_sub {display:block;margin:15px auto 0;cursor:pointer;background:url("../images/abc.gif") -268px -488px no-repeat;width:126px;height:33px;border:0 none;}
 
 																	/*cart1*/
 
