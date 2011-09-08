@@ -21,7 +21,7 @@
 	}else{
 		$producttags_split_sql = "select p.`products_id`,pd.`products_name` from ".TABLE_PRODUCTS." p,".TABLE_PRODUCTS_DESCRIPTION." pd where p.`products_id` = pd.`products_id` AND LEFT(pd.`products_name`,1) LIKE '".strtolower($_GET['letter'])."'";
 	}//print_r($producttags_split_sql);
-	$producttags_split = new splitPageResults($producttags_split_sql, 5, 'p.products_id', 'page');
+	$producttags_split = new splitPageResults($producttags_split_sql, 40, 'p.products_id', 'page');
 	$zco_notifier->notify('NOTIFY_MODULE_PRODUCT_LISTING_RESULTCOUNT', $producttags_split->number_of_rows);
 	$producttags = $db->Execute($producttags_split->sql_query);
 	//echo $producttags->RecordCount();
