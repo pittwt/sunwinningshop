@@ -80,19 +80,19 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
   $confirmation = zen_db_prepare_input($_POST['confirmation']);
 
 
-  if (DISPLAY_PRIVACY_CONDITIONS == 'true') {
+/*  if (DISPLAY_PRIVACY_CONDITIONS == 'true') {
     if (!isset($_POST['privacy_conditions']) || ($_POST['privacy_conditions'] != '1')) {
       $error = true;
       $messageStack->add('create_account', ERROR_PRIVACY_STATEMENT_NOT_ACCEPTED, 'error');
     }
-  }
+  }*/
 
-  if (ACCOUNT_GENDER == 'true') {
+  /*if (ACCOUNT_GENDER == 'true') {
     if ( ($gender != 'm') && ($gender != 'f') ) {
       $error = true;
       $messageStack->add('create_account', ENTRY_GENDER_ERROR);
     }
-  }
+  }*/
 
   if (strlen($firstname) < ENTRY_FIRST_NAME_MIN_LENGTH) {
     $error = true;
@@ -104,14 +104,14 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
     $messageStack->add('create_account', ENTRY_LAST_NAME_ERROR);
   }
 
-  if (ACCOUNT_DOB == 'true') {
+  /*if (ACCOUNT_DOB == 'true') {
     if (ENTRY_DOB_MIN_LENGTH > 0 or !empty($_POST['dob'])) {
       if (substr_count($dob,'/') > 2 || checkdate((int)substr(zen_date_raw($dob), 4, 2), (int)substr(zen_date_raw($dob), 6, 2), (int)substr(zen_date_raw($dob), 0, 4)) == false) {
         $error = true;
         $messageStack->add('create_account', ENTRY_DATE_OF_BIRTH_ERROR);
       }
     }
-  }
+  }*/
 
   if (ACCOUNT_COMPANY == 'true') {
     if ((int)ENTRY_COMPANY_MIN_LENGTH > 0 && strlen($company) < ENTRY_COMPANY_MIN_LENGTH) {

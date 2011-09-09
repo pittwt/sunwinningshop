@@ -77,12 +77,12 @@ if (isset($_POST['action']) && (($_POST['action'] == 'process') || ($_POST['acti
   $country = zen_db_prepare_input($_POST['zone_country_id']);
   //echo ' I SEE: country=' . $country . '&nbsp;&nbsp;&nbsp;state=' . $state . '&nbsp;&nbsp;&nbsp;zone_id=' . $zone_id;
 
-  if (ACCOUNT_GENDER == 'true') {
+/*  if (ACCOUNT_GENDER == 'true') {
     if ( ($gender != 'm') && ($gender != 'f') ) {
       $error = true;
       $messageStack->add('addressbook', ENTRY_GENDER_ERROR);
     }
-  }
+  }*/
 
   if (strlen($firstname) < ENTRY_FIRST_NAME_MIN_LENGTH) {
     $error = true;
