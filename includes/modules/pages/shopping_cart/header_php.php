@@ -38,15 +38,32 @@ $shipping_weight = $_SESSION['cart']->show_weight();
   $quotes = $shipping_modules->quote();
 */
 $totalsDisplay = '';
+$totalsDisplay_data = array();
 switch (true) {
   case (SHOW_TOTALS_IN_CART == '1'):
   $totalsDisplay = TEXT_TOTAL_ITEMS . $_SESSION['cart']->count_contents() . TEXT_TOTAL_WEIGHT . $shipping_weight . TEXT_PRODUCT_WEIGHT_UNIT . TEXT_TOTAL_AMOUNT . $currencies->format($_SESSION['cart']->show_total());
+  
+  $totalsDisplay_data['count_contents'] = $_SESSION['cart']->count_contents();
+  $totalsDisplay_data['shipping_weight'] = $shipping_weight;
+  $totalsDisplay_data['show_total'] = $currencies->format($_SESSION['cart']->show_total());
+  
   break;
   case (SHOW_TOTALS_IN_CART == '2'):
   $totalsDisplay = TEXT_TOTAL_ITEMS . $_SESSION['cart']->count_contents() . ($shipping_weight > 0 ? TEXT_TOTAL_WEIGHT . $shipping_weight . TEXT_PRODUCT_WEIGHT_UNIT : '') . TEXT_TOTAL_AMOUNT . $currencies->format($_SESSION['cart']->show_total());
+  
+  $totalsDisplay_data['count_contents'] = $_SESSION['cart']->count_contents();
+  $totalsDisplay_data['shipping_weight'] = $shipping_weight > 0 ?  $shipping_weight  : '';
+  $totalsDisplay_data['show_total'] = $currencies->format($_SESSION['cart']->show_total());
+  
   break;
   case (SHOW_TOTALS_IN_CART == '3'):
   $totalsDisplay = TEXT_TOTAL_ITEMS . $_SESSION['cart']->count_contents() . TEXT_TOTAL_AMOUNT . $currencies->format($_SESSION['cart']->show_total());
+  
+  $totalsDisplay_data['count_contents'] = $_SESSION['cart']->count_contents();
+  $totalsDisplay_data['shipping_weight'] = '';
+  $totalsDisplay_data['show_total'] = $currencies->format($_SESSION['cart']->show_total());
+
+  
   break;
 }
 
@@ -136,8 +153,14 @@ for ($i=0, $n=sizeof($products); $i<$n; $i++) {
 //  $showFixedQuantityAmount = $products[$i]['quantity'] . zen_draw_hidden_field('cart_quantity[]', 1);
   $showFixedQuantityAmount = $products[$i]['quantity'] . zen_draw_hidden_field('cart_quantity[]', $products[$i]['quantity']);
   $showMinUnits = zen_get_products_quantity_min_units_display($products[$i]['id']);
-  $quantityField = zen_draw_input_field('cart_quantity[]', $products[$i]['quantity'], 'size="4"');
-  $buttonUpdate = ((SHOW_SHOPPING_CART_UPDATE == 1 or SHOW_SHOPPING_CART_UPDATE == 3) ? zen_image_submit(ICON_IMAGE_UPDATE, ICON_UPDATE_ALT) : '') . zen_draw_hidden_field('products_id[]', $products[$i]['id']);
+  
+  $quantityField = '<input type="text" size="4" value="'.$products[$i]["quantity"].'" name="cart_quantity[]" class="num_text">';
+
+  $buttonUpdate = 
+  '<input type="image" title="'.ICON_UPDATE_ALT.'" src="' . zen_output_string($template->get_template_dir(ICON_IMAGE_UPDATE, DIR_WS_TEMPLATE, $current_page_base, 'buttons/' . $_SESSION['language'] . '/') . ICON_IMAGE_UPDATE) . '" class="num_shuaxin">
+'. zen_draw_hidden_field('products_id[]', $products[$i]['id']);
+
+  
   $tmp =  zen_add_tax($products[$i]['final_price'],zen_get_tax_rate($products[$i]['tax_class_id']));
 //  $productsPriceEach = $currencies->rateAdjusted($tmp);
 //  $productsPriceTotal = $productsPriceEach * $products[$i]['quantity'];
