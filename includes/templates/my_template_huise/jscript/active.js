@@ -82,22 +82,4 @@ function active(){
 	var time1=setInterval(panduan,3000);
 }
 
-
-	function js_active(){
-		var strike=document.getElementById("strike");
-		var memu=document.getElementById("memu");
-		function show(){
-			memu.style.display=memu.style.display=="block"?"none":"block";//运算符意思是display是block的时候执行none  如果不是的话执行block；
-		}
-		document.onclick = function(e){
-			e = e || window.event;
-			var target = e.srcElement || e.target;
-			if(target.tagName.toLowerCase()!='a'){//if中的条件是点击页面中标签名不是a的执行下面的display：none;
-				memu.style.display="none";
-			}
-		}
-		strike.onclick=function(){show();}
-		strike.onmouseover=function(){memu.style.display="block";}
-	}
-}
 active();
