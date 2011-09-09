@@ -14,7 +14,7 @@ function picture(){
 	var imgwidth_one=60;
 
 	for(var j=0;j<pic_one.length;j++){
-		pic_one[j].onclick=function(){movee(this);}
+		pic_one[j].onmouseover=function(){movee(this);}
 	}
 	function movee(obj){
 		for(var j=0;j<pic_one.length;j++){
@@ -66,7 +66,7 @@ function picture(){
 		mask.style.display="block";
 		close.style.display="block";
 		hid.style.display="none";
-	
+		close.style.left=tanchu.offsetWidth/2+change.clientWidth/2-close.offsetWidth+"px";
 	}
 
 											/*js_two*/
@@ -80,7 +80,7 @@ function picture(){
 	var a=0;
 	var imgwidth=167;
 	for(var j=0;j<pic.length;j++){
-		pic[j].onclick=function(){move(this);}
+		pic[j].onmouseover=function(){move(this);}
 	}
 	function move(aa){
 		for(var i=0;i<pic.length;i++){
@@ -88,6 +88,7 @@ function picture(){
 				change.src=pic[i].src;
 				pic[i].className="special";
 				a=i;//此处相对于tab切换来说不写也行，是为了下面其他特效的使用而定义的，是把数组的下标值赋给a;
+				close.style.left=tanchu.offsetWidth/2+change.clientWidth/2-close.offsetWidth+"px";
 			}
 			else{
 				pic[i].className="";
@@ -104,6 +105,7 @@ function picture(){
 			change.src=pic[a-1].src;
 			a--;
 			fa.scrollLeft=fa.scrollLeft-imgwidth;
+			close.style.left=tanchu.offsetWidth/2+change.clientWidth/2-close.offsetWidth+"px";
 		}
 	}
 	inputlf.onclick=function(){reduce();}//向左翻页
@@ -115,6 +117,7 @@ function picture(){
 			fa.scrollLeft=0;
 			change.src=pic[a].src;
 			pic[a].className="special";
+			close.style.left=tanchu.offsetWidth/2+change.clientWidth/2-close.offsetWidth+"px";
 		}
 		else{
 			pic[a+1].className="special";
@@ -122,6 +125,7 @@ function picture(){
 			change.src=pic[a+1].src;
 			a++;
 			fa.scrollLeft=fa.scrollLeft+imgwidth;
+			close.style.left=tanchu.offsetWidth/2+change.clientWidth/2-close.offsetWidth+"px";
 		}
 	}
 	inputrig.onclick=function(){add();}//向右翻页
