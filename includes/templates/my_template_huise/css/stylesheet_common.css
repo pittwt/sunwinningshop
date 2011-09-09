@@ -61,6 +61,7 @@ em,var {font-style:normal;}
 .hd_for {width:980px;margin:0 auto;padding:0 10px;overflow:hidden;zoom:1;line-height:28px;border-bottom:1px solid #d3d3d3;}
 .hd_for .cart_left {float:left;}
 .hd_for .cart_left ,.hd_for .a_color {-webkit-text-size-adjust:none; font-size:11px;}
+.hd_for .span_cart {float:right;}
 .hd_for .cart_bg {float:left;margin-right:10px;}
 .hd_for .cart {float:left;color:#0066b0;margin-right:15px;font-style:italic;font-weight:bold;}
 
