@@ -110,10 +110,10 @@
     </div>
     <div class="pro_information">
         <ol class="pro_infor_tit">
-            <li class="li_change"><a href="javascript:;">Product Description</a></li>
-            <li><a href="javascript:;">Reviews</a></li>
-            <li><a href="javascript:;">Payment &amp; Shipping</a></li>
-            <li class="inf_last"><a href="javascript:;">After-sales srrvice</a></li>
+            <li class="li_change"><a href="javascript:void(0);">Product Description</a></li>
+            <li><a href="javascript:void(0);">Reviews</a></li>
+            <li><a href="javascript:void(0);">Shipping & Returns</a></li>
+            <li class="inf_last"><a href="javascript:void(0);">Customer Service</a></li>
         </ol>
         <div class="pro_inf_con">
             <div class="pro_infor_con pro_infor_block">
