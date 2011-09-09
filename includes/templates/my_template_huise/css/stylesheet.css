@@ -260,5 +260,6 @@
 
 .hiddenField {display: none;}
 .visibleField {	display: inline;}
+.messageStackWarning, .messageStackError {color: #f00; border:1px solid #f00; padding:5px;}
 
 

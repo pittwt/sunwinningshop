@@ -59,5 +59,5 @@ function update_zone(theForm) {
     //document.getElementById("stBreak").className = 'clearBoth visibleField';
     //document.getElementById("stBreak").setAttribute('className', 'clearBoth visibleField');
   }
-  window.onload=function(){update_zone(document.create_account);}
+  
 //--></script>

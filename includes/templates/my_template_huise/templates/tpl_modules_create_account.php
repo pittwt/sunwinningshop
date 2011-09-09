@@ -1,6 +1,6 @@
 <div class="zhuce">
+	<?php if ($messageStack->size('create_account') > 0) echo $messageStack->output('create_account'); ?>
     <h3 class="zhuce_tit"><span class="zhuce_span">Create your Account　* </span><em>indicates a required field</em></h3>
-    <?php if ($messageStack->size('create_account') > 0) echo $messageStack->output('create_account'); ?>
     
     <?php echo zen_draw_form('create_account', zen_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL'), 'post', 'onsubmit="return check_form(create_account);" class="zhuce_form"') . zen_draw_hidden_field('action', 'process') . zen_draw_hidden_field('email_pref_html', 'email_format'); ?>
         <table cellspacing=8>
@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <td class="td_lf"><label>Confirm Password:</label></td>
-                <td><?php echo zen_draw_password_field('confirmation', '', zen_set_field_length(TABLE_CUSTOMERS, 'customers_password', '20') . ' id="password-confirm"') . (zen_not_null(ENTRY_PASSWORD_CONFIRMATION_TEXT) ? '<span class="alert">' . ENTRY_PASSWORD_CONFIRMATION_TEXT . '</span>': ''); ?></td>
+                <td><?php echo zen_draw_password_field('confirmation', '', zen_set_field_length(TABLE_CUSTOMERS, 'customers_password', '20') . ' id="password-confirm"') . (zen_not_null(ENTRY_PASSWORD_CONFIRMATION_TEXT) ? '<span class="alert"><em>' . ENTRY_PASSWORD_CONFIRMATION_TEXT . '</em></span>': ''); ?></td>
             </tr>
             <tr>
                 <td class="td_lf"><label>First Name:</label></td>
@@ -42,13 +42,13 @@
 				?>
 				<?php
 					  echo zen_draw_pull_down_menu('zone_id', zen_prepare_country_zones_pull_down($selected_country), $zone_id, 'id="stateZone"');
-					  if (zen_not_null(ENTRY_STATE_TEXT)) echo '&nbsp;<span class="alert"><em>' . ENTRY_STATE_TEXT . '</em></span>'; 
+					  if (zen_not_null(ENTRY_STATE_TEXT)) echo '<span class="alert"><em>' . ENTRY_STATE_TEXT . '</em></span>'; 
 					//}
 					?>
                     <label class="inputLabel" for="state" id="stateLabel"><?php echo $state_field_label; ?></label>
 				<?php
 					echo zen_draw_input_field('state', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_state', '40') . ' id="state"');
-					if (zen_not_null(ENTRY_STATE_TEXT)) echo '&nbsp;<span class="alert" id="stText"><em>' . ENTRY_STATE_TEXT . '</em></span>';
+					if (zen_not_null(ENTRY_STATE_TEXT)) echo '<span class="alert" id="stText"><em>' . ENTRY_STATE_TEXT . '</em></span>';
 					if ($flag_show_pulldown_states == false) {
 					  echo zen_draw_hidden_field('zone_id', $zone_name, ' ');
 					}
@@ -75,4 +75,5 @@
         <input class="zhuce_sub" type="submit" value=""/>
     </form>
 </div>
+<script type="text/javascript">update_zone(document.create_account);</script>
 

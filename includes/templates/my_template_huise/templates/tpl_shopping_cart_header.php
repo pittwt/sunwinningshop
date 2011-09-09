@@ -19,9 +19,9 @@
 		$product_amount = $products[$i]['quantity'] + $product_amount;
 	}
 
-	$content .= '<a href="' . zen_href_link(FILENAME_SHOPPING_CART, '', 'NONSSL') . '">'. '<span>' . $product_amount . '</span>&nbsp;' . HEADER_PRODUCT_AMOUNT . '</a> '; 
+	$content .= '<img src="' . DIR_WS_TEMPLATE . 'images/cart_car.gif">&nbsp;<a href="' . zen_href_link(FILENAME_SHOPPING_CART, '', 'NONSSL') . '">'. '<span>' . $product_amount . '</span>&nbsp;' . HEADER_PRODUCT_AMOUNT . '</a> '; 
   } else {
-    $content .= '<div id="cartBoxEmpty"><a class="cart" href="' . zen_href_link(FILENAME_SHOPPING_CART, '', 'NONSSL') . '">' . HEADER_SHOPPING_CART_EMPTY . '</a></div>';
+    $content .= '<div id="cartBoxEmpty"><a class="cart" href="' . zen_href_link(FILENAME_SHOPPING_CART, '', 'NONSSL') . '"><img src="' . DIR_WS_TEMPLATE . 'images/cart_car.gif">&nbsp;' . HEADER_SHOPPING_CART_EMPTY . '</a></div>';
   }
 
   if ($_SESSION['cart']->count_contents() > 0) {

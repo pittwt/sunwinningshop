@@ -148,21 +148,22 @@ function check_form(form_name) {
 <?php if (ACCOUNT_COMPANY == 'true' && (int)ENTRY_COMPANY_MIN_LENGTH != 0) echo '  check_input("company", ' . (int)ENTRY_COMPANY_MIN_LENGTH . ', "' . ENTRY_COMPANY_ERROR . '");' . "\n"; ?>
 
 
-
-<?php if ((int)ENTRY_POSTCODE_MIN_LENGTH > 0) { ?>
-  check_input("postcode", <?php echo (int)ENTRY_POSTCODE_MIN_LENGTH; ?>, "<?php echo ENTRY_POST_CODE_ERROR; ?>");
-<?php } ?>
 <?php if ((int)ENTRY_CITY_MIN_LENGTH > 0) { ?>
   check_input("city", <?php echo (int)ENTRY_CITY_MIN_LENGTH; ?>, "<?php echo ENTRY_CITY_ERROR; ?>");
 <?php } ?>
 <?php if ((int)ENTRY_STREET_ADDRESS_MIN_LENGTH > 0) { ?>
   check_input("street_address", <?php echo (int)ENTRY_STREET_ADDRESS_MIN_LENGTH; ?>, "<?php echo ENTRY_STREET_ADDRESS_ERROR; ?>");
 <?php } ?>
+
 <?php if (ACCOUNT_STATE == 'true') { ?>
   check_state(<?php echo (int)ENTRY_STATE_MIN_LENGTH . ', "' . ENTRY_STATE_ERROR . '", "' . ENTRY_STATE_ERROR_SELECT; ?>");
 <?php } ?>
 
   check_select("country", "", "<?php echo ENTRY_COUNTRY_ERROR; ?>");
+
+<?php if ((int)ENTRY_POSTCODE_MIN_LENGTH > 0) { ?>
+  check_input("postcode", <?php echo (int)ENTRY_POSTCODE_MIN_LENGTH; ?>, "<?php echo ENTRY_POST_CODE_ERROR; ?>");
+<?php } ?>
 
 <?php if ((int)ENTRY_TELEPHONE_MIN_LENGTH > 0) { ?>
   check_input("telephone", <?php echo ENTRY_TELEPHONE_MIN_LENGTH; ?>, "<?php echo ENTRY_TELEPHONE_NUMBER_ERROR; ?>");
