@@ -91,7 +91,7 @@ em,var {font-style:normal;}
 .fea_list .pro_inf,.pro_list dd .pro_inf,.fea_pro_list dd .pro_inf {line-height:20px;color:#4090cd;}
 .fea_list a:hover,.pro_list dd a:hover,.fea_pro_list dd a:hover {color:#ff6c00; text-decoration:underline;}
 .fea_list span {display:block;line-height:20px;}
-.fea_list span var,.pro_list dd var,.fea_pro_list dd var {margin-right:30px;text-decoration:line-through;}
+.fea_list span var,.pro_list dd var,.fea_pro_list dd var {margin-right:20px;text-decoration:line-through;}
 .fea_list span em,.pro_list dd em,.fea_pro_list dd em {color:#e12325;font-weight:bold;}
 
 .ad_pic {margin-top:10px;}
