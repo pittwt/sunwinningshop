@@ -24,7 +24,7 @@
                     <input id="search_sub" class="sub" type="submit" value="" />
                 </form>
             </div>
-            <span><var style="font-weight:bold;">Hot Tags:</var><a class="a_color" href="###">Size,</a><a href="###" class="a_color">Narrow Shoes,</a><a href="###" class="a_color">Wide Shoes,</a><a href="###" class="a_color">Popular Searches</a></span>
+            <!--<span><var style="font-weight:bold;">Hot Tags:</var><a class="a_color" href="###">Size,</a><a href="###" class="a_color">Narrow Shoes,</a><a href="###" class="a_color">Wide Shoes,</a><a href="###" class="a_color">Popular Searches</a></span>-->
         </div>
         <div class="hd_pic">
         	<img src="<?php echo DIR_WS_TEMPLATE;?>images/days.jpg" alt=""/>&nbsp;&nbsp;
