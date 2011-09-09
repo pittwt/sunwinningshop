@@ -44,8 +44,8 @@ function update_zone(theForm) {
     document.getElementById("stateLabel").setAttribute('className', 'hiddenField');
     document.getElementById("stText").className = 'hiddenField';
     document.getElementById("stText").setAttribute('className', 'hiddenField');
-    document.getElementById("stBreak").className = 'hiddenField';
-    document.getElementById("stBreak").setAttribute('className', 'hiddenField');
+    //document.getElementById("stBreak").className = 'hiddenField';
+    //document.getElementById("stBreak").setAttribute('className', 'hiddenField');
   }
 
   function showStateField(theForm) {
@@ -56,7 +56,8 @@ function update_zone(theForm) {
     document.getElementById("stateLabel").setAttribute('className', 'inputLabel visibleField');
     document.getElementById("stText").className = 'alert visibleField';
     document.getElementById("stText").setAttribute('className', 'alert visibleField');
-    document.getElementById("stBreak").className = 'clearBoth visibleField';
-    document.getElementById("stBreak").setAttribute('className', 'clearBoth visibleField');
+    //document.getElementById("stBreak").className = 'clearBoth visibleField';
+    //document.getElementById("stBreak").setAttribute('className', 'clearBoth visibleField');
   }
+  window.onload=function(){update_zone(document.create_account);}
 //--></script>

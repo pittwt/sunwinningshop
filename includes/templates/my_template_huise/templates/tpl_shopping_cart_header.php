@@ -19,7 +19,7 @@
 		$product_amount = $products[$i]['quantity'] + $product_amount;
 	}
 
-	$content .= '<a href="' . zen_href_link(FILENAME_SHOPPING_CART, '', 'NONSSL') . '"><img class="cart-icon full float-left" src="'. $template->get_template_dir('', DIR_WS_TEMPLATE, $current_page_base,'images') . '/spacer.gif" />'. '<span>' . $product_amount . '</span>&nbsp;' . HEADER_PRODUCT_AMOUNT . '</a> '; 
+	$content .= '<a href="' . zen_href_link(FILENAME_SHOPPING_CART, '', 'NONSSL') . '">'. '<span>' . $product_amount . '</span>&nbsp;' . HEADER_PRODUCT_AMOUNT . '</a> '; 
   } else {
     $content .= '<div id="cartBoxEmpty"><a class="cart" href="' . zen_href_link(FILENAME_SHOPPING_CART, '', 'NONSSL') . '">' . HEADER_SHOPPING_CART_EMPTY . '</a></div>';
   }

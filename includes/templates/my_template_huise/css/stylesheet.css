@@ -259,6 +259,7 @@
 .order_confirm a {float:right;width:143px;line-height:37px;padding-left:46px;font-weight:bold;font-size:14px;color:white;background:url("../images/abc.gif") 0 -528px no-repeat;}
 
 
-
+.hiddenField {display: none;}
+.visibleField {	display: inline;}
 
 

@@ -16,6 +16,19 @@ $zco_notifier->notify('NOTIFY_HEADER_START_CREATE_ACCOUNT');
 require(DIR_WS_MODULES . zen_get_module_directory('require_languages.php'));
 include(DIR_WS_MODULES . zen_get_module_directory(FILENAME_CREATE_ACCOUNT));
 
+
+//获取省份信息
+$state_query = "SELECT * FROM " . TABLE_ZONES . " ORDER BY zone_id";
+
+$state_info = $db->Execute($state_query);
+
+$state_arr = array();
+while(!$state_info->EOF){
+	$state_arr[] = $state_info->fields;
+	$state_info->MoveNext();
+}
+//print_r($state_arr);
+
 $breadcrumb->add(NAVBAR_TITLE);
 
 // This should be last line of the script:
