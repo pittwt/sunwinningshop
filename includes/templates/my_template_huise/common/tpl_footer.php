@@ -33,10 +33,10 @@ require(DIR_WS_MODULES . zen_get_module_directory('footer.php'));
             </dl>
             <dl class="list_one">
                 <dt>FOLLOW</dt>
-                <dd><a href="###">MSN</a></dd>
-                <dd><a href="###">Facebook</a></dd>
-                <dd><a href="###">Twitter</a></dd>
-                <dd><a href="###">YouTube </a></dd>
+                <dd><a href="msnim:chat?contact=sunwin1968@hotmail.com">MSN</a></dd>
+                <dd><a href="http://zh-cn.facebook.com/people/Lee-Linda/100002930497703">Facebook</a></dd>
+                <dd><a href="http://twitter.com/#!/search/realtime/christinslee">Twitter</a></dd>
+                <dd><a href="http://www.youtube.com/user/christinleeful?feature=mhsn">YouTube </a></dd>
             </dl>
         </div>
         <div class="list_right">
