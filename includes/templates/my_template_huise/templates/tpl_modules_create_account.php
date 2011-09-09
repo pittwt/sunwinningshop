@@ -45,13 +45,11 @@
 					  if (zen_not_null(ENTRY_STATE_TEXT)) echo '<span class="alert"><em>' . ENTRY_STATE_TEXT . '</em></span>'; 
 					//}
 					?>
-                    <label class="inputLabel" for="state" id="stateLabel"><?php echo $state_field_label; ?></label>
+                    <label class="inputLabel" for="state" id="stateLabel"></label>
 				<?php
 					echo zen_draw_input_field('state', '', zen_set_field_length(TABLE_ADDRESS_BOOK, 'entry_state', '40') . ' id="state"');
 					if (zen_not_null(ENTRY_STATE_TEXT)) echo '<span class="alert" id="stText"><em>' . ENTRY_STATE_TEXT . '</em></span>';
-					if ($flag_show_pulldown_states == false) {
-					  echo zen_draw_hidden_field('zone_id', $zone_name, ' ');
-					}
+
 				?></td>
             </tr>
             <tr>
