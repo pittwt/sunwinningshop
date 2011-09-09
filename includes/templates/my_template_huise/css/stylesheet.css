@@ -85,7 +85,7 @@
 .out .special {filter:alpha(opacity=100);opacity: 1;}
 .bottom_two input {float:left;width:25px;height:132px;margin-right:5px;}
 #mask {background-color:black;width:100%;filter:alpha(opacity=70);opacity: 0.7;height:100%;_height:2000px;position:absolute;left:0;top:0;z-index:60;display:none;}
-.close {width:23px;height:23px;background:url("../images/close.gif") no-repeat;cursor:pointer;font-size:18px;color:orange;font-weight:bold;position:absolute;top:0;left:775px;display:none;}
+.close {width:23px;height:23px;background:url("../images/close.gif") no-repeat;cursor:pointer;font-size:18px;color:orange;font-weight:bold;position:absolute;top:0;left:0;display:none;}
 
 
 .share {overflow:hidden;zoom:1;}
