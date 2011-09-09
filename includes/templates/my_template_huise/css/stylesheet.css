@@ -144,7 +144,7 @@
 .enter_box {width:415px;margin:0 auto;padding-top:20px;}
 .enter_box .reg_enter,.enter_box .reg_text,.enter_box .reg_pass,.enter_box .reg_span,.enter_box .reg_sub,enter_box .reg_forget {display:block;}
 .enter_box .reg_enter {font-size:14px;color:#494949;margin:6px 0 10px;}
-.enter_box .reg_text,.enter_box .reg_pass {width:415px;height:27px;padding:12px 0 0 5px;border:1px solid #c4c4c4;}
+.enter_box .reg_text,.enter_box .reg_pass {width:415px;height:39px;padding-left:5px;font-size:14px;line-height:39px;border:1px solid #c4c4c4;}
 .enter_box .reg_span {font-weight:bold;margin-bottom:20px;}
 .enter_box .reg_forget {font-weight:bold;}
 .enter_box .reg_forget a {color:#c00000;text-decoration:underline;}
@@ -157,9 +157,8 @@
 .zhuce_tit {margin-top:20px;}
 .zhuce_tit .zhuce_span {font-size:14px;color:#f57900;padding-left:10px;}
 .zhuce_tit em {font-size:10px;}
-.zhuce_form {}
 .zhuce_form table {margin:15px 0 0 40px;}
-.zhuce_form table input {width:415px;height:22px;padding:7px 0 0 5px;border:1px solid #c6c6c6;}
+.zhuce_form table input {width:415px;height:29px;padding-left:5px;line-height:29px;border:1px solid #c6c6c6;}
 .zhuce_form table .zhuce_text {width:216px;}
 .zhuce_form table .td_lf {text-align:right;font-weight:bold;}
 .zhuce_form table em {color:#e13332;padding-left:5px;}
