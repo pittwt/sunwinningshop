@@ -119,86 +119,103 @@
             <div class="pro_infor_con pro_infor_block">
             <!--bof Product description -->
 			<?php if ($products_description != '') { ?>
-            <p class="infor_p"><?php echo stripslashes($products_description); ?></p>
+            <p><?php echo stripslashes($products_description); ?></p>
             <?php } ?>
             <!--eof Product description -->
             </div>
             <div class="pro_infor_con">
-<!--==============================-->
-
-<?php
-if ($reviews_split->number_of_rows > 0) {
-	if ((PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3')) {
-?>
-<?php //echo $reviews_split->display_count(TEXT_DISPLAY_NUMBER_OF_REVIEWS); ?>
-<?php //echo TEXT_RESULT_PAGE . ' ' . $reviews_split->display_links(MAX_DISPLAY_PAGE_LINKS, zen_get_all_get_params(array('page', 'info', 'main_page'))); ?>
-<?php
-	}
-?>
-
-<?php
-	foreach ($reviewsArray as $reviews) {
-?>
-<p class="infor_p">
-<?php echo zen_image(DIR_WS_TEMPLATE_IMAGES . 'stars_' . $reviews['reviewsRating'] . '.gif', sprintf("", $reviews['reviewsRating'])), sprintf("", $reviews['reviewsRating']); ?>
-</p>
-<p class="infor_p">
-<?php echo sprintf(TEXT_REVIEW_DATE_ADDED, zen_date_short($reviews['dateAdded'])); ?>,
-<?php echo sprintf(TEXT_REVIEW_BY, zen_output_string_protected($reviews['customersName'])); ?>
-<?php echo '<a href="' . zen_href_link(FILENAME_PRODUCT_REVIEWS_INFO, 'products_id=' . (int)$_GET['products_id'] . '&reviews_id=' . $reviews['id']) . '"></a>'; ?>
-</p>
-<p class="infor_p"><?php echo zen_break_string(zen_output_string_protected(stripslashes($reviews['reviewsText'])), 60, '-<br />') . ((strlen($reviews['reviewsText']) >= 100) ? '...' : ''); ?></p>
-<hr style="border:none;border-top:1px solid #408fcc;
-height:0;
-" />
-<?php
-    }
-?>
-<?php
-} else {
-?>
-
-<p class="infor_p"><?php echo TEXT_NO_REVIEWS . (REVIEWS_APPROVAL == '1' ? '': ''); ?></p>
-<?php
-}
-if (($reviews_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '2') || (PREV_NEXT_BAR_LOCATION == '3'))) {
-?>
-
-<?php
-}
-?>
-<!--==============================-->
-<?php echo zen_draw_form('product_reviews_write', zen_href_link(FILENAME_PRODUCT_REVIEWS_WRITE, 'action=process&products_id=' . $_GET['products_id'], 'SSL'), 'post', 'onsubmit="return checkForm(product_reviews_write);"'); ?>
-<p class="infor_p"><font style="font-size:13px; font-weight:bold;">Choose a ranking for this item. 1 star is the worst and 5 stars is the best.</font></p>
-<p class="infor_p">
-	<?php echo zen_draw_radio_field('rating', '1', '', 'id="rating-1"'); ?>
-    <?php echo '<label class="" for="rating-1">' . zen_image($template->get_template_dir(OTHER_IMAGE_REVIEWS_RATING_STARS_ONE, DIR_WS_TEMPLATE, $current_page_base,'images'). '/' . OTHER_IMAGE_REVIEWS_RATING_STARS_ONE, OTHER_REVIEWS_RATING_STARS_ONE_ALT) . '</label> '; ?>
-    
-    <?php echo zen_draw_radio_field('rating', '2', '', 'id="rating-2"'); ?>
-    <?php echo '<label class="" for="rating-2">' . zen_image($template->get_template_dir(OTHER_IMAGE_REVIEWS_RATING_STARS_TWO, DIR_WS_TEMPLATE, $current_page_base,'images'). '/' . OTHER_IMAGE_REVIEWS_RATING_STARS_TWO, OTHER_REVIEWS_RATING_STARS_TWO_ALT) . '</label>'; ?>
-    
-    <?php echo zen_draw_radio_field('rating', '3', '', 'id="rating-3"'); ?>
-    <?php echo '<label class="" for="rating-3">' . zen_image($template->get_template_dir(OTHER_IMAGE_REVIEWS_RATING_STARS_THREE, DIR_WS_TEMPLATE, $current_page_base,'images'). '/' . OTHER_IMAGE_REVIEWS_RATING_STARS_THREE, OTHER_REVIEWS_RATING_STARS_THREE_ALT) . '</label>'; ?>
-    
-    <?php echo zen_draw_radio_field('rating', '4', '', 'id="rating-4"'); ?>
-    <?php echo '<label class="" for="rating-4">' . zen_image($template->get_template_dir(OTHER_IMAGE_REVIEWS_RATING_STARS_FOUR, DIR_WS_TEMPLATE, $current_page_base,'images'). '/' . OTHER_IMAGE_REVIEWS_RATING_STARS_FOUR, OTHER_REVIEWS_RATING_STARS_FOUR_ALT) . '</label>'; ?>
-    
-    <?php echo zen_draw_radio_field('rating', '5', '', 'id="rating-5"'); ?>
-    <?php echo '<label class="" for="rating-5">' . zen_image($template->get_template_dir(OTHER_IMAGE_REVIEWS_RATING_STARS_FIVE, DIR_WS_TEMPLATE, $current_page_base,'images'). '/' . OTHER_IMAGE_REVIEWS_RATING_STARS_FIVE, OTHER_REVIEWS_RATING_STARS_FIVE_ALT) . '</label>'; ?>
-</p>
-<p class="infor_p"><font style="font-size:13px; font-weight:bold;">Please tell us what you think and share your opinions with others. Be sure to focus your comments on the product.</font></p>
-<p class="infor_p"><?php echo zen_draw_textarea_field('review_text', 60, 5, '', 'id="review-text"'); ?></p>
-<p class="infor_p"><?php echo zen_image_submit(BUTTON_IMAGE_SUBMIT, BUTTON_SUBMIT_ALT); ?></p>
-</form>
-<p class="infor_p"><font style="font-size:12px; font-weight:bold;">NOTE: Reviews require prior approval before they will be displayed</font></p>
-<!--==============================-->
+                <!--==============================-->
+                
+                <?php
+                if ($reviews_split->number_of_rows > 0) {
+                    if ((PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3')) {
+                ?>
+                <?php //echo $reviews_split->display_count(TEXT_DISPLAY_NUMBER_OF_REVIEWS); ?>
+                <?php //echo TEXT_RESULT_PAGE . ' ' . $reviews_split->display_links(MAX_DISPLAY_PAGE_LINKS, zen_get_all_get_params(array('page', 'info', 'main_page'))); ?>
+                <?php
+                    }
+                ?>
+                
+                <?php
+                    foreach ($reviewsArray as $reviews) {
+                ?>
+                <p>
+                <?php echo zen_image(DIR_WS_TEMPLATE_IMAGES . 'stars_' . $reviews['reviewsRating'] . '.gif', sprintf("", $reviews['reviewsRating'])), sprintf("", $reviews['reviewsRating']); ?>
+                </p>
+                <p>
+                <?php echo sprintf(TEXT_REVIEW_DATE_ADDED, zen_date_short($reviews['dateAdded'])); ?>,
+                <?php echo sprintf(TEXT_REVIEW_BY, zen_output_string_protected($reviews['customersName'])); ?>
+                <?php echo '<a href="' . zen_href_link(FILENAME_PRODUCT_REVIEWS_INFO, 'products_id=' . (int)$_GET['products_id'] . '&reviews_id=' . $reviews['id']) . '"></a>'; ?>
+                </p>
+                <p><?php echo zen_break_string(zen_output_string_protected(stripslashes($reviews['reviewsText'])), 60, '-<br />') . ((strlen($reviews['reviewsText']) >= 100) ? '...' : ''); ?></p>
+                <hr style="border:none;border-top:1px solid #408fcc;
+                height:0;
+                " />
+                <?php
+                    }
+                ?>
+                <?php
+                } else {
+                ?>
+                
+                <p><?php echo TEXT_NO_REVIEWS . (REVIEWS_APPROVAL == '1' ? '': ''); ?></p>
+                <?php
+                }
+                if (($reviews_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '2') || (PREV_NEXT_BAR_LOCATION == '3'))) {
+                ?>
+                
+                <?php
+                }
+                ?>
+                <!--==============================-->
+                <?php echo zen_draw_form('product_reviews_write', zen_href_link(FILENAME_PRODUCT_REVIEWS_WRITE, 'action=process&products_id=' . $_GET['products_id'], 'SSL'), 'post', 'onsubmit="return checkForm(product_reviews_write);"'); ?>
+                <p><font style="font-size:13px; font-weight:bold;">Choose a ranking for this item. 1 star is the worst and 5 stars is the best.</font></p>
+                <p>
+                    <?php echo zen_draw_radio_field('rating', '1', '', 'id="rating-1"'); ?>
+                    <?php echo '<label class="" for="rating-1">' . zen_image($template->get_template_dir(OTHER_IMAGE_REVIEWS_RATING_STARS_ONE, DIR_WS_TEMPLATE, $current_page_base,'images'). '/' . OTHER_IMAGE_REVIEWS_RATING_STARS_ONE, OTHER_REVIEWS_RATING_STARS_ONE_ALT) . '</label> '; ?>
+                    
+                    <?php echo zen_draw_radio_field('rating', '2', '', 'id="rating-2"'); ?>
+                    <?php echo '<label class="" for="rating-2">' . zen_image($template->get_template_dir(OTHER_IMAGE_REVIEWS_RATING_STARS_TWO, DIR_WS_TEMPLATE, $current_page_base,'images'). '/' . OTHER_IMAGE_REVIEWS_RATING_STARS_TWO, OTHER_REVIEWS_RATING_STARS_TWO_ALT) . '</label>'; ?>
+                    
+                    <?php echo zen_draw_radio_field('rating', '3', '', 'id="rating-3"'); ?>
+                    <?php echo '<label class="" for="rating-3">' . zen_image($template->get_template_dir(OTHER_IMAGE_REVIEWS_RATING_STARS_THREE, DIR_WS_TEMPLATE, $current_page_base,'images'). '/' . OTHER_IMAGE_REVIEWS_RATING_STARS_THREE, OTHER_REVIEWS_RATING_STARS_THREE_ALT) . '</label>'; ?>
+                    
+                    <?php echo zen_draw_radio_field('rating', '4', '', 'id="rating-4"'); ?>
+                    <?php echo '<label class="" for="rating-4">' . zen_image($template->get_template_dir(OTHER_IMAGE_REVIEWS_RATING_STARS_FOUR, DIR_WS_TEMPLATE, $current_page_base,'images'). '/' . OTHER_IMAGE_REVIEWS_RATING_STARS_FOUR, OTHER_REVIEWS_RATING_STARS_FOUR_ALT) . '</label>'; ?>
+                    
+                    <?php echo zen_draw_radio_field('rating', '5', '', 'id="rating-5"'); ?>
+                    <?php echo '<label class="" for="rating-5">' . zen_image($template->get_template_dir(OTHER_IMAGE_REVIEWS_RATING_STARS_FIVE, DIR_WS_TEMPLATE, $current_page_base,'images'). '/' . OTHER_IMAGE_REVIEWS_RATING_STARS_FIVE, OTHER_REVIEWS_RATING_STARS_FIVE_ALT) . '</label>'; ?>
+                </p>
+                <p><font style="font-size:13px; font-weight:bold;">Please tell us what you think and share your opinions with others. Be sure to focus your comments on the product.</font></p>
+                <p><?php echo zen_draw_textarea_field('review_text', 60, 5, '', 'id="review-text"'); ?></p>
+                <p><?php echo zen_image_submit(BUTTON_IMAGE_SUBMIT, BUTTON_SUBMIT_ALT); ?></p>
+                </form>
+                <p><font style="font-size:12px; font-weight:bold;">NOTE: Reviews require prior approval before they will be displayed</font></p>
+                <!--==============================-->
             </div>
             <div class="pro_infor_con">
-                <p class="infor_p">Model:JS5142</p>
-                <p class="infor_p">200 Units in Stock</p>
+                <P>1. Shipping Information</P>
+                <P>Usually just takes about 3-5 working days deliver</P>
+                <P>Please Note:</P>
+                <P>Please be sure the delivery address in your order is correct and completed in case there maybe some problem with the delivery. Also, there must be your contact number in your order, it's required for the delivery.</P>
+                <P>When your order is shipped, you'll be emailed the tracking number so that you can track your order on the specific website. Then just keep tracking it, so that you can receive it in time. When there is attempted delivery, please try to contact the delivery company or your local post office. You can also contact us for this.</P>
+                <P>Usually you don't need to pay the customs taxes for your package when it arrives. We'll do our best to avoid that. But there're some countries are strict with packages from overseas, so customers are easily charged some fees. And please note that you will be responsible for that.</P>
+                <P>2. Return&amp;Refund Policy</P>
+                <P>All the orders are processed according to your order confirmation, and we are trying our best to satisfy all customers. We can guarantee only quality items will be delivered, all orders placed on our website should obey the following policies under any conditions.</P>
+                <P>Most of the item here are made personally for you according to the original picture on the site or you require. All will be made with approved quality (with ISO9001 certificate). We'll make them to be more than 95% similar with the picture. We're sure to make them to be gorgeous and comfortable fit.</P>
+                <P>All ouri tem are made according to the measurements and color you want after your full payment and it's unavailable to resell them, so, in principal, we can not refund you after your purchase. Please confirm your order (right size, color, style) carefully before you decide to place the order.</P>
+                <P>1) Return</P>
+                <P>--Your requests must be received within 24 hours after receiving the item. Before returning goods, please contact us first to discuss the issues you are having. 90% of the time we are able to sort out the problem by giving technical support, without you having to send anything back.</P>
+                <P>--We only accept return if there are obvious quality problems which exclude size and color problems, damaged items and defective items.</P>
+                <P>--Please note refunds for the return shipping fee are calculated using the lowest cost shipping method mainly shipped by the post office. Items returned via expedited shipping methods will only be refunded an amount equal to the lowest cost shipping method.</P>
+                <P>2) Not Return</P>
+                <P>3) --Any product not in its original condition, new, complete, unworn, unwashed, unaltered, undamaged</P>
+                <P>--We can not accept any return and exchange if it is the express company¡¯s responsibility such as late delivery, damaged packing, wrinkled item and so on. Please check the package before signing in order to protect your own rights.</P>
             </div>
             <div class="pro_infor_con">
-                <p class="infor_p">200 Units in Stock</p>
+                <P>Our company insists on "Customer the Highest, Quality First". With high-standard quality, satisfied service, and reasonable price, our company has received good reputation around the world.</P>
+                <P>we also offers a 100% safe purchase guarantee, and customer service (a trained representative is always happy to answer any questions you may have). We are a professional USA wholesale and retail on-line company.</P>
+                <P>We warmly welcome customers from home and abroad to contact us. We hope to establish a long-term business relationship with you, thanks for your attention to us,sincerely hope our products can satisfy you,usually your questions will be answered in 1 business day, you'll get the best service here, customer satisfaction is our #1 goal !</P>
             </div>
         </div>
     </div>
