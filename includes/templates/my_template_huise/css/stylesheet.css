@@ -7,7 +7,6 @@ address {font-style: normal;}
 .clearBoth {clear: both;}
 hr {height: 1px;margin-top: 0.5em;border: none;border-bottom: 1px solid #9a9a9a;}
 .messageStackWarning, .messageStackError, .messageStackSuccess, .messageStackCaution {line-height: 1.8em;padding: 0.2em;border: 1px solid #000000;}
-.messageStackWarning, .messageStackError {background-color: #ff0000;color: #ffffff;}
 .messageStackSuccess {background-color: #99FF99;color: #000000;}
 .messageStackCaution {background-color: #FFFF66;color: #000000;}
 #mainWrapper {background-color: #ffffff;text-align: left;width: 100%;vertical-align: top;}
