@@ -63,7 +63,7 @@
             <?php
               }
               if ($product['checkBoxDelete'] ) {
-                echo zen_draw_checkbox_field('cart_delete[]', $product['id']);
+                //echo zen_draw_checkbox_field('cart_delete[]', $product['id']);
               }
             ?>
         </li>
