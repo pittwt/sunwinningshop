@@ -13,8 +13,16 @@
  */
 ?>
 <?php echo $payment_modules->javascript_validation(); ?>
-<div class="centerColumn" id="checkoutPayment">
+
+
+
+
+<div class="shop_car">
+<div class="car_tit"><span class="car_list "><a href="###">Your Shopping Cart Contents</a></span><span class="car_list  cart_special"><a href="###">Shipping and Payment Confirmation</a></span><span class="car_last"><a href="###">Order Confirmation</a></span></div>
+
+
 <?php echo zen_draw_form('checkout_payment', zen_href_link(FILENAME_CHECKOUT_CONFIRMATION, '', 'SSL'), 'post', ($flagOnSubmit ? 'onsubmit="return check_form();"' : '')); ?>
+
 
 <h1 id="checkoutPaymentHeading"><?php echo HEADING_TITLE; ?></h1>
 
@@ -22,19 +30,32 @@
 <?php if ($messageStack->size('checkout') > 0) echo $messageStack->output('checkout'); ?>
 <?php if ($messageStack->size('checkout_payment') > 0) echo $messageStack->output('checkout_payment'); ?>
 
+
+
+<!-- agreed conditions start-->
 <?php
   if (DISPLAY_CONDITIONS_ON_CHECKOUT == 'true') {
 ?>
 <fieldset>
 <legend><?php echo TABLE_HEADING_CONDITIONS; ?></legend>
 <div><?php echo TEXT_CONDITIONS_DESCRIPTION;?></div>
-<?php echo  zen_draw_checkbox_field('conditions', '1', false, 'id="conditions"');?>
+<?php echo  zen_draw_checkbox_field('conditions', '1', true, 'id="conditions"');?>
 <label class="checkboxLabel" for="conditions"><?php echo TEXT_CONDITIONS_CONFIRM; ?></label>
 </fieldset>
 <?php
   }
 ?>
+<!-- agreed conditions end-->
+-------------------------------------------------------- <br /> 
 
+
+
+
+
+ 
+-------------------------------------------------------- <br />  
+
+<!-- billing address start-->
 <?php // ** BEGIN PAYPAL EXPRESS CHECKOUT **
       if (!$payment_modules->in_special_checkout()) {
       // ** END PAYPAL EXPRESS CHECKOUT ** ?>
@@ -49,23 +70,22 @@
 
 <div class="floatingBox important forward"><?php echo TEXT_SELECTED_BILLING_DESTINATION; ?></div>
 <br class="clearBoth" />
+
 <?php // ** BEGIN PAYPAL EXPRESS CHECKOUT **
       }
       // ** END PAYPAL EXPRESS CHECKOUT ** ?>
+<!-- billing address end-->
       
-<fieldset id="checkoutOrderTotals">
-<legend id="checkoutPaymentHeadingTotal"><?php echo TEXT_YOUR_TOTAL; ?></legend>
-<?php
-  if (MODULE_ORDER_TOTAL_INSTALLED) {
-    $order_totals = $order_total_modules->process();
-?>
-<?php $order_total_modules->output(); ?>
-<?php
-  }
-?>
-</fieldset>
+      
+      
 
-<?php
+
+
+
+
+
+qqqqqqqqqqqqqqqqqqqqqqqqq
+<!--<?php
   $selection =  $order_total_modules->credit_selection();
   if (sizeof($selection)>0) {
     for ($i=0, $n=sizeof($selection); $i<$n; $i++) {
@@ -91,8 +111,18 @@
 
 <?php
     }
-?>
+?>-->
+2222222222222222222
 
+
+
+
+
+
+
+
+
+uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu      
 <?php // ** BEGIN PAYPAL EXPRESS CHECKOUT **
       if (!$payment_modules->in_special_checkout()) {
       // ** END PAYPAL EXPRESS CHECKOUT ** ?>
@@ -197,6 +227,14 @@
         ?><input type="hidden" name="payment" value="<?php echo $_SESSION['payment']; ?>" /><?php
       }
       // ** END PAYPAL EXPRESS CHECKOUT ** ?>
+uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu      
+      
+      
+      
+      
+      
+      
+      
 <fieldset>
 <legend><?php echo TABLE_HEADING_COMMENTS; ?></legend>
 <?php echo zen_draw_textarea_field('comments', '45', '3'); ?>

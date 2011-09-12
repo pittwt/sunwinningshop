@@ -59,11 +59,8 @@
 			<?php
               if ($product['buttonDelete']) {
             ?>
-                       <a href="<?php echo zen_href_link(FILENAME_SHOPPING_CART, 'action=remove_product&product_id=' . $product['id']); ?>"><?php echo zen_image($template->get_template_dir(ICON_IMAGE_TRASH, DIR_WS_TEMPLATE, $current_page_base,'images/icons'). '/' . ICON_IMAGE_TRASH, ICON_TRASH_ALT); ?></a>
+				<a href="<?php echo zen_href_link(FILENAME_SHOPPING_CART, 'action=remove_product&product_id=' . $product['id']); ?>"><?php echo zen_image($template->get_template_dir(ICON_IMAGE_TRASH, DIR_WS_TEMPLATE, $current_page_base,'images/icons'). '/' . ICON_IMAGE_TRASH, ICON_TRASH_ALT); ?></a>
             <?php
-              }
-              if ($product['checkBoxDelete'] ) {
-                //echo zen_draw_checkbox_field('cart_delete[]', $product['id']);
               }
             ?>
         </li>
@@ -81,7 +78,7 @@
             <?php echo '<a class="cart_est" href="javascript:popupWindow(\'' . zen_href_link(FILENAME_POPUP_SHIPPING_ESTIMATOR) . '\')">Estimate shipping</a>'; ?>
          </span>
          <span class="cart_inf_rg">
-            <?php echo '<a href="' . zen_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '"  class="cart_back">Go to checkout</a>'; ?>
+            <?php echo '<a href="' . zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL') . '"  class="cart_back">Go to checkout</a>'; ?>
          </span>
     </div>
 </div>
