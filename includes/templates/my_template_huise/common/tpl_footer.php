@@ -12,7 +12,7 @@ require(DIR_WS_MODULES . zen_get_module_directory('footer.php'));
                 foreach(range('a', 'z') as $letter) {
                     echo '<a  href="' . HTTP_SERVER.DIR_WS_CATALOG.'producttags/'.strtoupper($letter).'.html" >'.strtoupper($letter).'</a>';
                 }
-                echo '<a href="' . HTTP_SERVER.DIR_WS_CATALOG.'tags/0-9.html" >0-9</a>';
+                echo '<a href="' . HTTP_SERVER.DIR_WS_CATALOG.'producttags/0-9.html" >0-9</a>';
             ?>
             <!-- eof productTags-->
         </div>
