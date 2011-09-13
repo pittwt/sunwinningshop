@@ -17,7 +17,7 @@ em,var {font-style:normal;}
 
 .one_center {float:left;margin:0 31px 0 15px;line-height:30px; text-align:center;}
 .one_center .account {padding-left:15px;}
-.one_center .account:hover {color:#0066b0; text-decoration:underline; }
+.one_center a:hover {color:#0066b0; text-decoration:underline; }
 
 .hd_two {width:1000px;margin:0 auto;overflow:hidden;zoom:1;}
 .hd_two .logo,.search input {float:left;}
