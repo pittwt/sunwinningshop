@@ -49,8 +49,16 @@ require(DIR_WS_MODULES . zen_get_module_directory('footer.php'));
         </div>
     </div>
     <div class="pic_link">
-        <div class="a_link"><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_one.gif" alt="图片"/></a><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_two.gif" alt="图片"/></a><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_thr.gif" alt="图片"/></a><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_for.gif" alt="图片"/></a></div>
-        <p class="p_word"><a href="###" class="bot_a">Home</a>-<a href="###" class="bot_a">Conditions of Use</a>-<a href="###" class="bot_a">Shipping</a>-<a href="###" class="bot_a">Privacy</a>　<a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/rss.gif" alt="图片"/></a><a href="###" class="bot_a">RSS</a>　<a href="###" class="bot_a">Site Map</a></p>
-        <p>Copyright&copy;2011 ******Powered by*****</p>
+        <div class="a_link">
+        	<a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_one.gif" alt=""/></a>
+            <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_two.gif" alt=""/></a>
+            <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_thr.gif" alt=""/></a>
+            <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_for.gif" alt=""/></a>
+        </div>
+        <p class="p_word">
+			<?php echo rss_feed_link(RSS_ICON) . rss_feed_link(); ?>
+            <a href="<?php echo HTTP_SERVER . DIR_WS_CATALOG;?>sitemapindex.xml" class="bot_a">Site Map</a>
+        </p>
+        <p>Copyright&copy;2011  Powered by</p>
     </div>
 </div>

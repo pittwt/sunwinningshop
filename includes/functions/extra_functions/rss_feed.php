@@ -137,7 +137,7 @@
     list($feed, $title) = rss_feed_current_page();
     if($feed) {
       if(!$img) {
-        $anchor = $title;
+        $anchor = 'Rss';//$title;
       } else {
         $tpl_dir = $template->get_template_dir($img, DIR_WS_TEMPLATE, $current_page_base, 'images');
         $anchor = zen_image($tpl_dir . '/' . $img, $title);

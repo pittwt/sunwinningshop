@@ -15,7 +15,6 @@
                 <!-- AddThis Button BEGIN -->
                 <!--  -->
                 <!-- AddThis Button END -->
-            <div class="one_left">We offer <em class="hd_color">20$ off</em>,7*24h Service for you,free shipping</div>
             
                 <div class="one_center">
                 <?php if ($_SESSION['customer_id']) { ?>
@@ -27,7 +26,7 @@
                     <a href="<?php echo zen_href_link(FILENAME_LOGIN, '', 'SSL'); ?>" class="hd_color">Sign in</a>
                 <?php }?>
                 <a class="account" href="<?php echo zen_href_link('account', '', 'SSL'); ?>">My Account</a>
-                <a class="account" href="<?php echo zen_href_link('account', 'action=order', 'SSL'); ?>">Track Your Order</a>
+                <a class="account" href="<?php echo zen_href_link('account', 'action=order', 'SSL'); ?>">My Order</a>
                 <a href="<?php echo HTTP_SERVER . DIR_WS_CATALOG;?>blog" class="account">Blog</a> 
             </div>
             <div class="addthis_toolbox addthis_default_style " style="float:right;width:138px;margin-top:8px;">
