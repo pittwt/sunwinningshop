@@ -214,7 +214,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .share .share_span {font-weight:bold;margin-right:10px;}
 .share .share_link {margin-right:6px;}
 
-.jersey_pro .jersey_rg {float:left;margin-left:17px;display:inline;position:relative;}
+.jersey_pro .jersey_rg {float:left;margin-left:14px;width:440px;display:inline;position:relative;}
 .jersey_rg span {display:block;}
 .jersey_rg .pro_num {text-align:right;font-weight:600;width:360px;}
 .jersey_rg .jer_pro_inf {font-size:18px;color:#ff6c02;font-weight:600;margin-top:6px;}
