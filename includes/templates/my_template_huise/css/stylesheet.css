@@ -288,22 +288,23 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 
 .shop_car {margin-top:10px;width:980px;}
 .car_tit {overflow:hidden;zoom:1;}
-.car_tit .car_list {float:left;width:322px;height:40px;background-color:#5694c5;line-height:40px;text-align:center;margin-right:6px;}
+.car_tit .car_list {float:left;width:322px;height:40px;background-color:#5694c5;line-height:40px;text-align:center;margin-right:7px;}
 .car_tit .car_last {float:left;width:322px;height:40px;background-color:#5694c5;line-height:40px;text-align:center;}
 .car_tit .cart_special {background-color:#fd842b;}
-.car_tit span a {color:white;font-size:14px;}
+.car_tit span a {color:white;font-size:14px;font-weight:bold;}
 .statistics {font-weight:bold;margin:20px 0 30px;}
 .statistics span {padding:0 5px 0 10px;}
 .cart_ul_one,.cart_ul_two {overflow:hidden;zoom:1;font-size:14px;font-weight:bold;}
 .cart_ul_one {border:1px solid #a5a5a5;background-color:#e6e6e6;line-height:29px;}
 .cart_ul_one li,.cart_ul_two li {float:left;}
 .cart_ul_two a,.cart_ul_two input,.cart_ul_two span,.cart_ul_two img {float:left;}
-.cart_ul_two img {margin-top:20px;}
-.cart_ul_two .num_text {width:74px;height:24px;border:1px solid #a5a5a5;margin:20px 5px 0 15px;}
+.cart_ul_two img {margin:20px 0 0 20px;}
 .cart_ul_two .num_check {margin:25px 0 0 10px;}
 .cart_ul_two .num_tot {margin-left:30px;}
-.pro_num {width:186px;text-align:center;}
-.pro_name {width:528px;text-align:center;}
+.pro_num {width:154px;text-align:center;padding-left:60px;}
+.pro_num input {height:24px;border:1px solid #a5a5a5;margin:20px 5px 0 0;}
+.pro_name {width:450px;text-align:center;padding-left:50px;}
+.cart_ul_two .pro_name {height:70px;overflow:hidden;}
 .pro_unit {width:76px;text-align:center;}
 .pro_tot {width:160px;padding-left:28px;}
 .cart_ul_two {line-height:70px;}
@@ -313,7 +314,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .cart_inf {overflow:hidden;zoom:1;padding:11px 0 40px;}
 .cart_inf .cart_inf_lf,.cart_inf a {float:left;}
 .cart_inf .cart_inf_rg {float:right;}
-.cart_inf_lf .cart_back {width:141px;font-weight:bold;line-height:37px;padding-left:40px;font-size:15px;color:white;background:url("../images/abc.gif") 0 -572px no-repeat;}
+.cart_inf_lf .cart_back {width:141px;font-weight:bold;line-height:37px;padding-left:40px;margin-right:10px;font-size:15px;color:white;background:url("../images/abc.gif") 0 -572px no-repeat;}
 .cart_inf_lf .cart_est {width:141px;line-height:37px;font-weight:bold;text-align:center;font-size:15px;color:white;background:url("../images/abc.gif") -195px -572px no-repeat;}
 .cart_inf_rg a {width:154px;line-height:37px;padding-left:18px;font-weight:bold;font-size:15px;color:white;background:url("../images/abc.gif") -195px -528px no-repeat;}
 .cart_inf_lf .cart_refresh {margin:6px 37px 0 20px;}
@@ -348,7 +349,6 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .shop_pay a,.shop_pay .pay_words {float:left;margin-right:22px;}
 .shop_pay .pay_words {font-size:15px;}
 .method_order {border:1px solid #c0c0c0;margin-top:16px;padding:3px 0 0 16px;}
-.shop_discuss {width:944px;height:60px;margin:12px 0 16px;border:1px solid #979797;}
 .shop_discuss .discuss_check {overflow:hidden;zoom:1;}
 .discuss_check .check_sp {margin:16px 0 20px;float:right; width:154px;line-height:37px;padding-left:18px;font-weight:bold;font-size:15px;color:white;background:url("../images/abc.gif") -195px -528px no-repeat;}
 
@@ -381,5 +381,13 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .visibleField {	display: inline;}
 .messageStackWarning, .messageStackError {color: #f00; border:1px solid #f00; padding:5px;}
 
-
-
+#checkoutConfirmDefaultHeading,#checkoutPaymentHeading {font-size:14px;line-height:30px;}
+fieldset .termsdescription,fieldset .termsiagree {line-height:22px;}
+#checkoutConfirmDefaultBillingAddress,#checkoutPaymentHeadingAddress {line-height:26px;font-size:12px;}
+address {line-height:22px;padding-left:10px;}
+.forward {line-height:20px;}
+fieldset .radioButtonLabel {font-weight:bold;}
+fieldset textarea {width:944px;height:60px;margin:12px 0 10px 10px;border:1px solid #979797;}
+.buttonRow {line-height:22px;}
+#cartContentsDisplay td {text-align:center;}
+.cartAttribsList,.cartAttribsList li {display:inline;}
