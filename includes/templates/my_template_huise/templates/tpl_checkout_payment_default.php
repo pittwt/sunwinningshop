@@ -46,14 +46,6 @@
   }
 ?>
 <!-- agreed conditions end-->
--------------------------------------------------------- <br /> 
-
-
-
-
-
- 
--------------------------------------------------------- <br />  
 
 <!-- billing address start-->
 <?php // ** BEGIN PAYPAL EXPRESS CHECKOUT **
@@ -83,9 +75,7 @@
 
 
 
-
-qqqqqqqqqqqqqqqqqqqqqqqqq
-<!--<?php
+<?php
   $selection =  $order_total_modules->credit_selection();
   if (sizeof($selection)>0) {
     for ($i=0, $n=sizeof($selection); $i<$n; $i++) {
@@ -111,8 +101,7 @@ qqqqqqqqqqqqqqqqqqqqqqqqq
 
 <?php
     }
-?>-->
-2222222222222222222
+?>
 
 
 
@@ -122,7 +111,7 @@ qqqqqqqqqqqqqqqqqqqqqqqqq
 
 
 
-uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu      
+
 <?php // ** BEGIN PAYPAL EXPRESS CHECKOUT **
       if (!$payment_modules->in_special_checkout()) {
       // ** END PAYPAL EXPRESS CHECKOUT ** ?>
@@ -227,9 +216,6 @@ uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
         ?><input type="hidden" name="payment" value="<?php echo $_SESSION['payment']; ?>" /><?php
       }
       // ** END PAYPAL EXPRESS CHECKOUT ** ?>
-uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu      
-      
-      
       
       
       
