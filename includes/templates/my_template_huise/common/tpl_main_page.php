@@ -49,6 +49,7 @@
                     <?php echo $breadcrumb->trail(BREAD_CRUMBS_SEPARATOR); ?>
                 </div>
             <?php } ?>
+            
 				<? 
                 $checkout_page = array("shoppingcart","checkoutshipping","checkoutpayment","checkoutconfirmation","checkoutsuccess");
                 if(!in_array($body_id, $checkout_page) ){
@@ -63,13 +64,17 @@
                     </div>
                     <!--left Ad end-->
                 </div>
+				<?php $_GET['main_page'] == 'index' && !isset($_GET['cPath']) ? $con_class = 'con_center' : $con_class = 'con_right';?>
+                <div class="<?php echo $con_class;?>">
+                    <?php require($body_code);?>
+                </div>                
                 <?	
                 }
                 ?>
-            <?php $_GET['main_page'] == 'index' && !isset($_GET['cPath']) ? $con_class = 'con_center' : $con_class = 'con_right';?>
-            <div class="<?php echo $con_class;?>">
-            	<?php require($body_code);?>
-			</div>
+                
+
+            
+            
         </div>
         <?php require($template->get_template_dir('tpl_footer.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_footer.php'); ?>
     </div>
