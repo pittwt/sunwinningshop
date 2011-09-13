@@ -15,9 +15,11 @@ em,var {font-style:normal;}
 .hd_color:hover {color:#0066b0;text-decoration:underline;font-weight:bold;}
 .hd_create_color:hover {color:#0066b0;text-decoration:underline;}
 
-.one_center {float:left;margin:0 31px 0 15px;line-height:30px; text-align:center;}
-.one_center .account {padding-left:15px;}
+.one_center {float:left;line-height:30px; text-align:center;}
+.one_center a {padding-left:15px;}
 .one_center a:hover {color:#0066b0; text-decoration:underline; }
+.one_center .name_color {font-weight:bold;color:#0066b0;}
+.one_center .name_color:hover {text-decoration:none;}
 
 .hd_two {width:1000px;margin:0 auto;overflow:hidden;zoom:1;}
 .hd_two .logo,.search input {float:left;}
