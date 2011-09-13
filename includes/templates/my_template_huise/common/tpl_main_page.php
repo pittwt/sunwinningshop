@@ -18,7 +18,7 @@
             
                 <div class="one_center">
                 <?php if ($_SESSION['customer_id']) { ?>
-                    <?php echo(TOP_MENU_HELLO);?> <a href="<?php echo zen_href_link(FILENAME_ACCOUNT, '', 'SSL'); ?>"><?php echo ($_SESSION['customer_first_name'].' '.$_SESSION['customer_last_name']);?></a>&nbsp;&nbsp;
+                    <?php echo(TOP_MENU_HELLO);?> <a class="name_color" href="<?php echo zen_href_link(FILENAME_ACCOUNT, '', 'SSL'); ?>"><?php echo ($_SESSION['customer_first_name'].' '.$_SESSION['customer_last_name']);?></a>&nbsp;&nbsp;
                     <a href="<?php echo zen_href_link(FILENAME_LOGOFF, '', 'SSL'); ?>"><?php echo HEADER_TITLE_LOGOFF; ?></a>
                 <?php }else{?>
                     Welcome. Please 
