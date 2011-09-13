@@ -46,13 +46,17 @@
                 </div>
                 <div class="share">
                 	<span class="share_span">share:</span>                        
-                    <!--<a class="addthis_button_preferred_1" class="share_link"></a>
-                    <a class="addthis_button_preferred_2" class="share_link"></a>
-                    <a class="addthis_button_preferred_3" class="share_link"></a>
-                    <a class="addthis_button_preferred_4" class="share_link"></a>
-                    <a class="addthis_button_compact" class="share_link"></a>
-                    <a class="addthis_counter addthis_bubble_style" class="share_link"></a>
-                    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e40fdac6104affb"></script>      -->          
+					<!-- AddThis Button BEGIN -->
+					<div class="addthis_toolbox addthis_default_style " style="float:left;width:138px;">
+						<a class="addthis_button_preferred_1"></a>
+						<a class="addthis_button_preferred_2"></a>
+						<a class="addthis_button_preferred_3"></a>
+						<a class="addthis_button_preferred_4"></a>
+						<a class="addthis_button_compact"></a>
+						<a class="addthis_counter addthis_bubble_style"></a>
+					</div>
+					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e40fdac6104affb"></script>
+					<!-- AddThis Button END -->   
                 </div>
             </div>
 		<?
