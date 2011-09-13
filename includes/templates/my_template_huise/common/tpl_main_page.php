@@ -22,7 +22,7 @@
                     <a href="<?php echo zen_href_link(FILENAME_LOGOFF, '', 'SSL'); ?>"><?php echo HEADER_TITLE_LOGOFF; ?></a>
                 <?php }else{?>
                     Welcome. Please 
-                    <a href="index.php?main_page=create_account">create an account</a> or 
+                    <a href="index.php?main_page=create_account" class="hd_color">create an account</a> or 
                     <a href="<?php echo zen_href_link(FILENAME_LOGIN, '', 'SSL'); ?>" class="hd_color">Sign in</a>
                 <?php }?>
                 <a class="account" href="<?php echo zen_href_link('account', '', 'SSL'); ?>">My Account</a>
