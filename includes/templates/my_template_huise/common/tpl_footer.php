@@ -50,10 +50,10 @@ require(DIR_WS_MODULES . zen_get_module_directory('footer.php'));
     </div>
     <div class="pic_link">
         <div class="a_link">
-        	<a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_one.gif" alt=""/></a>
-            <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_two.gif" alt=""/></a>
-            <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_thr.gif" alt=""/></a>
-            <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/a_for.gif" alt=""/></a>
+        	<img src="<?php echo DIR_WS_TEMPLATE;?>images/a_one.gif" alt=""/>
+            <img src="<?php echo DIR_WS_TEMPLATE;?>images/a_two.gif" alt=""/>
+            <img src="<?php echo DIR_WS_TEMPLATE;?>images/a_thr.gif" alt=""/>
+            <img src="<?php echo DIR_WS_TEMPLATE;?>images/a_for.gif" alt=""/>
         </div>
         <p class="p_word">
 			<?php echo rss_feed_link(RSS_ICON) . rss_feed_link(); ?>
