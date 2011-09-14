@@ -33,9 +33,9 @@ hr {height: 1px;margin-top: 0.5em;border: none;border-bottom: 1px solid #9a9a9a;
 #navBreadCrumb, #navEZPagesTop {font-size: 0.95em;font-weight: bold;margin: 0em;padding: 0.5em;}
 #navColumnOne {background-color: #FFCC99;}
 #navColumnTwo {background-color: #00BFBF;}
-#contentColumnMain, #navColumnOne, #navColumnTwo, .centerBoxContents, .specialsListBoxContents, .categoryListBoxContents, .additionalImages, .centerBoxContentsSpecials, .centerBoxContentsAlsoPurch, .centerBoxContentsFeatured, .centerBoxContentsNew, .alert {	vertical-align: top;	}
+#contentColumnMain, #navColumnOne, #navColumnTwo, .centerBoxContents, .specialsListBoxContents, .categoryListBoxContents, .additionalImages, .centerBoxContentsSpecials, .centerBoxContentsAlsoPurch, .centerBoxContentsFeatured, .centerBoxContentsNew {	vertical-align: top;	}
  #productDescription, .shippingEstimatorWrapper {padding: 0.5em;}
-.alert {color: #FF0000;	margin-left: 0.5em;}
+.alert {color: #FF0000;	margin-left: 0.5em;vertical-align:middle;}
 .important {font-weight: bold;}
 .gvBal {float: right;}
 #bannerOne, #bannerTwo,  #bannerThree,  #bannerFour,  #bannerFive,  #bannerSix {padding: 0.8em;}
@@ -393,3 +393,16 @@ fieldset textarea {width:944px;height:60px;margin:12px 0 10px 10px;border:1px so
 .buttonRow {line-height:22px;}
 #cartContentsDisplay td {text-align:center;}
 .cartAttribsList,.cartAttribsList li {display:inline;}
+
+
+																			/*address_book*/
+									
+#accountEditDefault .inputLabel,#accountPassword .inputLabel {line-height:24px;}
+#accountEditDefault input,#accountPassword input {margin-bottom:5px;line-height:22px;}
+#addressBookDefaultPrimary {line-height:30px;margin-top:6px;padding-left:10px;}
+.addressBookDefaultName {line-height:24px;padding-left:10px;}
+#addressBookDefault address {padding-left:20px;}
+
+#accountNotifications .notice {margin-top:8px;line-height:20px;}
+#accountNotifications .notice,#accountNotifications fieldset,#acctNewslettersDefault fieldset {padding-left:10px;}
+#accountNotifications .checkboxLabel,#acctNewslettersDefault .checkboxLabel {line-height:22px;}
