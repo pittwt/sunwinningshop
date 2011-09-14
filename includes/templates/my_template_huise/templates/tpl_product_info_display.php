@@ -237,7 +237,7 @@
     if(count($images_array_contain_all)>0){
     ?>
     <div class="tanchu" id="tanchu" >
-        <div class="top"><img id="change" src="/<?php echo $images_array_contain_all[0];?>" alt=""/></div>
+        <div class="top" id="lg_click"><img id="change" src="/<?php echo $images_array_contain_all[0];?>" alt=""/></div>
         <div class="bottom_two">
             <input type="button" value="<" id="lf"/>
             <div class="out" id="father">
