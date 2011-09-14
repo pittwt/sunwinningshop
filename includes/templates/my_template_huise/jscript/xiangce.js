@@ -66,7 +66,6 @@ function picture(){
 		mask.style.display="block";
 		close.style.display="block";
 		hid.style.display="none";
-		//close.style.left=tanchu.offsetWidth/2+change.clientWidth/2-close.offsetWidth+"px";
 	}
 
 											/*js_two*/
@@ -77,6 +76,7 @@ function picture(){
 	var pic=document.getElementById("one").getElementsByTagName("img");
 	var change=document.getElementById("change");
 	var close=document.getElementById("close");
+	var lr_click=document.getElementById("lg_click");
 	var a=0;
 	var imgwidth=167;
 	for(var j=0;j<pic.length;j++){
@@ -88,7 +88,6 @@ function picture(){
 				change.src=pic[i].src;
 				pic[i].className="special";
 				a=i;//此处相对于tab切换来说不写也行，是为了下面其他特效的使用而定义的，是把数组的下标值赋给a;
-				//close.style.left=tanchu.offsetWidth/2+change.clientWidth/2-close.offsetWidth+"px";
 			}
 			else{
 				pic[i].className="";
@@ -105,7 +104,6 @@ function picture(){
 			change.src=pic[a-1].src;
 			a--;
 			fa.scrollLeft=fa.scrollLeft-imgwidth;
-			//close.style.left=tanchu.offsetWidth/2+change.clientWidth/2-close.offsetWidth+"px";
 		}
 	}
 	inputlf.onclick=function(){reduce();}//向左翻页
@@ -117,7 +115,6 @@ function picture(){
 			fa.scrollLeft=0;
 			change.src=pic[a].src;
 			pic[a].className="special";
-			//close.style.left=tanchu.offsetWidth/2+change.clientWidth/2-close.offsetWidth+"px";
 		}
 		else{
 			pic[a+1].className="special";
@@ -125,12 +122,21 @@ function picture(){
 			change.src=pic[a+1].src;
 			a++;
 			fa.scrollLeft=fa.scrollLeft+imgwidth;
-			//close.style.left=tanchu.offsetWidth/2+change.clientWidth/2-close.offsetWidth+"px";
 		}
 	}
 	inputrig.onclick=function(){add();}//向右翻页
 
 	change.onclick=function(e){
+		e=e||window.event;
+		if(e.offsetX<change.offsetWidth/2||e.layerX<change.offsetWidth/2){//为了兼容ff
+			reduce();
+		}
+		else{
+			add();
+		}
+	}
+
+	lr_click.onclick=function(e){
 		e=e||window.event;
 		if(e.offsetX<change.offsetWidth/2||e.layerX<change.offsetWidth/2){//为了兼容ff
 			reduce();
