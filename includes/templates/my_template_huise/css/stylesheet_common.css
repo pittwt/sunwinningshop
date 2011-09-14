@@ -16,7 +16,7 @@ em,var {font-style:normal;}
 .hd_create_color:hover {color:#0066b0;text-decoration:underline;}
 
 .one_center {float:left;line-height:30px; text-align:center;}
-.one_center a {padding-left:15px;}
+.one_center .account {padding-left:15px;}
 .one_center a:hover {color:#0066b0; text-decoration:underline; }
 .one_center .name_color {font-weight:bold;color:#0066b0;}
 .one_center .name_color:hover {text-decoration:none;}
