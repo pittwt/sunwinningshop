@@ -13,7 +13,12 @@
  * @version $Id: tpl_index_categories.php 4678 2006-10-05 21:02:50Z ajeh $
  */
 ?>
-
+<?php
+// categories_description
+    if ($current_categories_description != '') {
+?>
+<div id="indexProductListCatDescription" class="right_list"><?php echo $current_categories_description;  ?></div>
+<?php } // categories_description ?>
 
 
 
@@ -29,6 +34,7 @@
    //echo $category_list;exit;
   }
 ?>
+
 
 
 <?php include(DIR_WS_MODULES . zen_get_module_directory(FILENAME_PRODUCT_LISTING));?>

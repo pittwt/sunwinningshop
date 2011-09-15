@@ -26,7 +26,8 @@ hr {height: 1px;margin-top: 0.5em;border: none;border-bottom: 1px solid #9a9a9a;
 #navEZPagesTOC ul {margin: 0;padding: 0.5em 0em;list-style-type: none;line-height: 1.5em;}
 #navEZPagesTOC ul li {white-space: nowrap;}
 #navEZPagesTOC ul li a {padding: 0em 0.5em;	margin: 0;}
-#navCategoryIcon, .buttonRow, #indexProductListCatDescription {margin: 0.5em;}
+#navCategoryIcon, .buttonRow,  {margin: 0.5em;}
+#indexProductListCatDescription{ padding:15px 10px;}
 #navMainSearch {float: right;}
 #navBreadCrumb {background-color: #cc9900;}
 #navEZPagesTop {background-color: #ffff33;}

@@ -13,6 +13,12 @@
  */
 ?>
 <?php include(DIR_WS_MODULES . zen_get_module_directory(FILENAME_PRODUCT_LISTING));?>
+<?php
+// categories_description
+    if ($current_categories_description != '') {
+?>
+<div id="indexProductListCatDescription" class="right_list"><?php echo $current_categories_description;  ?></div>
+<?php } // categories_description ?>
 
 <h1 class="mav_tit">
 	<strong><?php echo $breadcrumb->last(); ?></strong>
