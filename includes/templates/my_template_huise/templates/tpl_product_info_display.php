@@ -24,7 +24,7 @@
         if(count($images_array_contain_all)>0){
         ?>
             <div class="div_one">
-                <div class="top_one" ><img id="top_pic" src="/<?php echo $images_array_contain_all[0];?>" alt=""/></div>
+                <div class="top_one" id="jersey_one"><img id="top_pic" src="/<?php echo $images_array_contain_all[0];?>" alt=""/></div>
                 <div class="bottom_one">
                     <input type="button" value="<" id="lf_one"/>
                     <div class="out_one" id="father_one">
