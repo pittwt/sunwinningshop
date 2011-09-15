@@ -1,17 +1,21 @@
+var tanchu=document.getElementById("tanchu");
+var mask=document.getElementById("mask");
+var hid=document.getElementById("hidde");
+var close=document.getElementById("close");
+var jersey=document.getElementById("jersey_one");
+var change=document.getElementById("change");
 function picture(){	
-
-										/*js_one*/
+									/*js_one*/
 	var lf=document.getElementById("lf_one");
 	var rig=document.getElementById("rig_one");
-	var tanchu=document.getElementById("tanchu");
 	var fa_one=document.getElementById("father_one");
 	var main_one=document.getElementById("two");
 	var pic_one=document.getElementById("two").getElementsByTagName("img");
 	var top_pic=document.getElementById("top_pic");
-	var mask=document.getElementById("mask");
-	var hid=document.getElementById("hidde");
 	var b=0;
 	var imgwidth_one=60;
+	var one_width=document.getElementById("jersey_one").clientWidth;
+	var one_height=document.getElementById("jersey_one").clientHeight;
 
 	for(var j=0;j<pic_one.length;j++){
 		pic_one[j].onmouseover=function(){movee(this);}
@@ -23,19 +27,15 @@ function picture(){
 				pic_one[j].className="special_img";
 				b=j;//此处相对于tab切换来说不写也行，是为了下面其他特效的使用而定义的，是把数组的下标值赋给a;
 			}
-			else{
-				pic_one[j].className="";
-			}
+			else{pic_one[j].className="";}
 		}
 	}//tab切换；
 	function reducee(){
-		if(b<=0){
-			
-		}
+		if(b<=0){}
 		else{
 			pic_one[b-1].className="special_img";
 			pic_one[b].className="";
-			top_pic.src=pic_one[b-1].src;
+			top_pic.src=pic_one[b-1].src;	
 			b--;
 			fa_one.scrollLeft=fa_one.scrollLeft-imgwidth_one;
 		}
@@ -47,10 +47,9 @@ function picture(){
 			b=0;
 			fa_one.scrollLeft=0;
 			top_pic.src=pic_one[b+1].src;
-			pic_one[b].className="special_img";
+			pic_one[b].className="special_img";	
 		}
 		else{
-			
 			pic_one[b+1].className="special_img";
 			pic_one[b].className="";
 			top_pic.src=pic_one[b+1].src;
@@ -59,14 +58,7 @@ function picture(){
 		}
 	}
 	rig.onclick=function(){addd();}//向右翻页
-
-	top_pic.onclick=function(){
-		
-		tanchu.style.display="block";
-		mask.style.display="block";
-		close.style.display="block";
-		hid.style.display="none";
-	}
+	bili(top_pic,one_width,one_height);
 
 											/*js_two*/
 	var inputlf=document.getElementById("lf");
@@ -74,9 +66,7 @@ function picture(){
 	var fa=document.getElementById("father");
 	var main=document.getElementById("one");
 	var pic=document.getElementById("one").getElementsByTagName("img");
-	var change=document.getElementById("change");
-	var close=document.getElementById("close");
-	var lr_click=document.getElementById("lg_click");
+	var lg_click=document.getElementById("lf_click");
 	var a=0;
 	var imgwidth=167;
 	for(var j=0;j<pic.length;j++){
@@ -89,15 +79,11 @@ function picture(){
 				pic[i].className="special";
 				a=i;//此处相对于tab切换来说不写也行，是为了下面其他特效的使用而定义的，是把数组的下标值赋给a;
 			}
-			else{
-				pic[i].className="";
-			}
+			else{pic[i].className="";}
 		}
 	}//tab切换；
 	function reduce(){
-		if(a<=0){
-			
-		}
+		if(a<=0){}
 		else{
 			pic[a-1].className="special";
 			pic[a].className="";
@@ -126,31 +112,53 @@ function picture(){
 	}
 	inputrig.onclick=function(){add();}//向右翻页
 
-	change.onclick=function(e){
+	lg_click.onclick=function(e){
 		e=e||window.event;
 		if(e.offsetX<change.offsetWidth/2||e.layerX<change.offsetWidth/2){//为了兼容ff
 			reduce();
 		}
-		else{
-			add();
-		}
+		else{add();}
 	}
+	
+}
+picture();
 
-	lr_click.onclick=function(e){
-		e=e||window.event;
-		if(e.offsetX<change.offsetWidth/2||e.layerX<change.offsetWidth/2){//为了兼容ff
-			reduce();
-		}
-		else{
-			add();
-		}
-	}
-	close.onclick=function(){
-		tanchu.style.display="none";
-		mask.style.display="none";
-		close.style.display="none";
-		hid.style.display="inline";
-	}
+jersey.onclick=function(){
+	
+	tanchu.style.display="block";
+	mask.style.display="block";
+	close.style.display="block";
+	hid.style.display="none";
+	var two_width=document.getElementById("lf_click").clientWidth;
+	var two_hieght=document.getElementById("lf_click").clientHeight;
+	bili(change,two_width,two_hieght)
 }
 
-picture();
+close.onclick=function(){
+	tanchu.style.display="none";
+	mask.style.display="none";
+	close.style.display="none";
+	hid.style.display="inline";
+}
+function bili(obj,trueWidth,trueHeight){
+	w = obj.getAttribute("w");
+	h = obj.getAttribute("h");
+	var bili= w/h ;
+	if(w <= trueWidth && h <= trueHeight){
+			if(bili >= 1){
+			obj.style.width=trueWidth+"px";
+		}else if(bili < 1){
+			obj.style.height=trueHeight+"px";
+		}
+	}else if(w <= trueWidth  && h >= trueHeight){
+		obj.style.height=trueHeight+"px";
+	}else if(w >= trueWidth  && h <= trueHeight){
+		obj.style.width=trueWidth+"px";
+	}else if(w >= trueWidth  && h >= trueHeight){
+		if(bili >= 1){
+			obj.style.width=trueWidth+"px";
+		}else if(bili < 1){
+			obj.style.height=trueHeight+"px";
+		}
+	}
+}
