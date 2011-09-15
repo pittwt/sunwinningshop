@@ -27,6 +27,7 @@ function all_pic(){
 					top_pic.src=pic_one[j].src;
 					pic_one[j].className="special_img";
 					b=j;//此处相对于tab切换来说不写也行，是为了下面其他特效的使用而定义的，是把数组的下标值赋给a;
+					bili(top_pic,obj,one_width,one_height);
 				}
 				else{pic_one[j].className="";}
 			}
@@ -59,7 +60,7 @@ function all_pic(){
 			}
 		}
 		rig.onclick=function(){addd();}//向右翻页
-		bili(top_pic,one_width,one_height);
+		bili(top_pic,top_pic,one_width,one_height);
 
 												/*js_two*/
 		var inputlf=document.getElementById("lf");
@@ -73,12 +74,13 @@ function all_pic(){
 		for(var j=0;j<pic.length;j++){
 			pic[j].onmouseover=function(){move(this);}
 		}
-		function move(aa){
+		function move(target){
 			for(var i=0;i<pic.length;i++){
-				if(aa==pic[i]){
+				if(target==pic[i]){
 					change.src=pic[i].src;
 					pic[i].className="special";
 					a=i;//此处相对于tab切换来说不写也行，是为了下面其他特效的使用而定义的，是把数组的下标值赋给a;
+					bili(change,target,two_width,two_hieght);
 				}
 				else{pic[i].className="";}
 			}
@@ -132,7 +134,7 @@ function all_pic(){
 		hid.style.display="none";
 		var two_width=document.getElementById("lf_click").clientWidth;
 		var two_hieght=document.getElementById("lf_click").clientHeight;
-		bili(change,two_width,two_hieght)
+		bili(change,change,two_width,two_hieght)
 	}
 
 	close.onclick=function(){
@@ -141,25 +143,25 @@ function all_pic(){
 		close.style.display="none";
 		hid.style.display="inline";
 	}
-	function bili(obj,trueWidth,trueHeight){
-		w = obj.getAttribute("w");
-		h = obj.getAttribute("h");
+	function bili(objbig,objsmall,holderWidth,holderHeight){
+		w = objsmall.getAttribute("w");
+		h = objsmall.getAttribute("h");
 		var bili= w/h ;
-		if(w <= trueWidth && h <= trueHeight){
+		if(w <= holderWidth && h <= holderHeight){
 				if(bili >= 1){
-				obj.style.width=trueWidth+"px";
+				objbig.style.width=holderWidth+"px";
 			}else if(bili < 1){
-				obj.style.height=trueHeight+"px";
+				objbig.style.height=holderHeight+"px";
 			}
-		}else if(w <= trueWidth  && h >= trueHeight){
-			obj.style.height=trueHeight+"px";
-		}else if(w >= trueWidth  && h <= trueHeight){
-			obj.style.width=trueWidth+"px";
-		}else if(w >= trueWidth  && h >= trueHeight){
+		}else if(w <= holderWidth  && h >= holderHeight){
+			objbig.style.height=holderHeight+"px";
+		}else if(w >= holderWidth  && h <= holderHeight){
+			objbig.style.width=holderWidth+"px";
+		}else if(w >= holderWidth  && h >= holderHeight){
 			if(bili >= 1){
-				obj.style.width=trueWidth+"px";
+				objbig.style.width=holderWidth+"px";
 			}else if(bili < 1){
-				obj.style.height=trueHeight+"px";
+				objbig.style.height=holderHeight+"px";
 			}
 		}
 	}
