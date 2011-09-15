@@ -187,7 +187,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .jersey_pic {float:left;width:281px;}
 
 .top_one {width:279px;height:246px;border:1px solid #c0c0c0;}
-.top_one img {height:246px;display:block;margin:auto;}
+.top_one img {display:block;margin:auto;}
 .bottom_one {width:265px;margin:7px 0;overflow:hidden;zoom:1;border:1px solid #c0c0c0;padding:0 7px;}
 .bottom_one .out_one {width:235px;height:62px;float:left;overflow:hidden;}
 .out_one  img {width:53px;height:50px;filter:alpha(opacity=40);opacity: 0.4;display:block;}
