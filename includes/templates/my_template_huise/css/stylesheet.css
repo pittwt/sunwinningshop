@@ -197,12 +197,12 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 
 .tanchu {position:absolute;left:22%;width:800px;top:80px;z-index:99;display:none;}
 .top {width:800px;height:500px;margin:0 auto;background-color:white;}
-.top img {height:500px;display:block;margin:0 auto;}
+.top img {display:block;margin:0 auto;}
 
 .bottom_two {width:738px;margin:40px auto;overflow:hidden;zoom:1;}
 .bottom_two .out {width:668px; float:left;margin-top:5px;float:left;overflow:hidden;}
 .bottom_two .main {height:122px;float:left;}
-.out img {width:160px;height:120px;border:1px black solid;filter:alpha(opacity=40);opacity: 0.4;float:left;margin-right:5px;}
+.out img {width:125px;height:120px;border:1px black solid;filter:alpha(opacity=40);opacity: 0.4;float:left;margin-right:5px;}
 .out .special {filter:alpha(opacity=100);opacity: 1;}
 .bottom_two input {float:left;width:25px;height:132px;margin-right:5px;}
 #mask {background-color:black;width:100%;filter:alpha(opacity=70);opacity: 0.7;height:100%;_height:2000px;position:absolute;left:0;top:0;z-index:60;display:none;}
