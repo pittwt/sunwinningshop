@@ -119,8 +119,10 @@ jersey.onclick=function(){
 	mask.style.display="block";
 	close.style.display="block";
 	//hid.style.display="none";
-	var two_width=document.getElementById("lf_click").clientWidth;
-	var two_hieght=document.getElementById("lf_click").clientHeight;
+	//var two_width=document.getElementById("lf_click").clientWidth;
+	//var two_hieght=document.getElementById("lf_click").clientHeight;
+	var two_width=800;
+	var two_hieght=500;
 	bili(change,two_width,two_hieght);
 	bigpicture();
 }
@@ -142,9 +144,11 @@ function bigpicture(){
 	function move(target){
 		for(var i=0;i<pic.length;i++){
 			if(target==pic[i]){
-				tanchu.style.display="block";
-				var two_width=document.getElementById("lf_click").clientWidth;
-				var two_height=document.getElementById("lf_click").clientHeight;
+				//tanchu.style.display="block";
+				//var two_width=document.getElementById("lf_click").clientWidth;
+				//var two_height=document.getElementById("lf_click").clientHeight;
+				var two_width=800;
+				var two_height=500;
 				lg_pic[i].className="change_img";
 				pic[i].className="special";
 				bili(lg_pic[i],two_width,two_height);
@@ -154,9 +158,11 @@ function bigpicture(){
 		}
 	}//tab切换；
 	function reduce(){
-		tanchu.style.display="block";
-		var two_width=document.getElementById("lf_click").clientWidth;
-		var two_height=document.getElementById("lf_click").clientHeight;
+		//tanchu.style.display="block";
+		//var two_width=document.getElementById("lf_click").clientWidth;
+		//var two_height=document.getElementById("lf_click").clientHeight;
+		var two_width=800;
+		var two_height=500;
 		if(a<=0){}
 		else{
 			pic[a-1].className="special";
@@ -172,7 +178,7 @@ function bigpicture(){
 	inputlf.onclick=function(){reduce();}//向左翻页
 
 	function add(){
-		tanchu.style.display="block";
+		//tanchu.style.display="block";
 		//var two_width=document.getElementById("lf_click").clientWidth;
 		//var two_height=document.getElementById("lf_click").clientHeight;
 		var two_width=800;
