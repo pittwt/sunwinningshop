@@ -79,17 +79,16 @@ if ($num_products_count > 0) {
     $specials_index->fields['products_name'] = zen_get_products_name($specials_index->fields['products_id']);
 	
 	
-	
     /*$list_box_contents[$row][$col] = array('params' => 'class="centerBoxContentsSpecials centeredContent back"' . ' ' . 'style="width:' . $col_width . '%;"',
      'text' => (($specials_index->fields['products_image'] == '' and PRODUCTS_IMAGE_NO_IMAGE_STATUS == 0) ? '' : '<div class="productlistingimage"><a href="' . zen_href_link(zen_get_info_page($specials_index->fields['products_id']), 'cPath=' . $productsInCategory[$specials_index->fields['products_id']] . '&products_id=' . $specials_index->fields['products_id']) . '">' . zen_image(DIR_WS_IMAGES . $specials_index->fields['products_image'], $specials_index->fields['products_name'], IMAGE_PRODUCT_NEW_WIDTH, IMAGE_PRODUCT_NEW_HEIGHT) . '</a></div>') . '<div class="productlistingdesc"><div><a href="' . zen_href_link(zen_get_info_page($specials_index->fields['products_id']), 'cPath=' . $productsInCategory[$specials_index->fields['products_id']] . '&products_id=' . $specials_index->fields['products_id']) . '">' . $specials_index->fields['products_name'] . '</a></div><div>' . $products_price.'</div>' . '<div><a href="' . zen_href_link(FILENAME_PRODUCT_INFO, zen_get_all_get_params(array('action')). 'products_id=' . $specials_index->fields['products_id']). '"><img src="'.DIR_WS_TEMPLATE.'buttons/english/button_in_addcart.gif"></a></div>');*/
 	
 	
 	$list_box_contents .= '
 	<dl class="pro_list">
-	  <dt><a href="'.zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']).'" class="a_pic">'.zen_image(DIR_WS_IMAGES . $new_products->fields['products_image'], $new_products->fields['products_name'], IMAGE_PRODUCT_NEW_WIDTH, IMAGE_PRODUCT_NEW_HEIGHT).'</a></dt>
-	  <dd><a class="pro_inf" href="'.zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']).'">'.$new_products->fields['products_name'].'</a></dd>
+	  <dt><a href="'.zen_href_link(zen_get_info_page($specials_index->fields['products_id']), 'cPath=' . $productsInCategory[$specials_index->fields['products_id']] . '&products_id=' . $specials_index->fields['products_id']).'" class="a_pic">'.zen_image(DIR_WS_IMAGES . $specials_index->fields['products_image'], $specials_index->fields['products_name'], IMAGE_PRODUCT_NEW_WIDTH, IMAGE_PRODUCT_NEW_HEIGHT).'</a></dt>
+	  <dd><a class="pro_inf" href="'.zen_href_link(zen_get_info_page($specials_index->fields['products_id']), 'cPath=' . $productsInCategory[$specials_index->fields['products_id']] . '&products_id=' . $specials_index->fields['products_id']).'">'.$specials_index->fields['products_name'].'</a></dd>
 	  '.$products_price.'
-	  <dd><a class="cart_one" href="'.zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']).'">Add to cart</a></dd>
+	  <dd><a class="cart_one" href="'.zen_href_link(zen_get_info_page($specials_index->fields['products_id']), 'cPath=' . $productsInCategory[$specials_index->fields['products_id']] . '&products_id=' . $specials_index->fields['products_id']).'">Add to cart</a></dd>
 	  <dd class="special">&nbsp;</dd>
 	</dl>	
 	';
