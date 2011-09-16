@@ -197,7 +197,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .bottom_one input {float:left;width:15px;height:52px;margin-top:5px;}
 .bottom_one .main_one {float:left;height:52px;}
 
-.tanchu {position:absolute;left:22%;width:800px;top:80px;z-index:99;display:none;}
+.tanchu {position:absolute;left:20%;width:800px;top:80px;z-index:99;display:none;}
 .top {width:800px;height:500px;margin:0 auto;background-color:white;overflow:hidden;line-height:500px;vertical-align:middle;display:table-cell;}
 .top img {display:none;}
 .top .change_img {display:block;margin:0 auto;_margin-top: expression_r(( 500 - this.height ) / 2);}
