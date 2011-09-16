@@ -50,8 +50,10 @@ function picture(){
 	var bigpic=document.getElementById("top_pic");
 	var b=0;
 	var imgwidth_one=60;
-	var one_width=document.getElementById("jersey_one").clientWidth;
-	var one_height=document.getElementById("jersey_one").clientHeight;
+	//var one_width=document.getElementById("jersey_one").clientWidth;
+	var one_width=279;
+	//var one_height=document.getElementById("jersey_one").clientHeight;
+	var one_height=249;
 
 	for(var j=0;j<pic_one.length;j++){
 		pic_one[j].onmouseover=function(){movee(this);}
@@ -62,6 +64,7 @@ function picture(){
 				top_pic[j].className="top_pic"
 				pic_one[j].className="special_img";
 				b=j;//此处相对于tab切换来说不写也行，是为了下面其他特效的使用而定义的，是把数组的下标值赋给a;
+				//alert(one_width);
 				bili(top_pic[j],one_width,one_height);
 			}
 			else{
@@ -170,8 +173,10 @@ function bigpicture(){
 
 	function add(){
 		tanchu.style.display="block";
-		var two_width=document.getElementById("lf_click").clientWidth;
-		var two_height=document.getElementById("lf_click").clientHeight;
+		//var two_width=document.getElementById("lf_click").clientWidth;
+		//var two_height=document.getElementById("lf_click").clientHeight;
+		var two_width=800;
+		var two_height=500;
 		if(a>=pic.length-1){
 			pic[a].className="";
 			lg_pic[a].className="";
