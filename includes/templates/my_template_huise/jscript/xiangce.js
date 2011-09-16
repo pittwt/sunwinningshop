@@ -34,7 +34,7 @@ function bili(objbig,holderWidth,holderHeight){
 
 var tanchu=document.getElementById("tanchu");
 var mask=document.getElementById("mask");
-var hid=document.getElementById("hidde");
+//var hid=document.getElementById("hidde");
 var close=document.getElementById("close");
 var jersey=document.getElementById("jersey_one");
 var change=document.getElementById("change");
@@ -115,7 +115,7 @@ jersey.onclick=function(){
 	tanchu.style.display="block";
 	mask.style.display="block";
 	close.style.display="block";
-	hid.style.display="none";
+	//hid.style.display="none";
 	var two_width=document.getElementById("lf_click").clientWidth;
 	var two_hieght=document.getElementById("lf_click").clientHeight;
 	bili(change,two_width,two_hieght);
@@ -208,5 +208,5 @@ close.onclick=function(){
 	tanchu.style.display="none";
 	mask.style.display="none";
 	close.style.display="none";
-	hid.style.display="inline";
+	//hid.style.display="inline";
 }
