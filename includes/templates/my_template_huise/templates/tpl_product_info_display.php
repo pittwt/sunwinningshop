@@ -22,9 +22,10 @@
         <div class="jersey_pic">
 		<?
         if(count($images_array_contain_all)>0){
+			$imgsize=getimagesize($images_array_contain_all[0]); 
         ?>
             <div class="div_one">
-                <div class="top_one" id="jersey_one"><img id="top_pic" src="/<?php echo $images_array_contain_all[0];?>" alt=""/></div>
+                <div class="top_one" id="jersey_one"><img id="top_pic" src="/<?php echo $images_array_contain_all[0];?>" w="<?=$imgsize[0]?>" h="<?=$imgsize[1]?>" alt=""/></div>
                 <div class="bottom_one">
                     <input type="button" value="<" id="lf_one"/>
                     <div class="out_one" id="father_one">
@@ -32,10 +33,11 @@
                             <tr>
 							<?
 							for($i=0;$i<count($images_array_contain_all);$i++){
+								$arrimgsize=getimagesize($images_array_contain_all[$i]); 
 								if($i == 0){
-									echo '<td><a href="javascript:;"><img class="special_img" src="/'.$images_array_contain_all[$i].'" alt=""/></a></td>';
+									echo '<td><a href="javascript:;"><img class="special_img" src="/'.$images_array_contain_all[$i].'" w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'" alt=""/></a></td>';
 								}else{
-									echo '<td><a href="javascript:;"><img src="/'.$images_array_contain_all[$i].'" alt=""/></a></td>';
+									echo '<td><a href="javascript:;"><img src="/'.$images_array_contain_all[$i].'" w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'" alt=""/></a></td>';
 								}
 							}
 							?>
