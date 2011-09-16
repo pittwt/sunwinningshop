@@ -187,7 +187,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .con_right .jersey_pro {overflow:hidden;zoom:1;}
 .jersey_pic {float:left;width:281px;}
 
-.top_one {width:279px;height:246px;border:1px solid #c0c0c0;}
+.top_one {width:279px;height:246px;border:1px solid #c0c0c0;overflow:hidden;}
 .top_one img {display:block;margin:auto;}
 .bottom_one {width:265px;margin:7px 0;overflow:hidden;zoom:1;border:1px solid #c0c0c0;padding:0 7px;}
 .bottom_one .out_one {width:235px;height:62px;float:left;overflow:hidden;}
@@ -197,7 +197,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .bottom_one .main_one {float:left;height:52px;}
 
 .tanchu {position:absolute;left:22%;width:800px;top:80px;z-index:99;display:none;}
-.top {width:800px;height:500px;margin:0 auto;background-color:white;}
+.top {width:800px;height:500px;margin:0 auto;background-color:white;overflow:hidden;}
 .top img {display:block;margin:0 auto;}
 
 .bottom_two {width:738px;margin:40px auto;overflow:hidden;zoom:1;}
