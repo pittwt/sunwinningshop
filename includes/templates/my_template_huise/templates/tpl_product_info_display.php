@@ -25,7 +25,19 @@
 			$imgsize=getimagesize($images_array_contain_all[0]); 
         ?>
             <div class="div_one">
-                <div class="top_one" id="jersey_one"><img id="top_pic" src="/<?php echo $images_array_contain_all[0];?>" w="<?=$imgsize[0]?>" h="<?=$imgsize[1]?>" alt=""/></div>
+                <div class="top_one" id="jersey_one">
+				<?
+				for($i=0;$i<count($images_array_contain_all);$i++){
+					$arrimgsize=getimagesize($images_array_contain_all[$i]); 
+					if($i == 0){
+						echo '<img id="top_pic" class="top_pic" src="/'.$images_array_contain_all[$i].'"  w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'"/>';
+					}else{
+						echo '<img  src="/'.$images_array_contain_all[$i].'" w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'"/>';
+					}
+				}
+				?>                
+                
+                </div>
                 <div class="bottom_one">
                     <input type="button" value="<" id="lf_one"/>
                     <div class="out_one" id="father_one">
@@ -35,9 +47,9 @@
 							for($i=0;$i<count($images_array_contain_all);$i++){
 								$arrimgsize=getimagesize($images_array_contain_all[$i]); 
 								if($i == 0){
-									echo '<td><a href="javascript:;"><img class="special_img" src="/'.$images_array_contain_all[$i].'" w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'" alt=""/></a></td>';
+									echo '<td><a href="javascript:;"><img class="special_img" src="/'.$images_array_contain_all[$i].'" /></a></td>';
 								}else{
-									echo '<td><a href="javascript:;"><img src="/'.$images_array_contain_all[$i].'" w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'" alt=""/></a></td>';
+									echo '<td><a href="javascript:;"><img src="/'.$images_array_contain_all[$i].'" /></a></td>';
 								}
 							}
 							?>
@@ -239,7 +251,18 @@
     if(count($images_array_contain_all)>0){
     ?>
     <div class="tanchu" id="tanchu" >
-        <div class="top" id="lg_click"><img id="change" src="/<?php echo $images_array_contain_all[0];?>" alt=""/></div>
+        <div class="top" id="lf_click">
+		<?
+        for($i=0;$i<count($images_array_contain_all);$i++){
+            $arrimgsize=getimagesize($images_array_contain_all[$i]); 
+            if($i == 0){
+                echo '<img id="change" class="change_img" src="/'.$images_array_contain_all[$i].'"  w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'"/>';
+            }else{
+                echo '<img w="279" h="249" src="/'.$images_array_contain_all[$i].'" w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'"/>';
+            }
+        }
+        ?>
+        </div>
         <div class="bottom_two">
             <input type="button" value="<" id="lf"/>
             <div class="out" id="father">
