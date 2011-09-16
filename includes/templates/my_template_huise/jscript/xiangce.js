@@ -13,7 +13,7 @@ function all_pic(){
 		var main_one=document.getElementById("two");
 		var pic_one=document.getElementById("two").getElementsByTagName("img");
 		var top_pic=document.getElementById("jersey_one").getElementsByTagName("img");
-		var nn=document.getElementById("top_pic");
+		var bigpic=document.getElementById("top_pic");
 		var b=0;
 		var imgwidth_one=60;
 		var one_width=document.getElementById("jersey_one").clientWidth;
@@ -72,7 +72,7 @@ function all_pic(){
 			}
 		}
 		rig.onclick=function(){addd();}//向右翻页
-		bili(nn,one_width,one_height);
+		bili(bigpic,one_width,one_height);
 
 												/*js_two*/
 		var inputlf=document.getElementById("lf");
