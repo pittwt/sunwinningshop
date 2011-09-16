@@ -5,13 +5,13 @@ function bili(objbig,holderWidth,holderHeight){
 	var holderbili=holderWidth/holderHeight;
 	if(w <= holderWidth && h <= holderHeight && bili>holderbili){
 		if(bili > 1){
-		objbig.style.width=holderWidth+"px";
+		objbig.style.width=w+"px";
 		}else if(bili <= 1){
-			objbig.style.height=holderHeight+"px";
+			objbig.style.height=h+"px";
 		}
 	}
 	else if(w <= holderWidth && h <= holderHeight && bili <= holderbili){
-		objbig.style.height=holderHeight+"px";
+		objbig.style.height=h+"px";
 	}
 
 	else if(w <= holderWidth  && h > holderHeight){
