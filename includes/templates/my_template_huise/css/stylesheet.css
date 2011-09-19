@@ -306,16 +306,15 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .cart_ul_one {border:1px solid #a5a5a5;background-color:#e6e6e6;line-height:29px;}
 .cart_ul_one li,.cart_ul_two li {float:left;}
 .cart_ul_two a,.cart_ul_two input,.cart_ul_two span,.cart_ul_two img {float:left;}
-.cart_ul_two img {margin:20px 0 0 20px;}
-.cart_ul_two .num_check {margin:25px 0 0 10px;}
-.cart_ul_two .num_tot {margin-left:30px;}
+.cart_ul_two .num_tot {margin-right:20px;float:right;}
 .pro_num {width:154px;text-align:center;padding-left:60px;}
-.pro_num input {height:24px;border:1px solid #a5a5a5;margin:20px 5px 0 0;}
-.pro_name {width:450px;text-align:center;padding-left:50px;}
-.cart_ul_two .pro_name {height:70px;overflow:hidden;}
+.pro_num input {height:24px;border:1px solid #a5a5a5;margin:0 5px 0 0;}
+.pro_name {width:500px;text-align:center;}
+.cart_ul_two .pro_name_inf {width:300px;text-align:left;line-height:12px;}
+.cart_ul_two .pro_name_inf:hover {text-decoration:underline;}
 .pro_unit {width:76px;text-align:center;}
 .pro_tot {width:160px;padding-left:28px;}
-.cart_ul_two {line-height:70px;}
+.cart_ul_two li {line-height:26px;padding-top:20px;}
 .cart_ul_one .cart_total {float:right;padding-right:12px;}
 .cart_ul_one .cart_total,.cart_ul_one .cart_total em {font-size:16px;font-weight:bold;color:#fd7310;}
 
