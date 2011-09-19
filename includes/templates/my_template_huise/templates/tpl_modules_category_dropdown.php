@@ -1,5 +1,5 @@
 <?php
-$categories = $db->Execute("SELECT c.categories_id, c.parent_id, cd.categories_name as name FROM " . TABLE_CATEGORIES . " AS c, " . TABLE_CATEGORIES_DESCRIPTION . " AS cd WHERE categories_status=1 AND c.categories_id = cd.categories_id AND cd.language_id=" . (int)$_SESSION['languages_id']);
+$categories = $db->Execute("SELECT c.categories_id, c.parent_id, cd.categories_name as name FROM " . TABLE_CATEGORIES . " AS c, " . TABLE_CATEGORIES_DESCRIPTION . " AS cd WHERE categories_status=1 AND c.categories_id = cd.categories_id AND cd.language_id=" . (int)$_SESSION['languages_id'] . " order by c.sort_order");
 
 $category_parent = array();
 $category_subtemp = array();
