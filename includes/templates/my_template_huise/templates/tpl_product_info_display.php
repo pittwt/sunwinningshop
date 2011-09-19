@@ -85,7 +85,22 @@
             <p class="jer_pro_inf"><?php echo $products_name; ?></p>
             <!--bof Product Price block -->
 			<?php $price_info_sam = zen_get_products_display_price_content((int)$_GET['products_id']);?>
-            <span class="jer_price"><var><?=$price_info_sam['normal_price']?></var><em><?=$price_info_sam['special_price']?></em></span> 
+            
+            <span class="jer_price">
+				<?
+                if($price_info_sam['special_price']){
+                ?>
+                    <var><?=$price_info_sam['normal_price']?></var>
+                    <em><?=$price_info_sam['special_price']?></em>
+                <?
+                }else{
+                ?>
+                    <em><?=$price_info_sam['normal_price']?></em>
+                <?
+                }
+                ?>
+            </span>
+            
             <span class="jer_save_price"><?=$price_info_sam['sale_discount']?></span>
             <!--eof Product Price block -->
             <!--bof Attributes Module -->
