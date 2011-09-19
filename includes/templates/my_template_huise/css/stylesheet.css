@@ -208,7 +208,9 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .out .special {filter:alpha(opacity=100);opacity: 1;}
 .bottom_two input {float:left;width:25px;height:132px;margin-right:5px;}
 #mask {background-color:black;width:100%;filter:alpha(opacity=70);opacity: 0.7;height:100%;_height:2000px;position:absolute;left:0;top:0;z-index:60;display:none;}
-.close {width:23px;height:23px;background:url("../images/close.gif") no-repeat;cursor:pointer;font-size:18px;color:orange;font-weight:bold;position:absolute;top:0;left:777px;display:none;}
+.close {width:23px;height:23px;background:url("../images/close.gif") no-repeat;cursor:pointer;font-size:18px;color:orange;font-weight:bold;position:absolute;top:0;left:777px;}
+.lf_but {width:42px;height:74px;background:url("../images/m_left.gif") no-repeat;cursor:pointer;position:absolute;left:20px;top:213px;z-index:25;}
+.rg_but {width:42px;height:74px;background:url("../images/m_right.gif") no-repeat;cursor:pointer;position:absolute;left:738px;top:213px;z-index:25;}
 
 
 .share {overflow:hidden;zoom:1;}
@@ -238,7 +240,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .pro_infor_tit .li_change a {color:white;}
 .pro_infor_con {width:735px;padding-top:11px;display:none;min-height:600px;_height:expression((document.documentElement.clientHeight||document.body.clientHeight)>600?"600px":"")}
 .pro_infor_block {display:block;}
-.pro_infor_con p {font-size:14px;color:#2b2b2b;padding:0 0 0 10px;line-height:22px;}
+.pro_infor_con p {font-size:14px;color:#2b2b2b;padding:0 0 0 10px;line-height:22px;text-indent:2em;}
 
 
 .fea_product .fea_pro_tit {line-height:26px;border-bottom:1px solid #ff6c00;font-size:16px;color:#2d88ca;padding-left:5px;}
@@ -295,7 +297,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .car_tit .car_list {float:left;width:322px;height:40px;background-color:#5694c5;line-height:40px;text-align:center;margin-right:7px;}
 .car_tit .car_last {float:left;width:322px;height:40px;background-color:#5694c5;line-height:40px;text-align:center;}
 .car_tit .cart_special {background-color:#fd842b;}
-.car_tit span a {color:white;font-size:14px;font-weight:bold;}
+.car_tit span em {color:white;font-size:14px;font-weight:bold;}
 .statistics {font-weight:bold;margin:20px 0 30px;}
 .statistics span {padding:0 5px 0 10px;}
 .cart_ul_one,.cart_ul_two {overflow:hidden;zoom:1;font-size:14px;font-weight:bold;}
