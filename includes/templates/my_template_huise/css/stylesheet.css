@@ -310,7 +310,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .pro_num {width:154px;text-align:center;padding-left:60px;}
 .pro_num input {height:24px;border:1px solid #a5a5a5;margin:0 5px 0 0;}
 .pro_name {width:500px;text-align:center;}
-.cart_ul_two .pro_name_inf {width:300px;text-align:left;line-height:12px;}
+.cart_ul_two .pro_name_inf {width:300px;text-align:left;line-height:12px;padding-left:5px;}
 .cart_ul_two .pro_name_inf:hover {text-decoration:underline;}
 .pro_unit {width:76px;text-align:center;}
 .pro_tot {width:160px;padding-left:28px;}
