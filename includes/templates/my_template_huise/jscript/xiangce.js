@@ -117,7 +117,6 @@ picture();
 jersey.onclick=function(){
 	tanchu.style.display="block";
 	mask.style.display="block";
-	close.style.display="block";
 	//hid.style.display="none";
 	//var two_width=document.getElementById("lf_click").clientWidth;
 	//var two_hieght=document.getElementById("lf_click").clientHeight;
@@ -129,13 +128,16 @@ jersey.onclick=function(){
 function bigpicture(){
 
 											/*js_two*/
+
 	var inputlf=document.getElementById("lf");
 	var inputrig=document.getElementById("rig");
 	var fa=document.getElementById("father");
 	var main=document.getElementById("one");
 	var pic=document.getElementById("one").getElementsByTagName("img");
 	var lg_click=document.getElementById("lf_click");
-	var lg_pic=document.getElementById("lf_click").getElementsByTagName("img")
+	var lg_pic=document.getElementById("lf_click").getElementsByTagName("img");
+	var lf_but=document.getElementById("lf_but");
+	var rg_but=document.getElementById("rg_but");
 	var a=0;
 	var imgwidth=167;
 	for(var j=0;j<pic.length;j++){
@@ -144,7 +146,7 @@ function bigpicture(){
 	function move(target){
 		for(var i=0;i<pic.length;i++){
 			if(target==pic[i]){
-				//tanchu.style.display="block";
+				tanchu.style.display="block";
 				//var two_width=document.getElementById("lf_click").clientWidth;
 				//var two_height=document.getElementById("lf_click").clientHeight;
 				var two_width=800;
@@ -158,7 +160,7 @@ function bigpicture(){
 		}
 	}//tab切换；
 	function reduce(){
-		//tanchu.style.display="block";
+		tanchu.style.display="block";
 		//var two_width=document.getElementById("lf_click").clientWidth;
 		//var two_height=document.getElementById("lf_click").clientHeight;
 		var two_width=800;
@@ -176,9 +178,10 @@ function bigpicture(){
 		}
 	}
 	inputlf.onclick=function(){reduce();}//向左翻页
+	lf_but.onclick=function(){reduce();}
 
 	function add(){
-		//tanchu.style.display="block";
+		tanchu.style.display="block";
 		//var two_width=document.getElementById("lf_click").clientWidth;
 		//var two_height=document.getElementById("lf_click").clientHeight;
 		var two_width=800;
@@ -203,14 +206,7 @@ function bigpicture(){
 		}
 	}
 	inputrig.onclick=function(){add();}//向右翻页
-
-	lg_click.onclick=function(e){
-		e=e||window.event;
-		if(e.offsetX<lg_click.offsetWidth/2||e.layerX<lg_click.offsetWidth/2){//为了兼容ff
-			reduce();
-		}
-		else{add();}
-	}
+	rg_but.onclick=function(){add();}
 	
 }
 
@@ -218,6 +214,4 @@ function bigpicture(){
 close.onclick=function(){
 	tanchu.style.display="none";
 	mask.style.display="none";
-	close.style.display="none";
-	//hid.style.display="inline";
 }
