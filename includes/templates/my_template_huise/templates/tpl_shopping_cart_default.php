@@ -39,7 +39,7 @@
         <li class="pro_name">
        
 			<a href="<?php echo $product['linkProductsName']; ?>"><?php echo $product['productsImage']; ?></a>
-			<a href="<?php echo $product['linkProductsName']; ?>"><?php echo $product['productsName'] . '<span class="alert bold">' . $product['flagStockCheck'] . '</span>'; ?></a>
+			<a class="pro_name_inf" href="<?php echo $product['linkProductsName']; ?>"><?php echo $product['productsName'] . '<span class="alert bold">' . $product['flagStockCheck'] . '</span>'; ?></a>
 			<?php
               echo $product['attributeHiddenField'];
               if (isset($product['attributes']) && is_array($product['attributes'])) {
@@ -59,7 +59,7 @@
 			<?php
               if ($product['buttonDelete']) {
             ?>
-				<a href="<?php echo zen_href_link(FILENAME_SHOPPING_CART, 'action=remove_product&product_id=' . $product['id']); ?>"><?php echo zen_image($template->get_template_dir(ICON_IMAGE_TRASH, DIR_WS_TEMPLATE, $current_page_base,'images/icons'). '/' . ICON_IMAGE_TRASH, ICON_TRASH_ALT); ?></a>
+				<a class="num_tot" href="<?php echo zen_href_link(FILENAME_SHOPPING_CART, 'action=remove_product&product_id=' . $product['id']); ?>"><?php echo zen_image($template->get_template_dir(ICON_IMAGE_TRASH, DIR_WS_TEMPLATE, $current_page_base,'images/icons'). '/' . ICON_IMAGE_TRASH, ICON_TRASH_ALT); ?></a>
             <?php
               }
             ?>
