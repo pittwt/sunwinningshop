@@ -494,8 +494,9 @@ function zen_get_products_display_price($products_id) {
     }
 
     if ($display_special_price) {
-      $show_normal_price = '<span class="price">Price:<em>' . $currencies->display_price($display_normal_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</em> </span>';
+      $show_normal_price = '<span class="price">Price:<em>' . $currencies->display_price($display_special_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</em> </span>';
       if ($display_sale_price && $display_sale_price != $display_special_price) {
+		  
         $show_special_price = '&nbsp;' . '<span class="list_price">List Price:<var>' . $currencies->display_price($display_special_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</var></span>';
         if ($product_check->fields['product_is_free'] == '1') {
           $show_sale_price = '<br />' . '<span class="productSalePrice">' . PRODUCT_PRICE_SALE . '<s>' . $currencies->display_price($display_sale_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</s>' . '</span>';
@@ -504,9 +505,12 @@ function zen_get_products_display_price($products_id) {
         }
       } else {
         if ($product_check->fields['product_is_free'] == '1') {
+			
           $show_special_price = '&nbsp;' . '<span class="list_price">List Price:<var>' . '<s>' . $currencies->display_price($display_special_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</s>' . '</var></span>';
+		  
         } else {
-          $show_special_price = '&nbsp;' . '<span class="list_price">List Price:<var>' . $currencies->display_price($display_special_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</var></span>';
+          $show_special_price = '&nbsp;' . '<span class="list_price">List Price:<var>' . $currencies->display_price($display_normal_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</var></span>';
+		  
         }
         $show_sale_price = '';
       }
