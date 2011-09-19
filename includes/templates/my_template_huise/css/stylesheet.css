@@ -211,7 +211,8 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .close {width:23px;height:23px;background:url("../images/close.gif") no-repeat;cursor:pointer;font-size:18px;color:orange;font-weight:bold;position:absolute;top:0;left:777px;}
 .lf_but {width:42px;height:74px;background:url("../images/m_left.gif") no-repeat;cursor:pointer;position:absolute;left:20px;top:213px;z-index:25;}
 .rg_but {width:42px;height:74px;background:url("../images/m_right.gif") no-repeat;cursor:pointer;position:absolute;left:738px;top:213px;z-index:25;}
-
+.lf_but_color {width:42px;height:74px;background:url("../images/m_left.gif") no-repeat;cursor:pointer;position:absolute;left:20px;top:213px;z-index:25;}
+.rg_but_color {width:42px;height:74px;background:url("../images/m_right.gif") no-repeat;cursor:pointer;position:absolute;left:738px;top:213px;z-index:25;}
 
 .share {overflow:hidden;zoom:1;}
 .share .share_span,.share .share_link {float:left;}
