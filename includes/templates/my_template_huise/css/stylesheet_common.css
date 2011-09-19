@@ -43,7 +43,7 @@ em,var {font-style:normal;}
 .li_one {position:absolute;left:0;top:40px;z-index:30;display:none;}
 
 
-.nav_one {padding:15px 5px 5px 0;width:177px;border:1px solid #b4b4b4;background-color:#ececec;}
+.nav_one {padding:12px 5px 5px 0;width:177px;border:1px solid #b4b4b4;background-color:#ececec;}
 .nav_one li {line-height:30px;height:30px;overflow:hidden;zoom:1;margin:0 auto;width:171px;}
 .nav_one li a {float:left;width:161px;text-align:left;padding-left:10px;}
 .nav_one li a:hover {background:url("../images/nav.gif") 0 -168px repeat-x;color:white;}
