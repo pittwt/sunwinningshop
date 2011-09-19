@@ -178,7 +178,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .mav_list .mav_price span {display:block;line-height:20px;}
 .mav_list .mav_price .list_price var {text-decoration:line-through;}
 .mav_list .mav_price .price {font-size:14px;}
-.mav_list .mav_price .price var {font-size:14px;color:#dd0000;}
+.mav_list .mav_price .price em {font-size:14px;color:#dd0000;}
 .mav_list .mav_price .save_price em {color:#408fcc;}
 
 															/*conent*/
