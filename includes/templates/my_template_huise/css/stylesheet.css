@@ -209,8 +209,8 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .bottom_two input {float:left;width:25px;height:132px;margin-right:5px;}
 #mask {background-color:black;width:100%;filter:alpha(opacity=70);opacity: 0.7;height:100%;_height:2000px;position:absolute;left:0;top:0;z-index:60;display:none;}
 .close {width:23px;height:23px;background:url("../images/close.gif") no-repeat;cursor:pointer;font-size:18px;color:orange;font-weight:bold;position:absolute;top:0;left:777px;}
-.lf_but {width:42px;height:74px;background:url("../images/m_left.gif") no-repeat;cursor:pointer;position:absolute;left:20px;top:213px;z-index:25;}
-.rg_but {width:42px;height:74px;background:url("../images/m_right.gif") no-repeat;cursor:pointer;position:absolute;left:738px;top:213px;z-index:25;}
+.lf_but {width:42px;height:74px;background:url("../images/c_left.gif") no-repeat;cursor:pointer;position:absolute;left:20px;top:213px;z-index:25;}
+.rg_but {width:42px;height:74px;background:url("../images/c_right.gif") no-repeat;cursor:pointer;position:absolute;left:738px;top:213px;z-index:25;}
 .lf_but_color {width:42px;height:74px;background:url("../images/m_left.gif") no-repeat;cursor:pointer;position:absolute;left:20px;top:213px;z-index:25;}
 .rg_but_color {width:42px;height:74px;background:url("../images/m_right.gif") no-repeat;cursor:pointer;position:absolute;left:738px;top:213px;z-index:25;}
 
