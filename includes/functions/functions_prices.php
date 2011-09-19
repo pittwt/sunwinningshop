@@ -256,7 +256,7 @@
         if ($product_check->fields['product_is_free'] == '1') {
           $show_normal_price =  '<dd><var>' .$currencies->display_price($display_normal_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . ' </var>';
         } else {
-          $show_normal_price = '<dd><var>' .$currencies->display_price($display_normal_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])). ' </var>';
+          $show_normal_price = '<dd><em>' .$currencies->display_price($display_normal_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])). ' </em>';
         }
         $show_special_price = '';
         $show_sale_price = '';
