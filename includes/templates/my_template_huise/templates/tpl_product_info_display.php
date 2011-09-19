@@ -109,7 +109,7 @@
 				  $the_button = '<input type="hidden" name="cart_quantity" value="1" />' . zen_draw_hidden_field('products_id', (int)$_GET['products_id']) . zen_image_submit(BUTTON_IMAGE_IN_CART, BUTTON_IN_CART_ALT);
 				} else {
 				  // show the quantity box
-		$the_button = '<span class="jer_size"><label>Quantity:</label>' . '<input type="text"  name="cart_quantity" value="' . (zen_get_buy_now_qty($_GET['products_id'])) . '" maxlength="6" size="4" /><br />' . zen_get_products_quantity_min_units_display((int)$_GET['products_id']) . '</span><br/>' . zen_draw_hidden_field('products_id', (int)$_GET['products_id']).'<input type="image" title=" Add to Cart " alt="Add to Cart"  src="'.DIR_WS_TEMPLATE.'images/add2cart.gif" />';
+		$the_button = '<span class="jer_size"><label>Quantity:</label>' . '<input type="text"  name="cart_quantity" value="' . (zen_get_buy_now_qty($_GET['products_id'])) . '" maxlength="6" size="4" /><br />' . zen_get_products_quantity_min_units_display((int)$_GET['products_id']) . '</span><br/>' . zen_draw_hidden_field('products_id', (int)$_GET['products_id']).'<input id="cart_input" type="image" title=" Add to Cart " alt="Add to Cart"  src="'.DIR_WS_TEMPLATE.'images/add2cart.gif" />';
 				}
                 $display_button = zen_get_buy_now_button($_GET['products_id'], $the_button);
 				//echo $the_button;
@@ -119,6 +119,14 @@
 				} 
 			}
 			?>
+			<script type="text/javascript">
+				document.getElementById("cart_input").onmouseover=function(){
+					document.getElementById("cart_input").src="includes/templates/my_template_huise/images/add2cart2.gif";
+				}
+				document.getElementById("cart_input").onmouseout=function(){
+					document.getElementById("cart_input").src="includes/templates/my_template_huise/images/add2cart.gif";
+				}
+			</script>
             
             <!--eof Add to Cart Box-->
             <!--<a href="###" class="jer_cart">Add this to my cart</a>-->
