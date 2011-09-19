@@ -256,9 +256,9 @@
         for($i=0;$i<count($images_array_contain_all);$i++){
             $arrimgsize=getimagesize($images_array_contain_all[$i]); 
             if($i == 0){
-                echo '<img id="change" class="change_img" src="/'.$images_array_contain_all[$i].'"  w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'"/>';
+				echo '<img id="change"  class="change_img" src="/'.$images_array_contain_all[$i].'" w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'"/>';
             }else{
-                echo '<img w="279" h="249" src="/'.$images_array_contain_all[$i].'" w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'"/>';
+				echo '<img src="/'.$images_array_contain_all[$i].'"  w="'.$arrimgsize[0].'" h="'.$arrimgsize[1].'"/>';
             }
         }
         ?>
