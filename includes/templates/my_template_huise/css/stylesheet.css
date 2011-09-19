@@ -238,7 +238,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .pro_infor_tit li a {display:block;font-size:14px;text-align:center;color:#f1812f;font-weight:bold;}
 .pro_infor_tit .li_change {margin-bottom:0;padding-bottom:2px;background-color:#ff6c00;}
 .pro_infor_tit .li_change a {color:white;}
-.pro_infor_con {width:735px;padding-top:11px;display:none;min-height:600px;_height:expression((document.documentElement.clientHeight||document.body.clientHeight)>600?"600px":"")}
+.pro_infor_con {width:735px;padding:11px 0 10px;display:none;/*min-height:600px;_height:expression((document.documentElement.clientHeight||document.body.clientHeight)>600?"600px":"")*/}
 .pro_infor_block {display:block;}
 .pro_infor_con p {font-size:14px;color:#2b2b2b;padding:0 0 0 10px;line-height:22px;text-indent:2em;}
 
