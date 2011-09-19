@@ -282,7 +282,9 @@
             </div>
             <input type="button" value=">" id="rig"/>
         </div>
-        <div class="close" id="close"></div>
+        <div class="close" id="close">&nbsp;</div>
+		<div class="lf_but" id="lf_but">&nbsp;</div>
+		<div class="rg_but" id="rg_but">&nbsp;</div>
     </div>
     <?
     }

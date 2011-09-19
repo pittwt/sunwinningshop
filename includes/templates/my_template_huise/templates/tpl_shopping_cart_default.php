@@ -1,6 +1,6 @@
 <?php echo zen_draw_form('cart_quantity', zen_href_link(FILENAME_SHOPPING_CART, 'action=update_product', $request_type)); ?>
 <div class="shop_car">
-    <div class="car_tit"><span class="car_list cart_special"><a href="###">Your Shopping Cart Contents</a></span><span class="car_list"><a href="###">Shipping and Payment Confirmation</a></span><span class="car_last"><a href="###">Order Confirmation</a></span></div>
+    <div class="car_tit"><span class="car_list cart_special"><em>Your Shopping Cart Contents</em></span><span class="car_list"><em>Shipping and Payment Confirmation</em></span><span class="car_last"><em>Order Confirmation</em></span></div>
     
     <?php if (!empty($totalsDisplay_data)) { ?>
     <div class="statistics"><span>Total Items:</span><var><?=$totalsDisplay_data['count_contents']?></var><span>Weight:</span><var><?=$totalsDisplay_data['shipping_weight']?></var><span>Amount:</span><var><?=$totalsDisplay_data['show_total']?></var></div>
