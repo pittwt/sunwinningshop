@@ -241,6 +241,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .pro_infor_con {width:735px;padding:11px 0 10px;display:none;/*min-height:600px;_height:expression((document.documentElement.clientHeight||document.body.clientHeight)>600?"600px":"")*/}
 .pro_infor_block {display:block;}
 .pro_infor_con p {font-size:14px;color:#2b2b2b;padding:0 0 0 10px;line-height:22px;text-indent:2em;}
+.pro_infor_con .reviews_p {text-indent:0;}
 
 
 .fea_product .fea_pro_tit {line-height:26px;border-bottom:1px solid #ff6c00;font-size:16px;color:#2d88ca;padding-left:5px;}
