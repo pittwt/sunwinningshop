@@ -179,6 +179,8 @@ function bigpicture(){
 	}
 	inputlf.onclick=function(){reduce();}//向左翻页
 	lf_but.onclick=function(){reduce();}
+	lf_but.onmouseover=function(){lf_but.className="lf_but_color";}
+	lf_but.onmouseout=function(){lf_but.className="lf_but";}	
 
 	function add(){
 		tanchu.style.display="block";
@@ -207,7 +209,8 @@ function bigpicture(){
 	}
 	inputrig.onclick=function(){add();}//向右翻页
 	rg_but.onclick=function(){add();}
-	
+	rg_but.onmouseover=function(){rg_but.className="rg_but_color";}
+	rg_but.onmouseout=function(){rg_but.className="rg_but";}	
 }
 
 
