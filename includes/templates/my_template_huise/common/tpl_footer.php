@@ -59,6 +59,6 @@ require(DIR_WS_MODULES . zen_get_module_directory('footer.php'));
 			<?php echo rss_feed_link(RSS_ICON) . rss_feed_link(); ?>
             <a href="<?php echo HTTP_SERVER . DIR_WS_CATALOG;?>sitemapindex.xml" class="bot_a">Site Map</a>
         </p>
-        <p>Copyright&copy;2011  Powered by</p>
+        <p>Copyright&copy;2011  Powered by<a class="pic_a_link" href="www.abc.com">abcddd</a></p>
     </div>
 </div>
