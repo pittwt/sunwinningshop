@@ -1,9 +1,9 @@
 /* News */
-.newsHeadlineText { text-align: center; width: 100%; height: 15px; font-size: .9em; background: #e5edf5; border-left: 1px solid #9a9a9a; border-right: 1px solid #9a9a9a; border-top: 1px solid #9a9a9a; border-bottom: 5px solid #9a9a9a; padding: 3px 0 0 0; margin: 0;}
-.newsHeadlineText IMG { vertical-align: middle; }
+.newsHeadlineText { text-align: center; width: 100%; height: 15px; font-size: .9em;  padding: 3px 0 0 0; margin:10px 0 0;}
+.newsHeadlineText IMG { vertical-align: middle; line-height:18px; }
 .newsHeader { background: #FFFFFF; height: 30px; font-size: 24px; text-align: center; padding: 0; margin: 10px 0 0 0; }
 
-p.articleHeading { font-weight: bold; margin: 0; padding: 0; }
+p.articleHeading { line-height:24px; font-weight: bold; margin: 0; padding: 0; }
 span.articleHeading { font-weight: bold; }
 
 p.articleByLine { font-size: .9em; padding: 0 0 0 20px; margin: 0; }
@@ -20,7 +20,7 @@ p.newsListingDate { font-weight: bold; text-align: center; margin: 0; padding: 0
 
 ul.articleLinkList { list-style-type: none; line-height: 1.5em; padding: 10px 0 0 0; margin: 0; }
 ul.archiveLinkList { list-style-type: none; line-height: 1.5em; padding: 0; margin: 0; }
-ul.articleLinkList li, ul.archiveLinkList li { background-image: url("../images/icons/news_link.gif"); background-repeat: no-repeat; background-position: 17px 2px; padding: 0 0 0 35px; }
+ul.articleLinkList li, ul.archiveLinkList li { line-height:22px; background-position: 17px 2px; padding: 0 0 0 35px; }
 ul.articleLinkList li.articleStoreLink { background-image: url("../images/icons/news_link_2.gif"); background-repeat: no-repeat; background-position: 17px 4px; padding: 0 0 0 35px; }
 ul.articleLinkList li.articleProductLink { background-image: url("../images/icons/cart.gif"); background-repeat: no-repeat; background-position: 17px 0px; padding: 0 0 0 35px; }
 ul.articleLinkList a, ul.archiveLinkList a { text-decoration: underline; }

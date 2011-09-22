@@ -22,7 +22,7 @@
 // $Id: tpl_news_archive.php v1.000 2005-02-04 dreamscape <dechantj@pop.belmont.edu>
 //
 
-  $content = '<div class="newsArchiveSideBox">';
+  $content = '<ul class="sidebar_news">';
 
 	$newsDisplay = new newsDisplay();
 	foreach ($newsArchiveList as $archive) {
@@ -31,6 +31,6 @@
 
 	$content .= $newsDisplay->displayNewsPage(false);
 
-  $content .= '</div>';
+  $content .= '</ul>';
   
 ?>

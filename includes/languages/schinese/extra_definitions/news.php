@@ -22,5 +22,5 @@
 // $Id: news.php v2.100 2005-02-01 dreamscape <dechantj@pop.belmont.edu>
 //
 
-define('TEXT_NEWS_RSS_FEED', zen_image($template->get_template_dir('news_rss.gif', DIR_WS_TEMPLATE, $current_page_base, 'images/icons') . '/' . 'news_rss.gif', 'RSS Feed'));
+define('TEXT_NEWS_RSS_FEED', '');
 ?>

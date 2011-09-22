@@ -25,7 +25,7 @@
 		}
 
 		function newsHeader($header, $date, $links_array = false) {
-			$this->news_page .= '<div class="newsHeader"><h1>' . $header . '</h1></div>' . "\n";
+			$this->news_page .= '<h1 class="mav_tit"><strong>' . $header . '</strong></h1>' . "\n";
 			$this->news_page .= '<div class="newsHeadlineText">' . $date;
 
 			if ($links_array && is_array($links_array)) {
@@ -139,7 +139,7 @@
 		//anton 文章左侧列表
 		function article_sidebar_list($article_array){
 			//echo $article_array['link'];
-			$this->news_page .= '<a href="' . self::seo_link($article_array['link']) . '">' . $article_array['news_article_name']."</a><br>";	
+			$this->news_page .= '<li><a href="' . self::seo_link($article_array['link']) . '">' . $article_array['news_article_name']."</a></li>";	
 			return true;		
 			
 		}

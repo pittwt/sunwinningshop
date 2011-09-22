@@ -86,7 +86,8 @@ em,var {font-style:normal;}
 .cate_ol .li_last {padding-bottom:18px;border-bottom:1px solid #fe6d00;}
 .cate_ol li a {background:url("../images/cate_hui.gif") left center no-repeat;padding-left:12px;font-weight:bold;}
 .cate_ol li a:hover {background:url("../images/cate_cheng.gif") left center no-repeat;color:#ff6c00;}
-
+.sidebar_news{list-style:none;border:1px solid #d3d3d3; border-top:none;}
+.sidebar_news li{ line-height:24px; padding:5px 0px 0px 10px;}
 
 .fea_list {width:191px;margin:0 auto;padding:11px 0 9px;}
 .fea_list .a_pic {border:1px solid #c0c0c0;margin:0 auto 7px;width:189px;display:block;overflow:hidden;}

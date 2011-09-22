@@ -22,9 +22,9 @@
 // $Id: news_archive.php v1.000 2005-02-04 dreamscape <dechantj@pop.belmont.edu>
 //
 
-	require_once(DIR_WS_CLASSES . 'news.php');
+require_once(DIR_WS_CLASSES . 'news.php');
 
-	require_once(DIR_WS_FUNCTIONS . 'news.php');
+require_once(DIR_WS_FUNCTIONS . 'news.php');
 /*
 	// Lets create the archive list between the earliest and latest news dates
 	$date_begin = $db->Execute("select news_date_published from " . TABLE_NEWS_ARTICLES . " where news_status = '1' group by news_date_published ASC limit 1");
@@ -60,35 +60,30 @@
 		}
 	}
 */
+	
+$sql = "select n.article_id, nt.news_article_name, n.news_date_published from " . TABLE_NEWS_ARTICLES . " n left join " . TABLE_NEWS_ARTICLES_TEXT . " nt on n.article_id = nt.article_id and nt.language_id = '" . (int)$_SESSION['languages_id'] . "' where n.news_status = '1' and n.news_date_published like '" . $archive_date . "%' and to_days(n.news_date_published) <= to_days(now()) order by n.news_date_published DESC, n.sort_order limit " . NEWS_SIDEBAR_SHOW_NUMBER;
+$news = $db->Execute($sql);
 
-	
-	
-	$sql = "select n.article_id, nt.news_article_name, n.news_date_published from " . TABLE_NEWS_ARTICLES . " n left join " . TABLE_NEWS_ARTICLES_TEXT . " nt on n.article_id = nt.article_id and nt.language_id = '" . (int)$_SESSION['languages_id'] . "' where n.news_status = '1' and n.news_date_published like '" . $archive_date . "%' and to_days(n.news_date_published) <= to_days(now()) order by n.news_date_published DESC, n.sort_order limit " . NEWS_SIDEBAR_SHOW_NUMBER;
-	$news = $db->Execute($sql);
-	//echo $sql;
-	if ($news->RecordCount() > 0) {
-		$archives_array = array();
-		while (!$news->EOF) {
-			$news->fields['link'] = zen_href_link(FILENAME_NEWS_ARTICLE, 'article='.$news->fields['article_id']);
-			$archives_array[] = $news->fields;
-			$news->MoveNext();
-		}
+if ($news->RecordCount() > 0) {
+	$archives_array = array();
+	while (!$news->EOF) {
+		$news->fields['link'] = zen_href_link(FILENAME_NEWS_ARTICLE, 'article_id='.$news->fields['article_id']);
+		$archives_array[] = $news->fields;
+		$news->MoveNext();
 	}
-	
-	echo "<pre>";
-	//print_r($archives_array);
-	echo "</pre>";
-		if (sizeof($archives_array) > 0) {
-		$newsArchiveList = $archives_array;
+}
 
-		require($template->get_template_dir('tpl_news_archive.php',DIR_WS_TEMPLATE, $current_page_base, 'sideboxes'). '/tpl_news_archive.php');
+if (sizeof($archives_array) > 0) {
+	$newsArchiveList = $archives_array;
 	
-		$title =  BOX_HEADING_NEWS_ARCHIVE;
-		$left_corner = false;
-		$right_corner = false;
-		$right_arrow = false;
-		$title_link = FILENAME_NEWS_ARCHIVE;
+	require($template->get_template_dir('tpl_news_archive.php',DIR_WS_TEMPLATE, $current_page_base, 'sideboxes'). '/tpl_news_archive.php');
 	
-		require($template->get_template_dir($column_box_default, DIR_WS_TEMPLATE, $current_page_base, 'common') . '/' . $column_box_default);
-	}
+	$title =  BOX_HEADING_NEWS_ARCHIVE;
+	$left_corner = false;
+	$right_corner = false;
+	$right_arrow = false;
+	$title_link = FILENAME_NEWS_ARCHIVE;
+	
+	require($template->get_template_dir($column_box_default, DIR_WS_TEMPLATE, $current_page_base, 'common') . '/' . $column_box_default);
+}
 ?>
