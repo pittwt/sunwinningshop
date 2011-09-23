@@ -32,7 +32,7 @@ define('TEXT_VIEW_ARCHIVE_LIST', '<u>View archive list</u>');
 define('TEXT_NO_NEWS_ARTICLES', 'No news articles for %s were found.');
 
 define('TEXT_NEWS_FOOTER', 'News for %s');
-define('TEXT_NEWS_FOOTER_URL', '<u>View all news for %s </u>');
+define('TEXT_NEWS_FOOTER_URL', 'View all news for %s ');
 
 define('TEXT_ARCHIVE_LIST_HEADER', 'News archive for %s');
 ?>

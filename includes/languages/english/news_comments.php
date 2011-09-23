@@ -46,7 +46,7 @@ define('SUCCESS_NEWS_COMMENTS_SUBMITTED', 'Your comments have been successfully 
 
 define('TEXT_NEWS_FOOTER', 'News for %s');
 define('TEXT_NEWS_FOOTER_OTHER', 'Other news for %s');
-define('TEXT_NEWS_FOOTER_URL', '<u>View all news for %s </u>');
+define('TEXT_NEWS_FOOTER_URL', 'View all news for %s ');
 
 define('TEXT_RECENT_NEWS', 'Recent News');
 

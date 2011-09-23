@@ -23,7 +23,7 @@ ul.archiveLinkList { list-style-type: none; line-height: 1.5em; padding: 0; marg
 ul.articleLinkList li, ul.archiveLinkList li { line-height:22px; background-position: 17px 2px; padding: 0 0 0 35px; }
 ul.articleLinkList li.articleStoreLink { background-image: url("../images/icons/news_link_2.gif"); background-repeat: no-repeat; background-position: 17px 4px; padding: 0 0 0 35px; }
 ul.articleLinkList li.articleProductLink { background-image: url("../images/icons/cart.gif"); background-repeat: no-repeat; background-position: 17px 0px; padding: 0 0 0 35px; }
-ul.articleLinkList a, ul.archiveLinkList a { text-decoration: underline; }
+ul.articleLinkList a:hover, ul.archiveLinkList a:hover, .articleText a:hover { text-decoration: underline; }
 
 .commentsHeading { background: #f2f1ee; padding: 3px; }
 .commentsBody { background: #FFFFFF; padding: 3px; }

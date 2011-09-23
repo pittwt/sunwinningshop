@@ -347,7 +347,7 @@
 						'</tr>';
 
 		// News Article Headline, Summary, & Content input
-		//	â€?Start langauge support
+		//	éˆ¥?Start langauge support
 		foreach ($languages as $i => $lang) {
 			echo
 						'<tr class="dataTableHeadingRow">' .
@@ -362,7 +362,7 @@
 							'<td class="dataTableContent" align="left" valign="top">' . TEXT_NEWS_SUMMARY . '</td>';
 
 			// News Article Headline, Summary, & Content input
-			//	â€?HTML Editors support for summary input
+			//	éˆ¥?HTML Editors support for summary input
 			if (HTML_EDITOR_PREFERENCE == 'FCKEDITOR') {
 				echo '<td class="dataTableContent" align="left" colspan="4">';
 				$oFCKeditor = new FCKeditor;
@@ -382,7 +382,7 @@
 							'<td class="dataTableContent" align="left" valign="top">' . TEXT_NEWS_CONTENT . '<br /><a href="javascript:preview(\'news_article_text[' . $lang['id'] . ']\');"><em>' . TEXT_NEWS_CONTENT_PREVIEW . '</em></a></td>';
 
 			// News Article Headline, Summary, & Content input
-			//	â€?HTML Editors support for content input
+			//	éˆ¥?HTML Editors support for content input
 			if (HTML_EDITOR_PREFERENCE == 'FCKEDITOR') {
 				echo '<td class="dataTableContent" align="left" colspan="4">';
 				$oFCKeditor = new FCKeditor;
@@ -435,11 +435,11 @@
 						'</tr>';
 
 		// News Article Links
-		//	â€?Start langauge support
+		//	éˆ¥?Start langauge support
 		foreach ($languages as $i => $lang) {
 
 			// News Article Links
-			//	â€?Start product links
+			//	éˆ¥?Start product links
 			$dropdown_products = $db->Execute("select p.products_id, pd.products_name from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where pd.products_id = p.products_id and pd.language_id = '" . (int)$lang['id'] . "' order by pd.products_name");
 			$dropdown_products_array[] = array(
 				'id' => '', 
@@ -918,7 +918,7 @@
 				'<td width="100%">' .
 					'<table border="0" cellspacing="0" cellpadding="2">' .
 						'<tr class="infoBoxHeading">' .
-							'<td class="infoBoxHeading" valign="middle" align="center" width="60" rowspan="3"><strong>Í¼Ê¾</strong></td>' .
+							'<td class="infoBoxHeading" valign="middle" align="center" width="60" rowspan="3"><strong>å›¾ç¤º</strong></td>' .
 						'</tr>' .
 						'<tr class="dataTableHeadingRow">' .
 							'<td class="dataTableHeadingContent" valign="top" align="center" width="75">' . TEXT_NEWS_LEGEND_PREVIEW . '</td>' .

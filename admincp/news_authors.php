@@ -214,7 +214,7 @@
 					'<td width="100%">' .
 						'<table border="0" cellspacing="0" cellpadding="2">' .
 							'<tr class="infoBoxHeading">' .
-								'<td class="infoBoxHeading" valign="middle" align="center" width="60" rowspan="3"><strong>ͼʾ</strong></td>' .
+								'<td class="infoBoxHeading" valign="middle" align="center" width="60" rowspan="3"><strong>图示</strong></td>' .
 							'</tr>' .
 							'<tr class="dataTableHeadingRow">' .
 								'<td class="dataTableHeadingContent" valign="top" align="center" width="75">' . TEXT_NEWS_LEGEND_STATUS_OFF . '</td>' .

@@ -3,3 +3,6 @@
 .newsArchiveSideBox ul.archiveLinkList { list-style-type: circle; line-height: normal; padding: 0; margin: 0 0 0 25px; }
 .newsArchiveSideBox ul.archiveLinkList li { background: none; padding: 0; margin: 0; }
 .newsArchiveSideBox ul.archiveLinkList a { text-decoration: none; }
+
+.sidebar_news{list-style:none;border:1px solid #d3d3d3; border-top:none;}
+.sidebar_news li{ line-height:24px; padding:5px 0px 0px 10px;}
