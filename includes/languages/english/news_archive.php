@@ -27,7 +27,7 @@ define('HEADING_TITLE', 'Store News');
 
 define('DATE_FORMAT_NEWS_ARCHIVE', '%B %Y');
 
-define('TEXT_VIEW_ARCHIVE_LIST', '<u>View archive list</u>');
+define('TEXT_VIEW_ARCHIVE_LIST', 'View archive list');
 
 define('TEXT_NO_NEWS_ARTICLES', 'No news articles for %s were found.');
 

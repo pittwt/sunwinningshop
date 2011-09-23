@@ -30,7 +30,7 @@
 
 			if ($links_array && is_array($links_array)) {
 				foreach ($links_array as $link) {
-					$this->news_page .= ' | <a href="' . $link['link'] . '">' . $link['text'] . '</a>';
+					$this->news_page .= ' &nbsp; <a href="' . $link['link'] . '">' . $link['text'] . '</a>';
 				}
 			}
 
