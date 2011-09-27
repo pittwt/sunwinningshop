@@ -10,6 +10,9 @@ em,var {font-style:normal;}
 .home {width:1200px;margin:0 auto;position:relative;}
 .hd_long {background-color:#eeeeee;border-bottom:1px solid #dcdcdc;}
 .hd_one {overflow:hidden;zoom:1;line-height:30px;width:970px;margin:0 auto;padding:0 15px;}
+.hd_one .curr_doll {float:right;margin-right:10px;}
+.curr_doll em,.curr_doll form {float:left;}
+.curr_doll form {margin-top:6px}
 .one_left {float:left;}
 .hd_color {color:#0066b0;font-weight:bold; }
 .hd_color:hover {color:#0066b0;text-decoration:underline;font-weight:bold;}
