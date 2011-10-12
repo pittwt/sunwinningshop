@@ -68,8 +68,10 @@ if ($num_products_count > 0) {
     $products_price = zen_get_products_display_price($featured_products->fields['products_id']);
     if (!isset($productsInCategory[$featured_products->fields['products_id']])) $productsInCategory[$featured_products->fields['products_id']] = zen_get_generated_category_path_rev($featured_products->fields['master_categories_id']);
 
-    $list_box_contents[$row][$col] = array('params' =>'class="centerBoxContentsFeatured centeredContent back"' . ' ' . 'style="width:' . $col_width . '%;"',
-    'text' => (($featured_products->fields['products_image'] == '' and PRODUCTS_IMAGE_NO_IMAGE_STATUS == 0) ? '' : '<div class="productlistingimage"><a href="' . zen_href_link(zen_get_info_page($featured_products->fields['products_id']), 'cPath=' . $productsInCategory[$featured_products->fields['products_id']] . '&products_id=' . $featured_products->fields['products_id']) . '">' . zen_image(DIR_WS_IMAGES . $featured_products->fields['products_image'], $featured_products->fields['products_name'], IMAGE_FEATURED_PRODUCTS_LISTING_WIDTH, IMAGE_FEATURED_PRODUCTS_LISTING_HEIGHT) . '</a></div>') . '<div class="productlistingdesc"><div><a href="' . zen_href_link(zen_get_info_page($featured_products->fields['products_id']), 'cPath=' . $productsInCategory[$featured_products->fields['products_id']] . '&products_id=' . $featured_products->fields['products_id']) . '">' . $featured_products->fields['products_name'] . '</a></div><div>' . $products_price .'</div>' . '<div><a href="' . zen_href_link(FILENAME_PRODUCT_INFO, zen_get_all_get_params(array('action')). 'products_id=' . $featured_products->fields['products_id']). '"><img src="'.DIR_WS_TEMPLATE.'buttons/english/button_in_addcart.gif"></a></div>');
+    $list_box_contents[$row][$col] = array('params' =>'' ,
+    'text' => (($featured_products->fields['products_image'] == '' and PRODUCTS_IMAGE_NO_IMAGE_STATUS == 0) ? '' : '<dl class="pro_list">
+	  <dt><a href="' . zen_href_link(zen_get_info_page($featured_products->fields['products_id']), 'cPath=' . $productsInCategory[$featured_products->fields['products_id']] . '&products_id=' . $featured_products->fields['products_id']) . '">' . zen_image(DIR_WS_IMAGES . $featured_products->fields['products_image'], $featured_products->fields['products_name'], IMAGE_FEATURED_PRODUCTS_LISTING_WIDTH, IMAGE_FEATURED_PRODUCTS_LISTING_HEIGHT) . '</a><dt>') . '<dd><a href="' . zen_href_link(zen_get_info_page($featured_products->fields['products_id']), 'cPath=' . $productsInCategory[$featured_products->fields['products_id']] . '&products_id=' . $featured_products->fields['products_id']) . '">' . $featured_products->fields['products_name'] . '</a></dd>' . $products_price . '<dd><a href="' . zen_href_link(FILENAME_PRODUCT_INFO, zen_get_all_get_params(array('action')). 'products_id=' . $featured_products->fields['products_id']). '"><img src="'.DIR_WS_TEMPLATE.'buttons/english/button_in_addcart.gif"></a><dd class="new">&nbsp;</dd>
+	</dl>');
 
     $col ++;
     if ($col > (SHOW_PRODUCT_INFO_COLUMNS_FEATURED_PRODUCTS - 1)) {
@@ -84,7 +86,7 @@ if ($num_products_count > 0) {
       $category_title = zen_get_categories_name((int)$new_products_category_id);
       $title = '<h2 class="centerBoxHeading">' . TABLE_HEADING_FEATURED_PRODUCTS . ($category_title != '' ? ' - ' . $category_title : '') . '</h2>';
     } else {
-      $title = '<h2 class="centerBoxHeading">' . TABLE_HEADING_FEATURED_PRODUCTS . '</h2>';
+      $title =  TABLE_HEADING_FEATURED_PRODUCTS ;
     }
     $zc_show_featured = true;
   }

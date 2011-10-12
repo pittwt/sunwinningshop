@@ -14,7 +14,8 @@
 
 <!-- bof: featured products  -->
 <?php if ($zc_show_featured == true) { ?>
-<div class="centerBoxWrapper" id="featuredProducts">
+<div class="new_pro">
+<h1 class="h1_tit"><?php echo $title?></h1>
 <?php
 /**
  * require the list_box_content template to display the product
