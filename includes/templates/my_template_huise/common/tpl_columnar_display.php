@@ -13,6 +13,7 @@ if (is_array($list_box_contents) > 0 ) {
 				echo '<div' . $r_params . '>' . $list_box_contents[$row][$col]['text'] .  '</div>' . "\n";
 			}
 		}
+		echo '<br class="clearBoth" />';
 	}
 	echo '</div>';
 }
