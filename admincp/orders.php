@@ -1,10 +1,10 @@
 <?php
 /**
  * @package admin
- * @copyright Copyright 2003-2010 Zen Cart Development Team
+ * @copyright Copyright 2003-2007 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: orders.php 15994 2010-04-19 17:17:51Z ajeh $
+ * @version $Id: orders.php 2 2008-09-07 09:28:29Z numinix $
  */
 
   require('includes/application_top.php');
@@ -19,7 +19,7 @@
   $orders_status_array = array();
   $orders_status = $db->Execute("select orders_status_id, orders_status_name
                                  from " . TABLE_ORDERS_STATUS . "
-                                 where language_id = '" . (int)$_SESSION['languages_id'] . "' order by orders_status_id");
+                                 where language_id = '" . (int)$_SESSION['languages_id'] . "'");
   while (!$orders_status->EOF) {
     $orders_statuses[] = array('id' => $orders_status->fields['orders_status_id'],
                                'text' => $orders_status->fields['orders_status_name'] . ' [' . $orders_status->fields['orders_status_id'] . ']');
@@ -40,8 +40,7 @@
     $order_exists = true;
     if ($orders->RecordCount() <= 0) {
       $order_exists = false;
-      if ($action != '') $messageStack->add_session(ERROR_ORDER_DOES_NOT_EXIST . ' ' . $oID, 'error');
-      zen_redirect(zen_href_link(FILENAME_ORDERS, zen_get_all_get_params(array('oID', 'action')), 'NONSSL'));
+      if ($action != '') $messageStack->add(sprintf(ERROR_ORDER_DOES_NOT_EXIST, $oID), 'error');
     }
   }
 
@@ -52,9 +51,9 @@
         if ($_GET['download_reset_on'] > 0) {
           // adjust download_maxdays based on current date
           $check_status = $db->Execute("select customers_name, customers_email_address, orders_status,
-                                      date_purchased from " . TABLE_ORDERS . "
+                                      date_purchased, COWOA_order from " . TABLE_ORDERS . "
                                       where orders_id = '" . $_GET['oID'] . "'");
-          $zc_max_days = zen_date_diff($check_status->fields['date_purchased'], date('Y-m-d H:i:s', time())) + DOWNLOAD_MAX_DAYS;
+          $zc_max_days = date_diff($check_status->fields['date_purchased'], date('Y-m-d H:i:s', time())) + DOWNLOAD_MAX_DAYS;
 
           $update_downloads_query = "update " . TABLE_ORDERS_PRODUCTS_DOWNLOAD . " set download_maxdays='" . $zc_max_days . "', download_count='" . DOWNLOAD_MAX_COUNT . "' where orders_id='" . $_GET['oID'] . "' and orders_products_download_id='" . $_GET['download_reset_on'] . "'";
           $db->Execute($update_downloads_query);
@@ -89,7 +88,7 @@
 
         $order_updated = false;
         $check_status = $db->Execute("select customers_name, customers_email_address, orders_status,
-                                      date_purchased from " . TABLE_ORDERS . "
+                                      date_purchased, COWOA_order from " . TABLE_ORDERS . "
                                       where orders_id = '" . (int)$oID . "'");
 
         if ( ($check_status->fields['orders_status'] != $status) || zen_not_null($comments)) {
@@ -97,32 +96,35 @@
                         set orders_status = '" . zen_db_input($status) . "', last_modified = now()
                         where orders_id = '" . (int)$oID . "'");
 
-          $customer_notified = '0';
-          if (isset($_POST['notify']) && ($_POST['notify'] == '1')) {
+          $notify_comments = '';
+          if (isset($_POST['notify_comments']) && ($_POST['notify_comments'] == 'on') && zen_not_null($comments)) {
+            $notify_comments = EMAIL_TEXT_COMMENTS_UPDATE . $comments . "\n\n";
+          }
+//send emails
+      $message = STORE_NAME . "\n" . EMAIL_SEPARATOR . "\n" .
+      EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID . "\n\n";
+      if(!$check_status->fields['COWOA_order']) {
+      $message .= EMAIL_TEXT_INVOICE_URL . ' ' . zen_catalog_href_link(FILENAME_CATALOG_ACCOUNT_HISTORY_INFO, 'order_id=' . $oID, 'SSL') . "\n\n";
+      }
+      $message .= EMAIL_TEXT_DATE_ORDERED . ' ' . zen_date_long($check_status->fields['date_purchased']) . "\n\n" .
+      strip_tags($notify_comments) .
+      EMAIL_TEXT_STATUS_UPDATED . sprintf(EMAIL_TEXT_STATUS_LABEL, $orders_status_array[$status] ) .
+      EMAIL_TEXT_STATUS_PLEASE_REPLY;
 
-            $notify_comments = '';
-            if (isset($_POST['notify_comments']) && ($_POST['notify_comments'] == 'on') && zen_not_null($comments)) {
-              $notify_comments = EMAIL_TEXT_COMMENTS_UPDATE . $comments . "\n\n";
-            }
-            //send emails
-            $message =
-            EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID . "\n\n" .
-            EMAIL_TEXT_INVOICE_URL . ' ' . zen_catalog_href_link(FILENAME_CATALOG_ACCOUNT_HISTORY_INFO, 'order_id=' . $oID, 'SSL') . "\n\n" .
-            EMAIL_TEXT_DATE_ORDERED . ' ' . zen_date_long($check_status->fields['date_purchased']) . "\n\n" .
-            strip_tags($notify_comments) .
-            EMAIL_TEXT_STATUS_UPDATED . sprintf(EMAIL_TEXT_STATUS_LABEL, $orders_status_array[$status] ) .
-            EMAIL_TEXT_STATUS_PLEASE_REPLY;
-
-            $html_msg['EMAIL_CUSTOMERS_NAME']    = $check_status->fields['customers_name'];
-            $html_msg['EMAIL_TEXT_ORDER_NUMBER'] = EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID;
+          $html_msg['EMAIL_CUSTOMERS_NAME']    = $check_status->fields['customers_name'];
+          $html_msg['EMAIL_TEXT_ORDER_NUMBER'] = EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID;
+          if(!$check_status->fields['COWOA_order']) {
             $html_msg['EMAIL_TEXT_INVOICE_URL']  = '<a href="' . zen_catalog_href_link(FILENAME_CATALOG_ACCOUNT_HISTORY_INFO, 'order_id=' . $oID, 'SSL') .'">'.str_replace(':','',EMAIL_TEXT_INVOICE_URL).'</a>';
-            $html_msg['EMAIL_TEXT_DATE_ORDERED'] = EMAIL_TEXT_DATE_ORDERED . ' ' . zen_date_long($check_status->fields['date_purchased']);
-            $html_msg['EMAIL_TEXT_STATUS_COMMENTS'] = nl2br($notify_comments);
-            $html_msg['EMAIL_TEXT_STATUS_UPDATED'] = str_replace('\n','', EMAIL_TEXT_STATUS_UPDATED);
-            $html_msg['EMAIL_TEXT_STATUS_LABEL'] = str_replace('\n','', sprintf(EMAIL_TEXT_STATUS_LABEL, $orders_status_array[$status] ));
-            $html_msg['EMAIL_TEXT_NEW_STATUS'] = $orders_status_array[$status];
-            $html_msg['EMAIL_TEXT_STATUS_PLEASE_REPLY'] = str_replace('\n','', EMAIL_TEXT_STATUS_PLEASE_REPLY);
+          }
+          $html_msg['EMAIL_TEXT_DATE_ORDERED'] = EMAIL_TEXT_DATE_ORDERED . ' ' . zen_date_long($check_status->fields['date_purchased']);
+          $html_msg['EMAIL_TEXT_STATUS_COMMENTS'] = nl2br($notify_comments);
+          $html_msg['EMAIL_TEXT_STATUS_UPDATED'] = str_replace('\n','', EMAIL_TEXT_STATUS_UPDATED);
+          $html_msg['EMAIL_TEXT_STATUS_LABEL'] = str_replace('\n','', sprintf(EMAIL_TEXT_STATUS_LABEL, $orders_status_array[$status] ));
+          $html_msg['EMAIL_TEXT_NEW_STATUS'] = $orders_status_array[$status];
+          $html_msg['EMAIL_TEXT_STATUS_PLEASE_REPLY'] = str_replace('\n','', EMAIL_TEXT_STATUS_PLEASE_REPLY);
 
+          $customer_notified = '0';
+          if (isset($_POST['notify']) && ($_POST['notify'] == 'on')) {
             zen_mail($check_status->fields['customers_name'], $check_status->fields['customers_email_address'], EMAIL_TEXT_SUBJECT . ' #' . $oID, $message, STORE_NAME, EMAIL_FROM, $html_msg, 'order_status');
             $customer_notified = '1';
 
@@ -130,9 +132,6 @@
             if (SEND_EXTRA_ORDERS_STATUS_ADMIN_EMAILS_TO_STATUS == '1' and SEND_EXTRA_ORDERS_STATUS_ADMIN_EMAILS_TO != '') {
               zen_mail('', SEND_EXTRA_ORDERS_STATUS_ADMIN_EMAILS_TO, SEND_EXTRA_ORDERS_STATUS_ADMIN_EMAILS_TO_SUBJECT . ' ' . EMAIL_TEXT_SUBJECT . ' #' . $oID, $message, STORE_NAME, EMAIL_FROM, $html_msg, 'order_status_extra');
             }
-          } elseif (isset($_POST['notify']) && ($_POST['notify'] == '-1')) {
-            // hide comment
-            $customer_notified = '-1';
           }
 
           $db->Execute("insert into " . TABLE_ORDERS_STATUS_HISTORY . "
@@ -145,23 +144,10 @@
           $order_updated = true;
         }
 
-        // trigger any appropriate updates which should be sent back to the payment gateway:
-        $order = new order((int)$oID);
-        if ($order->info['payment_module_code']) {
-          if (file_exists(DIR_FS_CATALOG_MODULES . 'payment/' . $order->info['payment_module_code'] . '.php')) {
-            require_once(DIR_FS_CATALOG_MODULES . 'payment/' . $order->info['payment_module_code'] . '.php');
-            require_once(DIR_FS_CATALOG_LANGUAGES . $_SESSION['language'] . '/modules/payment/' . $order->info['payment_module_code'] . '.php');
-            $module = new $order->info['payment_module_code'];
-            if (method_exists($module, '_doStatusUpdate')) {
-              $response = $module->_doStatusUpdate($oID, $status, $comments, $customer_notified, $check_status->fields['orders_status']);
-            }
-          }
-        }
-
         if ($order_updated == true) {
          if ($status == DOWNLOADS_ORDERS_STATUS_UPDATED_VALUE) {
             // adjust download_maxdays based on current date
-            $zc_max_days = zen_date_diff($check_status->fields['date_purchased'], date('Y-m-d H:i:s', time())) + DOWNLOAD_MAX_DAYS;
+            $zc_max_days = date_diff($check_status->fields['date_purchased'], date('Y-m-d H:i:s', time())) + DOWNLOAD_MAX_DAYS;
 
             $update_downloads_query = "update " . TABLE_ORDERS_PRODUCTS_DOWNLOAD . " set download_maxdays='" . $zc_max_days . "', download_count='" . DOWNLOAD_MAX_COUNT . "' where orders_id='" . (int)$oID . "'";
             $db->Execute($update_downloads_query);
@@ -170,6 +156,7 @@
         } else {
           $messageStack->add_session(WARNING_ORDER_NOT_UPDATED, 'warning');
         }
+
         zen_redirect(zen_href_link(FILENAME_ORDERS, zen_get_all_get_params(array('action')) . 'action=edit', 'NONSSL'));
         break;
       case 'deleteconfirm':
@@ -360,6 +347,14 @@ function couponpopupWindow(url) {
 //        echo $module->admin_notification($oID);
       }
     }
+    // fec dropdown
+    if (FEC_DROP_DOWN == 'true') {
+      $drop_down = $db->Execute("SELECT dropdown FROM " . TABLE_ORDERS . " WHERE orders_id = " . $oID . " LIMIT 1");
+    }
+    // fec checkbox
+    if (FEC_CHECKBOX == 'true') {
+      $checkbox = $db->Execute("SELECT checkbox FROM " . TABLE_ORDERS . " WHERE orders_id = " . $oID . " LIMIT 1");
+    }
 ?>
       <tr>
         <td width="100%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -402,12 +397,28 @@ function couponpopupWindow(url) {
                 <td class="main" valign="top"><strong><?php echo ENTRY_SHIPPING_ADDRESS; ?></strong></td>
                 <td class="main"><?php echo zen_address_format($order->delivery['format_id'], $order->delivery, 1, '', '<br />'); ?></td>
               </tr>
+              <!-- bof FEC v1.24 drop down -->
+              <?php if (FEC_DROP_DOWN == 'true') { ?>
+              <tr>
+                <td class="main" valign="top"><strong><?php echo ENTRY_DROP_DOWN; ?></strong></td>
+                <td class="main"><?php echo $drop_down->fields['dropdown']; ?></td>
+              </tr>
+              <?php } ?>
+              <!-- eof dropdown -->
             </table></td>
             <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="2">
               <tr>
                 <td class="main" valign="top"><strong><?php echo ENTRY_BILLING_ADDRESS; ?></strong></td>
                 <td class="main"><?php echo zen_address_format($order->billing['format_id'], $order->billing, 1, '', '<br />'); ?></td>
               </tr>
+              <!-- bof FEC CHECKBOX -->
+              <?php if (FEC_CHECKBOX == 'true') { ?>
+              <tr>
+                <td class="main" valign="top"><strong><?php echo ENTRY_CHECKBOX; ?></strong></td>
+                <td class="main"><?php echo ($checkbox->fields['checkbox'] == 1 ? 'yes' : 'no'); ?></td>
+              </tr>
+              <?php } ?>
+              <!-- eof FEC CHECKBOX -->
             </table></td>
           </tr>
         </table></td>
@@ -446,12 +457,10 @@ function couponpopupWindow(url) {
             <td class="main"><?php echo ENTRY_CREDIT_CARD_NUMBER; ?></td>
             <td class="main"><?php echo $order->info['cc_number'] . (zen_not_null($order->info['cc_number']) && !strstr($order->info['cc_number'],'X') && !strstr($order->info['cc_number'],'********') ? '&nbsp;&nbsp;<a href="' . zen_href_link(FILENAME_ORDERS, '&action=mask_cc&oID=' . $oID, 'NONSSL') . '" class="noprint">' . TEXT_MASK_CC_NUMBER . '</a>' : ''); ?><td>
           </tr>
-<?php if (zen_not_null($order->info['cc_cvv'])) { ?>
           <tr>
             <td class="main"><?php echo ENTRY_CREDIT_CARD_CVV; ?></td>
             <td class="main"><?php echo $order->info['cc_cvv'] . (zen_not_null($order->info['cc_cvv']) && !strstr($order->info['cc_cvv'],TEXT_DELETE_CVV_REPLACEMENT) ? '&nbsp;&nbsp;<a href="' . zen_href_link(FILENAME_ORDERS, '&action=delete_cvv&oID=' . $oID, 'NONSSL') . '" class="noprint">' . TEXT_DELETE_CVV_FROM_DATABASE . '</a>' : ''); ?><td>
           </tr>
-<?php } ?>
           <tr>
             <td class="main"><?php echo ENTRY_CREDIT_CARD_EXPIRES; ?></td>
             <td class="main"><?php echo $order->info['cc_expires']; ?></td>
@@ -538,7 +547,112 @@ function couponpopupWindow(url) {
           </tr>
         </table></td>
       </tr>
+<?php
+  if (MODULE_ORDER_TOTAL_DOUBLEBOX_STATUS == 'true') {
+    $orders_doublebox = $db->Execute("select orders_products_id  
+                                    from " . TABLE_ORDERS_DOUBLEBOX . "  
+                                    where orders_id = '" . zen_db_input($oID) . "' and wrap = 1");  
 
+  if ($orders_doublebox->RecordCount() > 0) {
+?>
+      <tr>
+        <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+      </tr>
+      <tr>
+        <td class="main"><table border="1" cellspacing="0" cellpadding="5">
+          <tr>
+            <td class="smallText" align="center"><strong><?php echo DOUBLEBOX_SUMMARY_HEADING; ?></strong></td>
+          </tr>
+<?php
+       while (!$orders_doublebox->EOF) {
+          $pos = -1;
+          for ($i=0, $n=sizeof($order->products); $i<$n; $i++) {
+              if ($order->products[$i]['orders_products_id'] == 
+                  $orders_doublebox->fields['orders_products_id']) {
+                  $pos = $i; 
+                  break;
+              }
+          }
+          $orders_doublebox->MoveNext();
+          if ($pos == -1) {
+             continue; // Should never happen
+          }
+          $i = $pos; 
+
+          echo '<tr>';
+          echo '<td class="accountProductDisplay">' . $order->products[$i]['name'];
+          if ( (isset($order->products[$i]['attributes'])) && (sizeof($order->products[$i]['attributes']) > 0) ) {
+               echo '<br><nobr><small>';
+               for ($j=0, $n2=sizeof($order->products[$i]['attributes']); $j<$n2; $j++) {
+                       echo '&nbsp;&nbsp;- ' . $order->products[$i]['attributes'][$j]['option'] . ": " . nl2br(zen_output_string_protected($order->products[$i]['attributes'][$j]['value'])) . '<br>';
+                    }
+               echo '</small></nobr>';
+          }
+          echo '</td>'; 
+          echo '</tr>'; 
+       }
+?>
+        </table></td>
+      </tr>
+<?php
+  } else { 
+    echo '<tr><td>'. DOUBLEBOX_NO_TEXT . '</td></tr>'; 
+  }
+} 
+?>
+<?php
+  if (FEC_GIFT_WRAPPING_SWITCH == 'true') {
+    $orders_wrapping = $db->Execute("select orders_products_id  
+                                    from " . TABLE_ORDERS_GIFTWRAP . "  
+                                    where orders_id = '" . zen_db_input($oID) . "' and wrap = 1");  
+
+    if ($orders_wrapping->RecordCount() > 0) {
+?>
+      <tr>
+        <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+      </tr>
+      <tr>
+        <td class="main"><table border="1" cellspacing="0" cellpadding="5" width="100%">
+          <tr>
+            <td class="smallText" align="center"><strong><?php echo GIFT_WRAP_SUMMARY_HEADING; ?></strong></td>
+          </tr>
+<?php
+       while (!$orders_wrapping->EOF) {
+          $pos = -1;
+          for ($i=0, $n=sizeof($order->products); $i<$n; $i++) {
+              if ($order->products[$i]['orders_products_id'] == 
+                  $orders_wrapping->fields['orders_products_id']) {
+                  $pos = $i; 
+                  break;
+              }
+          }
+          $orders_wrapping->MoveNext();
+          if ($pos == -1) {
+             continue; // Should never happen
+          }
+          $i = $pos; 
+
+          echo '<tr>';
+          echo '<td class="accountProductDisplay">' . $order->products[$i]['name'];
+          if ( (isset($order->products[$i]['attributes'])) && (sizeof($order->products[$i]['attributes']) > 0) ) {
+               echo '<br><nobr><small>';
+               for ($j=0, $n2=sizeof($order->products[$i]['attributes']); $j<$n2; $j++) {
+                       echo '&nbsp;&nbsp;- ' . $order->products[$i]['attributes'][$j]['option'] . ": " . nl2br(zen_output_string_protected($order->products[$i]['attributes'][$j]['value'])) . '<br>';
+                    }
+               echo '</small></nobr>';
+          }
+          echo '</td>'; 
+          echo '</tr>'; 
+       }
+?>
+        </table></td>
+      </tr>
+<?php
+    } else { 
+      echo '<tr><td>'. GIFT_WRAP_NO_TEXT . '</td></tr>'; 
+    }
+  } 
+?>
 <?php
   // show downloads
   require(DIR_WS_MODULES . 'orders_download.php');
@@ -567,11 +681,9 @@ function couponpopupWindow(url) {
              '            <td class="smallText" align="center">' . zen_datetime_short($orders_history->fields['date_added']) . '</td>' . "\n" .
              '            <td class="smallText" align="center">';
         if ($orders_history->fields['customer_notified'] == '1') {
-          echo zen_image(DIR_WS_ICONS . 'tick.gif', TEXT_YES) . "</td>\n";
-        } else if ($orders_history->fields['customer_notified'] == '-1') {
-          echo zen_image(DIR_WS_ICONS . 'locked.gif', TEXT_HIDDEN) . "</td>\n";
+          echo zen_image(DIR_WS_ICONS . 'tick.gif', ICON_TICK) . "</td>\n";
         } else {
-          echo zen_image(DIR_WS_ICONS . 'unlocked.gif', TEXT_VISIBLE) . "</td>\n";
+          echo zen_image(DIR_WS_ICONS . 'cross.gif', ICON_CROSS) . "</td>\n";
         }
         echo '            <td class="smallText">' . $orders_status_array[$orders_history->fields['orders_status_id']] . '</td>' . "\n";
         echo '            <td class="smallText">' . nl2br(zen_db_output($orders_history->fields['comments'])) . '&nbsp;</td>' . "\n" .
@@ -606,10 +718,9 @@ function couponpopupWindow(url) {
                 <td class="main"><strong><?php echo ENTRY_STATUS; ?></strong> <?php echo zen_draw_pull_down_menu('status', $orders_statuses, $order->info['orders_status']); ?></td>
               </tr>
               <tr>
-                <td class="main"><strong><?php echo ENTRY_NOTIFY_CUSTOMER; ?></strong> [<?php echo zen_draw_radio_field('notify', '1', true) . '-' . TEXT_EMAIL . ' ' . zen_draw_radio_field('notify', '0', FALSE) . '-' . TEXT_NOEMAIL . ' ' . zen_draw_radio_field('notify', '-1', FALSE) . '-' . TEXT_HIDE; ?>]&nbsp;&nbsp;&nbsp;</td>
+                <td class="main"><strong><?php echo ENTRY_NOTIFY_CUSTOMER; ?></strong> <?php echo zen_draw_checkbox_field('notify', '', true); ?></td>
                 <td class="main"><strong><?php echo ENTRY_NOTIFY_COMMENTS; ?></strong> <?php echo zen_draw_checkbox_field('notify_comments', '', true); ?></td>
               </tr>
-              <tr><td><br /></td></tr>
             </table></td>
             <td valign="top"><?php echo zen_image_submit('button_update.gif', IMAGE_UPDATE); ?></td>
           </tr>
@@ -741,8 +852,8 @@ function couponpopupWindow(url) {
                             from (" . TABLE_ORDERS_STATUS . " s, " .
                             TABLE_ORDERS . " o " .
                             $new_table . ")
-                            left join " . TABLE_ORDERS_TOTAL . " ot on (o.orders_id = ot.orders_id and ot.class = 'ot_total') " . "
-                            where o.customers_id = '" . (int)$cID . "' and o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "' order by orders_id DESC";
+                            left join " . TABLE_ORDERS_TOTAL . " ot on (o.orders_id = ot.orders_id) " . "
+                            where o.customers_id = '" . (int)$cID . "' and o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "' and ot.class = 'ot_total' order by orders_id DESC";
 
 //echo '<BR><BR>I SEE A: ' . $orders_query_raw . '<BR><BR>';
 
@@ -751,10 +862,10 @@ function couponpopupWindow(url) {
       $orders_query_raw = "select o.orders_id, o.customers_id, o.customers_name, o.payment_method, o.shipping_method, o.date_purchased, o.last_modified, o.currency, o.currency_value, s.orders_status_name, ot.text as order_total" .
                           $new_fields . "
                           from (" . TABLE_ORDERS_STATUS . " s, " .
-                          TABLE_ORDERS . " o " .
+                            TABLE_ORDERS . " o " .
                           $new_table . ")
-                          left join " . TABLE_ORDERS_TOTAL . " ot on (o.orders_id = ot.orders_id and ot.class = 'ot_total') " . "
-                          where o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "' and s.orders_status_id = '" . (int)$status . "'  " .
+                          left join " . TABLE_ORDERS_TOTAL . " ot on (o.orders_id = ot.orders_id) " . "
+                          where o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "' and s.orders_status_id = '" . (int)$status . "' and ot.class = 'ot_total'  " .
                           $search . " order by o.orders_id DESC";
 
 //echo '<BR><BR>I SEE B: ' . $orders_query_raw . '<BR><BR>';
@@ -763,10 +874,10 @@ function couponpopupWindow(url) {
       $orders_query_raw = "select " . $search_distinct . " o.orders_id, o.customers_id, o.customers_name, o.payment_method, o.shipping_method, o.date_purchased, o.last_modified, o.currency, o.currency_value, s.orders_status_name, ot.text as order_total" .
                           $new_fields . "
                           from (" . TABLE_ORDERS_STATUS . " s, " .
-                          TABLE_ORDERS . " o " .
+                            TABLE_ORDERS . " o " .
                           $new_table . ")
-                          left join " . TABLE_ORDERS_TOTAL . " ot on (o.orders_id = ot.orders_id and ot.class = 'ot_total') " . "
-                          where (o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "')  " .
+                          left join " . TABLE_ORDERS_TOTAL . " ot on (o.orders_id = ot.orders_id) " . "
+                          where (o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "' and ot.class = 'ot_total')  " .
                           $search . " order by o.orders_id DESC";
 
 //echo '<BR><BR>I SEE C: ' . $orders_query_raw . '<BR><BR>';

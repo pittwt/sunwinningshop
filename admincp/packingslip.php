@@ -1,11 +1,24 @@
 <?php
-/**
- * @package admin
- * @copyright Copyright 2003-2010 Zen Cart Development Team
- * @copyright Portions Copyright 2003 osCommerce
- * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: packingslip.php 15788 2010-04-02 10:44:40Z drbyte $
-*/
+//
+// +----------------------------------------------------------------------+
+// |zen-cart Open Source E-commerce                                       |
+// +----------------------------------------------------------------------+
+// | Copyright (c) 2006 The zen-cart developers                           |
+// |                                                                      |
+// | http://www.zen-cart.com/index.php                                    |
+// |                                                                      |
+// | Portions Copyright (c) 2003 osCommerce                               |
+// +----------------------------------------------------------------------+
+// | This source file is subject to version 2.0 of the GPL license,       |
+// | that is bundled with this package in the file LICENSE, and is        |
+// | available through the world-wide-web at the following url:           |
+// | http://www.zen-cart.com/license/2_0.txt.                             |
+// | If you did not receive a copy of the zen-cart license and are unable |
+// | to obtain it through the world-wide-web, please send a note to       |
+// | license@zen-cart.com so we can mail you a copy immediately.          |
+// +----------------------------------------------------------------------+
+//  $Id: packingslip.php 23 2008-11-15 21:03:46Z numinix $
+//
 
   require('includes/application_top.php');
 
@@ -59,6 +72,11 @@
       </tr>
 
 <?php
+      // FEC DROP DOWN
+      if (FEC_GIFT_MESSAGE == 'true') {
+        $additional_columns = ", gift_message";
+      }
+      
       $order_check = $db->Execute("select cc_cvv, customers_name, customers_company, customers_street_address,
                                     customers_suburb, customers_city, customers_postcode,
                                     customers_state, customers_country, customers_telephone,
@@ -69,7 +87,7 @@
                                     billing_street_address, billing_suburb, billing_city, billing_postcode,
                                     billing_state, billing_country, billing_address_format_id,
                                     payment_method, cc_type, cc_owner, cc_number, cc_expires, currency,
-                                    currency_value, date_purchased, orders_status, last_modified
+                                    currency_value, date_purchased, orders_status, last_modified" . $additional_columns . "
                              from " . TABLE_ORDERS . "
                              where orders_id = '" . (int)$oID . "'");
   $show_customer = 'false';
@@ -94,7 +112,7 @@
             <td class="main"><b><?php echo ENTRY_SOLD_TO; ?></b></td>
           </tr>
           <tr>
-            <td class="main"><?php echo zen_address_format($order->billing['format_id'], $order->billing, 1, '', '<br>'); ?></td>
+            <td class="main"><?php echo zen_address_format($order->customer['format_id'], $order->billing, 1, '', '<br>'); ?></td>
           </tr>
           <tr>
             <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '5'); ?></td>
@@ -113,6 +131,16 @@
           <tr>
             <td class="main"><?php echo zen_address_format($order->delivery['format_id'], $order->delivery, 1, '', '<br>'); ?></td>
           </tr>
+          <!-- begin FEC v1.24 dropdown -->
+          <?php if (FEC_GIFT_MESSAGE == 'true') { ?>
+          <tr>
+            <td class="main"><strong><?php echo ENTRY_GIFT_MESSAGE; ?></strong></td>
+          </tr>
+          <tr>
+            <td class="main"><?php echo $order_check->fields['gift_message']; ?></td>
+          </tr>
+          <?php } ?>
+          <!-- end FEC v1.24 dropdown -->
         </table></td>
       </tr>
     </table></td>
@@ -164,19 +192,73 @@
 ?>
     </table></td>
   </tr>
+<?php
+  if (FEC_GIFT_WRAPPING_SWITCH == 'true') {
+    $orders_wrapping = $db->Execute("select orders_products_id  
+                                    from " . TABLE_ORDERS_GIFTWRAP . "  
+                                    where orders_id = '" . zen_db_input($oID) . "' and wrap = 1");  
+
+    if ($orders_wrapping->RecordCount() > 0) {
+?>
+      <tr>
+        <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+      </tr>
+      <tr>
+        <td class="main"><table border="1" cellspacing="0" cellpadding="5" width="100%">
+          <tr>
+            <td class="smallText" align="center"><strong><?php echo GIFT_WRAP_SUMMARY_HEADING; ?></strong></td>
+          </tr>
+<?php
+       while (!$orders_wrapping->EOF) {
+          $pos = -1;
+          for ($i=0, $n=sizeof($order->products); $i<$n; $i++) {
+              if ($order->products[$i]['orders_products_id'] == 
+                  $orders_wrapping->fields['orders_products_id']) {
+                  $pos = $i; 
+                  break;
+              }
+          }
+          $orders_wrapping->MoveNext();
+          if ($pos == -1) {
+             continue; // Should never happen
+          }
+          $i = $pos; 
+
+          echo '<tr>';
+          echo '<td class="accountProductDisplay">' . $order->products[$i]['name'];
+          if ( (isset($order->products[$i]['attributes'])) && (sizeof($order->products[$i]['attributes']) > 0) ) {
+               echo '<br><nobr><small>';
+               for ($j=0, $n2=sizeof($order->products[$i]['attributes']); $j<$n2; $j++) {
+                       echo '&nbsp;&nbsp;- ' . $order->products[$i]['attributes'][$j]['option'] . ": " . nl2br(zen_output_string_protected($order->products[$i]['attributes'][$j]['value'])) . '<br>';
+                    }
+               echo '</small></nobr>';
+          }
+          echo '</td>'; 
+          echo '</tr>'; 
+       }
+?>
+        </table></td>
+      </tr>
+<?php
+    } else { 
+      echo '<tr><td>'. GIFT_WRAP_NO_TEXT . '</td></tr>'; 
+    }
+  } 
+?>
 
 <?php if (ORDER_COMMENTS_PACKING_SLIP > 0) { ?>
       <tr>
-        <td class="main"><table border="0" cellspacing="0" cellpadding="5">
+        <td class="main"><table border="1" cellspacing="0" cellpadding="5">
           <tr>
             <td class="smallText" align="center"><strong><?php echo TABLE_HEADING_DATE_ADDED; ?></strong></td>
+            <td class="smallText" align="center"><strong><?php echo TABLE_HEADING_CUSTOMER_NOTIFIED; ?></strong></td>
             <td class="smallText" align="center"><strong><?php echo TABLE_HEADING_STATUS; ?></strong></td>
             <td class="smallText" align="center"><strong><?php echo TABLE_HEADING_COMMENTS; ?></strong></td>
           </tr>
 <?php
     $orders_history = $db->Execute("select orders_status_id, date_added, customer_notified, comments
                                     from " . TABLE_ORDERS_STATUS_HISTORY . "
-                                    where orders_id = '" . zen_db_input($oID) . "' and customer_notified >= 0
+                                    where orders_id = '" . zen_db_input($oID) . "'
                                     order by date_added");
 
     if ($orders_history->RecordCount() > 0) {
@@ -184,9 +266,15 @@
       while (!$orders_history->EOF) {
         $count_comments++;
         echo '          <tr>' . "\n" .
-             '            <td class="smallText" align="center" valign="top">' . zen_datetime_short($orders_history->fields['date_added']) . '</td>' . "\n";
-        echo '            <td class="smallText" valign="top">' . $orders_status_array[$orders_history->fields['orders_status_id']] . '</td>' . "\n";
-        echo '            <td class="smallText" valign="top">' . ($orders_history->fields['comments'] == '' ? TEXT_NONE : nl2br(zen_db_output($orders_history->fields['comments']))) . '&nbsp;</td>' . "\n" .
+             '            <td class="smallText" align="center">' . zen_datetime_short($orders_history->fields['date_added']) . '</td>' . "\n" .
+             '            <td class="smallText" align="center">';
+        if ($orders_history->fields['customer_notified'] == '1') {
+          echo zen_image(DIR_WS_ICONS . 'tick.gif', ICON_TICK) . "</td>\n";
+        } else {
+          echo zen_image(DIR_WS_ICONS . 'cross.gif', ICON_CROSS) . "</td>\n";
+        }
+        echo '            <td class="smallText">' . $orders_status_array[$orders_history->fields['orders_status_id']] . '</td>' . "\n";
+        echo '            <td class="smallText">' . ($orders_history->fields['comments'] == '' ? TEXT_NONE : nl2br(zen_db_output($orders_history->fields['comments']))) . '&nbsp;</td>' . "\n" .
              '          </tr>' . "\n";
         $orders_history->MoveNext();
         if (ORDER_COMMENTS_PACKING_SLIP == 1 && $count_comments >= 1) {
