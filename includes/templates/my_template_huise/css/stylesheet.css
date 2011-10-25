@@ -127,7 +127,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .active table{position:absolute; left:0;top:0;} 
 .active table a{ width:730px; height:225px;float:left;}
 .active table a img {float:left;}
-.active .number{position:absolute;top:205px;left:627px;z-index:10;}
+.active .number{position:absolute;top:205px;z-index:10;}
 .active .number a{float:left; width:20px; margin:0 5px 0 0;background-color:black;color:white;line-height:20px;text-align:center;}
 .active .number .first{background-color:#0065c3;font-weight:bold;}
 
