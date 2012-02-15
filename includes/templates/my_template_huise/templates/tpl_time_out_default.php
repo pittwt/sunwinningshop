@@ -22,25 +22,25 @@
 
 <div id="timeoutDefaultContent" class="content"><?php echo TEXT_INFORMATION; ?></div>
 <?php echo zen_draw_form('login', zen_href_link(FILENAME_LOGIN, 'action=process', 'SSL')); ?>
-<fieldset>
-<legend><?php echo HEADING_RETURNING_CUSTOMER; ?></legend>
 
-<label class="inputLabel" for="login-email-address"><?php echo ENTRY_EMAIL_ADDRESS; ?></label>
-<?php echo zen_draw_input_field('email_address', '', zen_set_field_length(TABLE_CUSTOMERS, 'customers_email_address', '40') . ' id="login-email-address"'); ?>
+<h1 class="mark_tit"><?php echo HEADING_RETURNING_CUSTOMER; ?></h1>
+<div class="enter_box">
+<label class="reg_enter" for="login-email-address"><?php echo ENTRY_EMAIL_ADDRESS; ?></label>
+<?php echo zen_draw_input_field('email_address', '', zen_set_field_length(TABLE_CUSTOMERS, 'customers_email_address', '40') . ' class="reg_text" id="login-email-address"'); ?>
 <br class="clearBoth" />
 
-<label class="inputLabel" for="login-password"><?php echo ENTRY_PASSWORD; ?></label>
+<label class="reg_enter" for="login-password"><?php echo ENTRY_PASSWORD; ?></label>
 <!-- modified by zen-cart.cn //-->
-<?php echo zen_draw_password_field('password', '', zen_set_field_length(TABLE_CUSTOMERS, 'customers_password', '40') . ' id="login-password"'); ?>
+<?php echo zen_draw_password_field('password', '', zen_set_field_length(TABLE_CUSTOMERS, 'customers_password', '40') . '  class="reg_pass" id="login-password"'); ?>
 <br class="clearBoth" />
 <?php echo zen_draw_hidden_field('securityToken', $_SESSION['securityToken']); ?>
-</fieldset>
 
-<div class="buttonRow forward"><?php echo zen_image_submit(BUTTON_IMAGE_LOGIN, BUTTON_LOGIN_ALT); ?></div>
-<div class="buttonRow back important"><?php echo '<a href="' . zen_href_link(FILENAME_PASSWORD_FORGOTTEN, '', 'SSL') . '">' . TEXT_PASSWORD_FORGOTTEN . '</a>'; ?></div>
+<span class="reg_forget"><?php echo '<a href="' . zen_href_link(FILENAME_PASSWORD_FORGOTTEN, '', 'SSL') . '">' . TEXT_PASSWORD_FORGOTTEN . '</a>'; ?></span>
+<input class="reg_sub" type="submit" value=""/>
 </form>
 <br class="clearBoth" />
 <?php
  }
  ?>
+</div>
 </div>

@@ -29,6 +29,7 @@ hr {height: 1px;margin-top: 0.5em;border: none;border-bottom: 1px solid #9a9a9a;
 #navCategoryIcon, .buttonRow,  {margin: 0.5em;}
 #indexProductListCatDescription{ padding:15px 10px;}
 #navMainSearch {float: right;}
+#timeoutDefaultContent{line-height:20px; padding:10px 5px;}
 #navBreadCrumb {background-color: #cc9900;}
 #navEZPagesTop {background-color: #ffff33;}
 #navBreadCrumb, #navEZPagesTop {font-size: 0.95em;font-weight: bold;margin: 0em;padding: 0.5em;}

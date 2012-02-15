@@ -2,9 +2,9 @@
 
 Options +FollowSymLinks
 RewriteEngine On
-RewriteBase /
-#RewriteCond %{HTTP_HOST} ^test.com [NC]
-#RewriteRule ^(.*)$ http://www.test.com/$1 [L,R=301]
+RewriteBase /sunwinningshop
+#RewriteCond %{HTTP_HOST} ^uggboatshome.com [NC]
+#RewriteRule ^(.*)$ http://www.uggboatshome.com/$1 [L,R=301]
 
 # From Ultimate SEO URLs
 RewriteRule ^(.*)-p-(.*).html$ index\.php?main_page=product_info&products_id=$2&%{QUERY_STRING} [L]
