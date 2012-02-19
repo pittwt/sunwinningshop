@@ -8,7 +8,12 @@
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: tpl_modules_product_listing.php 3241 2006-03-22 04:27:27Z ajeh $
  */
- include(DIR_WS_MODULES . zen_get_module_directory(FILENAME_PRODUCT_LISTING));
+
+if($body_id == 'advancedsearchresult') {
+	include(DIR_WS_MODULES . 'my_template_huise/product_listing_search.php');
+} else {
+	include(DIR_WS_MODULES . zen_get_module_directory(FILENAME_PRODUCT_LISTING));
+}
 ?>
 <div id="productListing">
 <?php
