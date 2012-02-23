@@ -19,12 +19,12 @@ function get_file($url, $folder, $imgname){
     }     
 }     
 
-$folder = "saveimg";
-$url = "http://livedemo00.template-help.com/zencart_36585/includes/templates/theme562/buttons/english/";
+$folder = "";
+$url = "http://livedemo00.template-help.com/zencart_36152/includes/templates/theme552/buttons/english/";
 
 $imglist = explode("\n", file_get_contents('imglist.txt'));
 foreach($imglist as $value){
-	if(trim($value)){
+	if(strlen(trim($value)) > 0){
 		get_file($url, $folder, trim($value));
 	}
 }

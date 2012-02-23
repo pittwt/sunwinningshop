@@ -1,4 +1,13 @@
 <?php
+/**
+ * new_products.php module
+ *
+ * @package modules
+ * @copyright Copyright 2003-2008 Zen Cart Development Team
+ * @copyright Portions Copyright 2003 osCommerce
+ * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
+ * @version $Id: new_products.php 8730 2008-06-28 01:31:22Z drbyte $
+ */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
 }
@@ -42,7 +51,7 @@ if ($new_products_query != '') $new_products = $db->ExecuteRandomMulti($new_prod
 
 $row = 0;
 $col = 0;
-$list_box_contents = '';
+$list_box_contents = array();
 $title = '';
 
 $num_products_count = ($new_products_query == '') ? 0 : $new_products->RecordCount();
@@ -54,40 +63,34 @@ if ($num_products_count > 0) {
   } else {
     $col_width = floor(100/SHOW_PRODUCT_INFO_COLUMNS_NEW_PRODUCTS);
   }
-
-  while (!$new_products->EOF) {
-	  
-	  
-	  
-    $products_price = zen_get_products_display_price_sam($new_products->fields['products_id']);
-
+	$i=1;
+  	while (!$new_products->EOF) {
+		$vline = $i>1 ? ' vLine' : '' ; 
+		$products_price = zen_get_products_display_price($new_products->fields['products_id']);
+		if (!isset($productsInCategory[$new_products->fields['products_id']])) $productsInCategory[$new_products->fields['products_id']] = zen_get_generated_category_path_rev($new_products->fields['master_categories_id']);
 	
-    if (!isset($productsInCategory[$new_products->fields['products_id']])) $productsInCategory[$new_products->fields['products_id']] = zen_get_generated_category_path_rev($new_products->fields['master_categories_id']);
+		$list_box_contents[$row][$col] = array('params' => 'class="centerBoxContentsNew centeredContent back '. $vline .'"' . ' ' . 'style="width:' . $col_width . '%;"',
+		'text' => (
+			($new_products->fields['products_image'] == '' and PRODUCTS_IMAGE_NO_IMAGE_STATUS == 0) ? '' : 
+			'<div class="product-col" style="margin-left:14px;"><div class="img"><a href="' . zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']) . '">' . zen_image(DIR_WS_IMAGES . $new_products->fields['products_image'], $new_products->fields['products_name'], IMAGE_PRODUCT_NEW_WIDTH, IMAGE_PRODUCT_NEW_HEIGHT) . '</a></div>') .
+			'<div class="prod-info"><a href="' . zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']) . '" class="name">' . $new_products->fields['products_name'] . '</a><br />' .  $products_price . '</div>
+			<div class="button"><a href="'.zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']).'"><img src="'.DIR_WS_TEMPLATE.'buttons/english/button_goto_prod_details.gif"></a></div></div>');
 
-    $list_box_contents .= '
-	<dl class="pro_list">
-	  <dt><a href="'.zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']).'" class="a_pic">'.zen_image(DIR_WS_IMAGES . $new_products->fields['products_image'], $new_products->fields['products_name'], IMAGE_PRODUCT_NEW_WIDTH, IMAGE_PRODUCT_NEW_HEIGHT).'</a></dt>
-	  <dd><a class="pro_inf" href="'.zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']).'">'.$new_products->fields['products_name'].'</a></dd>
-	  '.$products_price.'
-	  <dd><a class="cart_one" href="'.zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id']).'">Add to cart</a></dd>
-	  <dd class="new">&nbsp;</dd>
-	</dl>	
-	';
-
-    $col ++;
-    if ($col > (SHOW_PRODUCT_INFO_COLUMNS_NEW_PRODUCTS - 1)) {
-      $col = 0;
-      $row ++;
-    }
-    $new_products->MoveNextRandom();
-  }
+		$col ++;
+		if ($col > (SHOW_PRODUCT_INFO_COLUMNS_NEW_PRODUCTS - 1)) {
+		  $col = 0;
+		  $row ++;
+		}
+		$new_products->MoveNextRandom();
+		$i++;
+  	}
 
   if ($new_products->RecordCount() > 0) {
     if (isset($new_products_category_id) && $new_products_category_id != 0) {
       $category_title = zen_get_categories_name((int)$new_products_category_id);
       $title = '<h2 class="centerBoxHeading">' . sprintf(TABLE_HEADING_NEW_PRODUCTS, strftime('%B')) . ($category_title != '' ? ' - ' . $category_title : '' ) . '</h2>';
     } else {
-      $title = sprintf(TABLE_HEADING_NEW_PRODUCTS, strftime('%B'));
+      $title = '<h2 class="centerBoxHeading">' . sprintf(TABLE_HEADING_NEW_PRODUCTS, strftime('%B')) . '</h2>';
     }
     $zc_show_new_products = true;
   }
