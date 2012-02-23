@@ -80,7 +80,6 @@ function active(){
 		}
 	}
 	var time1=setInterval(panduan,3000);
-	document.getElementById("number").style.left=(div.offsetWidth-number.length*25)+"px";
 }
 
 active();

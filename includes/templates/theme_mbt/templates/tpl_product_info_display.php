@@ -78,9 +78,6 @@
         ?>
         </div>
         <!--bof Form start-->
-        <span style="display:none;">
-        <?php require($template->get_template_dir('tpl_product_info_currencies.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_product_info_currencies.php');echo $content;?>
-        </span>
         <?php echo zen_draw_form('cart_quantity', zen_href_link(zen_get_info_page($_GET['products_id']), zen_get_all_get_params(array('action')) . 'action=add_product', $request_type), 'post', 'enctype="multipart/form-data"') . "\n"; ?>
         <!--eof Form start-->
         <div class="jersey_rg">
@@ -103,14 +100,8 @@
                 }
                 ?>
             </span>
-
+            
             <span class="jer_save_price"><?=$price_info_sam['sale_discount']?></span>
-            <span class="jer_size">
-             <label>Currencies:</label>
-             <?php 
-			 echo zen_draw_pull_down_menu('currency', $currencies_array, $_SESSION['currency'], 'onchange="submit_currencies(this.value);"') . $hidden_get_variables . zen_hide_session_id();
-			 ?>
-             </span>            
             <!--eof Product Price block -->
             <!--bof Attributes Module -->
             <span class="jer_size">

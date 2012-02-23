@@ -183,6 +183,3 @@
 <div class="buttonRow back"><?php echo TITLE_CONTINUE_CHECKOUT_PROCEDURE . '<br />' . TEXT_CONTINUE_CHECKOUT_PROCEDURE; ?></div>
 
 </div>
-<script type="text/javascript">
-document.getElementById('checkout_confirmation').submit();
-</script>

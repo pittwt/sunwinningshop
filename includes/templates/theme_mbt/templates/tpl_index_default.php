@@ -21,6 +21,9 @@
                 <td><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/2.jpg" alt=""/></a></td>
                 <td><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/3.jpg" alt=""/></a></td>
                 <td><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/4.jpg" alt=""/></a></td>
+				<td><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/5.jpg" alt=""/></a></td>
+				<td><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/6.jpg" alt=""/></a></td>
+				<td><a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/7.jpg" alt=""/></a></td>
             </tr>
         </table>
         <div id="number" class="number">
@@ -28,6 +31,9 @@
             <a href="###">2</a>
             <a href="###">3</a>
             <a href="###">4</a>
+			<a href="###">5</a>
+			<a href="###">6</a>
+			<a href="###">7</a>
         </div> 
     </div>
 </div>

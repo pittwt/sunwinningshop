@@ -13,130 +13,41 @@
  */
 ?>
 <?php echo $payment_modules->javascript_validation(); ?>
-<div class="centerColumn" id="checkoutPayment">
+
+
+
+
+<div class="shop_car">
+<div class="car_tit"><span class="car_list "><a href="###">Your Shopping Cart Contents</a></span><span class="car_list  cart_special"><a href="###">Shipping and Payment Confirmation</a></span><span class="car_last"><a href="###">Order Confirmation</a></span></div>
+
+
 <?php echo zen_draw_form('checkout_payment', zen_href_link(FILENAME_CHECKOUT_CONFIRMATION, '', 'SSL'), 'post', ($flagOnSubmit ? 'onsubmit="return check_form();"' : '')); ?>
+
 
 <h1 id="checkoutPaymentHeading"><?php echo HEADING_TITLE; ?></h1>
 
 <?php if ($messageStack->size('redemptions') > 0) echo $messageStack->output('redemptions'); ?>
 <?php if ($messageStack->size('checkout') > 0) echo $messageStack->output('checkout'); ?>
 <?php if ($messageStack->size('checkout_payment') > 0) echo $messageStack->output('checkout_payment'); ?>
-<!--anton-->
-<div>
-<?php
-  if (zen_count_shipping_modules() > 0) {
-?>
 
-<h2 id="checkoutShippingHeadingMethod"><?php echo TABLE_HEADING_SHIPPING_METHOD; ?></h2>
 
-<?php
-    if (sizeof($quotes) > 1 && sizeof($quotes[0]) > 1) {
-?>
 
-<div id="checkoutShippingContentChoose" class="important"><?php echo TEXT_CHOOSE_SHIPPING_METHOD; ?></div>
-
+<!-- agreed conditions start-->
 <?php
-    } elseif ($free_shipping == false) {
-?>
-<div id="checkoutShippingContentChoose" class="important"><?php echo TEXT_ENTER_SHIPPING_INFORMATION; ?></div>
-
-<?php
-    } 
-?>
-<?php //$free_shipping = 0;
-    if ($free_shipping == true) {
-?>
-<div id="freeShip" class="important" ><?php echo FREE_SHIPPING_TITLE; ?>&nbsp;<?php echo $quotes[$i]['icon']; ?></div>
-<div id="defaultSelected"><?php echo sprintf(FREE_SHIPPING_DESCRIPTION, $currencies->format(MODULE_ORDER_TOTAL_SHIPPING_FREE_SHIPPING_OVER)) . zen_draw_hidden_field('shipping', 'free_free'); ?></div>
-
-<?php
-    } else {
-		/*echo '<br>((((';
-		print_r($quotes);
-		echo '))))<br>';*/
-		
-      $radio_buttons = 0;
-      for ($i=0, $n=sizeof($quotes); $i<$n; $i++) {
-      // bof: field set
-// allows FedEx to work comment comment out Standard and Uncomment FedEx
-//      if ($quotes[$i]['id'] != '' || $quotes[$i]['module'] != '') { // FedEx
-      if ($quotes[$i]['module'] != '') { // Standard
-?>
-<fieldset>
-<legend><?php echo $quotes[$i]['module']; ?>&nbsp;<?php if (isset($quotes[$i]['icon']) && zen_not_null($quotes[$i]['icon'])) { echo $quotes[$i]['icon']; } ?></legend>
-
-<?php
-        if (isset($quotes[$i]['error'])) {
-?>
-      <div><?php echo $quotes[$i]['error']; ?></div>
-<?php
-        } else {
-          for ($j=0, $n2=sizeof($quotes[$i]['methods']); $j<$n2; $j++) {
-// set the radio button to be checked if it is the method chosen
-            $checked = (($quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id'] == $_SESSION['shipping']['id']) ? true : false);
-
-            if ( ($checked == true) || ($n == 1 && $n2 == 1) ) {
-              //echo '      <div id="defaultSelected" class="moduleRowSelected">' . "\n";
-            //} else {
-              //echo '      <div class="moduleRow">' . "\n";
-            }
-?>
-<?php
-            if ( ($n > 1) || ($n2 > 1) ) {
-?>
-<div class="important forward"><?php echo $currencies->format(zen_add_tax($quotes[$i]['methods'][$j]['cost'], (isset($quotes[$i]['tax']) ? $quotes[$i]['tax'] : 0))); ?></div>
-<?php
-            } else {
-?>
-<div class="important forward"><?php echo $currencies->format(zen_add_tax($quotes[$i]['methods'][$j]['cost'], $quotes[$i]['tax'])) . zen_draw_hidden_field('shipping', $quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id']); ?></div>
-<?php
-            }
-?>
-
-<?php echo zen_draw_radio_field('shipping', $quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id'], $checked, 'id="ship-'.$quotes[$i]['id'] . '-' . str_replace(' ', '-', $quotes[$i]['methods'][$j]['id']) .'"'); ?>
-<label for="ship-<?php echo $quotes[$i]['id'] . '-' . str_replace(' ', '-', $quotes[$i]['methods'][$j]['id']); ?>" class="checkboxLabel" ><?php echo $quotes[$i]['methods'][$j]['title']; ?></label>
-<!--</div>-->
-<br class="clearBoth" />
-<?php
-            $radio_buttons++;
-          }
-        }
-?>
-
-</fieldset>
-<?php
-    }
-// eof: field set
-      }
-    }
-?>
-
-<?php
-  } else {
-?>
-<h2 id="checkoutShippingHeadingMethod">xxxx<?php echo TITLE_NO_SHIPPING_AVAILABLE; ?></h2>
-<div id="checkoutShippingContentChoose" class="important"><?php echo TEXT_NO_SHIPPING_AVAILABLE; ?></div>
-<?php
-  }
-?>
-<?php //print_r($_SESSION);?>
-
-</div>
-<!--/anton-->
-
-<!--<?php
   if (DISPLAY_CONDITIONS_ON_CHECKOUT == 'true') {
 ?>
 <fieldset>
 <legend><?php echo TABLE_HEADING_CONDITIONS; ?></legend>
 <div><?php echo TEXT_CONDITIONS_DESCRIPTION;?></div>
-<?php echo  zen_draw_checkbox_field('conditions', '1', false, 'id="conditions"');?>
+<?php echo  zen_draw_checkbox_field('conditions', '1', true, 'id="conditions"');?>
 <label class="checkboxLabel" for="conditions"><?php echo TEXT_CONDITIONS_CONFIRM; ?></label>
 </fieldset>
 <?php
   }
-?>-->
+?>
+<!-- agreed conditions end-->
 
+<!-- billing address start-->
 <?php // ** BEGIN PAYPAL EXPRESS CHECKOUT **
       if (!$payment_modules->in_special_checkout()) {
       // ** END PAYPAL EXPRESS CHECKOUT ** ?>
@@ -151,21 +62,18 @@
 
 <div class="floatingBox important forward"><?php echo TEXT_SELECTED_BILLING_DESTINATION; ?></div>
 <br class="clearBoth" />
+
 <?php // ** BEGIN PAYPAL EXPRESS CHECKOUT **
       }
       // ** END PAYPAL EXPRESS CHECKOUT ** ?>
+<!-- billing address end-->
       
-<fieldset id="checkoutOrderTotals">
-<legend id="checkoutPaymentHeadingTotal"><?php echo TEXT_YOUR_TOTAL; ?></legend>
-<?php
-  if (MODULE_ORDER_TOTAL_INSTALLED) {
-    $order_totals = $order_total_modules->process();
-?>
-<?php $order_total_modules->output(); ?>
-<?php
-  }
-?>
-</fieldset>
+      
+      
+
+
+
+
 
 <?php
   $selection =  $order_total_modules->credit_selection();
@@ -194,6 +102,15 @@
 <?php
     }
 ?>
+
+
+
+
+
+
+
+
+
 
 <?php // ** BEGIN PAYPAL EXPRESS CHECKOUT **
       if (!$payment_modules->in_special_checkout()) {
@@ -299,6 +216,11 @@
         ?><input type="hidden" name="payment" value="<?php echo $_SESSION['payment']; ?>" /><?php
       }
       // ** END PAYPAL EXPRESS CHECKOUT ** ?>
+      
+      
+      
+      
+      
 <fieldset>
 <legend><?php echo TABLE_HEADING_COMMENTS; ?></legend>
 <?php echo zen_draw_textarea_field('comments', '45', '3'); ?>

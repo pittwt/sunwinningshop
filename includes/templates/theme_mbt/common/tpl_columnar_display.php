@@ -1,6 +1,5 @@
 <?php
 if (is_array($list_box_contents) > 0 ) {
-	echo '<div class="pro_con">';
 	for($row=0;$row<sizeof($list_box_contents);$row++) {
 		
 		$params = "";
@@ -13,8 +12,6 @@ if (is_array($list_box_contents) > 0 ) {
 				echo '<div' . $r_params . '>' . $list_box_contents[$row][$col]['text'] .  '</div>' . "\n";
 			}
 		}
-		echo '<br class="clearBoth" />';
 	}
-	echo '</div>';
 }
 ?>

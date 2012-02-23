@@ -17,7 +17,7 @@ foreach($category_subtemp as $value){
 	$category_sub_byparent[$value['parent_id']][] = $value;
 }
 
-$content = '<ul class="nav">' . "\n";
+$content .= '<ul class="nav">' . "\n";
 if(count($category_parent)>4){
 	$nav_num = 4;
 }else{

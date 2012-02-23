@@ -62,15 +62,4 @@ require(DIR_WS_MODULES . zen_get_module_directory('footer.php'));
         <p>Copyright&copy;2011  Powered by<a class="pic_a_link" href="www.abc.com">abcddd</a></p>
     </div>
 </div>
-<div id="language">
-<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" style=""></div></div></div>
-<script>
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-  }, 'google_translate_element');
-}
-</script>
-<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</div>
+<script src="http://s19.cnzz.com/stat.php?id=3518100&web_id=3518100&show=pic1" language="JavaScript"></script>

@@ -29,7 +29,6 @@ hr {height: 1px;margin-top: 0.5em;border: none;border-bottom: 1px solid #9a9a9a;
 #navCategoryIcon, .buttonRow,  {margin: 0.5em;}
 #indexProductListCatDescription{ padding:15px 10px;}
 #navMainSearch {float: right;}
-#timeoutDefaultContent{line-height:20px; padding:10px 5px;}
 #navBreadCrumb {background-color: #cc9900;}
 #navEZPagesTop {background-color: #ffff33;}
 #navBreadCrumb, #navEZPagesTop {font-size: 0.95em;font-weight: bold;margin: 0em;padding: 0.5em;}
@@ -128,14 +127,14 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .active table{position:absolute; left:0;top:0;} 
 .active table a{ width:730px; height:225px;float:left;}
 .active table a img {float:left;}
-.active .number{position:absolute;top:205px;z-index:10;}
+.active .number{position:absolute;top:205px;left:552px;z-index:10;}
 .active .number a{float:left; width:20px; margin:0 5px 0 0;background-color:black;color:white;line-height:20px;text-align:center;}
 .active .number .first{background-color:#0065c3;font-weight:bold;}
 
 .new_pro {border:1px solid #dadada;margin-top:10px;padding-left:18px;*padding-bottom:17px;}
 .new_pro .h1_tit {line-height:37px;font-size:16px;color:#256fa5;}
 .pro_con {overflow:hidden;zoom:1;}
-.pro_list {width:220px;height:299px;background-color:#fff4d1;float:left;padding-bottom:10px;margin:0 15px 17px 0;display:inline;position:relative;}
+.pro_list {width:220px;height:299px;float:left;padding-bottom:10px;margin:0 15px 17px 0;display:inline;position:relative;}
 .pro_list dt,.pro_list dd {width:191px;margin:0 auto;line-height:20px;}
 .pro_list dt {margin:12px auto 7px;}
 .pro_list dt .a_pic {display:block;border:1px solid #c0c0c0;width:189px;height:167px;}
@@ -300,8 +299,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .car_tit .car_list {float:left;width:322px;height:40px;background-color:#5694c5;line-height:40px;text-align:center;margin-right:7px;}
 .car_tit .car_last {float:left;width:322px;height:40px;background-color:#5694c5;line-height:40px;text-align:center;}
 .car_tit .cart_special {background-color:#fd842b;}
-.car_tit span em {color:#fd842b;font-size:14px;font-weight:bold;}
-.car_tit .cart_special em {color:white;}
+.car_tit span em {color:white;font-size:14px;font-weight:bold;}
 .statistics {font-weight:bold;margin:20px 0 30px;}
 .statistics span {padding:0 5px 0 10px;}
 .cart_ul_one,.cart_ul_two {overflow:hidden;zoom:1;font-size:14px;font-weight:bold;}
@@ -312,7 +310,7 @@ fieldset {padding: 0.5em;margin: 0.5em 0em;border: 1px solid #cccccc;}
 .pro_num {width:154px;text-align:center;padding-left:60px;}
 .pro_num input {height:24px;border:1px solid #a5a5a5;margin:0 5px 0 0;}
 .pro_name {width:500px;text-align:center;}
-.cart_ul_two .pro_name_inf {width:240px;text-align:left;line-height:12px;padding-left:5px;}
+.cart_ul_two .pro_name_inf {width:300px;text-align:left;line-height:12px;padding-left:5px;}
 .cart_ul_two .pro_name_inf:hover {text-decoration:underline;}
 .pro_unit {width:76px;text-align:center;}
 .pro_tot {width:160px;padding-left:28px;}
