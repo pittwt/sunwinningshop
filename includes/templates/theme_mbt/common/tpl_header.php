@@ -17,12 +17,8 @@
         <div class="top-head">
         	<div class="menu">
                 <div id="navEZPagesTop"> 
-                    <script type="text/javascript">
-						$(function(){
-						   $('.currencies form').jqTransform({imgPath:'jqtransformplugin/img/'});
-						});
-					</script>
-                    <div class="currencies">
+                    
+                    <div class="currenciess">
                         <!-- ========== CURRENCIES ========= -->
                         <?php require($template->get_template_dir('tpl_header_currencies.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_header_currencies.php');
                         echo $content;?>
