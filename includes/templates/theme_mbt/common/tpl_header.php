@@ -32,18 +32,19 @@
             </div>
         	
             <div class="navigation">
-                <a href="<?php echo HTTP_SERVER . DIR_WS_CATALOG; ?>">Home</a>
-                <a href="<?php echo zen_href_link(FILENAME_LOGIN, '', 'SSL'); ?>">Log In</a>  
-                
-					<?php if ($_SESSION['cart']->count_contents() != 0) { ?>
-                        &nbsp;| <a href="<?php echo zen_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'); ?>"><?php echo HEADER_TITLE_CHECKOUT; ?></a>
-                    <?php }?>
+				<?php if ($_SESSION['customer_id']) { ?>
+                    <?php //echo(TOP_MENU_HELLO);?><a href="<?php echo zen_href_link(FILENAME_ACCOUNT, '', 'SSL'); ?>"><?php echo ($_SESSION['customer_first_name'].' '.$_SESSION['customer_last_name']);?></a>
+                    <a href="<?php echo zen_href_link(FILENAME_LOGOFF, '', 'SSL'); ?>"><?php echo HEADER_TITLE_LOGOFF; ?></a>
+                <?php }else{?>
+                    <a rel="nofollow" href="<?php echo zen_href_link(FILENAME_LOGIN, '', 'SSL'); ?>"><?php echo HEADER_TITLE_LOGIN; ?></a>
+                    <a rel="nofollow" href="index.php?main_page=create_account">Rigster</a>
+                <?php }?>             
             </div>
     	</div>
         <div class="bot-head">
 				<div class="logo">
 					<!-- ========== LOGO ========== -->
-					<a href=""><img src="<?php echo DIR_WS_TEMPLATE;?>images/logo.jpg" alt="" width="141" height="31" /></a>
+					<a href=""><img src="<?php echo DIR_WS_TEMPLATE;?>images/logo.jpg" alt="" /></a>
 					<!-- ========================== -->
 				</div>
 				<div class="right-head">
@@ -61,6 +62,9 @@
 						<!-- ========== SHOPPING CART ========== -->
 						<?php require($template->get_template_dir('tpl_shopping_cart_header.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_shopping_cart_header.php'); 
 						echo $content;?>
+                        <?php if ($_SESSION['cart']->count_contents() != 0) { ?>
+                        &nbsp;|&nbsp; <a href="<?php echo zen_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'); ?>"><?php echo HEADER_TITLE_CHECKOUT; ?></a>
+                    <?php }?>
 						<!-- =================================== -->
 					</div>
 				</div>

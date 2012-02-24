@@ -20,8 +20,8 @@
                         <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/2.jpg" alt="sweater" width="726" height="225" style=""></a>
                         <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/3.jpg" alt="bedding" width="726" height="225" style=""></a>
                         <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/4.jpg" alt="scarf" width="726" height="225" style=""></a>
-                        <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/5.jpg" alt="sweater" width="726" height="225" style=""></a>
-                        <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/6.jpg" alt="bedding" width="726" height="225" style=""></a>
+                        <!--<a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/5.jpg" alt="sweater" width="726" height="225" style=""></a>
+                        <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/6.jpg" alt="bedding" width="726" height="225" style=""></a>-->
                     </div>
                     <SCRIPT>$(document).ready(function() { $('#coin-slider').coinslider();});</SCRIPT>
 				</div>

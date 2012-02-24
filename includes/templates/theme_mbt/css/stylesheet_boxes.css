@@ -256,7 +256,7 @@
 }
 #specials .sideBoxContent .desc{
 	float:left;
-	width:110px;
+	width:130px;
 	padding:9px 0 0 4px;
 }
 #specials .sideBoxContent .name{
@@ -270,7 +270,7 @@
 	color:#eda52c;
 }
 #specials .sideBoxContent .price{
-	padding:20px 0 0 0;
+	padding:0px 0 0 0;
 }
 #specials .box-body .normalprice {text-decoration:line-through; color:#72615c;
 	font-size:12px;
