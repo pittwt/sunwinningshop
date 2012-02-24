@@ -47,6 +47,7 @@
 					<a href=""><img src="<?php echo DIR_WS_TEMPLATE;?>images/logo.jpg" alt="" /></a>
 					<!-- ========================== -->
 				</div>
+                
 				<div class="right-head">
 					<div class="search">
 						<!-- ========== SEARCH ========== -->
@@ -69,6 +70,7 @@
 					</div>
 				</div>
 			</div>
+            
             <div class="horizontal-cat">
                 <div id="dropMenuWrapper">
                   <div id="dropMenu">

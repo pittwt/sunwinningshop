@@ -112,6 +112,7 @@ p { margin:0; padding:0;}
 	width:100%;
 	overflow:hidden;
 	height:72px;
+	z-index:1;
 }
 #header .logo{
 	float:left;
@@ -160,9 +161,11 @@ p { margin:0; padding:0;}
 	color:#fff;
 	font-size:12px;
 	line-height:15px;
+	position:absolute;
+	left:19px;
+	top:5px;
 	z-index:510;
 	text-align:left;
-	padding-left:15px;
 }
 *+html #header .currencies{
 	top:65px;
