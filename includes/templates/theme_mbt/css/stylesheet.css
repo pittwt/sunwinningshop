@@ -555,7 +555,9 @@ LABEL#textAreaReviews {
 
 .buttonRow, .buttonRow2 { 
 		margin:0;
-		padding:7px 0;
+		padding:2px 0;
 }
 
 .buttonRow input, .buttonRow2 input, .buttonRow3 input {border:none; padding:0; background:none;}
+input.product_num { height:20px; border:1px solid #ccc;}
+.buttonRow{ vertical-align:bottom;}

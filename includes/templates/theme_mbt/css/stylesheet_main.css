@@ -316,7 +316,8 @@ h2.centerBoxHeading {color:#363130;
 	font-weight:bold;}
 #productDescription {margin:0px; padding:15px 0 0; width:100%; overflow:hidden;}
 
-#cartAdd { margin:0; padding:1em 1em 1em 0; margin:10px 0 0; overflow:hidden;}
+#cartAdd { margin:0; padding:0; margin:2px 0 0; overflow:hidden;}
+#cartAdd 
 #cartAdd .qty{ padding:3px; border:solid 1px #E1E1E1; width:50px;}
 
 #alsoPurchased {margin:20px 0;}
