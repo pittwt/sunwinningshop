@@ -494,7 +494,7 @@ function zen_get_products_display_price($products_id) {
     }
 
     if ($display_special_price) {
-      $show_normal_price = '&nbsp;<span class="specialprice"><!--Price:--><em>' . $currencies->display_price($display_special_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</em> </span>';
+      $show_normal_price = '<span class="specialprice"><!--Price:--><em>' . $currencies->display_price($display_special_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</em> </span>';
       if ($display_sale_price && $display_sale_price != $display_special_price) {
 		  
         $show_special_price = '&nbsp;' . '<span class="list_price"><!--List Price:--><var>' . $currencies->display_price($display_special_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</var></span>';
@@ -509,7 +509,7 @@ function zen_get_products_display_price($products_id) {
           $show_special_price = '&nbsp;' . '<span class="list_price"><!--List Price:--><var>' . '<s>' . $currencies->display_price($display_special_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</s>' . '</var></span>';
 		  
         } else {
-          $show_special_price = '&nbsp;' . '<span class="list_price"><!--List Price:--><var>' . $currencies->display_price($display_normal_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</var></span>';
+          $show_special_price = '<span class="list_price"><!--List Price:--><var>' . $currencies->display_price($display_normal_price, zen_get_tax_rate($product_check->fields['products_tax_class_id'])) . '</var></span>';
 		  
         }
         $show_sale_price = '';
