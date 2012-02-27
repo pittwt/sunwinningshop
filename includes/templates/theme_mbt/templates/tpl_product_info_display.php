@@ -47,11 +47,11 @@ require($template->get_template_dir('/tpl_modules_category_icon_display.php',DIR
 <!--eof Main Product Image-->
 <div class="jersey_rg">
 <!--bof Product Name-->
-<h1 id="productName" class="productGeneral"><?php echo $products_name; ?></h1>
+<h2  class="productGeneral"><?php echo $products_name; ?></h2>
 <!--eof Product Name-->
 
 <!--bof Product Price block -->
-<h2 id="productPrices" class="productGeneral">
+<div class="productGeneral">
 <?php
 // base price
   if ($show_onetime_charges_description == 'true') {
@@ -60,7 +60,7 @@ require($template->get_template_dir('/tpl_modules_category_icon_display.php',DIR
     $one_time = '';
   }
   echo $one_time . ((zen_has_product_attributes_values((int)$_GET['products_id']) and $flag_show_product_info_starting_at == 1) ? TEXT_BASE_PRICE : '') . zen_get_products_display_price((int)$_GET['products_id']);
-?></h2>
+?></div>
 <!--eof Product Price block -->
 
 <!--bof free ship icon  -->
@@ -78,10 +78,10 @@ if (CUSTOMERS_APPROVAL == 3 and TEXT_LOGIN_FOR_PRICE_BUTTON_REPLACE_SHOWROOM == 
     $display_qty = (($flag_show_product_info_in_cart_qty == 1 and $_SESSION['cart']->in_cart($_GET['products_id'])) ? '<p>' . PRODUCTS_ORDER_QTY_TEXT_IN_CART . $_SESSION['cart']->get_quantity($_GET['products_id']) . '</p>' : '');
             if ($products_qty_box_status == 0 or $products_quantity_order_max== 1) {
               // hide the quantity box and default to 1
-              $the_button = '<input type="hidden" name="cart_quantity" value="1" />' . zen_draw_hidden_field('products_id', (int)$_GET['products_id']) . zen_image_submit(BUTTON_IMAGE_IN_CART, BUTTON_IN_CART_ALT);
+              $the_button = '<input type="hidden" class="product_num" name="cart_quantity" value="1" />' . zen_draw_hidden_field('products_id', (int)$_GET['products_id']) . zen_image_submit(BUTTON_IMAGE_IN_CART, BUTTON_IN_CART_ALT);
             } else {
               // show the quantity box
-    $the_button = PRODUCTS_ORDER_QTY_TEXT . '<input type="text" name="cart_quantity" value="' . (zen_get_buy_now_qty($_GET['products_id'])) . '" maxlength="6" size="4" />&nbsp;' . zen_get_products_quantity_min_units_display((int)$_GET['products_id']) . '' . zen_draw_hidden_field('products_id', (int)$_GET['products_id']) . zen_image_submit(BUTTON_IMAGE_IN_CART, BUTTON_IN_CART_ALT);
+    $the_button = PRODUCTS_ORDER_QTY_TEXT . '<input type="text" class="product_num" name="cart_quantity" value="' . (zen_get_buy_now_qty($_GET['products_id'])) . '" maxlength="6" size="4" />&nbsp;' . zen_get_products_quantity_min_units_display((int)$_GET['products_id']) . '' . zen_draw_hidden_field('products_id', (int)$_GET['products_id']) . zen_image_submit(BUTTON_IMAGE_IN_CART, BUTTON_IN_CART_ALT);
             }
     $display_button = zen_get_buy_now_button($_GET['products_id'], $the_button);
   ?>

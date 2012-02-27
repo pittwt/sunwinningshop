@@ -55,7 +55,7 @@ require($template->get_template_dir('/tpl_products_next_previous.php',DIR_WS_TEM
 <!--eof Main Product Image-->
 
 <!--bof Product Name-->
-<h1 id="productName" class="docProduct"><?php echo $products_name; ?></h1>
+<h2 id="productName" class="docProduct"><?php echo $products_name; ?></h2>
 <!--eof Product Name-->
 
 <!--bof Product Price block -->
