@@ -60,11 +60,11 @@
                 <div class="con_left">
                     <?php require(DIR_WS_MODULES . zen_get_module_directory('column_left.php'));?>
                     <!--left Ad start-->
-                    <div class="ad_pic">
+                    <!-- <div class="ad_pic">
                         <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pic_one.jpg" alt=""/></a>
                         <a class="pic_special" href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pic_two.jpg" alt=""/></a>
                         <a href="###"><img src="<?php echo DIR_WS_TEMPLATE;?>images/pic_thr.jpg" alt=""/></a>
-                    </div>
+                    </div> -->
                     <!--left Ad end-->
                 </div>
                 <?	

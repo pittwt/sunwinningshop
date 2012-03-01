@@ -5,17 +5,32 @@
  * Loaded automatically by index.php?main_page=checkout_success.<br />
  * Displays confirmation details after order has been successfully processed.
  *
- * @package templateSystem - FEC ADVANCED
- * @copyright Copyright 2007 Numinix Technology http://www.numinix.com
- * @copyright Copyright 2003-2007 Zen Cart Development Team
+ * @package templateSystem
+ * @copyright Copyright 2003-2010 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: tpl_checkout_success_default.php 62 2009-07-12 21:43:34Z numinix $
+ * @version $Id: tpl_checkout_success_default.php 16313 2010-05-22 08:15:39Z wilt $
  */
+if($_SESSION['payment']=="_95epay")
+{
+		echo zen_draw_form('checkout_confirmation', MODULE_PAYMENT_95EPAY_HANDLER, 'post', 'id="checkout_confirmation" onsubmit="submitonce();"');
+		if (is_array($payment_modules->modules)) {
+		echo $payment_modules->process_button();
+	  }
+	?>
+	<div class="buttonRow" style="width:60%;float:right;">
+	<input type="image" src="<?php echo MODULE_PAYMENT_95EPAY_PAY_BUTTON_IMG; ?>" alt="<?php echo MODULE_PAYMENT_95EPAY_PAY_BUTTON_ALT; ?>" name="btn_submit" id="btn_submit"') ;?></div>
+	</form>
+	<script>document.checkout_confirmation.submit();</script>
+	<!--<script>document.checkout_confirmation.submit();</script>新添加的，自动不执行，就手动-->
+	<div class="checkoutSuccessOrderNumber">
+	<a href="MODULE_PAYMENT_95EPAY_HANDLER"><strong>Go To Pay</strong></a></div>
+	
+<?php
+	exit;
+}
 ?>
-<?php if($_SESSION['COWOA']) $COWOA=TRUE; ?>
 <div class="centerColumn" id="checkoutSuccess">
-
 <!--bof -gift certificate- send or spend box-->
 <?php
 // only show when there is a GV balance
@@ -31,7 +46,6 @@
 
 <h1 id="checkoutSuccessHeading"><?php echo HEADING_TITLE; ?></h1>
 <div id="checkoutSuccessOrderNumber"><?php echo TEXT_YOUR_ORDER_NUMBER . $zv_orders_id; ?></div>
-
 <?php if (DEFINE_CHECKOUT_SUCCESS_STATUS >= 1 and DEFINE_CHECKOUT_SUCCESS_STATUS <= 2) { ?>
 <div id="checkoutSuccessMainContent" class="content">
 <?php
@@ -42,22 +56,28 @@
 ?>
 </div>
 <?php } ?>
+<!-- bof payment-method-alerts -->
+<?php
+if (isset($_SESSION['payment_method_messages']) && $_SESSION['payment_method_messages'] != '') {
+?>
+  <div class="content">
+  <?php echo $_SESSION['payment_method_messages']; ?>
+  </div>
+<?php
+}
+?>
+<!-- eof payment-method-alerts -->
 <!--bof logoff-->
-<?php if (FEC_NOACCOUNT_LOGOFF == 'true') { ?>
 <div id="checkoutSuccessLogoff">
 <?php
-if ($_SESSION['COWOA']) {
-  zen_session_destroy();
-} else {
   if (isset($_SESSION['customer_guest_id'])) {
     echo TEXT_CHECKOUT_LOGOFF_GUEST;
   } elseif (isset($_SESSION['customer_id'])) {
     echo TEXT_CHECKOUT_LOGOFF_CUSTOMER;
-  } ?>
+  }
+?>
 <div class="buttonRow forward"><a href="<?php echo zen_href_link(FILENAME_LOGOFF, '', 'SSL'); ?>"><?php echo zen_image_button(BUTTON_IMAGE_LOG_OFF , BUTTON_LOG_OFF_ALT); ?></a></div>
-<?php } ?>
 </div>
-<?php } ?>
 <!--eof logoff-->
 <br class="clearBoth" />
 <!--bof -product notifications box-->
@@ -66,7 +86,7 @@ if ($_SESSION['COWOA']) {
  * The following creates a list of checkboxes for the customer to select if they wish to be included in product-notification
  * announcements related to products they've just purchased.
  **/
-    if ($flag_show_products_notification == true && !($_SESSION['COWOA'])) {
+    if ($flag_show_products_notification == true) {
 ?>
 <fieldset id="csNotifications">
 <legend><?php echo TEXT_NOTIFY_PRODUCTS; ?></legend>
@@ -93,7 +113,7 @@ if ($_SESSION['COWOA']) {
 ?>
 <!--eof -product downloads module-->
 
-<?php if(!($_SESSION['COWOA'])) { ?> <div id="checkoutSuccessOrderLink"><?php echo TEXT_SEE_ORDERS;?></div> <?php } ?>
+<div id="checkoutSuccessOrderLink"><?php echo TEXT_SEE_ORDERS;?></div>
 
 <div id="checkoutSuccessContactLink"><?php echo TEXT_CONTACT_STORE_OWNER;?></div>
 

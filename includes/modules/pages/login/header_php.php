@@ -3,14 +3,16 @@
  * Login Page
  *
  * @package page
- * @copyright Copyright 2003-2007 Zen Cart Development Team
+ * @copyright Copyright 2007-2008 Numinix http://www.numinix.com
+ * @copyright Portions Copyright 2003-2007 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: header_php.php 6783 2007-08-23 21:16:16Z wilt $
+ * @version $Id: header_php.php 108 2010-04-02 22:14:23Z numinix $
  */
 
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_HEADER_START_LOGIN');
+$zco_notifier->notify('NOTIFY_HEADER_START_EASY_SIGNUP');
 
 // redirect the customer to a friendly cookie-must-be-enabled page if cookies are disabled (or the session has not started)
 if ($session_started == false) {
@@ -30,16 +32,7 @@ if (isset($_GET['action']) && ($_GET['action'] == 'process')) {
   $email_address = zen_db_prepare_input($_POST['email_address']);
   $password = zen_db_prepare_input($_POST['password']);
 
-  /* Privacy-policy-read does not need to be checked during "login"
-  if (DISPLAY_PRIVACY_CONDITIONS == 'true') {
-  if (!isset($_POST['privacy_conditions']) || ($_POST['privacy_conditions'] != '1')) {
-  $error = true;
-  $messageStack->add('create_account', ERROR_PRIVACY_STATEMENT_NOT_ACCEPTED, 'error');
-  }
-  }
-  */
-
-  if ((!isset($_SESSION['securityToken']) || !isset($_POST['securityToken'])) || ($_SESSION['securityToken'] !== $_POST['securityToken'])) {
+  if ( ((!isset($_SESSION['securityToken']) || !isset($_POST['securityToken'])) || ($_SESSION['securityToken'] !== $_POST['securityToken'])) && (PROJECT_VERSION_MAJOR == '1' && substr(PROJECT_VERSION_MINOR, 0, 3) == '3.8') ) {
     $error = true;
     $messageStack->add('login', ERROR_SECURITY_ERROR);
   } else {
@@ -49,7 +42,8 @@ if (isset($_GET['action']) && ($_GET['action'] == 'process')) {
                                     customers_email_address, customers_default_address_id,
                                     customers_authorization, customers_referral
                            FROM " . TABLE_CUSTOMERS . "
-                           WHERE customers_email_address = :emailAddress";
+                           WHERE customers_email_address = :emailAddress
+                           AND COWOA_account != 1";
 
     $check_customer_query  =$db->bindVars($check_customer_query, ':emailAddress', $email_address, 'string');
     $check_customer = $db->Execute($check_customer_query);
@@ -63,7 +57,25 @@ if (isset($_GET['action']) && ($_GET['action'] == 'process')) {
       $messageStack->add('login', TEXT_LOGIN_BANNED);
     } else {
       // Check that password is good
-      if (!zen_validate_password($password, $check_customer->fields['customers_password'])) {
+      // *** start Encrypted Master Password by stagebrace ***
+      $get_admin_query = "SELECT admin_id, admin_pass
+                          FROM " . TABLE_ADMIN . "
+                          WHERE admin_id = '1' ";
+      $check_administrator = $db->Execute($get_admin_query);
+      $customer = (zen_validate_password($password, $check_customer->fields['customers_password']));
+      $administrator = (zen_validate_password($password, $check_administrator->fields['admin_pass']));
+      if ($customer) {
+        $ProceedToLogin = true;
+      } else {
+        if ($administrator && FEC_MASTER_PASSWORD == 'true') {
+          $ProceedToLogin = true;
+        } else {
+          $ProceedToLogin = false;
+        }
+      }
+      if (!($ProceedToLogin)) {
+    // *** end Encrypted Master Password by stagebrace ***
+      //if (!zen_validate_password($password, $check_customer->fields['customers_password'])) {
         $error = true;
         $messageStack->add('login', TEXT_LOGIN_ERROR);
       } else {
@@ -81,7 +93,9 @@ if (isset($_GET['action']) && ($_GET['action'] == 'process')) {
         $check_country = $db->Execute($check_country_query);
 
         $_SESSION['customer_id'] = $check_customer->fields['customers_id'];
-        $_SESSION['customer_default_address_id'] = $check_customer->fields['customers_default_address_id'];
+        // modified for FEC
+        $_SESSION['sendto'] = $_SESSION['cart_address_id'] = $_SESSION['customer_default_address_id'] = $check_customer->fields['customers_default_address_id'];
+        
         $_SESSION['customers_authorization'] = $check_customer->fields['customers_authorization'];
         $_SESSION['customer_first_name'] = $check_customer->fields['customers_firstname'];
         $_SESSION['customer_last_name'] = $check_customer->fields['customers_lastname'];
@@ -150,8 +164,31 @@ $breadcrumb->add(NAVBAR_TITLE);
 $paypalec_enabled = (defined('MODULE_PAYMENT_PAYPALWPP_STATUS') && MODULE_PAYMENT_PAYPALWPP_STATUS == 'True');
 // Check for express checkout button suitability:
 $ec_button_enabled = ($paypalec_enabled && ($_SESSION['cart']->count_contents() > 0 && $_SESSION['cart']->total > 0));
+// check if shipping address should be displayed
+if (FEC_SHIPPING_ADDRESS == 'true') $shippingAddressCheck = true;
+// check if the copybilling checkbox should be checked
+if (FEC_COPYBILLING == 'true') $shippingAddress = true; else $shippingAddress = false;
 
+if (FEC_ORDER_TOTAL == 'true' && $_SESSION['cart']->count_contents() > 0) {
+  require(DIR_WS_CLASSES . 'order.php');
+  $order = new order;
+  require(DIR_WS_CLASSES . 'order_total.php');
+  $order_total_modules = new order_total;
+  $fec_order_total_enabled = true;
+} else {
+  $fec_order_total_enabled = false;
+}
+
+// check if country field should be hidden
+$numcountries = zen_get_countries();
+if (sizeof($numcountries) <= 1) {
+  $selected_country = $numcountries[0]['countries_id'];
+  $disable_country = true; 
+} else {
+  $disable_country = false;
+}
 
 // This should be last line of the script:
 $zco_notifier->notify('NOTIFY_HEADER_END_LOGIN');
+$zco_notifier->notify('NOTIFY_HEADER_END_EASY_SIGNUP');
 ?>

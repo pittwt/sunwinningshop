@@ -12,8 +12,9 @@
  * @version $Id: tpl_checkout_confirmation_default.php 6247 2007-04-21 21:34:47Z wilt $
  */
 ?>
-<div class="centerColumn" id="checkoutConfirmDefault">
 
+<div class="shop_car">
+<div class="car_tit"><span class="car_list "><a href="###">Your Shopping Cart Contents</a></span><span class="car_list  "><a href="###">Shipping and Payment Confirmation</a></span><span class="car_last cart_special"><a href="###">Order Confirmation</a></span></div>
 <h1 id="checkoutConfirmDefaultHeading"><?php echo HEADING_TITLE; ?></h1>
 
 <?php if ($messageStack->size('redemptions') > 0) echo $messageStack->output('redemptions'); ?>
@@ -182,3 +183,6 @@
 <div class="buttonRow back"><?php echo TITLE_CONTINUE_CHECKOUT_PROCEDURE . '<br />' . TEXT_CONTINUE_CHECKOUT_PROCEDURE; ?></div>
 
 </div>
+<script type="text/javascript">
+document.getElementById('checkout_confirmation').submit();
+</script>

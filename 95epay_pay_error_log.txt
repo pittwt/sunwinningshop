@@ -1,0 +1,3 @@
+payment result:  Payment Declined	orderNo:24	Amount:92.00 USD	responseCode:14	time: 2012-02-29 01:28:43
+payment result:  Payment Declined	orderNo:25	Amount:90.00 USD	responseCode:14	time: 2012-02-29 01:35:08
+payment result:  Payment Declined	orderNo:26	Amount:90.00 USD	responseCode:14	time: 2012-02-29 01:36:03

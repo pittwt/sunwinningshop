@@ -1,0 +1,1 @@
+[28-Feb-2012 08:41:39] PHP Fatal error:  Cannot redeclare class SEO_URL_INSTALLER in D:\phpnow\htdocs\sunwinningshop_svn\includes\classes\seo.install.php on line 26
